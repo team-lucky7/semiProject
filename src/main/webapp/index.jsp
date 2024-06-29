@@ -4,9 +4,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>여행</title>
+<link rel="stylesheet" href="resources/css/header.css">
 </head>
 <body>
+    <main>
+        <header></header>
 
+        <section class="container"></section>
+
+        <footer></footer>
+    </main>
+
+    <script src="resources/js/index.js"></script>
 </body>
 </html>
