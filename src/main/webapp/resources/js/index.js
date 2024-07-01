@@ -1,16 +1,25 @@
-// 한줄 주석
-/* 범위 주석 */
+$(".nav>li").hover(function () {
+    if ($(this).find("div").css("display") == "none") {
+        $(this).find("div").slideDown();
+    } else {
+        $(this).find("div").slideUp();
+    }
+}, function () {
+    $(this).find("div").slideUp();
+})
 
-// js 파일은 <script> 태그 내부라고 생각
 
-function btnClick2() {
-    window.alert("external 알림창 출력 버튼");
-}
+let j = 3;
+const img = $(".main-imgs-wrap>img")
+setInterval(()=> {
+    if(j == 0){
+        j = 3;
+        $(img).css("left", "0");
+    }
 
-function changeColor1(){
-    document.getElementById("box").style.backgroundColor = "red";
-}
+    $(img[j]).animate({
+        left: -1920
+    },2000,function(){});
+    j--;
+}, 5000)
 
-function changeColor2(){
-    document.getElementById("box").style.backgroundColor = "yellow";
-}
