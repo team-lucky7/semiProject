@@ -8,7 +8,7 @@
 
     <ul class="nav">
       <li><a href="#">홈</a></li>
-      <li><a href="/semiProject/thema">테마</a></li>
+      <li><a href="#">테마</a></li>
       <li><a href="#">지역</a></li>
       <li>
         <a href="#">커뮤니티</a>
