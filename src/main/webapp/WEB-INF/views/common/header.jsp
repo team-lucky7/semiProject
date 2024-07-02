@@ -26,5 +26,5 @@
       <input type="search" id="query" name="query" autocomplete="off" placeholder="검색어를 입력해주세요">
       <button type="button" id="search-btn" class="fa-solid fa-magnifying-glass"></button>
     </section>
-    <a href="#" class="fa-regular fa-circle-user" id="userlogo"></a>
+    <a href="/semiProject/login" class="fa-regular fa-circle-user" id="userlogo"></a>
   </header>
