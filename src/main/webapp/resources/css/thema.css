@@ -8,14 +8,13 @@ body{
     width: 1000px;
 }
 
-/* 배경색 */
 .first{
     background-color: #fff;
     margin: 0;
     padding: 30px 0px 20px 0px;
 }
 .second{
-    background-color: #f2f2f2;
+    background-color: #ddd;
     margin: 0;
     padding: 30px 0px 20px 0px;
 }
@@ -47,8 +46,6 @@ body{
 }
 .thema-contents img{
     border-radius: 10px;
-    width: 290px;
-    height: 290px;
 }
 
 .thema-contents p{
@@ -64,17 +61,8 @@ body{
     color: gray;
 }
 
-/* 더보기 버튼 */
 #more{
     display: flex;
     justify-content: center;
     padding: 30px;
-}
-
-#load-more{
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: #f2f2f2;
-    font-weight: bold;
 }
