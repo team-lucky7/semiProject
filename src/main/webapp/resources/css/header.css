@@ -19,10 +19,8 @@ a {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 12px;
     height: 100px;
-    width: 1920px;
-    padding: 0 100px;
+    width: 1600px;
 }
 
 #userlogo {
