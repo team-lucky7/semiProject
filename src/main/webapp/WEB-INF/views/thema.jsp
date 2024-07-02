@@ -1,0 +1,70 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>여행</title>
+<link rel="stylesheet" href="resources/css/header.css">
+<link rel="stylesheet" href="resources/css/index.css">
+<link rel="stylesheet" href="resources/css/thema.css">
+
+<script src="https://kit.fontawesome.com/4bef400c33.js"
+	crossorigin="anonymous" defer></script>
+</head>
+
+<header>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
+</header>
+
+<body id="thema-container">
+	<section class="thema-main">
+		<div class="thema-title first">
+			<span>감성 힐링 여행</span>
+		</div>
+
+		<ul class="thema-contents first">
+			<li><a href="#"><img
+					src="https://ktourtop10.kr/data/item/1649310804/thumb-22_290x290.jpg"></a>
+				<a href="#"><p>추억의 수학여행 코스</p></a> <span>경주 | 숙박여행</span></li>
+			<li><a href="#"><img
+					src="https://ktourtop10.kr/data/item/1649298396/thumb-002_290x290.png"></a>
+				<a href="#"><p>마을 맛 여행</p></a> <span>충청 | 숙박여행</span></li>
+			<li><a href="#"><img
+					src="https://ktourtop10.kr/data/item/1649035401/thumb-7JWM7J6Q7Iqk_290x290.jpg"></a>
+				<a href="#"><p>프랑스 농부와 소설가의 문화양조장 작은알자스 체험</p></a> <span>충청 |
+					이용권/체험</span></li>
+
+		</ul>
+	</section>
+
+	<section class="thema-main">
+		<div class="thema-title second">
+			<span>이색 체험 여행</span>
+		</div>
+
+		<ul class="thema-contents second">
+			<li><a href="#"><img
+					src="https://ktourtop10.kr/data/item/1679979247/thumb-64yA7ZGc7J206647KeA_290x290.png"></a>
+				<a href="#"><p>포항 야외방탈출 미션추리 게임</p></a> <span>경상 | 이용권/체험</span></li>
+			<li><a href="#"><img
+					src="https://ktourtop10.kr/data/item/1626248483/thumb-top_290x290.jpg"></a>
+				<a href="#"><p>부여하늘날기 1박2일 열기구체험</p></a> <span>충청 | 숙박여행</span></li>
+			<li><a href="#"><img
+					src="https://ktourtop10.kr/data/item/1638410800/thumb-7I2464Sk7J28_290x290.jpg"></a>
+				<a href="#"><p>DMZ 평화꽃반지 체험</p></a> <span>경기 | 이용권/체험</span></li>
+		</ul>
+	</section>
+
+	<div id="more">
+		<button id="load-more">더보기</button>
+	</div>
+
+
+	<script src="resources/js/thema.js"></script>
+</body>
+<footer>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+</footer>
+</html>
