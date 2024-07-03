@@ -1,0 +1,31 @@
+footer{
+    height: 150px;
+    width: 100%;
+}
+
+.footer-row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 200px;
+    font-size: 14px;
+}
+
+footer>div:first-child{
+    height: 50px;
+    background-color: #DDDDDD;
+}
+
+footer>div:last-child{
+    height: 100px;
+    background-color: #CCCCCC;
+}
+
+.footer-row>div{
+    margin-bottom: 10px;
+}
+
+.footer-row>div>span{
+    margin-right: 200px;
+    font-size: 18px;
+}
