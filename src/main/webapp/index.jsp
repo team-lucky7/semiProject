@@ -74,7 +74,8 @@
 			<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 		</main>
 		<script src="resources/js/jquery-3.7.1.min.js"></script>
-		<script src="resources/js/index.js"></script>
+		<script src="${ contextPath }/resources/js/index.js"></script>
+		<script src="${ contextPath }/resources/js/header.js"></script>
 	</body>
 
 	</html>
