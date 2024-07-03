@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>여행</title>
 <link rel="stylesheet" href="resources/css/header.css">
+<link rel="stylesheet" href="resources/css/footer.css">
 <link rel="stylesheet" href="resources/css/index.css">
 <link rel="stylesheet" href="resources/css/thema.css">
 
@@ -14,9 +15,7 @@
 	crossorigin="anonymous" defer></script>
 </head>
 
-<header>
-	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
-</header>
+<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
 <body id="thema-container">
 	<section class="thema-main">
@@ -25,21 +24,23 @@
 		</div>
 
 		<ul class="thema-contents first">
-			<li><a href="#"><img
+			<li><a href="${ contextPath }/thema/subPage"><img
 					src="https://ktourtop10.kr/data/item/1649310804/thumb-22_290x290.jpg"></a>
-				<a href="#"><p>추억의 수학여행 코스</p></a> <span>경주 | 숙박여행</span></li>
-			<li><a href="#"><img
+				<a href="${ contextPath }/thema/subPage"><p>추억의 수학여행 코스</p></a> <span>경주
+					| 숙박여행</span></li>
+			<li><a href="${ contextPath }/thema/subPage"><img
 					src="https://ktourtop10.kr/data/item/1649298396/thumb-002_290x290.png"></a>
-				<a href="#"><p>마을 맛 여행</p></a> <span>충청 | 숙박여행</span></li>
-			<li><a href="#"><img
+				<a href="${ contextPath }/thema/subPage"><p>마을 맛 여행</p></a> <span>충청
+					| 숙박여행</span></li>
+			<li><a href="${ contextPath }/thema/subPage"><img
 					src="https://ktourtop10.kr/data/item/1649035401/thumb-7JWM7J6Q7Iqk_290x290.jpg"></a>
-				<a href="#"><p>프랑스 농부와 소설가의 문화양조장 작은알자스 체험</p></a> <span>충청 |
-					이용권/체험</span></li>
+				<a href="${ contextPath }/thema/subPage"><p>프랑스 농부와 소설가의
+						문화양조장 작은알자스 체험</p></a> <span>충청 | 이용권/체험</span></li>
 
 		</ul>
 	</section>
 
-	<section class="thema-main">
+	<section class="thema-main" id="thema-main">
 		<div class="thema-title second">
 			<span>이색 체험 여행</span>
 		</div>
