@@ -42,8 +42,8 @@ document.getElementById('load-more').addEventListener('click', function() {
         </ul>
     </section>
     `;
-    const mainContent = document.getElementById('thema-container');
-    mainContent.insertAdjacentHTML('beforeend', newContent);
+    const themaMain = document.getElementById('thema-main');
+    themaMain.insertAdjacentHTML('beforeend', newContent);
     document.getElementById('more').remove();
   
 });
