@@ -27,12 +27,47 @@
 					</div>
 				</section>
 
-				<section class="region">
-					
+				<section class="popular-region">
+					<p class="section-title">인기 관광지</p>
+					<div class="popular-img-wrap">
+						<div class="popular-img">
+							<a href="">
+								<img src="https://images.unsplash.com/photo-1609137144813-7d9921338f24?fm=jpg&w=3000&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8OHx8fGVufDB8fHx8fA%3D%3D">
+							</a>
+						</div>
+
+						<div class="popular-img">
+							<div class="popular-img-halfHeight">
+								<a href="">
+									<img src="https://plus.unsplash.com/premium_photo-1661962425238-aeb9b022a94b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+								</a>
+							</div>
+							<div class="popular-img-halfHeight">
+								<a href="">
+									<img src="https://plus.unsplash.com/premium_photo-1677002240252-af3f88114efc?q=80&w=2025&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+								</a>
+							</div>
+						</div>
+					</div>
 				</section>
 
 				<section class="community">
+					<p class="section-title">커뮤니티</p>
+					<div class="community-cont-wrap">
+						<div class="community-cont">
+							<p>여행게시판</p>
+							<div>
+								asdf
+							</div>
+						</div>
 
+						<div class="community-cont">
+							<p>자유게시판</p>
+							<div class="">
+								asdf
+							</div>
+						</div>
+					</div>
 				</section>
 			</section>
 			<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
