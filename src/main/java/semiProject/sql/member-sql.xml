@@ -4,5 +4,7 @@
 
 	<comment>member-sql.xml</comment>
 	
-	<entry key="login"></entry>
+	<entry key="login">
+		
+	</entry>
 </properties>
