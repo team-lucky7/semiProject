@@ -14,10 +14,10 @@
             <a href="${contextPath}">
                 <img src="https://design-assets.adobeprojectm.com/content/download/express/public/urn:aaid:sc:VA6C2:fa112eb6-b342-52f5-b85f-24c4c79d3a1f/component?assetType=TEMPLATE&etag=e640f4e20bdc4feda0588705d20129fe&revision=fc0f323f-16bf-4a71-9801-7970433134be&component_id=3e6811a9-4c76-4f28-8199-6b65492c3e43" height="150px">
             </a>
-            <form action="${contextPath}/login" name="login-form" method="post">
+            <form action="${contextPath}/login" name="login-form" method="post" onsubmit="return loginValidate()">
                 <p>ID로그인</p>
-                <input type="text" name="memberId" placeholder="아이디">
-                <input type="password" name="memberPw" placeholder="비밀번호">
+                <input type="text" name="inputId" placeholder="아이디">
+                <input type="password" name="inputPw" placeholder="비밀번호">
                 <c:if test="${!empty cookie.saveId.value}">
                 	<c:set var="chk" value="checked"/>
                 </c:if>
@@ -33,5 +33,6 @@
             </ul>
         </section>
     </main>
+    <script src="${ contextPath }/resources/js/login.js"></script>
 </body>
 </html>
