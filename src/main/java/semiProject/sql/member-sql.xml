@@ -5,6 +5,15 @@
 	<comment>member-sql.xml</comment>
 	
 	<entry key="login">
-		
+		SELECT MEMBER_NO, MEMBER_ID, MEMBER_NM, 
+		       MEMBER_GENDER, SUBSTR(MEMBER_DOB, 1,4)
+		       || '년 ' || SUBSTR(MEMBER_DOB, 5,2) 
+		       || '월 ' || SUBSTR(MEMBER_DOB, 7,2)
+		       || '일' AS MEMBER_DOB, MEMBER_EMAIL,
+		       MEMBER_TEL
+		FROM MEMBER
+		WHERE MEMBER_ID = ?
+		AND MEMBER_PW = ?
+		AND SECESSION_FL = 'N'
 	</entry>
 </properties>

@@ -16,9 +16,9 @@
             </a>
             <form action="${contextPath}/login" name="login-form" method="post" onsubmit="return loginValidate()">
                 <p>ID로그인</p>
-                <input type="text" name="inputId" placeholder="아이디">
+                <input type="text" name="inputId" placeholder="아이디" value="${ cookie.saveId.value }">
                 <input type="password" name="inputPw" placeholder="비밀번호">
-                <c:if test="${!empty cookie.saveId.value}">
+                <c:if test="${ !empty cookie.saveId.value }">
                 	<c:set var="chk" value="checked"/>
                 </c:if>
                 <label><input type="checkbox" name="saveId" ${chk}>아이디 저장</label>
@@ -34,5 +34,13 @@
         </section>
     </main>
     <script src="${ contextPath }/resources/js/login.js"></script>
+    
+    <c:if test="${!empty sessionScope.message }">
+    	<script>
+			alert("${sessionScope.message}");
+		</script>
+		
+		<c:remove var="message" scope="session" />
+    </c:if>
 </body>
 </html>
