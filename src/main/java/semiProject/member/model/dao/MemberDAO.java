@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Properties;
 
+import static semiProject.common.JDBCTemplate.*;
 import semiProject.member.model.vo.Member;
 
 public class MemberDAO {
@@ -31,8 +32,9 @@ public class MemberDAO {
 	 * @param inputId
 	 * @param inputPw
 	 * @return loginMember
+	 * @throws Exception
 	 */
-	public Member login(Connection conn, String inputId, String inputPw) {
+	public Member login(Connection conn, String inputId, String inputPw) throws Exception{
 		
 		Member loginMember = null;
 		
@@ -40,10 +42,32 @@ public class MemberDAO {
 			
 			String sql = prop.getProperty("login");
 			
+			pstmt = conn.prepareStatement(sql);
 			
+			pstmt.setString(1, inputId);
 			
-		}catch(Exception e) {
-			e.printStackTrace();
+			pstmt.setString(2, inputPw);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				loginMember = new Member();
+				
+				loginMember.setMemberNo( rs.getInt("MEMBER_NO") );
+				loginMember.setMemberId( rs.getString("MEMBER_ID") );
+				loginMember.setMemberName( rs.getString("MEMBER_NM") );
+				loginMember.setMemberGender( rs.getString("MEMBER_GENDER") );
+				loginMember.setMemberDOB( rs.getString("MEMBER_DOB") );
+				loginMember.setMemberEmail( rs.getString("MEMBER_EMAIL") );
+				loginMember.setMemberTel( rs.getString("MEMBER_TEL") );
+				
+				
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
 		}
 		
 		return loginMember;

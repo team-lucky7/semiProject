@@ -1,6 +1,6 @@
 function loginValidate(){
-    const inputId  = document.getElementsByName[0];
-    const inputPw  = document.getElementsByName[0];
+    const inputId  = document.getElementsByName("inputId")[0];
+    const inputPw  = document.getElementsByName("inputPw")[0];
 
     if(inputId.value.trim().length == 0){
         return printAlert(inputId, "아이디를 입력해주세요.");
