@@ -1,4 +1,4 @@
-document.getElementById('load-more').addEventListener('click', function() {
+document.getElementById('load-more-btn').addEventListener('click', function() {
     const newContent = `
     <section class="thema-main">
         <div class="thema-title first"><span>레저 체험 여행</span></div>
