@@ -79,18 +79,18 @@
 
                 </div>
 
-                <span class="signUp-message error" id="memberDOB">필수 입력 사항입니다.</span>
+                <span class="signUp-message error" id="dobMessage">필수 입력 사항입니다.</span>
 
                 <label for="memberEmail">
                     이메일
                 </label>
 
                 <div class="signUp-input-area">
-                    <input type="text" id="memberEmail" name="memberEmail" placeholder="(-없이 숫자만 입력)" maxlength="11">
+                    <input type="text" id="memberEmail" name="memberEmail" placeholder="이메일" maxlength="30">
 
                 </div>
 
-                <span class="signUp-message error" id="telMessage">필수 입력 사항입니다.</span>
+                <span class="signUp-message error" id="emailMessage">필수 입력 사항입니다.</span>
 
 
                 <label for="memberTel">
@@ -108,5 +108,7 @@
             </form>
         </section>
     </main>
+     <script src="${ contextPath }/resources/js/jquery-3.7.1.min.js"></script>
+    <script src="${ contextPath }/resources/js/signUp.js"></script>
 </body>
 </html>
