@@ -29,7 +29,7 @@
                 <li><span>|</span></li>
                 <li><a href="">아이디 찾기</a></li>
                 <li><span>|</span></li>
-                <li><a href="">회원가입</a></li>
+                <li><a href="${ contextPath }/signUp">회원가입</a></li>
             </ul>
         </section>
     </main>
