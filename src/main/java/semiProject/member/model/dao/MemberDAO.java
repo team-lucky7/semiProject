@@ -73,4 +73,35 @@ public class MemberDAO {
 		return loginMember;
 	}
 
+	/** 아이디 중복 검사 DAO
+	 * @param conn
+	 * @param memberId
+	 * @return result
+	 * @throws Exception
+	 */
+	public int idDupCheck(Connection conn, String memberId) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("idDupCheck");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, memberId);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
 }
