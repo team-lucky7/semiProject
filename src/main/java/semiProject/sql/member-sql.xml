@@ -16,4 +16,9 @@
 		AND MEMBER_PW = ?
 		AND SECESSION_FL = 'N'
 	</entry>
+	
+	<entry key="idDupCheck">
+		SELECT COUNT(*) FROM MEMBER
+		WHERE MEMBER_ID = ?
+	</entry>
 </properties>
