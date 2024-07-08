@@ -1,0 +1,114 @@
+*{
+    box-sizing: border-box;
+}
+
+main{
+    background-color: #E1FBFF;
+}
+
+.logo-area{
+    display: flex;
+    justify-content: center;
+}
+
+.signUp-content{
+    display: flex;
+    justify-content: center;
+}
+
+form[name="signUp-form"]{
+    border: 1px solid black;
+    margin-top: 40px;
+    padding: 0 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+form[name="signUp-form"] > label{
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.signUp-input-area{
+    width: 500px;
+    height: 50px;
+    margin-bottom: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+}
+
+.signUp-input-area:focus-within{
+    border: 2px solid #888;
+}
+
+
+form[name="signUp-form"] input{
+    width: 80%;
+    height: 100%;
+
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px ;
+
+    border-radius: 10px 0 0 10px;
+
+    border: 0;
+    outline: 0;
+}
+
+form[name="signUp-form"] input[type="radio"]{
+    width: 16px;
+}
+
+.signUp-input-gender-area{
+    height: 30px;
+    border: 0;
+    font-size: 16px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.signUp-input-area>button{
+    width: 20%;
+    height: 70%;
+    background-color: white;
+    border: 1px solid gray;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.signUp-message{
+    font-size: 14px;
+    letter-spacing: -1px;
+    padding-left: 5px;
+}
+
+#idDupChkBtn{
+    background-color: #E1FBFF;
+    font-weight: bold;
+}
+
+#signUp-btn{
+    width: 100%;
+    padding: 10px;
+    margin: 30px 0;
+
+    border: 0;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: bold;
+
+    background-color: #AAAAAA;
+    color: white;
+    cursor: pointer;
+}
+
+.confirm{color: green;}
+.error{color:red}
