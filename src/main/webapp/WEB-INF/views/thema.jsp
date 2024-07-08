@@ -59,7 +59,7 @@
 	</section>
 
 	<div id="more">
-		<button id="load-more">더보기</button>
+		<button id="load-more-btn">더보기</button>
 	</div>
 
 
