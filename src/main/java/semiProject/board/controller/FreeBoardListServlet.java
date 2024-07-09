@@ -1,4 +1,4 @@
-package semiProject.member.controller;
+package semiProject.board.controller;
 
 import java.io.IOException;
 
@@ -10,10 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/freeBoard")
 public class FreeBoardListServlet extends HttpServlet{
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String path = "/WEB-INF/views/freeBoard.jsp";
+		String path = "/WEB-INF/views/board/freeBoardList.jsp";
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
 	
