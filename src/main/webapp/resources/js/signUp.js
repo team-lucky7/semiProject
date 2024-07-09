@@ -89,7 +89,47 @@ idDupChkBtn.addEventListener("click", e => {
 const memberPw = document.getElementById("memberPw");
 const memberPwConfirm = document.getElementById("memberPwConfirm");
 const pwMessage = document.getElementById("pwMessage");
+memberPw.addEventListener("input",function(){
+    
+    if(memberPw.value==""){
+        pwMessage.innerText="8~20자의 영문,숫자,특수문자 조합으로 작성해주세요."
+        pwMessage.classList.remove("confirm", "error");
+        checkObj.memberPw=false; // 유효하지 않은 상태임을 기록
+        return;
+    }
 
+    // 비밀번호 정규식
+    const regExp = /^(?=.*[a-zA-Z])(?=.*[`~!@#$%^&*()_=+,./?;:'"<>[\]{}\\|-])(?=.*[0-9]).{8,20}$/;
+    
+    if(regExp.test(memberPw.value)){ // 비밀번호가 유효한 경우
+
+        checkObj.memberPw=true; // 유효한 상태임을 기록
+        
+        if(memberPwConfirm.value.length==0){ //비밀번호 유효할 때 비밀번호 확인(memberPwConfirm) 작성안된 것
+            confirm(pwMessage, "비밀번호");
+        }else{ // 비밀번호 유효, (memberPwConfirm) 작성 되어있음
+            checkPw(); // 비밀번호 일치 검사 함수 호출
+        }
+    }else{
+        error(pwMessage, "비밀번호");
+        checkObj.memberPw=false; // 유효하지 않은 상태임을 기록
+    }
+})
+
+memberPwConfirm.addEventListener("input",checkPw);
+function checkPw(){
+    if(memberPw.value==memberPwConfirm.value){
+        pwMessage.innerText="비밀번호가 일치합니다."
+        pwMessage.classList.add("confirm");
+        pwMessage.classList.remove("error");
+        checkObj.memberPwConfirm=true;
+    }else{
+        pwMessage.innerText="비밀번호가 일치하지 않습니다."
+        pwMessage.classList.add("error");
+        pwMessage.classList.remove("confirm");
+        checkObj.memberPwConfirm=false;
+    }
+}
 
 /* 이름 유효성 검사 */
 const memberName = document.getElementById("memberName");
@@ -185,3 +225,34 @@ memberTel.addEventListener("input", () => {
     }
 })
 
+function signUpValidate(){
+    
+    // checkObj에 있는 모든 속성을 반복 접근하여
+    // false가 하나라도 있는 경우 form태그 기본 이벤트 제거
+
+    for(let key in checkObj){ // 객체용 향상된 for 문
+        
+       if(!checkObj[key]){
+
+        let str="";
+
+        switch(key){
+            case "memberId"         : str="아이디가"; break;
+            case "memberPw"         : str="비밀번호가"; break;
+            case "memberPwConfirm"  : str="비밀번호 확인이"; break;
+            case "memberName"       : str="이름이;"; break;
+            case "memberGender"     : str="성별이;"; break;
+            case "memberDOB"        : str="생년월일이;"; break;
+            case "memberEmail"      : str="이메일이;"; break;
+            case "memberTel"        : str="전화번호가"; break;
+        }
+
+        alert(str+" 유효하지 않습니다.");
+        document.getElementById(key).focus();
+
+        return false; // form태그 기본 이벤트 제거
+       }
+    }
+    return true;
+
+}

@@ -104,4 +104,23 @@ public class MemberDAO {
 		return result;
 	}
 
+	/** 회원 가입 DAO
+	 * @param conn
+	 * @param mem
+	 * @return result
+	 * @throws Exception
+	 */
+	public int signUp(Connection conn, Member mem) throws Exception{
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("signUp");
+			
+		}finally {
+			
+		}
+		
+		return result;
+	}
+
 }
