@@ -1,0 +1,93 @@
+*{ box-sizing: border-box; }
+
+/* 게시판 목록 화면 전체 영역 설정 */
+.board-list{
+    width: 900px;
+    margin: 0 auto;
+}
+
+.board-name-div{
+    border-top: 2px solid #EEA3AA;
+    border-bottom: 1px solid #E5E5E5;
+    margin-bottom: 10px;
+}
+
+/* 게시판 이름 */
+.board-name{
+    font-size: 2.5em;
+    margin: 20px;
+}
+
+.list-wrapper{
+    width: 100%;
+    min-height: 500px;
+}
+
+/* 목록 출력 테이블 */
+.list-table{
+    width: 100%;
+    padding: 20px;
+    border-collapse: collapse;
+}
+
+.list-table tr{ height: 50px; }
+
+.list-table > tbody> tr{ border-bottom: 1px solid gray; }
+
+.list-table tr > td:nth-of-type(1){width: 10%;}
+.list-table tr > td:nth-of-type(2){
+    width: 40%;
+    text-align: left;
+    padding-left: 50px;
+}
+.list-table tr > td:nth-of-type(3){width: 15%;}
+.list-table tr > td:nth-of-type(4){width: 15%;}
+.list-table tr > td:nth-of-type(5){width: 10%;}
+.list-table tr > td:nth-of-type(6){width: 10%;}
+
+.list-table td {
+    text-align: center;
+}
+
+/* 버튼 영역 */
+.btn-area{
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* 글쓰기 버튼 */
+#insertBtn{
+    width: 80px;
+    height: 40px;
+    margin-right: 50px;
+
+    border: 2px solid #455ba8;
+    background-color: #8FA1FF;
+    color: #455ba8;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.pagination{
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+}
+
+.pagination > li{
+    width: 20px;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.pagination a{
+    width: 100%;
+    height: 100%;
+
+    display: block;
+}
