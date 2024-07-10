@@ -16,7 +16,7 @@
           <ul>
             <li><a href="">휴양지</a></li>
             <li><a href="">맛집</a></li>
-            <li><a href="${ contextPath }/freeBoard">자유게시판</a></li>
+            <li><a href="${ contextPath }/freeBoard/list">자유게시판</a></li>
           </ul>
         </div>
       </li>
