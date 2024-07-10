@@ -5,9 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="resources/css/header.css">
-<link rel="stylesheet" href="resources/css/freeBoardList.css">
-<link rel="stylesheet" href="resources/css/footer.css">
+<link rel="stylesheet" href="${ contextPath }/resources/css/header.css">
+<link rel="stylesheet" href="${ contextPath }/resources/css/freeBoardList.css">
+<link rel="stylesheet" href="${ contextPath }/resources/css/footer.css">
 <script src="https://kit.fontawesome.com/4bef400c33.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
@@ -35,7 +35,7 @@
 					<tbody>
 						<tr>
 							<td>10</td>
-							<td>오늘 점심 뭐 먹지?</td>
+							<td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
 							<td>이거맞자나</td>
 							<td>2024-06-25</td>
 							<td>10</td>
@@ -43,7 +43,7 @@
 						</tr>
 						<tr>
 							<td>10</td>
-							<td>오늘 점심 뭐 먹지?</td>
+							<td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
 							<td>이거맞자나</td>
 							<td>2024-06-25</td>
 							<td>10</td>
@@ -51,7 +51,7 @@
 						</tr>
 						<tr>
 							<td>10</td>
-							<td>오늘 점심 뭐 먹지?</td>
+							<td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
 							<td>이거맞자나</td>
 							<td>2024-06-25</td>
 							<td>10</td>
