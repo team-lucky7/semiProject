@@ -12,8 +12,8 @@
 	</head>
 
 	<body>
+		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 		<main>
-			<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 			<section class="container">
 				<section class="main-img">
 					<div class="main-imgs-wrap">
@@ -71,8 +71,8 @@
 					</div>
 				</section>
 			</section>
-			<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 		</main>
+		<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 		<script src="resources/js/jquery-3.7.1.min.js"></script>
 		<script src="${ contextPath }/resources/js/index.js"></script>
 		<script src="${ contextPath }/resources/js/header.js"></script>

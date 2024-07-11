@@ -1,13 +1,5 @@
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 a {
@@ -22,6 +14,7 @@ a {
     height: 100px;
     width: 1600px;
     position: relative;
+    margin: 0 auto;
 }
 
 #userlogo {
