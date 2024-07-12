@@ -65,10 +65,13 @@
                   </div>
                   <div class="text">
                     <h1>경복궁</h1>
-                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br>
-                      Neque explicabo non atque officia aliquam dolorem dolore incidunt, <br>
-                      unde cum fugit praesentium at labore, similique doloribus nihil ratione laudantium, optio
-                      enim.</span>
+                    <span>안녕하십니까 여기는 경복궁입니다. <br>
+                      아주 좋아요 한국 좋아요 한국 멋있어요 <br>
+                      김치 맛있어요. 경복궁 이뻐요 l love korea
+                    </span>
+                    <!-- <div class="kakaoAPI">
+                      카카오
+                    </div> -->
                   </div>
                 </div>
                 <div class="main-add">
@@ -77,10 +80,13 @@
                   </div>
                   <div class="text">
                     <h1>인천배경</h1>
-                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br>
-                      Neque explicabo non atque officia aliquam dolorem dolore incidunt, <br>
-                      unde cum fugit praesentium at labore, similique doloribus nihil ratione laudantium, optio
-                      enim.</span>
+                    <span>안녕하십니까 여기는 경복궁입니다. <br>
+                      아주 좋아요 한국 좋아요 한국 멋있어요 <br>
+                      김치 맛있어요. 경복궁 이뻐요 l love korea
+                    </span>
+                    <div class="kakaoAPI">
+                      카카오
+                    </div>
                   </div>
                 </div>
                 <div class="main-add">
@@ -89,10 +95,13 @@
                   </div>
                   <div class="text">
                     <h1>대전엑스포</h1>
-                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br>
-                      Neque explicabo non atque officia aliquam dolorem dolore incidunt, <br>
-                      unde cum fugit praesentium at labore, similique doloribus nihil ratione laudantium, optio
-                      enim.</span>
+                    <span>안녕하십니까 여기는 경복궁입니다. <br>
+                      아주 좋아요 한국 좋아요 한국 멋있어요 <br>
+                      김치 맛있어요. 경복궁 이뻐요 l love korea
+                    </span>
+                    <div class="kakaoAPI">
+                      카카오
+                    </div>
                   </div>
                 </div>
                 <div class="main-add">
@@ -101,10 +110,13 @@
                   </div>
                   <div class="text">
                     <h1>경복궁</h1>
-                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br>
-                      Neque explicabo non atque officia aliquam dolorem dolore incidunt, <br>
-                      unde cum fugit praesentium at labore, similique doloribus nihil ratione laudantium, optio
-                      enim.</span>
+                    <span>안녕하십니까 여기는 경복궁입니다. <br>
+                      아주 좋아요 한국 좋아요 한국 멋있어요 <br>
+                      김치 맛있어요. 경복궁 이뻐요 l love korea
+                    </span>
+                    <div class="kakaoAPI">
+                      카카오
+                    </div>
                   </div>
                 </div>
                 <div class="main-add">
@@ -113,10 +125,13 @@
                   </div>
                   <div class="text">
                     <h1>경복궁</h1>
-                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br>
-                      Neque explicabo non atque officia aliquam dolorem dolore incidunt, <br>
-                      unde cum fugit praesentium at labore, similique doloribus nihil ratione laudantium, optio
-                      enim.</span>
+                    <span>안녕하십니까 여기는 경복궁입니다. <br>
+                      아주 좋아요 한국 좋아요 한국 멋있어요 <br>
+                      김치 맛있어요. 경복궁 이뻐요 l love korea
+                    </span>
+                    <div class="kakaoAPI">
+                      카카오
+                    </div>
                   </div>
                 </div>
                 <div class="main-add">
@@ -125,10 +140,13 @@
                   </div>
                   <div class="text">
                     <h1>경복궁</h1>
-                    <span>Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br>
-                      Neque explicabo non atque officia aliquam dolorem dolore incidunt, <br>
-                      unde cum fugit praesentium at labore, similique doloribus nihil ratione laudantium, optio
-                      enim.</span>
+                    <span>안녕하십니까 여기는 경복궁입니다. <br>
+                      아주 좋아요 한국 좋아요 한국 멋있어요 <br>
+                      김치 맛있어요. 경복궁 이뻐요 l love korea
+                    </span>
+                    <div class="kakaoAPI">
+                      카카오
+                    </div>
                   </div>
                 </div>
               </div>

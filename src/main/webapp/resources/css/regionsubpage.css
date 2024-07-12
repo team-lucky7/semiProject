@@ -8,7 +8,6 @@ html{
 }
 .destination{
     width: 940px; 
-    height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -20,7 +19,6 @@ html{
     justify-content: center;
     align-items: center;
     background-color: skyblue;
-    flex-basis: 50%;
     font-size: 30px;
 }
 
@@ -30,7 +28,6 @@ html{
     justify-content: center;
     align-items: center;
     background-color:lightslategray;
-    flex-basis: 20%;
     color:white;
 }
 /* 하트  [ ${db에서 가져온 추천수} ] 뷰아이콘 [${db에서 가져온 조회수 변수}] */
@@ -41,7 +38,6 @@ html{
     justify-content: center;
     align-items: center;
     color: black;
-    flex-basis: 30%;
     border: 0;
 }
 
