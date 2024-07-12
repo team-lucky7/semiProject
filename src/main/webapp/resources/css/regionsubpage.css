@@ -1,0 +1,99 @@
+html{
+    scroll-behavior: smooth;
+}
+  
+.content{
+	width: 940px;
+	margin: 0 auto;
+}
+.destination{
+    width: 940px; 
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.destination > div:nth-child(1){
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: skyblue;
+    flex-basis: 50%;
+    font-size: 30px;
+}
+
+.destination > div:nth-child(2){
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:lightslategray;
+    flex-basis: 20%;
+    color:white;
+}
+/* 하트  [ ${db에서 가져온 추천수} ] 뷰아이콘 [${db에서 가져온 조회수 변수}] */
+
+.destination > div:nth-child(3){
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    flex-basis: 30%;
+    border: 0;
+}
+
+.icons{
+    padding: 20px 0;
+}
+.icons1{
+    padding-right: 50px;
+}
+
+.text{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 20px;
+    border: 1px solid black;
+    padding: 20px; ;
+    border-right: none;
+    border-left: none;
+}
+.text > span{
+    margin: 0 50px;
+    cursor: pointer;
+}
+.imgs{
+    width: 100%;;
+    display: flex;  
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+}
+.imgs > img{
+    width: 940px;
+    height: 100%;
+}
+.writetext{
+    font-size: 20px;
+    border-bottom:1px solid black;
+    padding: 10px 0;
+}
+#slide{
+    font-weight: bold;
+}
+.writecontent{
+    width: 940px;
+    padding: 30px 0px;
+    line-height: 30px;
+}
+.KAKAOAPI{
+    width: 940px;
+    border: 1px solid black;
+    height: 300px;
+    margin-bottom: 10px;
+}
