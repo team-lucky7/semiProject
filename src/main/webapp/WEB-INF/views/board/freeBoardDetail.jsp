@@ -18,8 +18,10 @@
 
 			<div class="board-name">
 				자유게시판
-				<button>수정</button>
-				<button>삭제</button>
+				<div>
+					<button>수정</button>
+					<button>삭제</button>
+				</div>
 			</div>
 			<div>
 				<span>오늘 점심 뭐 먹지?</span>
@@ -44,7 +46,7 @@
 				<button>&gt;다음글</button>
 			</div>
 
-			<div>댓글 6개</div>
+			<div class="reply-count">댓글 6개</div>
 
 			<div class="reply-area">
 				<ul>
