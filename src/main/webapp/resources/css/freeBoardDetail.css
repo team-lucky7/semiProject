@@ -1,22 +1,35 @@
 .board-detail{
     width: 900px;
-    min-height: 700px;
     border: 1px solid #ccc;
-    margin: 50px auto;
+    margin: 20px auto;
     padding: 20px;
 }
 
 .board-name{
     font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.board-content{
+	min-height: 500px;
 }
 
 #like{
     float: right;
 }
+
 .board-btn-area{
     display: flex;
     justify-content: space-between;
     clear: both;
+}
+
+/* 댓글 */
+.reply-count{
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 20px;
 }
 
 .pagination{

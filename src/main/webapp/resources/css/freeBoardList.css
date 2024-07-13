@@ -71,6 +71,12 @@
     cursor: pointer;
 }
 
+#insertBtn:hover{
+	border: 2px solid #8FA1FF;
+    background-color: #455ba8;
+    color: #8FA1FF;
+}
+
 .pagination{
     padding: 0;
     list-style: none;
