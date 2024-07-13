@@ -14,8 +14,7 @@
 	<body>
 		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 		<main>
-			<section class="container">
-				<section class="main-img">
+			<section class="main-img">
 					<div class="main-imgs-wrap">
 						<img src="https://images.unsplash.com/photo-1433838552652-f9a46b332c40?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 							alt=""> <img
@@ -26,10 +25,10 @@
 							src="https://images.unsplash.com/photo-1532274402911-5a369e4c4bb5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
 							alt="">
 					</div>
-				</section>
-
+			</section>
+			<section class="content">
 				<section class="popular-region">
-					<p class="section-title">인기 관광지</p>
+					<h1 class="section-title">인기 관광지</h1>
 					<div class="popular-img-wrap">
 						<div class="popular-img">
 							<a href="">
@@ -53,7 +52,7 @@
 				</section>
 
 				<section class="community">
-					<p class="section-title">커뮤니티</p>
+					<h1 class="section-title">커뮤니티</h1>
 					<div class="community-cont-wrap">
 						<div class="community-cont">
 							<p>여행게시판</p>
@@ -63,7 +62,7 @@
 						</div>
 
 						<div class="community-cont">
-							<p>자유게시판</p>
+							<p><a href="${contextPath}/freeBoard/list">자유게시판</a></p>
 							<div class="">
 								asdf
 							</div>
