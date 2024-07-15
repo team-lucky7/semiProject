@@ -123,4 +123,36 @@ public class MemberDAO {
 		return result;
 	}
 
+	/** 비밀번호 변경 DAO
+	 * @param conn
+	 * @param currentPw
+	 * @param newPw
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int ChangePw(Connection conn, String currentPw, String newPw, int memberNo)  throws Exception {
+		
+		int result = 0;
+
+		try {
+
+			String sql = prop.getProperty("ChagePw");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setString(1, newPw);
+			pstmt.setString(2, currentPw);
+			pstmt.setInt(3, memberNo);
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+
+			close(pstmt);
+		}
+
+		return result;
+	}
+
 }
