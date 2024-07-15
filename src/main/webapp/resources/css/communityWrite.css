@@ -5,6 +5,8 @@ span{
 .container1{
     width: 800px;
     height: auto;
+    display: flex;
+    justify-content: center;
 }
 
 div{
