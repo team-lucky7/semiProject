@@ -1,54 +1,51 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>지역</title>
-<link rel="stylesheet" href="${contextPath }/resources/css/header.css">
-<link rel="stylesheet" href="${contextPath }/resources/css/region.css">
-<link rel="stylesheet" href="${contextPath }/resources/css/footer.css">
+<link rel="stylesheet" href="../resources/css/header.css">
+<link rel="stylesheet" href="../resources/css/region.css">
+<link rel="stylesheet" href="../resources/css/footer.css">
 
 <script src="https://kit.fontawesome.com/4bef400c33.js" crossorigin="anonymous"></script>
 </head>
-	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
 <body>
 <main>
     <section class="region-Btn">
       <div class="Btn-add">
         <a href="#" >
-          <button><img src="${contextPath}/resources/images/region/서울버튼.jpg"> <span>서울</span></button>
+          <button><img src="../resources/images/region/서울버튼.jpg"> <span>서울</span></button>
         </a>
       </div>
       <div class="Btn-add">
         <a href="#">
-          <button><img src="${contextPath}/resources/images/region/인천 버튼2.jpg"> <span>인천</span></button>
+          <button><img src="../resources/images/region/인천 버튼2.jpg"> <span>인천</span></button>
         </a>
       </div>
       <div class="Btn-add">
         <a href="#">
-          <button><img src="${contextPath}/resources/images/region/대전 버튼.jpg"> <span>대전</span></button>
+          <button><img src="../resources/images/region/대전 버튼.jpg"> <span>대전</span></button>
         </a>
       </div>
       <div class="Btn-add">
         <a href="#">
-          <button><img src="${contextPath}/resources/images/region/인천 버튼jpg.jpg"> <span>대구</span></button>
+          <button><img src="../resources/images/region/인천 버튼jpg.jpg"> <span>대구</span></button>
         </a>
       </div>
       <div class="Btn-add">
         <a href="#">
-          <button><img src="${contextPath}/resources/images/region/서울버튼.jpg"> <span>부산</span></button>
+          <button><img src="../resources/images/region/서울버튼.jpg"> <span>부산</span></button>
         </a>
       </div>
       <div class="Btn-add">
         <a href="#">
-          <button><img src="${contextPath}/resources/images/region/서울버튼.jpg"> <span>수원</span></button>
+          <button><img src="../resources/images/region/서울버튼.jpg"> <span>수원</span></button>
         </a>
       </div>
       <div class="Btn-add">
         <a href="#">
-          <button><img src="${contextPath}/resources/images/region/서울버튼.jpg"> <span>강원도</span></button>
+          <button><img src="../resources/images/region/서울버튼.jpg"> <span>강원도</span></button>
         </a>
       </div>
     </section>
@@ -56,11 +53,11 @@
       <section class="content">
         <form action="#">
           <div class="contentMain">
-            <a href="${ contextPath }/regionSubpage"> 
+            <a href="regionsubpage.html"> 
               <div class="main-content"> <!--  //== 6000px -->
                 <div class="main-add"> <!-- //== 각각 2000px -->
                   <div class="image">
-                    <img src="${contextPath}/resources/images/region/경복궁.jpg" id="image">
+                    <img src="../resources/images/region/경복궁.jpg" id="image">
                   </div>
                   <div class="text">
                     <h1>경복궁</h1>
@@ -75,7 +72,7 @@
                 </div>
                 <div class="main-add">
                   <div class="image">
-                    <img src="${contextPath}/resources/images/region/인천 배경.jpg" id="image">
+                    <img src="../resources/images/region/인천 배경.jpg" id="image">
                   </div>
                   <div class="text">
                     <h1>인천배경</h1>
@@ -90,7 +87,7 @@
                 </div>
                 <div class="main-add">
                   <div class="image">
-                    <img src="${contextPath}/resources/images/region/대전엑스포.jpg" id="image">
+                    <img src="../resources/images/region/대전엑스포.jpg" id="image">
                   </div>
                   <div class="text">
                     <h1>대전엑스포</h1>
@@ -105,7 +102,7 @@
                 </div>
                 <div class="main-add">
                   <div class="image">
-                    <img src="${contextPath}/resources/images/region/경복궁.jpg" id="image">
+                    <img src="../resources/images/region/경복궁.jpg" id="image">
                   </div>
                   <div class="text">
                     <h1>경복궁</h1>
@@ -120,7 +117,7 @@
                 </div>
                 <div class="main-add">
                   <div class="image">
-                    <img src="${contextPath}/resources/images/region/경복궁.jpg" id="image">
+                    <img src="../resources/images/region/경복궁.jpg" id="image">
                   </div>
                   <div class="text">
                     <h1>경복궁</h1>
@@ -135,7 +132,7 @@
                 </div>
                 <div class="main-add">
                   <div class="image">
-                    <img src="${contextPath}/resources/images/region/경복궁.jpg" id="image">
+                    <img src="../resources/images/region/경복궁.jpg" id="image">
                   </div>
                   <div class="text">
                     <h1>경복궁</h1>
@@ -158,9 +155,8 @@
   </main>
 
 
-	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
-	<script src="${ contextPath }/resources/js/jquery-3.7.1.min.js"></script>
-	<script src="${ contextPath }/resources/js/region.js"></script>
-	<script src="${ contextPath }/resources/js/header.js"></script>
+	<script src="../resources/js/jquery-3.7.1.min.js"></script>
+	<script src="../resources/js/region.js"></script>
+	<script src="../resources/js/header.js"></script>
 </body>
 </html>

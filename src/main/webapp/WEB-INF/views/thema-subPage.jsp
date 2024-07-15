@@ -6,10 +6,10 @@
 <head>
 <meta charset="UTF-8">
 <title>여행</title>
-<link rel="stylesheet" href="resources/css/header.css">
-<link rel="stylesheet" href="resources/css/footer.css">
-<link rel="stylesheet" href="resources/css/index.css">
-<link rel="stylesheet" href="resources/css/thema.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/header.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/footer.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/index.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/thema.css">
 
 <script src="https://kit.fontawesome.com/4bef400c33.js"
 	crossorigin="anonymous" defer></script>

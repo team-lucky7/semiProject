@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
   <header class="header">
     <section class="logo">
-      <a href="#">
+      <a href="${ contextPath }">
         <img src="${ contextPath }/resources/images/logo.png" id="home-logo">
       </a>
     </section>
 
     <ul class="nav">
-      <li><a href="#">홈</a></li>
+      <li><a href="${ contextPath }">홈</a></li>
       <li><a href="${ contextPath }/thema">테마</a></li>
       <li><a href="${ contextPath }/region">지역</a></li>
       <li>
