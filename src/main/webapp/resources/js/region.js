@@ -39,14 +39,9 @@ function init(){
 
 init();
 
-
-const btnAdd1 = document.getElementsByClassName("Btn-add")[0].addEventListener("click",function(){
-  const btnAdd1 = document.createElement("button");
-  btnAdd1.classList.add("#info-update-btn")
-
-})
-
-
-
-
-               
+const btnAdd1 = document.getElementsByClassName("Btn-add");
+for(let i=0; i<btnAdd1.length; i++){
+  btnAdd1[i].addEventListener("click",function(){
+    images.setAttribute("display", "none");
+  })
+}
