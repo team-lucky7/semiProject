@@ -1,0 +1,96 @@
+/* 마이 페이지 공통 부분 */
+/* *{    border: 1px solid black;
+} */
+.myPage-main{
+    height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.myPage-title{
+    margin: 0 0 10px 0;
+    font-size: 30px;
+    text-align: center;
+}
+.myPage-row{
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+.myPage-row > *{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.myPage-row > label{
+    width: 300px;
+    text-align: center;
+    line-height: 50px;
+    color: black;
+    background-color: #E1FBFF;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    
+}
+.myPage-row > input{
+    width: 100%;
+    height: 50px;
+    border: 0;
+    padding-left: 100px;
+    outline: 0;
+}
+
+.myPage-row > span{
+    width: 100%;
+    height: 100%;
+}
+.Message{
+    text-align: center;
+}
+
+
+
+form[name="myPage-form"]{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.myPage-box{
+    margin-top: 30px;
+    width: 700px;
+    border:1px solid black;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+.info-title{
+    border: 0;
+    color: #455ba8;
+}
+
+/* 확인 버튼 */
+#info-update-btn{
+    width: 140px;
+    padding: 10px;
+    margin: 50px 0;
+    border: 1px solid black;
+    font-size: 20px;
+    font-weight: bold;
+    background: #E1FBFF;
+    color: black;
+    cursor: pointer;
+    border-radius: 30px;
+}
+/* 비밀번호 변경 */
+.myPage-row > input[type='password']{
+    width: 100%;
+}
+
+.confirm{color:  green;}
+.error{ color: red;}   
+
