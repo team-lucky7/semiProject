@@ -97,30 +97,24 @@ function addHalfImage(){
     container.append(addDiv);
 }
 
-function addMap(){
-    const addDiv = document.createElement("div");
-    const addSpan = document.createElement("span");
-    const container = document.getElementById("container2");
-    const addInput = document.createElement("input");
-    const addImage = document.createElement("img");
-    const addXBtn = document.createElement("img");
+var mapContainer = document.getElementById('mapContainer');
+var container = document.getElementById('map');
+var options = {
+        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        level: 3
+    };
 
-    addDiv.classList.add("fullContent");
-    addSpan.innerHTML = "지도입력";
-    addSpan.classList.add("subtitle");
-    addInput.setAttribute("type","file");
-    addInput.setAttribute("name","map");
-    addImage.src = "../resources/images/Map_1135px_1195280_42272.png";
-    addImage.classList.add("fullImage");
-    addXBtn.src = "../resources/images/x-button-327024.png";
-    addXBtn.classList.add("xBtn");
+var map = new kakao.maps.Map(container, options);
 
-    addXBtn.addEventListener("click", function(){
-        this.parentElement.remove();
-    })
+function hideMap(){
 
-    addDiv.append(addSpan, addInput, addImage, addXBtn);
-    container.append(addDiv);
+mapContainer.style.display = 'none';
+
+}
+
+function showMap(){
+
+    mapContainer.style.display = 'block';
     
 }
 
