@@ -25,17 +25,17 @@
         </div>
 
 
-        <a href="/myPage/myBoardList">
+        <a href="${contextPath}/myPage/boardList">
             <div class="sideBarMenu">내 게시글/댓글 조회</div>
         </a>
     
-        <a href="/myPage/myUpdate">
+        <a href="${contextPath}/myPage/info">
             <div class="sideBarMenu">내 정보 수정</div>
         </a>
-        <a href="/myPage/mySecession">
+        <a href="${contextPath}/myPage/secession">
             <div class="sideBarMenu">회원 탈퇴</div>
         </a>
-        <a href="/myPage/logOut">
+        <a href="${contextPath}/myPage/logout">
             <div class="sideBarMenu">로그아웃</div>
         </a>
     </div>
