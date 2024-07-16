@@ -3,7 +3,7 @@
     /* border: 1px solid black; */
 }
 
-.myPage-container{
+.myPage-content{
     display: flex;
     justify-content: space-around;
     width: 1200px;
