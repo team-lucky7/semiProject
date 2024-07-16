@@ -8,47 +8,12 @@
     <link rel="stylesheet" href="../resources/css/myPageSideBar-style.css">
     <link rel="stylesheet" href="../resources/css/myPageBoardList.css">
 </head>
-
+<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 <body>
     <div class="myPage-container">
-        <div class="middle-area">
-            <div class="left-sideBar">
-                <div class="sideBarTop">
 
-                    <div class="myPageProfile">
-                       <!--  <label for="imageInput">
-                            <span>카메라모양</span>
-                        </label> -->
-
-                        <img src="../resources/images/user.png" id="profileImage">
-
-
-                        <!-- <input type="file" name="profileImage" id="imageInput" accept="image/*"> -->
-
-                    </div>
-
-                    <div class="nickname">
-                        유저 아이디
-                    </div>
-
-                </div>
-
-
-                <a href="/myPage/myBoardList">
-                    <div class="sideBarMenu">내 게시글/댓글 조회</div>
-                </a>
-
-                <a href="/myPage/myUpdate">
-                    <div class="sideBarMenu">내 정보 수정</div>
-                </a>
-                <a href="/myPage/mySecession">
-                    <div class="sideBarMenu">회원 탈퇴</div>
-                </a>
-                <a href="/myPage/logOut">
-                    <div class="sideBarMenu">로그아웃</div>
-                </a>
-            </div>
-        </div>
+        <!-- 왼쪽 사이드바 -->
+        <jsp:include page="/WEB-INF/views/myPageSideBar.jsp"></jsp:include>
 
         <div class="boardList-container">
             <section class="board-list">
@@ -201,4 +166,8 @@
     </div>
 </body>
 
+<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+
+<script src="${ contextPath }/resources/js/jquery-3.7.1.min.js"></script>
+<script src="${ contextPath }/resources/js/header.js"></script>
 </html>

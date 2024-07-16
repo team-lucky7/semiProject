@@ -1,0 +1,98 @@
+*{
+    /* border: 1px solid black; */
+}
+
+.myPage-content{
+    width: 1000px;
+    margin: 50px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.myPage-main{
+    width: 60%;
+    height: 100%;
+    padding: 0 50px;
+    border: 1px solid #ddd;
+    /* box-shadow: 10px 15px 7px black; */
+    border-radius: 10px;
+}
+
+.myPage-title{
+    margin: 0 0 10px 0;
+    font-size: 30px;
+    text-align: center;
+}
+
+.myPage-row{
+    height: 50px;
+    margin-top: 20px;
+    border-bottom: 2px solid #ddd;
+    display: flex;
+    align-items: center;
+}
+
+.myPage-row > *{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.myPage-row > label{
+    width: 50%;
+    color: black;
+}
+
+.myPage-row > input{
+    height: 100%;
+    border: 0;
+    outline: 0;
+    font-weight: normal;
+}
+
+#info-Pwchange-btn{
+    width: 20%;
+    height: 70%;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #e1fbff;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: auto;
+    border: 1px solid black;
+}
+
+#info-update-btn{
+    width: 100%;
+    padding: 10px;
+    margin: 50px 0;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #e1fbff;
+    border-radius: 20px;
+    color: black;
+    cursor: pointer;
+    border: 1px solid black;
+
+}
+
+#input-image{
+    display: none;
+}
+
+.profileImage > button{
+    width: 30%;
+    padding: 10px;
+    margin: 50px 0;
+    border: none;
+    font-size: 15px;
+    background-color: #e1fbff;
+    color: black;
+    border-radius: 20px;
+    border: 0;
+    margin-left: auto;
+    cursor: pointer;
+    border: 1px solid black;
+
+}
