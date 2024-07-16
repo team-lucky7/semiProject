@@ -7,3 +7,9 @@ $(".nav>li").hover(function () {
 }, function () {
     $(this).find("div").slideUp();
 })
+
+if($(".recent-search > ul").html() == ""){
+    $(".recent-search > p").css('display', 'block');
+}else{
+    $(".recent-search > p").css('display', 'none');
+}
