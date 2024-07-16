@@ -9,8 +9,7 @@
 <link rel="stylesheet" href="${contextPath }/resources/css/header.css">
 <link rel="stylesheet" href="${contextPath }/resources/css/footer.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/myPageSideBar-style.css">
-<link rel="stylesheet" href="${contextPath}/resources/css/myPageBoardList.css">
-
+<link rel="stylesheet" href="${contextPath}/resources/css/myPageUpdate-style.css">
 <script src="https://kit.fontawesome.com/4bef400c33.js" crossorigin="anonymous"></script>
 
 
@@ -19,7 +18,7 @@
 
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
-	<div class="myPage-container">
+	<div class="myPage-content">
 
 		<jsp:include page="/WEB-INF/views/myPageSideBar.jsp"></jsp:include>
 
