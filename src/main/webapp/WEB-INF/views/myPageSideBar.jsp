@@ -19,8 +19,8 @@
                 
             </div>
 
-            <div class="memberID">
-                ${loginMember.memberNickname}
+            <div class="memberId">
+                ${loginMember.memberId}
             </div>
         </div>
 
