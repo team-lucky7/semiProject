@@ -35,13 +35,13 @@
 
   <c:if test="${!empty loginMember}">
     <c:if test="${empty loginMember.profileImage}">
-      <a href="${ contextPath }/myPage/boardList">
+      <a href="${ contextPath }/myPage/info">
         <img src="${contextPath}/resources/images/user.png"  id="member-profile">
       </a>
     </c:if>
 
     <c:if test="${!empty loginMember.profileImage}">
-      <a href="${ contextPath }/myPage/boardList">
+      <a href="${ contextPath }/myPage/info">
         <img src="${contextPath}${loginMember.profileImage}"  id="member-profile">
       </a>
     </c:if>
