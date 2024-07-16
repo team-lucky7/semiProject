@@ -46,48 +46,48 @@
       </a>
     </c:if>
   </c:if>
-</header>
 
-<div class="search-index">
-  <div>
-    <div class="search-wrap">
-      <img src="${contextPath}/resources/images/logo.jpg" height="100px">
-      <button type="button" onclick="closeSearch()">X</button>
-      <div class="search-area">
-        <form action="" name="query-form">
-          <div>
-            <input type="search" id="inp-search" autocomplete="off" placeholder="검색어를 입력해주세요">
-            <button class="fa-solid fa-magnifying-glass"></button>
+  <div class="search-index">
+    <div>
+      <div class="search-wrap">
+        <img src="${contextPath}/resources/images/logo.jpg" height="100px">
+        <button type="button" onclick="closeSearch()">X</button>
+        <div class="search-area">
+          <form action="" name="query-form">
+            <div>
+              <input type="search" id="inp-search" autocomplete="off" placeholder="검색어를 입력해주세요">
+              <button class="fa-solid fa-magnifying-glass"></button>
+            </div>
+          </form>
+          <div class="related-search" style="display: none;"></div>
+
+          <div class="recent-search">
+            <h2>최근 검색어</h2>
+            <ul></ul>
+            <p class="no_data">최근 검색어 내역이 없습니다.</p>
           </div>
-        </form>
-        <div class="related-search" style="display: none;"></div>
-
-        <div class="recent-search">
-          <h2>최근 검색어</h2>
-          <ul></ul>
-          <p class="no_data">최근 검색어 내역이 없습니다.</p>
-        </div>
-        <div class="popualr-search">
-          <h2>최근 인기 검색어</h2>
-          <div class="popualr">
-            <ol>
-              <li><a href="">제주도</a></li>
-              <li><a href="">부산</a></li>
-              <li><a href="">여수</a></li>
-              <li><a href="">서울</a></li>
-              <li><a href="">단양</a></li>
-            </ol>
-            
-            <ol start="6">
-              <li><a href="">강릉</a></li>
-              <li><a href="">경주</a></li>
-              <li><a href="">속초</a></li>
-              <li><a href="">통영</a></li>
-              <li><a href="">대전</a></li>
-            </ol>
+          <div class="popualr-search">
+            <h2>최근 인기 검색어</h2>
+            <div class="popualr">
+              <ol>
+                <li><a href="">제주도</a></li>
+                <li><a href="">부산</a></li>
+                <li><a href="">여수</a></li>
+                <li><a href="">서울</a></li>
+                <li><a href="">단양</a></li>
+              </ol>
+              
+              <ol start="6">
+                <li><a href="">강릉</a></li>
+                <li><a href="">경주</a></li>
+                <li><a href="">속초</a></li>
+                <li><a href="">통영</a></li>
+                <li><a href="">대전</a></li>
+              </ol>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</header>
