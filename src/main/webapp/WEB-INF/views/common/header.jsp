@@ -2,7 +2,7 @@
 <header class="header">
   <section class="logo">
     <a href="${ contextPath }">
-      <img src="${ contextPath }/resources/images/logo.png" id="home-logo">
+      <img src="${contextPath}/resources/images/logo.jpg" id="home-logo" height="100px">
     </a>
   </section>
 
