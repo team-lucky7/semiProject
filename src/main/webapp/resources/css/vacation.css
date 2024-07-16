@@ -119,6 +119,7 @@ body {
     display: flex;
     align-items: center;
     margin-top: 5px;
+    justify-content: space-between;
 }
 
 .vacation-main .vacation-stats span {
@@ -126,8 +127,17 @@ body {
     font-size: 14px;
 }
 
+/* 편집 버튼 공간 */
 
-/* 이전 .. 다음 */
+
+/* 글쓰기 버튼 공간 */
+.vacation-btn-area{
+    text-align: end;
+    margin-top: 10px;
+}
+
+
+/* pagination*/
 
 .pagination {
     width: 700px;
@@ -144,6 +154,28 @@ body {
 .pagination a:hover {
     text-decoration: underline;
 }
+
+
+.current{
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
