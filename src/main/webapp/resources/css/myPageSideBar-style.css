@@ -1,17 +1,17 @@
 /* 마이페이지 사이드바 영역 */
-#middle-area{
+.middle-area{
     display: flex;
-    width: 25%;
+    width: 200px;
 }
 
-#middle-area a{
+.middle-area a{
     text-decoration: none;
     color: #797979;
 }
 
 /* 프로필, 닉네임 영역 */
 .sideBarTop{
-    margin: 20px;
+    margin-top: 50px;
     text-align: center;
 }
 
@@ -44,9 +44,9 @@
 }
 
 /* 마이페이지 사이드바 */
-#left-sideBar{
+/* #left-sideBar{
     margin-top: 85px;
-}
+} */
 
 .sideBarMenu{
     border-bottom: 1px solid #ddd;
@@ -72,7 +72,7 @@
 }
 
 
-#imageInput{ display: none;}
+/* #imageInput{ display: none;}
 
 .myPageProfile > label{
     font-size: 14px;
@@ -85,4 +85,4 @@
     border-radius: 10px;
     cursor: pointer;
 
-}
+} */
