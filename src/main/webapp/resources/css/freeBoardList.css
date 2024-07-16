@@ -1,5 +1,3 @@
-*{ box-sizing: border-box; }
-
 /* 게시판 목록 화면 전체 영역 설정 */
 .board-list{
     width: 900px;
