@@ -13,3 +13,18 @@ if($(".recent-search > ul").html() == ""){
 }else{
     $(".recent-search > p").css('display', 'none');
 }
+
+const body = document.getElementsByTagName("body")[0];
+const searchIndex = document.getElementsByClassName("search-index")[0];
+const inpSearchWindow = document.getElementById("inp-search-window");
+
+function closeSearch(){
+    searchIndex.style.display = "none";
+    body.removeAttribute("style");
+}
+
+inpSearchWindow.addEventListener("click", function(){
+    searchIndex.style.display = "block";
+    body.style.overflow = "hidden";
+})
+
