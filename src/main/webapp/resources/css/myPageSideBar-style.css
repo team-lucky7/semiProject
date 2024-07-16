@@ -1,7 +1,12 @@
 /* 마이페이지 사이드바 영역 */
+
 .middle-area{
     display: flex;
-    width: 200px;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
 }
 
 .middle-area a{
@@ -36,7 +41,7 @@
 }
 
 /* 닉네임 영역 */
-.nickname{
+.memberID{
     margin: 25px 0;
     font-size: 20px;
 

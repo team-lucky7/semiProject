@@ -3,50 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>myPage-info</title>
+    <link rel="stylesheet" href="../resources/css/myPageSideBar-style.css">
+    <link rel="stylesheet" href="../resources/css/myPageUpdate-style.css">
+    <link rel="stylesheet" href="../resources/css/header.css">
+    <link rel="stylesheet" href="../resources/css/footer.css">
+    <script src="https://kit.fontawesome.com/4bef400c33.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
-    <section class="myPage-main">
-        <h1 class="myPage-title">내 정보</h1>
+    <header class="header">
+        <section class="logo">
+          <a href="${ contextPath }">
+            <img src="../resources/images/logo.png" id="home-logo">
+          </a>
+        </section>
+      
+        <ul class="nav">
+          <li><a href="${ contextPath }">홈</a></li>
+          <li><a href="${ contextPath }/thema">테마</a></li>
+          <li><a href="${ contextPath }/region">지역</a></li>
+          <li>
+            <a href="#">커뮤니티</a>
+            <div class="community-nav-wrap">
+              <ul>
+                <li><a href="">휴양지</a></li>
+                <li><a href="">맛집</a></li>
+                <li><a href="${ contextPath }/freeBoard/list">자유게시판</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      
+        <section class="header-inp-area">
+          <input type="search" autocomplete="off" placeholder="검색어를 입력해주세요">
+          <button type="button" class="fa-solid fa-magnifying-glass"></button>
+        </section>
+        <a href="${ contextPath }/login" class="fa-regular fa-circle-user" id="userlogo"></a>
+    </header>
+      
+      <div class="search-index">
+        <div>
+          <div class="search-wrap">
+            <div></div>
+          </div>
+        </div>
+      </div>
 
-        <form action="#" method="post" name="myPage-form">
-
-            <div class="myPage-row">
-                <label>이름</label>
-                <input type="text" name="memberName" value="회원이름" maxlength="10">
+     <main>
+        <section class="myPage-content">
+            <div class="middle-area">
+                <div class="left-sideBar">
+                    <div class="sideBarTop">
+                        <div class="myPageProfile">
+                            <img src="../resources/images/user.png" id="profileImage">
+                        </div>
+            
+                        <div class="nickname">
+                            유저 아이디
+                        </div>
+                    </div>
+            
+                    <a href="/myPage/myBoardList">
+                        <div class="sideBarMenu">내 게시글/댓글 조회</div>
+                    </a>
+                
+                    <a href="/myPage/myUpdate">
+                        <div class="sideBarMenu">내 정보 수정</div>
+                    </a>
+                    <a href="/myPage/mySecession">
+                        <div class="sideBarMenu">회원 탈퇴</div>
+                    </a>
+                    <a href="/myPage/logOut">
+                        <div class="sideBarMenu">로그아웃</div>
+                    </a>
+                </div>
             </div>
 
-            <div class="myPage-row">
-                <label>생년월일</label>
-                <input type="text" name="memberBirth" value="1999-01-01" maxlength="11">
+            <section class="myPage-main">
+                <h1 class="myPage-title">내 정보</h1>
+        
+                <form action="#" method="post" name="myPage-form">
+        
+                    <div class="myPage-row">
+                        <label>이름</label>
+                        <input type="text" name="memberName" placeholder="곽두팔" maxlength="10">
+                    </div>
+        
+                    <div class="myPage-row">
+                        <label>생년월일</label>
+                        <input type="text" name="memberBirth" placeholder="1999-01-01" maxlength="11">
+                    </div>
+        
+                    <div class="myPage-row">
+                        <label>이메일</label>
+                        <input type="text" name="memberEmail" placeholder="kh@naver.com">
+                    </div>
+        
+                    <div class="myPage-row">
+                        <label>휴대폰 번호</label>
+                        <input type="text" name="memberTel" placeholder="01012341234" maxlength="11">
+                    </div>
+                    <div class="myPage-row">
+                        <label>성별</label>
+                        <input type="text" name="memberGenger" placeholder="여성">
+                    </div>
+
+                    <div class="myPage-row">
+                        <label>비밀번호변경</label>
+                        <button id="info-Pwchange-btn"><a href="changePw.html">확인</a></button>
+                    </div>
+
+                    <div class="myPage-row profileImage">
+                        <label for="input-image">
+                            프로필 이미지 변경
+                            <i class="fa-solid fa-camera"></i>
+                        </label>
+                        <input type="file" name="profileImage" id="input-image" accept="image/*">
+                        <button>변경하기</button>
+                    </div>
+        
+                    <button id="info-update-btn">수정하기</button>
+        
+                </form>
+    
+            </section>
+
+        </section>
+        
+        
+       
+    </main>
+
+    <footer>
+        <div class="footer-row">
+            개인정보처리방침
+        </div>
+        <div class="footer-row">
+            <div>
+                <span>주소 : ~~~~~~~~~~~~~~~</span>
+                <span>대표전화 : 010-1234-1234</span>
+                <span>사업자등록번호 : ~~~~~~~~~~~~</span>
             </div>
-
-            <div class="myPage-row">
-                <label>이메일</label>
-                <input type="text" name="memberEmail" value="kh@naver.com">
-            </div>
-
-            <div class="myPage-row">
-                <label>휴대폰 번호</label>
-                <input type="text" name="memberTel" value="01012341234" maxlength="11">
-            </div>
-            <div class="myPage-row">
-                <label>성별</label>
-                <input type="text" name="memberGenger" value="여성">
-            </div>
-            <div class="myPage-row">
-                <label>비밀번호변경</label>
-                <button><a href="">확인</a></button>
-            </div>
-
-
-
-            <button id="info-update-btn">수정하기</button>
-
-        </form>
-
-
-    </section>
-
+            Copyright CITY. All Rights Reserved.
+        </div>
+    </footer>
+  
 </body>
 </html>
