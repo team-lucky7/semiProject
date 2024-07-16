@@ -23,7 +23,7 @@
   </ul>
 
   <section class="header-inp-area">
-    <input type="search" autocomplete="off" placeholder="검색어를 입력해주세요">
+    <input type="search" id="inp-search-window" autocomplete="off" placeholder="검색어를 입력해주세요">
     <button type="button" class="fa-solid fa-magnifying-glass"></button>
   </section>
   <a href="${ contextPath }/login" class="fa-regular fa-circle-user" id="userlogo"></a>
@@ -33,11 +33,11 @@
   <div>
     <div class="search-wrap">
       <img src="">
-      <button type="button">X</button>
+      <button type="button" onclick="closeSearch()">X</button>
       <div class="search-area">
         <form action="" name="query-form">
           <div>
-            <input type="search" autocomplete="off" placeholder="검색어를 입력해주세요">
+            <input type="search" id="inp-search" autocomplete="off" placeholder="검색어를 입력해주세요">
             <button>검색</button>
           </div>
         </form>
