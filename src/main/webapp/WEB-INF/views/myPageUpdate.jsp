@@ -29,33 +29,33 @@
 			<form action="#" method="post" name="myPage-form">
 
 				<div class="myPage-row">
-					<label>이름</label> <input type="text" name="memberName"
-						placeholder="곽두팔" maxlength="10">
+					<label>이름</label> 
+					<span>${loginMember.memberName}</span>
 				</div>
 
 				<div class="myPage-row">
-					<label>생년월일</label> <input type="text" name="memberBirth"
-						placeholder="1999-01-01" maxlength="11">
+					<label>생년월일</label> 
+					<span>${loginMember.memberDOB}</span>
 				</div>
 
 				<div class="myPage-row">
-					<label>이메일</label> <input type="text" name="memberEmail"
-						placeholder="kh@naver.com">
+					<label>이메일</label> 
+					<span>${loginMember.memberEmail}</span>
 				</div>
 
 				<div class="myPage-row">
-					<label>휴대폰 번호</label> <input type="text" name="memberTel"
-						placeholder="01012341234" maxlength="11">
+					<label>휴대폰 번호</label>
+					<span>${loginMember.memberTel}</span>
 				</div>
 				<div class="myPage-row">
-					<label>성별</label> <input type="text" name="memberGenger"
-						placeholder="여성">
+					<label>성별</label> 
+					<span>${loginMember.memberGender}</span>
 				</div>
 
 				<div class="myPage-row">
 					<label>비밀번호변경</label>
 					<button id="info-Pwchange-btn">
-						<a href="changePw.html">확인</a>
+						<a href="${contextPath}/changePw">확인</a>
 					</button>
 				</div>
 

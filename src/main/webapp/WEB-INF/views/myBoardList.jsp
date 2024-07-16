@@ -18,7 +18,7 @@
 
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
-    <div class="myPage-container">
+    <div class="myPage-content">
 
         <jsp:include page="/WEB-INF/views/myPageSideBar.jsp"></jsp:include>
 
