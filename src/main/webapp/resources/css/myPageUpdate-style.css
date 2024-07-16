@@ -3,16 +3,14 @@
 }
 
 .myPage-content{
-    width: 1000px;
-    margin: 50px auto;
     display: flex;
-    align-items: center;
     justify-content: space-around;
+    width: 1200px;
+    margin: 50px auto;
 }
 
 .myPage-main{
-    width: 60%;
-    height: 100%;
+    width: 700px;
     padding: 0 50px;
     border: 1px solid #ddd;
     /* box-shadow: 10px 15px 7px black; */
