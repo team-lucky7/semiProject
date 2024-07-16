@@ -54,9 +54,7 @@
 
 				<div class="myPage-row">
 					<label>비밀번호변경</label>
-					<button id="info-Pwchange-btn">
-						<a href="${contextPath}/changePw">확인</a>
-					</button>
+					<a href="${contextPath}/changePw" id="info-Pwchange-btn">확인</a>
 				</div>
 
 				<div class="myPage-row profileImage">
