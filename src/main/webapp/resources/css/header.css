@@ -9,7 +9,7 @@ a {
 
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
     height: 100px;
     width: 1600px;
@@ -113,7 +113,7 @@ a {
 
 /* 배경 불투명 */
 .search-index{
-    /* display: none; */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -137,13 +137,16 @@ a {
 }
 
 .search-wrap > img{
+    position: absolute;
     top: 0;
     left: 0;
 }
 
 .search-wrap > button{
-    top: 0;
-    right: 0;
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    padding: 20px 30px;
 }
 
 .search-area{
