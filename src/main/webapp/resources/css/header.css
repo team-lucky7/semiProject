@@ -17,8 +17,9 @@ a {
     margin: 0 auto;
 }
 
-#userlogo {
-    font-size: 50px;
+.logo > a{
+    display: block;
+    height: 100%;
 }
 
 .nav {
@@ -144,14 +145,14 @@ a {
 
 .search-wrap > img{
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 6px;
+    left: 213px;
 }
 
 .search-wrap > button{
     position: absolute;
-    top: 20px;
-    right: 50px;
+    top: 6px;
+    right: 213px;
     padding: 20px 30px;
     border-radius: 10px;
 }

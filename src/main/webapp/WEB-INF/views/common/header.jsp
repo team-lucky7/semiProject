@@ -34,7 +34,7 @@
 <div class="search-index">
   <div>
     <div class="search-wrap">
-      <img src="">
+      <img src="${contextPath}/resources/images/logo.jpg" height="100px">
       <button type="button" onclick="closeSearch()">X</button>
       <div class="search-area">
         <form action="" name="query-form">
