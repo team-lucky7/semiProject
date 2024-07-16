@@ -49,6 +49,8 @@
 }
 
 #info-Pwchange-btn{
+    text-align: center;
+    padding: 6px 0 ;
     width: 20%;
     height: 70%;
     font-size: 15px;
