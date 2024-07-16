@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <header class="header">
   <section class="logo">
     <a href="${ contextPath }">
@@ -26,9 +27,25 @@
     <input type="search" id="inp-search-window" autocomplete="off" placeholder="검색어를 입력해주세요">
     <button type="button" class="fa-solid fa-magnifying-glass"></button>
   </section>
-  <a href="${ contextPath }/login">
-    <img src="${contextPath}/resources/images/user.png"  id="member-profile">
-  </a>
+  <c:if test="${empty loginMember}">
+    <a href="${ contextPath }/login">
+      <img src="${contextPath}/resources/images/user.png"  id="member-profile">
+    </a>
+  </c:if>
+
+  <c:if test="${!empty loginMember}">
+    <c:if test="${empty loginMember.profileImage}">
+      <a href="${ contextPath }/myPage/myBoardList">
+        <img src="${contextPath}/resources/images/user.png"  id="member-profile">
+      </a>
+    </c:if>
+
+    <c:if test="${!empty loginMember.profileImage}">
+      <a href="${ contextPath }/myPage/myBoardList">
+        <img src="${contextPath}${loginMember.profileImage}"  id="member-profile">
+      </a>
+    </c:if>
+  </c:if>
 </header>
 
 <div class="search-index">
