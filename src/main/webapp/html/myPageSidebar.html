@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>myPage-info</title>
     <link rel="stylesheet" href="../resources/css/myPageSideBar-style.css">
 </head>
+
 <body>
-
-
-    <div class="middle-area">
-        <div class="left-sideBar">
+    <div id="middle-area">
+        <div id="left-sideBar">
             <div class="sideBarTop">
-    
                 <div class="myPageProfile">
-                    <label for="imageInput">
-                        <span>카메라모양</span>
-                    </label>
-                  
+                    <!--  프로필 이미지 X  -->
+                    <c:if test="${empty loginMember.profileImage}">
                         <img src="/resources/images/user.png" id="profileImage">
-                    
-                    
-                    <input type="file" name="profileImage" id="imageInput" accept="image/*" >
-                    
+                    </c:if>
+
+                    <!-- 프로필 이미지 O -->
+                    <c:if test="${!empty loginMember.profileImage}">
+                        <img src="${loginMember.profileImage}" id="profileImage">
+                    </c:if>
+
                 </div>
-    
-                <div class="nickname">
-                    유저 아이디
+
+                <div class="memberID">
+                    ${loginMember.memberNickname}
                 </div>
-    
+
             </div>
-    
-    
+
+
             <a href="/myPage/myBoardList">
                 <div class="sideBarMenu">내 게시글/댓글 조회</div>
             </a>
-        
+
             <a href="/myPage/myUpdate">
                 <div class="sideBarMenu">내 정보 수정</div>
             </a>
@@ -47,9 +47,6 @@
             </a>
         </div>
     </div>
-
-
-
-
 </body>
+
 </html>
