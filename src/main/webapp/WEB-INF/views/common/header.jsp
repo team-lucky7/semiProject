@@ -26,7 +26,9 @@
     <input type="search" id="inp-search-window" autocomplete="off" placeholder="검색어를 입력해주세요">
     <button type="button" class="fa-solid fa-magnifying-glass"></button>
   </section>
-  <a href="${ contextPath }/login" class="fa-regular fa-circle-user" id="userlogo"></a>
+  <a href="${ contextPath }/login">
+    <img src="${contextPath}/resources/images/user.png"  id="member-profile">
+  </a>
 </header>
 
 <div class="search-index">
@@ -38,7 +40,7 @@
         <form action="" name="query-form">
           <div>
             <input type="search" id="inp-search" autocomplete="off" placeholder="검색어를 입력해주세요">
-            <button>검색</button>
+            <button class="fa-solid fa-magnifying-glass"></button>
           </div>
         </form>
         <div class="related-search" style="display: none;"></div>
