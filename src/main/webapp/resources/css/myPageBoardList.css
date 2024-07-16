@@ -1,0 +1,82 @@
+*{ box-sizing: border-box; }
+
+.myPage-container{
+    display: flex;
+    justify-content: center;
+    width: 1000px;
+    margin: 50px auto;
+}
+
+/* 게시판 목록 화면 전체 영역 설정 */
+.board-list{
+    
+    width: 700px;
+    margin: 50px 0 0 50px;
+}
+
+.board-name-div{
+    border-top: 2px solid #EEA3AA;
+    border-bottom: 1px solid #E5E5E5;
+}
+
+/* 게시판 이름 */
+.board-name{
+    margin: 10px;
+}
+
+.list-wrapper{
+    width: 100%;
+    min-height: 200px;
+}
+
+/* 목록 출력 테이블 */
+.list-table{
+    width: 100%;
+    padding: 20px;
+    border-collapse: collapse;
+}
+
+.list-table tr{ height: 50px; }
+
+.list-table > thead> tr{ border-bottom: 1px solid gray; }
+.list-table > tbody> tr{ border-bottom: 1px solid gray; }
+
+.list-table tr > td:nth-of-type(1){
+    width: 45%;
+}
+.list-table tr > td:nth-of-type(1) a{
+    text-decoration: none;
+    color: black;
+}
+.list-table tr > td:nth-of-type(2){width: 15%;}
+.list-table tr > td:nth-of-type(3){width: 20%;}
+.list-table tr > td:nth-of-type(4){width: 10%;}
+.list-table tr > td:nth-of-type(5){width: 10%;}
+
+.list-table td {
+    text-align: center;
+}
+
+
+.pagination{
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+}
+
+.pagination > li{
+    width: 20px;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.pagination a{
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    text-decoration: none;
+    color: black;
+}

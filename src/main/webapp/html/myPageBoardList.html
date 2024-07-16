@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../resources/css/myPageSideBar-style.css">
+    <link rel="stylesheet" href="../resources/css/myPageBoardList.css">
+</head>
+
+<body>
+    <div class="myPage-container">
+        <div class="middle-area">
+            <div class="left-sideBar">
+                <div class="sideBarTop">
+
+                    <div class="myPageProfile">
+                       <!--  <label for="imageInput">
+                            <span>카메라모양</span>
+                        </label> -->
+
+                        <img src="../resources/images/user.png" id="profileImage">
+
+
+                        <!-- <input type="file" name="profileImage" id="imageInput" accept="image/*"> -->
+
+                    </div>
+
+                    <div class="nickname">
+                        유저 아이디
+                    </div>
+
+                </div>
+
+
+                <a href="/myPage/myBoardList">
+                    <div class="sideBarMenu">내 게시글/댓글 조회</div>
+                </a>
+
+                <a href="/myPage/myUpdate">
+                    <div class="sideBarMenu">내 정보 수정</div>
+                </a>
+                <a href="/myPage/mySecession">
+                    <div class="sideBarMenu">회원 탈퇴</div>
+                </a>
+                <a href="/myPage/logOut">
+                    <div class="sideBarMenu">로그아웃</div>
+                </a>
+            </div>
+        </div>
+
+        <div class="boardList-container">
+            <section class="board-list">
+                <div class="board-name-div">
+                    <h2 class="board-name">내 게시글</h2>
+                </div>
+    
+                <div class="list-wrapper">
+                    <table class="list-table">
+                        <thead>
+                            <tr>
+                                <th>제목</th>
+                                <th>작성자</th>
+                                <th>날짜</th>
+                                <th>조회수</th>
+                                <th>추천수</th>
+                            </tr>
+                        </thead>
+    
+                        <tbody>
+                            <tr>
+                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
+                                <td>이거맞자나</td>
+                                <td>2024-06-25</td>
+                                <td>10</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
+                                <td>이거맞자나</td>
+                                <td>2024-06-25</td>
+                                <td>10</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
+                                <td>이거맞자나</td>
+                                <td>2024-06-25</td>
+                                <td>10</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
+                                <td>이거맞자나</td>
+                                <td>2024-06-25</td>
+                                <td>10</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
+                                <td>이거맞자나</td>
+                                <td>2024-06-25</td>
+                                <td>10</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div class="pagination-area">
+                    <ul class="pagination">
+                        <li><a href="">&lt;&lt;</a></li>
+                        <li><a href="">&lt;</a></li>
+                        <li><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href="">5</a></li>
+                        <li><a href="">&gt;</a></li>
+                        <li><a href="">&gt;&gt;</a></li>
+                    </ul>
+                </div>
+            </section>
+    
+    
+    
+            <section class="board-list">
+                <div class="board-name-div">
+                    <h2 class="board-name">내 댓글</h2>
+                </div>
+    
+                <div class="list-wrapper">
+                    <table class="list-table">
+                        <thead>
+                            <tr>
+                                <th>내용</th>
+                                <th>작성자</th>
+                                <th>날짜</th>
+                                <th>조회수</th>
+                                <th>추천수</th>
+                            </tr>
+                        </thead>
+    
+                        <tbody>
+                            <tr>
+                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
+                                <td>이거맞자나</td>
+                                <td>2024-06-25</td>
+                                <td>10</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
+                                <td>이거맞자나</td>
+                                <td>2024-06-25</td>
+                                <td>10</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
+                                <td>이거맞자나</td>
+                                <td>2024-06-25</td>
+                                <td>10</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
+                                <td>이거맞자나</td>
+                                <td>2024-06-25</td>
+                                <td>10</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
+                                <td>이거맞자나</td>
+                                <td>2024-06-25</td>
+                                <td>10</td>
+                                <td>2</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div class="pagination-area">
+                    <ul class="pagination">
+                        <li><a href="">&lt;&lt;</a></li>
+                        <li><a href="">&lt;</a></li>
+                        <li><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href="">5</a></li>
+                        <li><a href="">&gt;</a></li>
+                        <li><a href="">&gt;&gt;</a></li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+        
+    </div>
+</body>
+
+</html>
