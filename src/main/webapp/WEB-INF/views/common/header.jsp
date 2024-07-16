@@ -32,7 +32,11 @@
 <div class="search-index">
   <div>
     <div class="search-wrap">
-      <div></div>
+      <img src="">
+      <button type="button">X</button>
+      <div class="search-area">
+        ㅁㄴㅇㄻㄴㅇㄻㄴㅇ
+      </div>
     </div>
   </div>
 </div>
