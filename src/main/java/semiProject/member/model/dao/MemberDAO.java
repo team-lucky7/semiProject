@@ -131,13 +131,13 @@ public class MemberDAO {
 	 * @return result
 	 * @throws Exception
 	 */
-	public int ChangePw(Connection conn, String currentPw, String newPw, int memberNo)  throws Exception {
+	public int changePw(Connection conn, String currentPw, String newPw, int memberNo)  throws Exception {
 		
 		int result = 0;
 
 		try {
 
-			String sql = prop.getProperty("ChangePw");
+			String sql = prop.getProperty("changePw");
 
 			pstmt = conn.prepareStatement(sql);
 
