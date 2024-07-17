@@ -13,7 +13,7 @@ import semiProject.member.model.service.MemberService;
 import semiProject.member.model.vo.Member;
 
 @WebServlet("/changePw")
-public class MyPage_ChangePwServlet extends HttpServlet{
+public class MyPageChangePwServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
