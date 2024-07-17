@@ -4,16 +4,13 @@
     margin: 0 auto;
 }
 
-.board-name-div{
-    border-top: 2px solid #EEA3AA;
-    border-bottom: 1px solid #E5E5E5;
-    margin-bottom: 10px;
-}
-
 /* 게시판 이름 */
 .board-name{
+    border-top: 2px solid #EEA3AA;
+    border-bottom: 1px solid #E5E5E5;
     font-size: 2.5em;
-    margin: 20px;
+    padding: 20px 10px;
+    margin-bottom: 20px;
 }
 
 .list-wrapper{
