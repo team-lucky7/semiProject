@@ -1,0 +1,68 @@
+*{box-sizing: border-box;}
+
+main{
+    width: 1200px;
+    margin: 50px auto;
+}
+
+.admin-myinfo{
+    width: 200px;
+    height: 300px;
+    float: left;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding-top: 20px;
+    margin-top: 50px;
+}
+
+#admin-profileImage{
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.info-list{
+    float: right;
+    width: 900px;
+    border: 1px solid #ddd;
+    padding: 0 30px;
+}
+
+.info-title{
+    padding: 10px;
+    font-size: 18px;
+    border-bottom: 1px solid black;
+}
+
+.pagination{
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    justify-content: center;
+}
+
+.pagination > li{
+    width: 20px;
+    margin: 0 5px;
+    text-align: center;
+}
+
+.info-table{
+    width: 100%;
+}
+
+.info-table tr{
+    height: 50px;
+    text-align: center;
+}
+
+.info-table th{
+    background-color: rgb(177, 175, 184);
+}
+.pagination a{
+    width: 100%;
+    height: 100%;
+
+    display: block;
+    color: black;
+}
