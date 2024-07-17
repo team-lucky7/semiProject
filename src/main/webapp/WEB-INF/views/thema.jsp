@@ -62,10 +62,9 @@
 		<button id="load-more-btn">더보기</button>
 	</div>
 
-
-	<script src="resources/js/thema.js"></script>
-</body>
-<footer>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
-</footer>
+	<script src="${ contextPath }/resources/js/jquery-3.7.1.min.js"></script>
+	<script src="${ contextPath }/resources/js/header.js"></script>
+	<script src="${ contextPath }/resources/js/thema.js"></script>
+</body>
 </html>
