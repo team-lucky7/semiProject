@@ -40,7 +40,6 @@
 
             <button id="info-update-btn">확인</button>
         </form>
-
     </section>
     <script src="${contextPath }/resources/js/jquery-3.7.1.min.js"></script>
     <script src="${contextPath }/resources/js/changePw.js"></script>
