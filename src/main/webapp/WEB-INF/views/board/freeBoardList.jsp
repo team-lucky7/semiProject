@@ -15,9 +15,7 @@
 		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
 		<section class="board-list">
-			<div class="board-name-div">
-				<h1 class="board-name">자유게시판</h1>
-			</div>
+			<h1 class="board-name">자유게시판</h1>
 
 			<div class="list-wrapper">
 				<table class="list-table">
