@@ -13,11 +13,11 @@ function changePwValidate(){
 
   const regExp1 = /^(?=.*[a-zA-Z])(?=.*[`~!@#$%^&*()_=+,./?;:'"<>[\]{}\\|-])(?=.*[0-9]).{8,20}$/;
 
-  if(currenPw.value.length == 0){
+  if(currenPw.value.trim().length == 0){
       return printAlert(currenPw, "현재 비밀번호를 입력해주세요.")
   }
 
-  if(newPw.value.length == 0){
+  if(newPw.value.trim().length == 0){
       return printAlert(newPw, "새 비밀번호를 입력해주세요.")
   }
 
@@ -25,7 +25,7 @@ function changePwValidate(){
       return printAlert(newPw, "8~20자의 영문, 숫자, 특수문자를 조합하여 입력해주세요.")
   }
 
-  if(newPw2.value.length == 0){
+  if(newPw2.value.trim().length == 0){
       return printAlert(newPw2, "새 비밀번호 확인을 입력해주세요.")
   }
 

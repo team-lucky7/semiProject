@@ -1,39 +1,57 @@
-const memberId = document.getElementById("memberId");
-const memberPw = document.getElementById("memberPw");
-const memberPwConfirm = document.getElementById("memberPwConfirm");
-const secession = document.getElementById("secession");
+function printAlert(el, message) {
+  alert(message);
+  el.focus();
+  return false;
+}
 
-const memberIdMessage = document.getElementById("memberIdMessage");
-const memberPwMessage = document.getElementById("memberPwMessage");
-const memberPwConfirmMessage = document.getElementById("memberPwConfirmMessage");
-const secessionMessage = document.getElementById("secessionMessage");
+function secessionValidate() {
+  const memberName = document.getElementById("memberName");
+  const memberPw = document.getElementById("memberPw");
+  const memberPwConfirm = document.getElementById("memberPwConfirm");
+  const secession = document.getElementById("secession");
 
-memberId.addEventListener("click",function(){
-    memberIdMessage.innerHTML = "이름을 입력해주세요."
-    memberIdMessage.classList.add("error");
-})
+  
 
-memberId.addEventListener("blur",function(){
-    memberIdMessage.innerHTML = "";
-})
+  if (memberName.value.length == 0) { // 미작성
 
-memberPw.addEventListener("click",function(){
-  memberPwMessage.innerHTML = "비밀번호를 입력해주세요."
-  memberPwMessage.classList.add("error");
-})
+    return printAlert(memberName, "이름을 입력해주세요.")
+  }
 
-memberPw.addEventListener("blur",function(){
-  memberPwMessage.innerHTML = "";
-})
+  if ( memberName.value != loginMemberName){
+    
+    return printAlert(memberName, "이름이 일치하지 않습니다.")
+  }
 
-memberPwConfirm.addEventListener("click",function(){
-  memberPwConfirmMessage.innerHTML = "비밀번호를 한번 더 입력해주세요."
-  memberPwConfirmMessage.classList.add("error");
-})
+  if (memberPw.value.length == 0) {
 
-memberPwConfirm.addEventListener("blur",function(){
-  memberPwConfirmMessage.innerHTML = "";
-})
+    return printAlert(memberPw, "비밀번호를 입력해주세요.")
+  }
+
+  if (memberPwConfirm.value.length == 0) {
+
+    return printAlert(memberPwConfirm, "비밀번호를 다시 입력해주세요.")
+  }
+
+  if(memberPw.value != memberPwConfirm.value){
+
+    return printAlert(memberPwConfirm, "비밀번호가 일치하지 않습니다.")
+  }
+
+  if (secession.value.length == 0 || secession.value != '탈퇴하겠습니다') {
+    return printAlert(secession, "'탈퇴하겠습니다'를 입력해주세요.'")
+  }
+
+  if (!confirm("정말 탈퇴 하시겠습니까?")) {
+
+    return false;
+    
+  }
+
+  return true;
+
+
+}
+
 
 
 

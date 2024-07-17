@@ -27,14 +27,17 @@ public class SignUpServlet extends HttpServlet{
 	    String memberPw = req.getParameter("memberPw");
 	    String memberName = req.getParameter("memberName");
 	    String memberDOB = req.getParameter("memberDOB");
+	    String memberGender = req.getParameter("memberGender");
 	    String memberEmail = req.getParameter("memberEmail");
 	    String memberTel = req.getParameter("memberTel");
 	    
 	    Member mem = new Member();
+	    
 	    mem.setMemberId(memberId);
 	    mem.setMemberPw(memberPw);
 	    mem.setMemberName(memberName);
 	    mem.setMemberDOB(memberDOB);
+	    mem.setMemberGender(memberGender);
 	    mem.setMemberEmail(memberEmail);
 	    mem.setMemberTel(memberTel);
 	    
@@ -46,10 +49,14 @@ public class SignUpServlet extends HttpServlet{
     		HttpSession session =req.getSession();
 			
     		String path = null;
+    		
 			if(result>0) {
+				
 				session.setAttribute("message",	"회원 가입 성공!");
 				path = req.getContextPath();
+				
 			} else {
+				
 				session.setAttribute("message", "회원 가입 실패!");
 				path = req.getContextPath() + "/signUp";
 			}
