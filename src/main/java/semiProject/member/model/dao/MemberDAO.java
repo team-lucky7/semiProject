@@ -137,7 +137,7 @@ public class MemberDAO {
 
 		try {
 
-			String sql = prop.getProperty("ChagePw");
+			String sql = prop.getProperty("ChangePw");
 
 			pstmt = conn.prepareStatement(sql);
 

@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import semiProject.member.model.service.MemberService;
 import semiProject.member.model.vo.Member;
 
-@WebServlet("/changePw")
+@WebServlet("/member/changePw")
 public class MyPageChangePwServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
