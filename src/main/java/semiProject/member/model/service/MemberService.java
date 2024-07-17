@@ -69,11 +69,11 @@ public class MemberService {
 	 * @return result
 	 * @throws Exception
 	 */
-	public int ChangePw(String currentPw, String newPw, int memberNo) throws Exception {
+	public int changePw(String currentPw, String newPw, int memberNo) throws Exception {
 		
 		Connection conn = getConnection();
 		
-		int result = dao.ChangePw(conn,currentPw,newPw,memberNo );
+		int result = dao.changePw(conn,currentPw,newPw,memberNo );
 		
 		if(result > 0) commit(conn);
 		else		   rollback(conn);
