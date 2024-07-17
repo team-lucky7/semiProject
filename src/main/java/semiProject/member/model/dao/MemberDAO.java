@@ -111,13 +111,27 @@ public class MemberDAO {
 	 * @throws Exception
 	 */
 	public int signUp(Connection conn, Member mem) throws Exception{
+		
 		int result = 0;
 		
 		try {
 			String sql = prop.getProperty("signUp");
 			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, mem.getMemberId());
+			pstmt.setString(2, mem.getMemberPw());
+			pstmt.setString(3, mem.getMemberName());
+			pstmt.setString(4, mem.getMemberGender());
+			pstmt.setString(5, mem.getMemberDOB());
+			pstmt.setString(6, mem.getMemberEmail());
+			pstmt.setString(7, mem.getMemberTel());
+
+			result = pstmt.executeUpdate();
+			
 		}finally {
 			
+			close(pstmt);
 		}
 		
 		return result;
@@ -152,6 +166,35 @@ public class MemberDAO {
 			close(pstmt);
 		}
 
+		return result;
+	}
+
+	/** 회원 탈퇴 DAO
+	 * @param conn
+	 * @param memberPw
+	 * @param memberNo
+	 * @return result 
+	 * @throws Exception
+	 */
+	public int secession(Connection conn, String memberPw, int memberNo) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("secession");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1,memberNo);
+			pstmt.setString(2, memberPw);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		
 		return result;
 	}
 

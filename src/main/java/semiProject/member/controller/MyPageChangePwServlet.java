@@ -53,7 +53,7 @@ public class MyPageChangePwServlet extends HttpServlet{
 			} else { 
 				session.setAttribute("message", "현재 비밀번호가 일치하지 않습니다.");
 
-				resp.sendRedirect(req.getContextPath() + "/member/changePw");
+				resp.sendRedirect(req.getContextPath() + "/myPage/changePw");
 			}
 
 
