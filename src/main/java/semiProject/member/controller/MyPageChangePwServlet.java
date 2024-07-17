@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import semiProject.member.model.service.MemberService;
 import semiProject.member.model.vo.Member;
 
-@WebServlet("/member/changePw")
+@WebServlet("/myPage/changePw")
 public class MyPageChangePwServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,7 +27,7 @@ public class MyPageChangePwServlet extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String currentPw = req.getParameter("currenPw");
+		String currentPw = req.getParameter("currentPw");
 		String newPw = req.getParameter("newPw");
 		
 		HttpSession session = req.getSession();
@@ -40,7 +40,7 @@ public class MyPageChangePwServlet extends HttpServlet{
 
 			MemberService service = new MemberService();
 
-			int result = service.ChangePw(currentPw,newPw,memberNo);
+			int result = service.changePw(currentPw,newPw,memberNo);
 
 
 			if (result > 0) { 

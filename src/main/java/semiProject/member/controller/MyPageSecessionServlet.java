@@ -15,6 +15,8 @@ public class MyPageSecessionServlet extends HttpServlet{
 		String Path = "/WEB-INF/views/member/myPage-secession.jsp";
 		
 		req.getRequestDispatcher(Path).forward(req, resp);
+		
+						
 	}
 
 }
