@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 탈퇴</title>
+<title>session</title>
 <link rel="stylesheet" href="${contextPath}/resources/css/changePw.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/footer.css">
 </head>
