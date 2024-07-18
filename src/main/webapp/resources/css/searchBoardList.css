@@ -1,0 +1,87 @@
+main{
+    width: 600px;
+    margin: auto;
+}
+
+form[name='search-query']{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+form[name='search-query'] > input{
+    width: 100%;
+    height: 50px;
+    outline: 0;
+    border: 0;
+    padding-left: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+form[name='search-query'] > button{
+    display: block;
+    height: 41px;
+    width: 41px;
+    cursor: pointer;
+    font-size: 25px;
+    color: black;
+    padding: 8px 8px;
+    margin-left: 10px;
+    border-radius: 50%;
+    border: 0;
+}
+
+.list-wrapper{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.list-row{
+    display: flex;
+    border-bottom: 1px solid black;
+}
+
+.list-row > img{
+    width: 200px;
+    height: 200px;
+}
+
+.list-row > span{
+    margin-left: 15px;
+}
+
+.list-table{
+    width: 100%;
+    padding: 20px;
+    border-collapse: collapse;
+}
+
+.list-table tr{ height: 50px; }
+
+.list-table > tbody> tr{ border-bottom: 1px solid gray; }
+
+.list-table tr > td:nth-of-type(1){
+    width: 30%;
+    text-align: left;
+}
+.list-table tr > td:nth-of-type(2){width: 50%;}
+.list-table tr > td:nth-of-type(3){width: 20%;}
+
+.list-table td {
+    text-align: center;
+    text-overflow: ellipsis;
+}
+
+.hashtag-list{
+    list-style: none;
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.hashtag-list > li{
+    margin-right: 10px;    
+}
