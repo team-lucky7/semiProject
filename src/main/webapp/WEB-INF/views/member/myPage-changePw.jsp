@@ -7,11 +7,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>비밀번호 변경</title>
+    <link rel="stylesheet" href="${contextPath }/resources/css/header.css">
     <link rel="stylesheet" href="${ contextPath }/resources/css/changePw.css">
     <link rel="stylesheet" href="${ contextPath }/resources/css/footer.css">
-    
+    <script src="https://kit.fontawesome.com/4bef400c33.js" crossorigin="anonymous"></script>
+
+    <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 </head>
+
 <body>
+
     <section class="myPage-main">
         <h1 class="myPage-title">비밀번호 변경</h1>
 
@@ -41,6 +46,8 @@
     </section>
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
-    <script src="${contextPath }/resources/js/changePw.js"></script>
+    <script src="${ contextPath }/resources/js/jquery-3.7.1.min.js"></script>
+    <script src="${ contextPath }/resources/js/header.js"></script>
+    <script src="${ contextPath }/resources/js/changePw.js"></script>
 </body>
 </html>

@@ -28,8 +28,12 @@
         <a href="${contextPath}/myPage/boardList">
             <div class="sideBarMenu">내 게시글/댓글 조회</div>
         </a>
-    
+        
         <a href="${contextPath}/myPage/info">
+            <div class="sideBarMenu">내 정보 조회</div>
+        </a>
+
+        <a href="${contextPath}/myPage/update">
             <div class="sideBarMenu">내 정보 수정</div>
         </a>
         <a href="${contextPath}/myPage/secession">

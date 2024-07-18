@@ -13,7 +13,7 @@ public class MyPageBoardListServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String path = "/WEB-INF/views/myBoardList.jsp";
+		String path = "/WEB-INF/views/member/myBoardList.jsp";
 		
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
