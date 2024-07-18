@@ -5,7 +5,6 @@ span{
 .container1{
     width: 800px;
     height: auto;
-    display: flex;
     justify-content: center;
 }
 
@@ -85,19 +84,23 @@ input{
     outline: none;
     
 }
-.fullImage, .mapImage{
+ .fullImage, .mapImage{ 
     width: 800px;
-    height:400px;
+    height: 300px;
     background-color: #8b8b8b1c;
     border: none;
 }
 
+
 .fullContent{
     width: 800px;
+    background-color: #8b8b8b1c;
+
 }
 
 .halfContent{
     width: 400px;
+    background-color: #8b8b8b1c;
 }
 
 
@@ -132,3 +135,9 @@ input{
     vertical-align : middle;
     cursor: pointer;
 }
+
+.map_wrap {position:relative;width:800px;height:400px;}
+.title {font-weight:bold;display:block;}
+.hAddr {position:absolute;left:10px;top:10px;border-radius: 2px;background:#fff;background:rgba(255,255,255,0.8);z-index:1;padding:5px;}
+#centerAddr {display:block;margin-top:2px;font-weight: normal;}
+.bAddr {padding:5px;text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
