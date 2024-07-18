@@ -198,4 +198,38 @@ public class MemberDAO {
 		return result;
 	}
 
+	/** 회원 정보 DAO
+	 * @param conn
+	 * @param memberEmail
+	 * @param memberTel
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateMember(Connection conn, String memberEmail, String memberTel, int memberNo) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("updateMember");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1,memberEmail);
+			pstmt.setString(2, memberTel);
+			pstmt.setInt(3, memberNo);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		} finally {
+			
+			close(pstmt);
+			
+		}
+		
+		return result;
+	}
+
 }

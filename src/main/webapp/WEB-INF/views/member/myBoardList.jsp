@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/myPageSideBar-style.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/myPageBoardList.css">
     <script src="https://kit.fontawesome.com/4bef400c33.js" crossorigin="anonymous"></script>
-    
 </head>
 <body>
 
@@ -20,7 +19,7 @@
 
     <div class="myPage-content">
 
-        <jsp:include page="/WEB-INF/views/myPageSideBar.jsp"></jsp:include>
+        <jsp:include page="/WEB-INF/views/member/myPageSideBar.jsp"></jsp:include>
 
         <div class="boardList-container">
             <section class="board-list">

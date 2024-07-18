@@ -41,5 +41,12 @@
 		AND MEMBER_PW = ?
 	</entry>
 	
+	<entry key="updateMember">
+		UPDATE MEMBER SET
+		MEMBER_EMAIL = ?, 
+		MEMBER_TEL = ?
+		WHERE MEMBER_NO = ?
+	</entry>
+	
 	
 </properties>
