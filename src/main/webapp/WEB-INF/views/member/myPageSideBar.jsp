@@ -36,9 +36,14 @@
         <a href="${contextPath}/myPage/update">
             <div class="sideBarMenu">내 정보 수정</div>
         </a>
+
+        <a href="${contextPath}/myPage/changePw">
+            <div class="sideBarMenu">비밀번호 변경</div>
+        </a>
         <a href="${contextPath}/myPage/secession">
             <div class="sideBarMenu">회원 탈퇴</div>
         </a>
+        
         <a href="${contextPath}/myPage/logout">
             <div class="sideBarMenu">로그아웃</div>
         </a>

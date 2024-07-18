@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="${ contextPath }/resources/css/footer.css">
     <script src="https://kit.fontawesome.com/4bef400c33.js" crossorigin="anonymous"></script>
 
-    <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 </head>
 
 <body>
+    <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
     <section class="myPage-main">
         <h1 class="myPage-title">비밀번호 변경</h1>

@@ -11,7 +11,7 @@
 
 .myPage-main{
     width: 700px;
-    padding: 50px;
+    padding: 74px 50px 50px 50px;
     border: 1px solid #ddd;
     /* box-shadow: 10px 15px 7px black; */
     border-radius: 10px;
@@ -32,7 +32,7 @@
 }
 
 .myPage-row > *{
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
 }
 
