@@ -4,14 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MyPage</title>
+<title>MyPageInfo</title>
 
 <link rel="stylesheet" href="${contextPath }/resources/css/header.css">
 <link rel="stylesheet" href="${contextPath }/resources/css/footer.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/myPageSideBar-style.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/myPageInfo-style.css">
 <script src="https://kit.fontawesome.com/4bef400c33.js" crossorigin="anonymous"></script>
-
 
 </head>
 <body>
