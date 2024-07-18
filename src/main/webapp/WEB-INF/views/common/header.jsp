@@ -53,9 +53,9 @@
         <img src="${contextPath}/resources/images/logo.jpg" height="100px">
         <button type="button" onclick="closeSearch()">X</button>
         <div class="search-area">
-          <form action="" name="query-form">
+          <form action="${contextPath}/search" name="query-form">
             <div>
-              <input type="search" id="inp-search" autocomplete="off" placeholder="검색어를 입력해주세요">
+              <input type="search" id="inp-search" name="query" autocomplete="off" placeholder="검색어를 입력해주세요">
               <button class="fa-solid fa-magnifying-glass"></button>
             </div>
           </form>
