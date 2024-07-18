@@ -10,12 +10,14 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/myPage/info")
 public class MyPageInfoServlet extends HttpServlet{
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		String path = "/WEB-INF/views/myPageUpdate.jsp";
+		String path = "/WEB-INF/views/member/myPageInfo.jsp";
 		
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
-
 }
+
+	

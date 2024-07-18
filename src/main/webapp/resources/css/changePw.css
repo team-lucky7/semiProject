@@ -21,7 +21,7 @@
 }
 
 .myPage-row > *{
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -50,8 +50,6 @@
 .Message{
     text-align: center;
 }
-
-
 
 form[name="myPage-form"]{
     display: flex;

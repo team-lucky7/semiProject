@@ -20,49 +20,28 @@
 
 	<div class="myPage-content">
 
-		<jsp:include page="/WEB-INF/views/myPageSideBar.jsp"></jsp:include>
+		<jsp:include page="/WEB-INF/views/member/myPageSideBar.jsp"></jsp:include>
 
 		<section class="myPage-main">
 
-			<h1 class="myPage-title">내 정보</h1>
+			<h1 class="myPage-title">내 정보 수정</h1>
 
-			<form action="#" method="post" name="myPage-form">
-
-				<div class="myPage-row">
-					<label>이름</label> 
-					<span>${loginMember.memberName}</span>
-				</div>
-
-				<div class="myPage-row">
-					<label>생년월일</label> 
-					<span>${loginMember.memberDOB}</span>
-				</div>
+			<form action="update"  method="post" name="myPage-form" onsubmit="return infoValidate()">
 
 				<div class="myPage-row">
 					<label>이메일</label> 
-					<span>${loginMember.memberEmail}</span>
+					<input type="text" value="${loginMember.memberEmail}" maxlength="30" name="memberEmail">
 				</div>
 
 				<div class="myPage-row">
 					<label>휴대폰 번호</label>
-					<span>${loginMember.memberTel}</span>
+					<input type="text" value="${loginMember.memberTel}" maxlength="11" name="memberTel">
 				</div>
-				<div class="myPage-row">
-					<label>성별</label> 
-					<span>${loginMember.memberGender}</span>
-				</div>
-
-				<div class="myPage-row">
-					<label>비밀번호변경</label>
-					<a href="${contextPath}/myPage/changePw" id="info-Pwchange-btn">확인</a>
-				</div>
-
+				
 				<div class="myPage-row profileImage">
-					<label for="input-image"> 프로필 이미지 변경 <i
-						class="fa-solid fa-camera"></i>
-					</label> <input type="file" name="profileImage" id="input-image"
-						accept="image/*">
-					<button>변경하기</button>
+					<span>프로필 이미지</span></label>
+					<input type="file" id="input-image">
+					<label for="input-image">선택하기</label>
 				</div>
 
 				<button id="info-update-btn">수정하기</button>
@@ -74,5 +53,6 @@
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 	<script src="${ contextPath }/resources/js/jquery-3.7.1.min.js"></script>
 	<script src="${ contextPath }/resources/js/header.js"></script>
+	<script src="${ contextPath }/resources/js/updateMember.js"></script>
 </body>
 </html>
