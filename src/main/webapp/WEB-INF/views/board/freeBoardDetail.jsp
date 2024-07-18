@@ -13,8 +13,8 @@
 <script src="https://kit.fontawesome.com/4bef400c33.js" crossorigin="anonymous" defer></script>
 </head>
 <body>
+	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 	<main>
-		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
 		<section class="board-detail">
 			<h3 class="board-name">자유게시판</h3>
@@ -64,9 +64,8 @@
 				</ul>
 			</div>
 		</section>
-
-		<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 	</main>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 	<script src="${contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 	<script src="${contextPath}/resources/js/header.js"></script>
 </body>
