@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>MyPage</title>
+<title>MyPageUpdate</title>
 
 <link rel="stylesheet" href="${contextPath }/resources/css/header.css">
 <link rel="stylesheet" href="${contextPath }/resources/css/footer.css">
