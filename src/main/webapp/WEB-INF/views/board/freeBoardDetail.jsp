@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="${ contextPath }/resources/css/header.css">
 <link rel="stylesheet" href="${ contextPath }/resources/css/freeBoardDetail.css">
+<link rel="stylesheet" href="${ contextPath }/resources/css/freeBoardReply.css">
 <link rel="stylesheet" href="${ contextPath }/resources/css/footer.css">
 <script src="https://kit.fontawesome.com/4bef400c33.js" crossorigin="anonymous" defer></script>
 </head>
@@ -15,64 +17,39 @@
 		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
 		<section class="board-detail">
+			<h3 class="board-name">자유게시판</h3>
+			<div class="board-title">오늘 점심 뭐 먹지?</div>
 
-			<div class="board-name">
-				자유게시판
-				<div>
-					<button>수정</button>
-					<button>삭제</button>
-				</div>
-			</div>
-			<div>
-				<span>오늘 점심 뭐 먹지?</span>
-				<span>작성일</span>
-			</div>
+			<div class="board-header">
+                <div class="board-writer">
+                	<img src="${ contextPath }/resources/images/user.png">
+                    <span>이거아니자나</span>
+                </div>
 
-			<div>
-				이거아니자나
-				조회수 4
-				추천수 3
-				댓글 6
-			</div>
+                <div class="board-info">
+                    <p> <span>작성일</span> 2024-07-18</p>
+                    <p> <span>마지막 수정일</span> 2024-07-18</p>
+                    <p> <span>좋아요</span> 1</p>
+                    <p> <span>조회수</span> 3</p>
+                </div>
+            </div>
 
 			<div class="board-content">
 				ㅁㄴ어라ㅣㅁㅇ너ㅣ런ㅁ이런이러ㅣㅏㄴㅇ머리ㅏ;ㄴㅇ
 			</div>
 
-			<button id="like">좋아요</button>
-			<div class="board-btn-area">
-				<button>&lt;이전글</button>
-				<button>목록으로</button>
-				<button>&gt;다음글</button>
+			<div>
+				<button id="likeBtn">좋아요</button>
 			</div>
 
-			<div class="reply-count">댓글 6개</div>
-
-			<div class="reply-area">
-				<ul>
-					<li>
-						<span>댓글 작성자</span>
-						<span>댓글 내용</span>
-						<span>따봉 1</span>
-					</li>
-					<li>
-						<span>댓글 작성자</span>
-						<span>댓글 내용</span>
-						<span>따봉 1</span>
-					</li>
-					<li>
-						<span>댓글 작성자</span>
-						<span>댓글 내용</span>
-						<span>따봉 1</span>
-					</li>
-					<li>
-						<span>댓글 작성자</span>
-						<span>댓글 내용</span>
-						<span>따봉 1</span>
-					</li>
-				</ul>
+			<div class="board-btn-area">
+				<button id="updateBtn">수정</button>
+				<button id="deleteBtn">삭제</button>
+				<button id="goToListBtn">목록으로</button>
 			</div>
 			
+			<jsp:include page="/WEB-INF/views/board/freeBoardReply.jsp"></jsp:include>
+
 			<div class="pagination-area">
 				<ul class="pagination">
 					<li><a href="">&lt;&lt;</a></li>
