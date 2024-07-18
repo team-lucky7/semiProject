@@ -81,18 +81,18 @@ body{
 }
 
 /* 테마 페이지 */
-.thema-explain-div{
+.themasubPage-title{
     width: 1000px;
     height: 50px;
     border-bottom: 2px solid #ddd;
 }
 
-.thema-explain-div > p{
+.themasubPage-title > p{
   font-weight: bold;
   font-size: 18px;
 }
 
-.thema-explain-img{
+.themasubPage-img{
     list-style: none;
     padding: 0;
 }
