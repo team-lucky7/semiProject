@@ -1,7 +1,10 @@
 document.getElementById('load-more-btn').addEventListener('click', function() {
     const newContent = `
     <section class="thema-main">
-        <div class="thema-title first"><span>레저 체험 여행</span></div>
+        <div class="thema-title first">
+            <span>레저 체험 여행</span>
+             <button>저장</button>
+        </div>
         <ul class="thema-contents first">
             <li>
                 <a href="#"><img src="https://ktourtop10.kr/data/item/1648699981/thumb-2019_15_s_gunf_650_330x330.jpg"></a>
@@ -22,7 +25,10 @@ document.getElementById('load-more-btn').addEventListener('click', function() {
     </section>
 
     <section class="thema-main">
-        <div class="thema-title second"><span>맞춤 투어 여행</span></div>
+        <div class="thema-title second">
+            <span>맞춤 투어 여행</span>
+            <button>저장</button>
+        </div>
         <ul class="thema-contents second">
             <li>
                 <a href="#"><img src="https://ktourtop10.kr/data/item/1679979630/thumb-64yA7ZGc7J206647KeA_290x290.jpg"></a>
@@ -41,6 +47,11 @@ document.getElementById('load-more-btn').addEventListener('click', function() {
             </li>
         </ul>
     </section>
+    <div>
+        <button>
+            <a href="#">글쓰기</a>
+        </button>
+    </div>
     `;
     const themaMain = document.getElementById('thema-main');
     themaMain.insertAdjacentHTML('beforeend', newContent);

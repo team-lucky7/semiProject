@@ -1,0 +1,128 @@
+/* 게시글 작성 전체 영역 */
+.thema-write{
+    width: 1000px;
+    min-width: 700px;
+    margin: 50px auto;
+    padding: 50px ;
+}
+
+/* 카테고리 */
+.thema-select{
+    padding-bottom: 20px;
+}
+
+.thema-title{
+    border-bottom: 3px solid #ccc;
+    margin: 20px 0;
+}
+
+/* 게시글 제목 input */
+.thema-title > input{
+    width: 100%;
+    padding: 0 0 16px 0;
+    border: 0;
+    outline: 0;
+    font-size: 16px;
+}
+
+.thema-title:focus-within{
+    border-bottom-color: rgba(52, 196, 219, 0.5);
+}
+
+/* 이미지 영역 */
+.img-box{
+    padding: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.thema-Image{
+    width: 800px;
+    min-height: 100px;
+
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+
+/* 미리보기 영역 */
+.thema-Image label{
+    width: 100%;
+    min-height: 100px;
+    height: 100%;
+    border: 1px solid #ccc;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* file 타입 input */
+.inputImage{display: none;}
+
+/* 미리보기 이미지 */
+.preview{
+    max-width: 100%;
+    max-height: 100%;
+    /* 지정된 칸 내부 
+    비율을 변경하지 않고 이미지 배치 */
+}
+
+/* 이미지 삭제 */
+.delete-image{
+    position:absolute;
+    top: 0px;
+    right: 7px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* 내용 */
+.thema-content{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    font-size: 18px;
+    
+    padding: 20px 0;
+}
+
+/* 내용 textarea */
+.thema-content > textarea{
+    width: 800px;
+    height: 500px;
+    resize: none;
+    font-size: 18px;
+}
+
+/* 지도 */
+.thema-map{
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+    
+    padding: 20px 0;
+}
+
+/* 버튼영역 */
+.board-btn-area{
+    text-align: right;
+}
+
+.board-btn-area button{
+    width: 80px;
+    height: 30px;
+    font-weight: bold;
+    border: 0;
+    background-color:  rgba(52, 196, 219, 0.5);
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.board-btn-area button:hover{
+    background-color: white;
+    color:  rgba(52, 196, 219, 0.5);
+    border: 2px solid  rgba(52, 196, 219, 0.5);
+}
