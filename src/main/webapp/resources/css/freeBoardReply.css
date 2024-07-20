@@ -79,6 +79,7 @@
     resize: none;
     margin-right: 10px;
     height: 100px;
+    outline: none;
 }
 
 #addReply{

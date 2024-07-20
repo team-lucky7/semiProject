@@ -9,17 +9,12 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class Board {
-	private int boardNo;
-	private String boardTitle;
-	private String boardComment;
+public class Reply {
+	private int replyNo;
+	private String replyContent;
+	private String replyStatus;
 	private String createDate;
-	private String updateDate;
-	private String readCount;
+	private String boardNo;
 	private String memberNo;
-	private String boardName;
-	private String locationName;
 	private int likeCount;
-	
-	private String[] hashtagName;
 }

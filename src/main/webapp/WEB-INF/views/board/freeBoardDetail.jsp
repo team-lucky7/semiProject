@@ -66,7 +66,11 @@
 		</section>
 	</main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+	<script>
+		const loginMemberNo = "${loginMember.memberNo}";
+	</script>
 	<script src="${contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 	<script src="${contextPath}/resources/js/header.js"></script>
+	<script src="${contextPath}/resources/js/freeBoardDetail.js"></script>
 </body>
 </html>
