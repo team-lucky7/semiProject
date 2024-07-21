@@ -25,9 +25,9 @@
                 <button id="login-btn">로그인</button>
             </form>
             <ul>
-                <li><a href="#">비밀번호 찾기</a></li>
+                <li><a href="${ contextPath }/resetPw">비밀번호 초기화</a></li>
                 <li><span>|</span></li>
-                <li><a href="#">아이디 찾기</a></li>
+                <li><a href="${ contextPath }/searchId">아이디 찾기</a></li>
                 <li><span>|</span></li>
                 <li><a href="${ contextPath }/signUp">회원가입</a></li>
             </ul>

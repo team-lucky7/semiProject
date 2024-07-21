@@ -7,19 +7,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>아이디 찾기</title>
+    <title>비밀번호 초기화</title>
     <link rel="stylesheet" href="${contextPath}/resources/css/searchId.css">
 
 </head>
 <header>
     <ul>
-        <li>
-            <a href="#">아이디 찾기</a>
-        </li>
 
+      <a href="${contextPath}/searchId">
         <li>
-            <a href="#">비밀번호 초기화</a>
+          아이디 찾기
         </li>
+      </a>
+
+        <a href="${contextPath}/resetPw">
+          <li>
+            비밀번호 초기화
+          </li>
+        </a>
+     
     </ul>
 </header>
 
@@ -28,8 +34,9 @@
     <main>
         <section class="searchID-area">
             <a href="${contextPath}">
-                <img src="../resources/images/logo.jpg" height="150px">
+                <img src="${contextPath}/resources/images/logo.jpg" height="150px">
             </a>
+            
             <form action="${contextPath}/searchID" name="searchID-form" onsubmit="">
                 <div>
                     <span>아이디</span>

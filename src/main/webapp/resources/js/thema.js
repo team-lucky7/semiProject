@@ -47,14 +47,14 @@ document.getElementById('load-more-btn').addEventListener('click', function() {
             </li>
         </ul>
     </section>
-    <div>
+    <div class="write">
         <button>
-            <a href="#">글쓰기</a>
+            <a href="${contextPath}/board/themaWrite">글쓰기</a>
         </button>
     </div>
     `;
     const themaMain = document.getElementById('thema-main');
     themaMain.insertAdjacentHTML('beforeend', newContent);
     document.getElementById('more').remove();
-  
+    
 });

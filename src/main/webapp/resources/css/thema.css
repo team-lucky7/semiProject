@@ -96,3 +96,17 @@ body{
     list-style: none;
     padding: 0;
 }
+
+.write{
+  display: flex;
+  justify-content: flex-end ;
+}
+/* 글쓰기 버튼 */
+.write > button{
+  width: 200px;
+  height: 50px;
+  background-color: rgba(135, 206, 235, 1.0);
+  font-size: 20px;
+  margin-top: 20px;
+  
+}
