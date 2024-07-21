@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,25 +18,43 @@
 	<main>
 
 		<section class="board-detail">
-			<h3 class="board-name">자유게시판</h3>
-			<div class="board-title">오늘 점심 뭐 먹지?</div>
+			<h3 class="board-name">${detail.boardName}</h3>
+			<div class="board-title">${detail.boardTitle}</div>
 
 			<div class="board-header">
                 <div class="board-writer">
-                	<img src="${ contextPath }/resources/images/user.png">
-                    <span>이거아니자나</span>
+                	<c:if test="${empty detail.profileImage}">
+                		<img src="${contextPath}/resources/images/user.png">
+                	</c:if>
+                	
+                	<c:if test="${!empty detail.profileImage}">
+                		<img src="${contextPath}${detail.profileImage}">
+                	</c:if>
+                	
+                    <span>${detail.memberName}</span>
                 </div>
 
                 <div class="board-info">
-                    <p> <span>작성일</span> 2024-07-18</p>
-                    <p> <span>마지막 수정일</span> 2024-07-18</p>
-                    <p> <span>좋아요</span> 1</p>
-                    <p> <span>조회수</span> 3</p>
+                    <p> <span>작성일</span> ${detail.createDate}</p>
+                    
+                    <c:if test="${!empty detail.updateDate}">
+                    	<p> <span>마지막 수정일</span> ${detail.updateDate}</p>
+                    </c:if>
+                    <p> <span>좋아요</span> ${fn:length(detail.likeList)}</p>
+                    <p> <span>조회수</span> ${detail.readCount}</p>
                 </div>
             </div>
 
 			<div class="board-content">
-				ㅁㄴ어라ㅣㅁㅇ너ㅣ런ㅁ이런이러ㅣㅏㄴㅇ머리ㅏ;ㄴㅇ
+				<c:if test="${!empty detail.imageList}">
+					<c:forEach var="i" begin="0" end="${fn:length(detail.imageList) - 1}">
+						<img src="${contextPath}${detail.imageList[i].imageRename}"></img>
+					</c:forEach>
+				</c:if>
+				
+				<c:forEach var="i" begin="0" end="${fn:length(detail.articleList) - 1}">
+					<div>${detail.articleList[i].content}</div>
+				</c:forEach>
 			</div>
 
 			<div>
@@ -43,30 +62,23 @@
 			</div>
 
 			<div class="board-btn-area">
-				<button id="updateBtn">수정</button>
-				<button id="deleteBtn">삭제</button>
+				<c:if test="${loginMember.memberNo == detail.memberNo}">
+					<button id="updateBtn">수정</button>
+					<button id="deleteBtn">삭제</button>
+				</c:if>
 				<button id="goToListBtn">목록으로</button>
 			</div>
 			
 			<jsp:include page="/WEB-INF/views/board/freeBoardReply.jsp"></jsp:include>
 
-			<div class="pagination-area">
-				<ul class="pagination">
-					<li><a href="">&lt;&lt;</a></li>
-					<li><a href="">&lt;</a></li>
-					<li><a href="">1</a></li>
-					<li><a href="">2</a></li>
-					<li><a href="">3</a></li>
-					<li><a href="">4</a></li>
-					<li><a href="">5</a></li>
-					<li><a href="">&gt;</a></li>
-					<li><a href="">&gt;&gt;</a></li>
-				</ul>
-			</div>
 		</section>
 	</main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+	<script>
+		const loginMemberNo = "${loginMember.memberNo}";
+	</script>
 	<script src="${contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 	<script src="${contextPath}/resources/js/header.js"></script>
+	<script src="${contextPath}/resources/js/freeBoardDetail.js"></script>
 </body>
 </html>
