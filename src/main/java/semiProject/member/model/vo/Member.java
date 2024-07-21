@@ -20,7 +20,8 @@ public class Member {
 	private String memberDOB;
 	private String memberEmail;
 	private String memberTel;
+	private String profileImage;
 	private String enrollDate;
 	private String secessionFlag;
-	private String profileImage;
+	private int adminLevel;
 }
