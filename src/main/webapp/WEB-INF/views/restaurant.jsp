@@ -14,7 +14,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>휴양지 게시판</title>
+<title>맛집 게시판</title>
 <link rel="stylesheet" href="${contextPath}/resources/css/vacation.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/header.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/footer.css">
@@ -35,7 +35,7 @@
 
 				<div class="vacation-main">
 					<div class="vacation-header">
-						<span>휴양지</span>
+						<span>맛집</span>
 					</div>
 					<div class="vacation-hashtag">
 						<span># 전체</span>
