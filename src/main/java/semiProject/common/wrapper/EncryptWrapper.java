@@ -42,7 +42,7 @@ public class EncryptWrapper extends HttpServletRequestWrapper{
 		
 		try {
 			
-			md = MessageDigest.getInstance("Sha-512");
+			md = MessageDigest.getInstance("SHA-512");
 			
 			byte[] bytes = pw.getBytes(Charset.forName("UTF-8"));
 			

@@ -5,8 +5,8 @@ public class Pagination {
 	private int currentPage;
 	private int listCount;
 	
-	private int limit = 5;
-	private int pageSize = 10;
+	private int limit = 10;
+	private int pageSize = 5;
 	
 	private int maxPage;
 	private int startPage;

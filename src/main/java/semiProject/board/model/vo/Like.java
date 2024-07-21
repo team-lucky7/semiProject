@@ -9,10 +9,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class BoardImage {
-	private int imageNo;
-	private int imageSize;
-	private String imageRename;
-	private String imageOriginal;
-	private int imageLevel;
+public class Like {
+	private int boardReplyNo;
+	private int memberNo;
 }

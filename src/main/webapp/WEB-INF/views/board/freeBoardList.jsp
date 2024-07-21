@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set var="boardName" value="${map.boardName}"/>
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="boardList" value="${map.boardList}"/>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +21,7 @@
 		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
 		<section class="board-list">
-			<h1 class="board-name">자유게시판</h1>
+			<h1 class="board-name">${boardName}</h1>
 
 			<div class="list-wrapper">
 				<table class="list-table">
@@ -32,30 +37,26 @@
 					</thead>
 					
 					<tbody>
-						<tr>
-							<td>10</td>
-							<td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
-							<td>이거맞자나</td>
-							<td>2024-06-25</td>
-							<td>10</td>
-							<td>2</td>
-						</tr>
-						<tr>
-							<td>10</td>
-							<td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
-							<td>이거맞자나</td>
-							<td>2024-06-25</td>
-							<td>10</td>
-							<td>2</td>
-						</tr>
-						<tr>
-							<td>10</td>
-							<td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
-							<td>이거맞자나</td>
-							<td>2024-06-25</td>
-							<td>10</td>
-							<td>2</td>
-						</tr>
+						<c:choose>
+							<c:when test="${empty boardList}">
+								<tr>
+									<td colspan="6">게시글 조회 결과가 없습니다.<td>
+								</tr>
+							</c:when>
+							
+							<c:otherwise>
+								<c:forEach var="board" items="${boardList}">
+									<tr>
+										<td>${board.boardNo}</td>
+										<td><a href="detail?no=${board.boardNo}&type=${param.type}&cp=${param.cp}">${board.boardTitle}</a></td>
+										<td>${board.memberName}</td>
+										<td>${board.createDate}</td>
+										<td>${board.readCount}</td>
+										<td>${board.likeCount}</td>
+									</tr>
+								</c:forEach>
+							</c:otherwise>
+						</c:choose>
 					</tbody>
 				</table>
 			</div>
@@ -65,15 +66,25 @@
 
 			<div class="pagination-area">
 				<ul class="pagination">
-					<li><a href="">&lt;&lt;</a></li>
-					<li><a href="">&lt;</a></li>
-					<li><a href="">1</a></li>
-					<li><a href="">2</a></li>
-					<li><a href="">3</a></li>
-					<li><a href="">4</a></li>
-					<li><a href="">5</a></li>
-					<li><a href="">&gt;</a></li>
-					<li><a href="">&gt;&gt;</a></li>
+					<c:set var="url" value="list?&type=${param.type}&cp="/>
+					
+					<li><a href="${url}1">&lt;&lt;</a></li>
+					<li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+					
+					<c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+						<c:choose>
+							<c:when test="${i == pagination.currentPage}">
+								<li><a class="current">${i}</a></li>
+							</c:when>
+							
+							<c:otherwise>
+								<li><a href="${url}${i}">${i}</a></li>
+							</c:otherwise>
+						</c:choose>
+					</c:forEach>
+					
+					<li><a href="${url}${pagination.nextPage}">&gt;</a></li>
+					<li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
 				</ul>
 			</div>
 		</section>

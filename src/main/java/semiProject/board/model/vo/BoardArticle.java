@@ -14,5 +14,4 @@ public class BoardArticle {
 	private String content;
 	private int contentSize;
 	private int contentLevel;
-	private int boardNo;
 }
