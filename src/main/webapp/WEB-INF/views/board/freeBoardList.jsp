@@ -61,7 +61,9 @@
 				</table>
 			</div>
 			<div class="btn-area">
-				<button id="insertBtn">글쓰기</button>
+        <a href="${contextPath}/communityWrite">
+          <button id="insertBtn">글쓰기</button>
+        </a>
 			</div>
 
 			<div class="pagination-area">
