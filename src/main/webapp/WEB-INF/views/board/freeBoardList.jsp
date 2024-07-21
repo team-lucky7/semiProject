@@ -60,22 +60,38 @@
 				</table>
 			</div>
 			<div class="btn-area">
-				<button id="insertBtn">글쓰기</button>
+        <a href="${contextPath}/communityWrite">
+          <button id="insertBtn">글쓰기</button>
+        </a>
 			</div>
 
 			<div class="pagination-area">
-				<ul class="pagination">
-					<li><a href="">&lt;&lt;</a></li>
-					<li><a href="">&lt;</a></li>
-					<li><a href="">1</a></li>
-					<li><a href="">2</a></li>
-					<li><a href="">3</a></li>
-					<li><a href="">4</a></li>
-					<li><a href="">5</a></li>
-					<li><a href="">&gt;</a></li>
-					<li><a href="">&gt;&gt;</a></li>
-				</ul>
-			</div>
+            
+        <!-- 페이지네이션 a태그에 사용될 공통 주소를 저장할 변수 선언 -->
+        <c:set var="url" value="list?type=${param.type}&cp=" />
+      
+        <ul class="pagination">
+          <li><a href="${url}1">&lt;&lt;</a></li>
+          <li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+      
+          <!-- 범위가 정해진 일반 for문 사용 -->
+          <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+      
+            <c:choose>
+              <c:when test="${i == pagination.currentPage}">
+                <li><a class="current">${i}</a></li>
+              </c:when>
+              <c:otherwise>
+                <li><a href="${url}${i}">${i}</a></li>
+              </c:otherwise>
+            </c:choose>
+          </c:forEach>
+      
+      
+          <li><a href="${url}${pagination.nextPage}">&gt;</a></li>
+          <li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
+        </ul>
+      </div>
 		</section>
 
 		<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>

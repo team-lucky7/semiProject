@@ -12,7 +12,7 @@
                     <img src="${contextPath}/resources/images/user.png" id="profileImage">
                 </c:if>
 
-                <!-- 프로필 이미지 O -->
+                <!-- 프로필 이미지 O -->  
                 <c:if test="${!empty loginMember.profileImage}" >
                     <img src="${contextPath}${loginMember.profileImage}" id="profileImage">
                 </c:if>

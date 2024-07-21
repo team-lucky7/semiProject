@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="${contextPath}/resources/css/header.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/footer.css">
     <link rel="stylesheet" href="${contextPath}/resources/css/index.css">
+    
     <script src="https://kit.fontawesome.com/4bef400c33.js" crossorigin="anonymous" defer></script>
 </head>
 
