@@ -15,8 +15,8 @@
       <a href="#">커뮤니티</a>
       <div class="community-nav-wrap">
         <ul>
-          <li><a href="">휴양지</a></li>
-          <li><a href="">맛집</a></li>
+          <li><a href="${ contextPath }/vacation/list">휴양지</a></li>
+          <li><a href="${ contextPath }/restaurant/list">맛집</a></li>
           <li><a href="${ contextPath }/freeBoard/list">자유게시판</a></li>
         </ul>
       </div>
@@ -51,7 +51,7 @@
     <div>
       <div class="search-wrap">
         <img src="${contextPath}/resources/images/logo.jpg" height="100px">
-        <button type="button" onclick="closeSearch()">X</button>
+        <button type="button" onclick="closeSearch()">&times;</button>
         <div class="search-area">
           <form action="${contextPath}/search" name="query-form">
             <div>

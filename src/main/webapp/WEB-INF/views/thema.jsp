@@ -66,5 +66,9 @@
 	<script src="${ contextPath }/resources/js/jquery-3.7.1.min.js"></script>
 	<script src="${ contextPath }/resources/js/header.js"></script>
 	<script src="${ contextPath }/resources/js/thema.js"></script>
+	<script>
+		const contextPath = "${contextPath}";
+	</script>
+
 </body>
 </html>
