@@ -50,12 +50,15 @@
   <div class="search-index">
     <div>
       <div class="search-wrap">
-        <img src="${contextPath}/resources/images/logo.jpg" height="100px">
-        <button type="button" onclick="closeSearch()">&times;</button>
+      	<div class="search-index-logo">
+      		<img src="${contextPath}/resources/images/logo.jpg" height="100px">
+        	<button type="button" onclick="closeSearch()">&times;</button>
+      	</div>
+      	
         <div class="search-area">
           <form action="${contextPath}/search" name="query-form">
             <div>
-              <input type="search" id="inp-search" name="query" autocomplete="off" placeholder="검색어를 입력해주세요">
+              <input type="text" id="inp-search" name="query" autocomplete="off" placeholder="검색어를 입력해주세요">
               <button class="fa-solid fa-magnifying-glass"></button>
             </div>
           </form>

@@ -58,6 +58,7 @@ main{
 
 }
 
+
 form div{
     display: flex;
     justify-content: space-evenly;
@@ -77,13 +78,11 @@ form div:last-child{
 
 #searchId-btn{
     width: 70px;
-    font-size: 15px;
-    line-height: 25px;
-    background-color: #486284;
-    color: white;
-    border: 0;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid  black;
+    background-color: #E1FBFF;
     cursor: pointer;
-
 }
 
 #searchId-btn:hover{
@@ -103,7 +102,4 @@ form input{
 
     border-radius: 5px;
 }
-
-
-/* 확인버튼 */
 
