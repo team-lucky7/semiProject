@@ -4,6 +4,7 @@
 
 	<comment>reply-sql.xml</comment>
 	
+	<!-- 댓글 목록 조회 -->
 	<entry key="selectReplyList">
 		SELECT REPLY_NO, REPLY_CONTENT, 
 		    TO_CHAR(CREATE_DT, 'YYYY-MM-DD HH24:MI:SS') AS CREATE_DT, 
@@ -11,6 +12,10 @@
 		FROM REPLY
 		JOIN MEMBER USING(MEMBER_NO)
 		WHERE BOARD_NO = ?
+	</entry>
+	
+	<entry key="getIsLike">
+		SELECT COUNT(*) FROM "LIKE" WHERE BOARD_REPLY_NO = ? AND MEMBER_NO = ?
 	</entry>
 	
 </properties>

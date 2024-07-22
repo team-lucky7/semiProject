@@ -171,6 +171,8 @@ public class BoardDAO {
 				detail.setUpdateDate(rs.getString("UPDATE_DT"));
 				detail.setReadCount(rs.getInt("READ_COUNT"));
 				detail.setMemberNo(rs.getInt("MEMBER_NO"));
+				detail.setLikeCount(rs.getInt("LIKE_COUNT"));
+				
 			}
 			
 		}finally {
@@ -254,32 +256,6 @@ public class BoardDAO {
 		return imageList;
 	}
 
-	public List<Like> getLikeMember(Connection conn, int boardNo) throws Exception {
-		List<Like> likeList = new ArrayList<>();
-		
-		try {
-			String sql = prop.getProperty("getLikeMember");
-			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
-			
-			rs = pstmt.executeQuery();
-			
-			while(rs.next()) {
-				Like like = new Like();
-				like.setBoardReplyNo(rs.getInt("BOARD_REPLY_NO"));
-				like.setMemberNo(rs.getInt("MEMBER_NO"));
-				likeList.add(like);
-			}
-			
-		}finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return likeList;
-	}
-
 	public int getSearchListCount(Connection conn, int type, String query) throws Exception {
 		
 		int listCount = 0;
@@ -309,7 +285,7 @@ public class BoardDAO {
 		return listCount;
 	}
 
-	/** 게시글 검색
+	/** 게시글 검색 DAO
 	 * @param conn
 	 * @param type
 	 * @param pagination
@@ -358,6 +334,63 @@ public class BoardDAO {
 		}
 		
 		return boardList;
+	}
+
+	/** 좋아요 여부 조회 DAO
+	 * @param conn
+	 * @param boardNo
+	 * @param memberNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int getIsLike(Connection conn, int boardNo, int memberNo) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("getIsLike");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, memberNo);
+			
+			rs= pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	/** 조회수 증가 DAO
+	 * @param conn
+	 * @param boardNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int increaseReadCount(Connection conn, int boardNo) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("increaseReadCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 
 }
