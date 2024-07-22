@@ -20,6 +20,7 @@ public class Board {
 	private int likeCount;
 	private String locationName;
 	private String memberName;
+	private String thumbnail;
 	
 	private List<String> hashtagList;
 }
