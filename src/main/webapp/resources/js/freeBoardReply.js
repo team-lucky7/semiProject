@@ -13,9 +13,6 @@ const replyContent = document.getElementById("replyContent");
 
 replyContent.addEventListener("click", function(){
 	if(loginMemberNo == ""){
-		alert("로그인 후 이용해주세요");
 		this.setAttribute("readonly", "readonly");
-	}else{
-		this.removeAttribute("readonly");
 	}
 })

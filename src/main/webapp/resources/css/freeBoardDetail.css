@@ -67,10 +67,20 @@
     border: 1px solid #c2c2c2;
     cursor: pointer;
 }
+
 #likeBtn:hover{
     background-color: black;
     color: white;
 }
+
+.like-true{
+	background-color: pink;
+}
+
+.like-true:hover{
+	background-color: rgb(230, 13, 60);
+}
+
 .board-btn-area{
     display: flex;
     justify-content: flex-end;

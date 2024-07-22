@@ -62,7 +62,7 @@ public class ReplyDAO {
 				reply.setCreateDate(rs.getString("CREATE_DT"));
 				reply.setBoardNo(rs.getInt("BOARD_NO"));
 				reply.setMemberNo(rs.getInt("MEMBER_NO"));
-				reply.setMembeName(rs.getString("MEMBER_NM"));
+				reply.setMemberName(rs.getString("MEMBER_NM"));
 				reply.setProfileImage(rs.getString("PROFILE_IMG"));
 				
 				replyList.add(reply);
@@ -74,6 +74,39 @@ public class ReplyDAO {
 		}
 		
 		return replyList;
+	}
+
+
+	/** 좋아요 여부 조회
+	 * @param conn
+	 * @param replyNo
+	 * @param memberNo 
+	 * @return result
+	 * @throws Exception
+	 */
+	public int getIsLike(Connection conn, int replyNo, int memberNo) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("getIsLike");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, replyNo);
+			pstmt.setInt(2, memberNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				result = rs.getInt(1);
+			}
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
 	}
 	
 	
