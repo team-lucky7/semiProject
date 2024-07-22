@@ -40,7 +40,7 @@
                     <c:if test="${!empty detail.updateDate}">
                     	<p> <span>마지막 수정일</span> ${detail.updateDate}</p>
                     </c:if>
-                    <p> <span>좋아요</span> ${fn:length(detail.likeList)}</p>
+                    <p> <span>좋아요</span> ${detail.likeCount}</p>
                     <p> <span>조회수</span> ${detail.readCount}</p>
                 </div>
             </div>
@@ -58,7 +58,13 @@
 			</div>
 
 			<div>
-				<button id="likeBtn">좋아요</button>
+				<c:if test="${detail.like == true}">
+					<button id="likeBtn" class="like-true" onclick="deleteLike()">좋아요</button>
+				</c:if>
+				
+				<c:if test="${detail.like == false}">
+					<button id="likeBtn" onclick="insertLike()">좋아요</button>
+				</c:if>
 			</div>
 
 			<div class="board-btn-area">
@@ -79,6 +85,7 @@
 	</script>
 	<script src="${contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 	<script src="${contextPath}/resources/js/header.js"></script>
-	<script src="${contextPath}/resources/js/freeBoardDetail.js"></script>
+	<script src="${contextPath}/resources/js/freeBoard.js"></script>
+	<script src="${contextPath}/resources/js/freeBoardReply.js"></script>
 </body>
 </html>

@@ -11,9 +11,8 @@ import semiProject.board.model.vo.Board;
 import semiProject.board.model.vo.BoardArticle;
 import semiProject.board.model.vo.BoardDetail;
 import semiProject.board.model.vo.BoardImage;
-import semiProject.board.model.vo.Like;
 import semiProject.board.model.vo.Pagination;
-import semiProject.board.model.vo.Reply;
+import semiProject.member.model.vo.Member;
 
 import static semiProject.common.JDBCTemplate.*;
 
@@ -52,23 +51,41 @@ public class BoardService {
 
 	/** 게시글 상세조회 Service
 	 * @param boardNo
+	 * @param loginMember 
 	 * @return detail
 	 * @throws Exception
 	 */
-	public BoardDetail selectBoardDetail(int boardNo) throws Exception{
+	public BoardDetail selectBoardDetail(int boardNo, Member loginMember) throws Exception{
 		Connection conn = getConnection();
 		
 		BoardDetail detail = dao.selectBoardDetail(conn, boardNo);
-		
+
 		if(detail != null) {
-			List<Like> likeList = dao.getLikeMember(conn, boardNo);
-			detail.setLikeList(likeList);
+			
+			int result = dao.increaseReadCount(conn, boardNo);
+			
+			if(result > 0) {
+				commit(conn);
+				detail.setReadCount(detail.getReadCount() + result);
+			}else {
+				rollback(conn);
+			}
 			
 			List<BoardArticle> articleList = dao.selectBoardArticle(conn, boardNo);
 			detail.setArticleList(articleList);
 			
 			List<BoardImage> imageList = dao.selectBoardImage(conn, boardNo);
 			detail.setImageList(imageList);
+			
+			if(loginMember != null) {
+				int memberNo = loginMember.getMemberNo();
+				
+				result = dao.getIsLike(conn, boardNo, memberNo);
+				
+				if(result > 0) {
+					detail.setLike(true);
+				}
+			}
 		}
 		
 		close(conn);
