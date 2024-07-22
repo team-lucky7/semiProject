@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -152,9 +153,25 @@
               </div>
             </a>
           </div>
+          
+          <c:if test="${! empty loginMember}">
+            
+            <div id="write">
+              <button id="insertBtn">
+                <a href="${contextPath}/board/regionWrite">글쓰기</a>
+              </button>
+            </div>
+          </c:if>
+
+          
+         
+          
         </form>
         <button id="left"><i class="fa-solid fa-chevron-left"></i></button>
         <button id="right"><i class="fa-solid fa-chevron-right"></i></button>
+        <div>
+         
+        </div>
       </section>
   </main>
 
