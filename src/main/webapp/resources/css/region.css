@@ -130,3 +130,20 @@
   height: 200px;
   background-color: blue;
 }
+
+#write{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#insertBtn{
+  width: 80px;
+  height: 40px;
+  margin-right: 50px;
+  background-color: #455ba8;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
