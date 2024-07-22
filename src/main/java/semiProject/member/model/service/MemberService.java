@@ -122,5 +122,23 @@ public class MemberService {
 		
 		return result;
 	}
+ 
+	/** 아이디 찾기 Service
+	 * @param inputEmail
+	 * @param inputPhone
+	 * @return loginMember
+	 */
+	public Member searchId(String inputEmail, String inputPhone)  throws Exception{
+		
+		Connection conn = getConnection();
+		
+		
+		Member loginMember = dao.searchId(conn,inputEmail,inputPhone);
+		
+		close(conn);
+		
+		return loginMember;
+		
+	}
 
 }

@@ -88,8 +88,6 @@ html{
     line-height: 30px;
 }
 .KAKAOAPI{
-    width: 940px;
     border: 1px solid black;
-    height: 300px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
