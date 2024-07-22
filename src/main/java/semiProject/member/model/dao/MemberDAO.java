@@ -232,37 +232,4 @@ public class MemberDAO {
 		return result;
 	}
 
-	public Member searchId(Connection conn, String inputEmail, String inputPhone) throws Exception {
-		
-		Member loginMember = null;
-		
-		try {
-			
-			String sql = prop.getProperty("searchId");
-			
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1,inputEmail);
-			pstmt.setString(2,inputPhone);
-			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				
-				loginMember = new Member();
-				
-				loginMember.setMemberId(rs.getString("MEMBER_ID"));
-				
-			}
-			
-		}finally {
-			
-			close(rs);
-			close(pstmt);
-		}
-		
-		return loginMember;
-	}
-		
-
 }

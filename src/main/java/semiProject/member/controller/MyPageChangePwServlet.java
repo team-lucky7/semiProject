@@ -36,7 +36,6 @@ public class MyPageChangePwServlet extends HttpServlet{
 		
 		int memberNo = loginMember.getMemberNo(); 
 		
-		
 		try {
 
 			MemberService service = new MemberService();
