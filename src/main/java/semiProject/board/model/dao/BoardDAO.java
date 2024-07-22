@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 import semiProject.board.model.vo.Board;
@@ -45,7 +46,7 @@ public class BoardDAO {
 	 * @return boardName
 	 * @throws Exception
 	 */
-	public String selectBoardName(Connection conn, int type) throws Exception{
+	public String selectBoardName(Connection conn, int type) throws Exception {
 		String boardName = null;
 		
 		try {
@@ -74,7 +75,7 @@ public class BoardDAO {
 	 * @return listCount
 	 * @throws Exception
 	 */
-	public int getListCount(Connection conn, int type) throws Exception{
+	public int getListCount(Connection conn, int type) throws Exception {
 		int listCount = 0;
 		
 		try {
@@ -104,7 +105,7 @@ public class BoardDAO {
 	 * @return boardList
 	 * @throws Exception
 	 */
-	public List<Board> selectBoardList(Connection conn, int type, Pagination pagination) throws Exception{
+	public List<Board> selectBoardList(Connection conn, int type, Pagination pagination) throws Exception {
 		List<Board> boardList = new ArrayList<>();
 		
 		try {
@@ -147,7 +148,7 @@ public class BoardDAO {
 	 * @return 
 	 * @throws Exception
 	 */
-	public BoardDetail selectBoardDetail(Connection conn, int boardNo) throws Exception{
+	public BoardDetail selectBoardDetail(Connection conn, int boardNo) throws Exception {
 		BoardDetail detail = null;
 		
 		try {
@@ -186,7 +187,7 @@ public class BoardDAO {
 	 * @return articleList
 	 * @throws Exception
 	 */
-	public List<BoardArticle> selectBoardArticle(Connection conn, int boardNo) throws Exception{
+	public List<BoardArticle> selectBoardArticle(Connection conn, int boardNo) throws Exception {
 		List<BoardArticle> articleList = new ArrayList<>();
 		
 		try {
@@ -222,7 +223,7 @@ public class BoardDAO {
 	 * @return imageList
 	 * @throws Exception
 	 */
-	public List<BoardImage> selectBoardImage(Connection conn, int boardNo) throws Exception{
+	public List<BoardImage> selectBoardImage(Connection conn, int boardNo) throws Exception {
 		List<BoardImage> imageList = new ArrayList<>();
 		
 		try {
@@ -253,7 +254,7 @@ public class BoardDAO {
 		return imageList;
 	}
 
-	public List<Like> getLikeMember(Connection conn, int boardNo) throws Exception{
+	public List<Like> getLikeMember(Connection conn, int boardNo) throws Exception {
 		List<Like> likeList = new ArrayList<>();
 		
 		try {
@@ -277,6 +278,86 @@ public class BoardDAO {
 		}
 		
 		return likeList;
+	}
+
+	public int getSearchListCount(Connection conn, int type, String query) throws Exception {
+		
+		int listCount = 0;
+		query = "%" + query + "%";
+		
+		try {
+			String sql = prop.getProperty("getSearchListCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, type);
+			pstmt.setString(2, query);
+			pstmt.setString(3, query);
+			pstmt.setString(4, query);
+			pstmt.setString(5, query);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return listCount;
+	}
+
+	/** 게시글 검색
+	 * @param conn
+	 * @param type
+	 * @param pagination
+	 * @param query
+	 * @return boardList
+	 * @throws Exception
+	 */
+	public List<Board> searchBoardList(Connection conn, int type, Pagination pagination, String query) throws Exception {
+		List<Board> boardList = new ArrayList<>();
+		query = "%" + query + "%";
+		
+		try {
+			String sql = prop.getProperty("searchBoardList");
+			
+			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
+			int end = start + pagination.getLimit() - 1;
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, type);
+			pstmt.setString(2, query);
+			pstmt.setString(3, query);
+			pstmt.setString(4, query);
+			pstmt.setString(5, query);
+			pstmt.setInt(6, start);
+			pstmt.setInt(7, end);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Board board = new Board();
+				
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setMemberName(rs.getString("MEMBER_NM"));
+				board.setCreateDate(rs.getString("CREATE_DT"));
+				board.setReadCount(rs.getInt("READ_COUNT"));
+				board.setLikeCount(rs.getInt("LIKE_COUNT"));
+				board.setThumbnail(rs.getString("THUMBNAIL"));
+				
+				boardList.add(board);
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return boardList;
 	}
 
 }
