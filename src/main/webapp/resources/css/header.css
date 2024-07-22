@@ -146,16 +146,16 @@ a {
     max-height: 100%;
 }
 
-.search-wrap > img{
-    position: absolute;
-    top: 6px;
-    left: 213px;
+.search-index-logo{
+	display: flex;
+	width: 1495px;
+	height: 100px;
+	margin: 0 auto;
+	padding-top: 6px;
+	justify-content: space-between;
 }
 
-.search-wrap > button{
-    position: absolute;
-    top: 6px;
-    right: 213px;
+.search-index-logo > button{
     padding: 5px 25px;
     border-radius: 50%;
     cursor:pointer;
