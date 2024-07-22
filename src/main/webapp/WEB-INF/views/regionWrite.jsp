@@ -39,8 +39,7 @@
                     <input type="text" class="textName" placeholder="한줄 설명을 입력해주세요(20글자이내)">
                 </div>
                 <div class="text">
-                    <span>사진 업로드</span>
-                    </a>
+                    <label for="image1">사진 업로드</label></span>
                 </div>
         
                 <div class="boardImage">

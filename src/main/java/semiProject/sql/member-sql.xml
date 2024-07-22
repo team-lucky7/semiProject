@@ -48,5 +48,10 @@
 		WHERE MEMBER_NO = ?
 	</entry>
 	
+	<entry key="searchId">
+	SELECT MEMBER_ID FROM MEMBER
+	WHERE MEMBER_EMAIL = ?
+	AND MEMBER_TEL = ?
+	</entry>
 	
 </properties>

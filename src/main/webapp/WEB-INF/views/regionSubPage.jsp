@@ -54,8 +54,9 @@
                    <br>이미 덕에 배부르니 군자만년 그대의 큰 복을 도우리라(旣醉以酒 旣飽以德 君子萬年 介爾景福).”에서 두 자를 따서 경복궁이라고 지었다.
                </span>
            </div>
-           <div class="KAKAOAPI">카카오</div>
-           <div></div>
+           <div class="KAKAOAPI">
+               <div id="map" style="width:100%;height:350px;"></div>    
+           </div>
        </section>
 
     </main>
@@ -63,6 +64,8 @@
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 	<script src="${ contextPath }/resources/js/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a672d1a3dd18b00d1ead688b41bca007&libraries=services"></script>
 	<script src="${ contextPath }/resources/js/header.js"></script>
 	<script src="${ contextPath }/resources/js/regionSubPage.js"></script>
 	
