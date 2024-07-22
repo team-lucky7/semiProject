@@ -66,13 +66,13 @@
                   </div>
                   <div class="text">
                     <h1>경복궁</h1>
-                    <span>안녕하십니까 여기는 경복궁입니다. <br>
-                      아주 좋아요 한국 좋아요 한국 멋있어요 <br>
-                      김치 맛있어요. 경복궁 이뻐요 l love korea
+                    <span>경복궁은 조선 왕조 제일의 법궁이다. <br>
+                      1395년 태조 이성계가 창건 하였고, 1592년 임진왜란으로 불타 없어졌다가
+                      고종때인 1867년 중건 되었다. <br>
                     </span>
-                    <!-- <div class="kakaoAPI">
-                      카카오
-                    </div> -->
+                    <div class="kakaoAPI">
+                      <div id="staticMap" style="width:500px;height:300px; border-radius:20px;"></div>
+                    </div>
                   </div>
                 </div>
                 <div class="main-add">
@@ -179,6 +179,8 @@
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
   
 	<script src="${ contextPath }/resources/js/jquery-3.7.1.min.js"></script>
+  <script type="text/javascript"
+  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a672d1a3dd18b00d1ead688b41bca007&libraries=services"></script>
 	<script src="${ contextPath }/resources/js/region.js"></script>
 	<script src="${ contextPath }/resources/js/header.js"></script>
 </body>
