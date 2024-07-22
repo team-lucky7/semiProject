@@ -24,7 +24,7 @@
 		        FROM BOARD
 		        JOIN MEMBER USING(MEMBER_NO)
 		        LEFT JOIN "LIKE" ON(BOARD_REPLY_NO = BOARD_NO)
-		        WHERE BOARD_CD = 3
+		        WHERE BOARD_CD = ?
 		        AND BOARD_ST = 'N'
 		        GROUP BY BOARD_NO, BOARD_TITLE, MEMBER_NM,
 		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD'), READ_COUNT
