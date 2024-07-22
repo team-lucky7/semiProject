@@ -50,8 +50,11 @@
   <div class="search-index">
     <div>
       <div class="search-wrap">
-        <img src="${contextPath}/resources/images/logo.jpg" height="100px">
-        <button type="button" onclick="closeSearch()">&times;</button>
+      	<div class="search-index-logo">
+      		<img src="${contextPath}/resources/images/logo.jpg" height="100px">
+        	<button type="button" onclick="closeSearch()">&times;</button>
+      	</div>
+      	
         <div class="search-area">
           <form action="${contextPath}/search" name="query-form">
             <div>
