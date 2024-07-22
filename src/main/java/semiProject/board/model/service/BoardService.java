@@ -1,6 +1,7 @@
 package semiProject.board.model.service;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -73,6 +74,60 @@ public class BoardService {
 		close(conn);
 		
 		return detail;
+	}
+	
+	/** 키워드 검색
+	 * @param query
+	 * @return mapList
+	 * @throws Exception
+	 */
+	public List<Map<String, Object>> searchKeyword(String query) throws Exception{
+		
+		List<Map<String, Object>> mapList = new ArrayList<>();
+		
+		mapList.add(searchBoardList(1, 1, query));
+		mapList.add(searchBoardList(2, 1, query));
+		mapList.add(searchBoardList(3, 1, query));
+		
+		return mapList;
+	}
+
+	/** 해시태그 검색
+	 * @param query
+	 * @return mapList
+	 * @throws Exception
+	 */
+	public List<Map<String, Object>> searchHashtag(String query) throws Exception{
+		
+		List<Map<String, Object>> mapList = new ArrayList<>();
+		
+		mapList.add(searchBoardList(4, 1, query));
+		mapList.add(searchBoardList(5, 1, query));
+		
+		return mapList;
+	}
+	
+	public Map<String, Object> searchBoardList(int type, int cp, String query) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		String boardName = dao.selectBoardName(conn, type);
+		
+		int listCount = dao.getSearchListCount(conn, type, query);
+		
+		Pagination pagination = new Pagination(cp, listCount);
+		
+		List<Board> boardList = dao.searchBoardList(conn, type, pagination, query);
+		
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("boardName", boardName);
+		map.put("pagination", pagination);
+		map.put("boardList", boardList);
+		
+		close(conn);
+		
+		return map;
 	}
 
 }
