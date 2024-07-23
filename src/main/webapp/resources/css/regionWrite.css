@@ -195,3 +195,18 @@ html{
 .mapImage > div:nth-child(1){
     margin-top: 20px;
 }
+.boardImage{
+    width: 500px;
+    height: 700px;
+    display: inline-block;
+    text-align: center;
+    position: relative;
+}
+
+.delete-image{
+    position: absolute;
+    top: 0;
+    left: 900px;
+    font-size: 50px;
+    cursor: pointer;
+}
