@@ -8,14 +8,38 @@
 	<entry key="selectReplyList">
 		SELECT REPLY_NO, REPLY_CONTENT, 
 		    TO_CHAR(CREATE_DT, 'YYYY-MM-DD HH24:MI:SS') AS CREATE_DT, 
-		    BOARD_NO, MEMBER_NO, MEMBER_NM, PROFILE_IMG
+		    BOARD_NO, REPLY.MEMBER_NO, MEMBER_NM, PROFILE_IMG, COUNT(BOARD_REPLY_NO) LIKE_COUNT
 		FROM REPLY
-		JOIN MEMBER USING(MEMBER_NO)
+		JOIN MEMBER ON(REPLY.MEMBER_NO = MEMBER.MEMBER_NO)
+		LEFT JOIN "LIKE" ON(REPLY_NO = BOARD_REPLY_NO)
 		WHERE BOARD_NO = ?
+		AND REPLY_ST = 'N'
+		GROUP BY REPLY_NO, REPLY_CONTENT, 
+		    TO_CHAR(CREATE_DT, 'YYYY-MM-DD HH24:MI:SS'), 
+		    BOARD_NO, REPLY.MEMBER_NO, MEMBER_NM, PROFILE_IMG
+		ORDER BY REPLY_NO
 	</entry>
 	
+	<!-- 좋아요 여부 조회 -->
 	<entry key="getIsLike">
 		SELECT COUNT(*) FROM "LIKE" WHERE BOARD_REPLY_NO = ? AND MEMBER_NO = ?
+	</entry>
+	
+	<!-- 댓글 삽입 -->
+	<entry key="insertReply">
+		INSERT INTO REPLY VALUES(
+		    SEQ_REPLY_NO.NEXTVAL, ?, 
+		    DEFAULT, DEFAULT, ?, ?)
+	</entry>
+	
+	<!-- 댓글 삭제 -->
+	<entry key="deleteReply">
+		UPDATE REPLY SET REPLY_ST = 'Y' WHERE REPLY_NO = ?
+	</entry>
+	
+	<!-- 댓글 수정 -->
+	<entry key="updateReply">
+		UPDATE REPLY SET REPLY_CONTENT = ? WHERE REPLY_NO = ?
 	</entry>
 	
 </properties>
