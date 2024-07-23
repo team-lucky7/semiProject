@@ -125,8 +125,8 @@ input {
   width: 800px;
   height: 400px;
   background-color: #8b8b8b1c;
+  margin-top: 100px;
 }
-
 .halfContent {
   width: 400px;
   background-color: #8b8b8b1c;
@@ -198,4 +198,8 @@ input {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+#mapDiv{
+  margin-top: 50px;
 }
