@@ -61,9 +61,7 @@
 				</table>
 			</div>
 			<div class="btn-area">
-        <a href="${contextPath}/communityWrite">
-          <button id="insertBtn">글쓰기</button>
-        </a>
+          		<button id="insertBtn" onclick="location.href='write?mode=insert&type=${param.type}'">글쓰기</button>
 			</div>
 
 			<div class="pagination-area">
