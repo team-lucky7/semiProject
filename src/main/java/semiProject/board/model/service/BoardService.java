@@ -164,4 +164,25 @@ public class BoardService {
 		return result;
 	}
 
+	public BoardDetail selectRegionList(int type, Member loginMember,int boardNo) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		BoardDetail detail = dao.selectRegionList(conn,type);
+		
+		if(detail != null) {
+			
+			List<BoardImage> imageList = dao.selectRegionImageList(conn,type,boardNo);
+			
+			detail.setImageList(imageList);
+			
+			System.out.println(imageList);
+
+		}
+		
+		close(conn);
+		
+		return detail;
+	}
+
 }
