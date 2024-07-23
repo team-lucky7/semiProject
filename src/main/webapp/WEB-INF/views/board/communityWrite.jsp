@@ -78,13 +78,12 @@
     </section>
     
 
+     
+    <script src="${contextPath}/resources/js/communityWrite.js"></script>
+    
     <script type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a672d1a3dd18b00d1ead688b41bca007&libraries=services"></script>
-
-    <script src="${contextPath}/resources/js/communityWrite.js"></script>
-
-   
-
-  </body>
-
-  </html>
+    
+    </body>
+    
+    </html>
