@@ -22,7 +22,7 @@
                         지역 선택 : 
                     </div>
                     <select id="select-region">
-                        <option value="#">서울10</option>
+                        <option value="#">BOARD_TYPE(10)</option>
                         <option value="#">인천11</option>
                         <option value="#">대전12</option>
                         <option value="#">대구13</option>
@@ -34,9 +34,9 @@
              
     
                 <div class="destination">
-                    <input type="text" class="textbigname" placeholder="제목을 입력해주세요.">
-                    <input type="text" class="textsmallname" placeholder="지역을 입력해주세요.">
-                    <input type="text" class="textName" placeholder="한줄 설명을 입력해주세요(20글자이내)">
+                    <input type="text" class="textbigname" placeholder="BOARD_TITLE">
+                    <input type="text" class="textsmallname" placeholder="LOCATION_NM">
+                    <input type="text" class="textName" placeholder="BOARD_CONTENT">
                 </div>
                 <div class="text">
                   <label for="image1">사진 업로드</label></span>
@@ -55,12 +55,12 @@
                     <span id="slide">상세정보</span>
                 </div>
                 <div class="writecontent">
-                    <textarea></textarea>
+                    <textarea>BOARD_ARTICLE(CONTENT)</textarea>
                 </div>
         
                 <div class="mapImage" id="mapDiv">
                     <div>
-                        <input type="text" id="inputAddress" placeholder="주소를 입력해주세요">
+                        <input type="text" id="inputAddress" placeholder="LOCATION_CD">
                         <button type="button" onclick="mapAddress()" id="chk">확인</button>
                     </div>
 
