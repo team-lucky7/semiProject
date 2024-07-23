@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+
+	<comment>like-sql.xml</comment>
+	
+	<entry key="insertLike">
+		INSERT INTO "LIKE" VALUES(?, ?)
+	</entry>
+	
+	<entry key="deleteLike">
+		DELETE FROM "LIKE" WHERE BOARD_REPLY_NO = ? AND MEMBER_NO = ?
+	</entry>
+
+</properties>

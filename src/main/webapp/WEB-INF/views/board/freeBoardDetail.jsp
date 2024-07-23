@@ -40,7 +40,6 @@
                     <c:if test="${!empty detail.updateDate}">
                     	<p> <span>마지막 수정일</span> ${detail.updateDate}</p>
                     </c:if>
-                    <p> <span>좋아요</span> ${detail.likeCount}</p>
                     <p> <span>조회수</span> ${detail.readCount}</p>
                 </div>
             </div>
@@ -59,11 +58,11 @@
 
 			<div>
 				<c:if test="${detail.like == true}">
-					<button id="likeBtn" class="like-true" onclick="deleteLike()">좋아요</button>
+					<button id="likeBtn" class="like-true" onclick="deleteLike(${detail.boardNo})">좋아요 ${detail.likeCount}</button>
 				</c:if>
 				
 				<c:if test="${detail.like == false}">
-					<button id="likeBtn" onclick="insertLike()">좋아요</button>
+					<button id="likeBtn" onclick="insertLike(${detail.boardNo})">좋아요 ${detail.likeCount}</button>
 				</c:if>
 			</div>
 
@@ -82,6 +81,8 @@
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 	<script>
 		const loginMemberNo = "${loginMember.memberNo}";
+		const contextPath = "${contextPath}";
+		const boardNo = "${detail.boardNo}";
 	</script>
 	<script src="${contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 	<script src="${contextPath}/resources/js/header.js"></script>
