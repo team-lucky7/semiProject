@@ -164,4 +164,9 @@ public class BoardService {
 		return result;
 	}
 
+	public int insertBoard(BoardDetail detail, List<BoardArticle> articleList, List<BoardImage> imageList) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }
