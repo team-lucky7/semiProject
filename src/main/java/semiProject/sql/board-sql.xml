@@ -114,4 +114,12 @@
 	<entry key="deleteBoard">
 		UPDATE BOARD SET BOARD_ST = 'Y' WHERE BOARD_NO = ?
 	</entry>
+	
+	<!-- 게시글 삽입 -->
+	<entry key="insertBoard">
+		INSERT INTO BOARD VALUES
+		    (SEQ_BOARD_NO.NEXTVAL, ?, 
+		    DEFAULT, DEFAULT, DEFAULT, DEFAULT, DEFAULT, 
+		    3, DEFAULT, ?)
+	</entry>
 </properties>

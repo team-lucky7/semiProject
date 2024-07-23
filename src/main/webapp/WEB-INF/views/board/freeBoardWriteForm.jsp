@@ -14,7 +14,7 @@
 	<main>
 		<form action="#" enctype="multipart/form-data" method="post" class="board-write"
 		onsubmit="return writeValidate()">
-			<div id="container">
+			<div>
 				<h1 class="board-title">
 					<input type="text" name="boardTitle" placeholder="제목을 입력해주세요." value="${detail.boardTitle}">
 				</h1>
@@ -26,8 +26,11 @@
 					</div>
 				</div>
 			</div>
-		
-			<button type="submit" id="submit">작성완료</button>
+
+			<div id="container"></div>
+
+			<button id="insert-Btn">작성완료</button>
+			<input type="hidden" id="count" name="count" value="">
 	    </form>
 	</main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
