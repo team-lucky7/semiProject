@@ -68,11 +68,6 @@
     cursor: pointer;
 }
 
-#likeBtn:hover{
-    background-color: black;
-    color: white;
-}
-
 .like-true{
 	background-color: pink;
 }

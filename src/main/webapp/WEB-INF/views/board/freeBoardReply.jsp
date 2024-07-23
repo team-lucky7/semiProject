@@ -19,15 +19,21 @@
                             </c:if>
                             <span>${reply.memberName}</span>
                             <span class="reply-date"> (${reply.createDate})</span>
-                            <button type="button" class="like-btn">좋아요 ${reply.likeCount}</button>
+
+                            <c:if test="${reply.like == true}">
+                                <button type="button" class="like-btn like-true" onclick="deleteLike(${reply.replyNo})">좋아요 ${reply.likeCount}</button>
+                            </c:if>
+                            <c:if test="${reply.like == false}">
+                                <button type="button" class="like-btn" onclick="insertLike(${reply.replyNo})">좋아요 ${reply.likeCount}</button>
+                            </c:if>
                         </p>
         
                         <p class="reply-content">${reply.replyContent}</p>
                         
                         <div class="reply-btn-area">
                         	<c:if test="${reply.memberNo == loginMember.memberNo}">
-	                            <button onclick="showUpdateReply(1, this)">수정</button>
-	                            <button onclick="deleteReply(1)">삭제</button>
+	                            <button onclick="showUpdateReply(${reply.replyNo}, this)">수정</button>
+	                            <button onclick="deleteReply(${reply.replyNo})">삭제</button>
                         	</c:if>
                         </div>
                     </li>

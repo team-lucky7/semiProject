@@ -26,3 +26,23 @@
     } 
     
 })();
+
+(function(){
+
+    const deleteBtn = document.getElementById("deleteBtn");
+
+    if(deleteBtn != null){
+        deleteBtn.addEventListener("click", function(){
+            let url = "delete";
+            const params = new URL(location.href).searchParams;
+            const no = "?no=" + params.get("no");
+            const type = "&type=" + params.get("type");
+            url += no + type;
+
+            if(confirm('정말로 삭제하시겠습니까?')){
+                location.href = url;
+            }
+        })
+    }
+
+})();
