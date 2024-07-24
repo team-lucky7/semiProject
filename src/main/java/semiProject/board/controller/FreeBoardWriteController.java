@@ -30,6 +30,11 @@ public class FreeBoardWriteController extends HttpServlet{
 		try {
 			String mode = req.getParameter("mode");
 			if(mode.equals("update")) {
+				int boardNo = Integer.parseInt(req.getParameter("no"));
+				
+				BoardDetail detail = new BoardService().selectBoardDetail(boardNo, null);
+				
+				req.setAttribute("detail", detail);
 				
 			}
 			
@@ -49,7 +54,7 @@ public class FreeBoardWriteController extends HttpServlet{
 			HttpSession session = req.getSession();
 			String root = session.getServletContext().getRealPath("/");
 			
-			String folderPath = "resources/images/board/";
+			String folderPath = "/resources/images/board/";
 			String filePath = root + folderPath;
 			
 			String encoding = "UTF-8";
@@ -87,9 +92,13 @@ public class FreeBoardWriteController extends HttpServlet{
 					article.setContentLevel(i);
 					article.setContent(mpReq.getParameter(i+""));
 					article.setContentSize(1);
+					
+					articleList.add(article);
 				}
 			}
+			
 			String boardTitle = mpReq.getParameter("boardTitle");
+			System.out.println(boardTitle);
 			
 			Member loginMember = (Member)session.getAttribute("loginMember");
 			int memberNo = loginMember.getMemberNo();
@@ -110,14 +119,14 @@ public class FreeBoardWriteController extends HttpServlet{
 				
 				// 게시글 삽입 서비스 호출 후 결과 반환 받기
 				// -> 반환된 게시글 번호를 이용해서 상세조회로 리다이렉트 예정
-				int boardNo = service.insertBoard(detail, articleList, imageList);
+				int boardNo = service.insertFreeBoard(detail, articleList, imageList);
 				
 				String path = null;
 				if(boardNo > 0) { // 성공
 					session.setAttribute("message", "게시글이 등록되었습니다.");
 					
 					// 등록한 게시글 상세화면
-					path = "detail?no=" + boardNo + "&type=3";
+					path = "detail?no=" + boardNo + "&type=3&cp=1";
 					
 				}else { // 실패
 					session.setAttribute("message", "게시글 등록 실패 ㅠㅠ");

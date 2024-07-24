@@ -2,6 +2,10 @@ const container = document.getElementById("container");
 
 let i = 0;
 
+if(loadContentCount != null){
+    i += loadContentCount;
+}
+
 function addText(){
     const boardText = document.createElement("div");
     boardText.classList.add("boardText")

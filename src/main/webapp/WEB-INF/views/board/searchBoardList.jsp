@@ -32,15 +32,15 @@
 					<c:if test="${!empty mapList[0].boardList}">
 						<c:forEach var="i" begin="0" end="${fn:length(mapList[0].boardList) - 1}">
 							<div class="list-row">
-								<c:if test="${empty mapList[0].boardList.thumbnail}">
+								<c:if test="${empty mapList[0].boardList[i].thumbnail}">
 									<img src="${contextPath}/resources/images/image-icon-10.jpg">
 								</c:if>
 								
-								<c:if test="${!empty mapList[0].boardList.thumbnail}">
-									<img src="${contextPath}${mapList[0].boardList.thumbnail}">
+								<c:if test="${!empty mapList[0].boardList[i].thumbnail}">
+									<img src="${contextPath}${mapList[0].boardList[i].thumbnail}">
 								</c:if>
 								<span>
-									<h3>${mapList[0].boardList.boardTitle}</h3>
+									<h3>${mapList[0].boardList[i].boardTitle}</h3>
 									<h5>내용</h5>
 									<ul class="hashtag-list">
 										<li><a href="">#태그</a></li>
@@ -69,15 +69,15 @@
 					<c:if test="${!empty mapList[1].boardList}">
 						<c:forEach var="i" begin="0" end="${fn:length(mapList[1].boardList) - 1}">
 							<div class="list-row">
-								<c:if test="${empty mapList[1].boardList.thumbnail}">
+								<c:if test="${empty mapList[1].boardList[i].thumbnail}">
 									<img src="${contextPath}/resources/images/image-icon-10.jpg">
 								</c:if>
 								
-								<c:if test="${!empty mapList[1].boardList.thumbnail}">
-									<img src="${contextPath}${mapList[1].boardList.thumbnail}">
+								<c:if test="${!empty mapList[1].boardList[i].thumbnail}">
+									<img src="${contextPath}${mapList[1].boardList[i].thumbnail}">
 								</c:if>
 								<span>
-									<h3>${mapList[1].boardList.boardTitle}</h3>
+									<h3>${mapList[1].boardList[i].boardTitle}</h3>
 									<h5>내용</h5>
 									<ul class="hashtag-list">
 										<li><a href="">#태그</a></li>
@@ -108,15 +108,15 @@
 					<c:if test="${!empty mapList[0].boardList}">
 						<c:forEach var="i" begin="0" end="${fn:length(mapList[0].boardList) - 1}">
 							<div class="list-row">
-								<c:if test="${empty mapList[0].boardList.thumbnail}">
+								<c:if test="${empty mapList[0].boardList[i].thumbnail}">
 									<img src="${contextPath}/resources/images/image-icon-10.jpg">
 								</c:if>
 								
-								<c:if test="${!empty mapList[0].boardList.thumbnail}">
-									<img src="${contextPath}${mapList[0].boardList.thumbnail}">
+								<c:if test="${!empty mapList[0].boardList[i].thumbnail}">
+									<img src="${contextPath}${mapList[0].boardList[i].thumbnail}">
 								</c:if>
 								<span>
-									<h3>${mapList[0].boardList.boardTitle}</h3>
+									<h3>${mapList[0].boardList[i].boardTitle}</h3>
 									<h5>내용</h5>
 								</span>
 							</div>
@@ -134,15 +134,15 @@
 					<c:if test="${!empty mapList[1].boardList}">
 						<c:forEach var="i" begin="0" end="${fn:length(mapList[1].boardList) - 1}">
 							<div class="list-row">
-								<c:if test="${empty mapList[1].boardList.thumbnail}">
+								<c:if test="${empty mapList[1].boardList[i].thumbnail}">
 									<img src="${contextPath}/resources/images/image-icon-10.jpg">
 								</c:if>
 								
-								<c:if test="${!empty mapList[1].boardList.thumbnail}">
-									<img src="${contextPath}${mapList[0].boardList.thumbnail}">
+								<c:if test="${!empty mapList[1].boardList[i].thumbnail}">
+									<img src="${contextPath}${mapList[1].boardList[i].thumbnail}">
 								</c:if>
 								<span>
-									<h3>${mapList[1].boardList.boardTitle}</h3>
+									<h3>${mapList[1].boardList[i].boardTitle}</h3>
 									<h5>내용</h5>
 								</span>
 							</div>
@@ -153,17 +153,17 @@
 				<h1 class="board-name">${mapList[2].boardName}</h1>
 				<div class="list-wrapper">
 					<table class="list-table">
-						<thead>
-							<tr>
-								<th>제목</th>
-								<th>내용</th>
-								<th>날짜</th>
-							</tr>
-						</thead>
 						<c:if test="${empty mapList[2].boardList}">
 							검색 결과가 없습니다.
 						</c:if>
 						<c:if test="${!empty mapList[2].boardList}">
+							<thead>
+								<tr>
+									<th>제목</th>
+									<th>내용</th>
+									<th>날짜</th>
+								</tr>
+							</thead>
 							<c:forEach var="i" begin="0" end="${fn:length(mapList[2].boardList) - 1}">
 								<tbody>
 									<tr>

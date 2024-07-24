@@ -57,6 +57,12 @@
     padding: 20px;
 }
 
+.board-content img{
+    display: block;
+    max-width: 200px;
+    max-height: 200px;
+}
+
 #likeBtn{
     display: block;
     margin: 30px auto;
