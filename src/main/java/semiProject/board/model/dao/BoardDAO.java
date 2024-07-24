@@ -47,6 +47,7 @@ public class BoardDAO {
 	 * @throws Exception
 	 */
 	public String selectBoardName(Connection conn, int type) throws Exception {
+		
 		String boardName = null;
 		
 		try {
@@ -415,5 +416,6 @@ public class BoardDAO {
 		}
 		return result;
 	}
+
 
 }
