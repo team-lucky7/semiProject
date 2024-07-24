@@ -21,38 +21,38 @@
   
     <section class="region-Btn">
       <div class="Btn-add">
-        <a href="${ contextPath }/region?type=11" >
+        <a href="${ contextPath }/region?type=10" >
           <button><img src="${contextPath}/resources/images/region/서울버튼.jpg"> <span>서울</span></button>
         </a>
       </div>
       <div class="Btn-add">
-        <a href="${ contextPath }/region?type=12&no=12">
-          <button><img src="${contextPath}/resources/images/region/인천 버튼2.jpg"> <span>인천</span></button>
+        <a href="${ contextPath }/region?type=11">
+          <button><img src="${contextPath}/resources/images/region/인천버튼.jpg"> <span>인천</span></button>
+        </a>
+      </div>
+      <div class="Btn-add">
+        <a href="${ contextPath }/region?type=12">
+          <button><img src="${contextPath}/resources/images/region/대전버튼.jpg"> <span>대전</span></button>
         </a>
       </div>
       <div class="Btn-add">
         <a href="${ contextPath }/region?type=13">
-          <button><img src="${contextPath}/resources/images/region/대전 버튼.jpg"> <span>대전</span></button>
+          <button><img src="${contextPath}/resources/images/region/대구버튼.png"> <span>대구</span></button>
         </a>
       </div>
       <div class="Btn-add">
         <a href="${ contextPath }/region?type=14">
-          <button><img src="${contextPath}/resources/images/region/인천 버튼jpg.jpg"> <span>대구</span></button>
+          <button><img src="${contextPath}/resources/images/region/부산버튼.png"> <span>부산</span></button>
         </a>
       </div>
       <div class="Btn-add">
         <a href="${ contextPath }/region?type=15">
-          <button><img src="${contextPath}/resources/images/region/서울버튼.jpg"> <span>부산</span></button>
+          <button><img src="${contextPath}/resources/images/region/수원버튼.png"> <span>수원</span></button>
         </a>
       </div>
       <div class="Btn-add">
         <a href="${ contextPath }/region?type=16">
-          <button><img src="${contextPath}/resources/images/region/서울버튼.jpg"> <span>수원</span></button>
-        </a>
-      </div>
-      <div class="Btn-add">
-        <a href="${ contextPath }/region?type=17">
-          <button><img src="${contextPath}/resources/images/region/서울버튼.jpg"> <span>강원도</span></button>
+          <button><img src="${contextPath}/resources/images/region/강원도버튼.jpg"> <span>강원도</span></button>
         </a>
       </div>
     </section>
@@ -62,18 +62,12 @@
             <a href="${ contextPath }/regionSubpage"> 
               <div class="main-content"> <!--  //== 6000px -->
                 <div class="main-add"> <!-- //== 각각 2000px -->
-
-                  <c:if test="${start < fn:length(detail.imageList)}">
-                    <c:forEach var="i" begin="${start}" end="${fn:length(detail.imageList) -1}">
-                      <div class="image">
-                        <img src="${contextPath}${detail.imageList[i].imageRename}" id="image">
-                      </div>
-                    </c:forEach>
-                  </c:if>
-
+                  <div class="image">
+                        <img src="${contextPath}/resources/images/region/경복궁.jpg" id="image">
+                  </div>
                   <div class="text">
-                    <h1>${detail.boardTitle}</h1>
-                    <span>${detail.boardContent}<br> 
+                    <h1>boardTitle</h1>
+                    <span>boardContent<br> 
                        <br>
                     </span>
                     <div class="kakaoAPI">

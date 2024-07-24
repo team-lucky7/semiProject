@@ -47,6 +47,7 @@ public class BoardDAO {
 	 * @throws Exception
 	 */
 	public String selectBoardName(Connection conn, int type) throws Exception {
+		
 		String boardName = null;
 		
 		try {
@@ -416,75 +417,5 @@ public class BoardDAO {
 		return result;
 	}
 
-	public BoardDetail selectRegionList(Connection conn ,int type) throws Exception{
-		
-		BoardDetail detail = null;
-		
-		try {
-			String sql = prop.getProperty("selectBoardDetail");
-			
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, type);
-			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				
-				detail = new BoardDetail();
-				
-				detail.setBoardNo(rs.getInt("BOARD_NO"));
-				detail.setBoardName(rs.getString("BOARD_NM"));
-				detail.setBoardTitle(rs.getString("BOARD_TITLE"));
-				detail.setProfileImage(rs.getString("PROFILE_IMG"));
-				detail.setMemberName(rs.getString("MEMBER_NM"));
-				detail.setCreateDate(rs.getString("CREATE_DT"));
-				detail.setUpdateDate(rs.getString("UPDATE_DT"));
-				detail.setReadCount(rs.getInt("READ_COUNT"));
-				detail.setMemberNo(rs.getInt("MEMBER_NO"));
-				detail.setLikeCount(rs.getInt("LIKE_COUNT"));
-				detail.setBoardContent(rs.getString("BOARD_CONTENT"));
-				
-			}
-			
-		}finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		return detail;
-	}
-
-	public List<BoardImage> selectRegionImageList(Connection conn, int type,int boardNo) throws Exception{
-		
-			List<BoardImage> imageList  = new ArrayList<>();
-		
-			try {
-				String sql = prop.getProperty("selectBoardImage");
-				
-				pstmt = conn.prepareStatement(sql);
-				pstmt.setInt(1, boardNo);
-				
-				rs = pstmt.executeQuery();
-				
-				while(rs.next()) {
-					BoardImage image = new BoardImage();
-					
-					image.setImageNo(rs.getInt("IMG_NO")); 
-					image.setImageSize(rs.getInt("IMG_SIZE"));
-					image.setImageRename(rs.getString("IMG_RENAME"));
-					image.setImageOriginal(rs.getString("IMG_ORIGINAL"));
-					image.setImageLevel(rs.getInt("IMG_LEVEL"));
-					
-					imageList.add(image);
-				}
-				
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-		
-		
-		return imageList;
-	}
 
 }
