@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <html>
@@ -17,41 +18,41 @@
 <body>
 
 <main>
-  ${detail}
+  
     <section class="region-Btn">
       <div class="Btn-add">
-        <a href="#" >
+        <a href="${ contextPath }/region?type=10" >
           <button><img src="${contextPath}/resources/images/region/서울버튼.jpg"> <span>서울</span></button>
         </a>
       </div>
       <div class="Btn-add">
-        <a href="#">
-          <button><img src="${contextPath}/resources/images/region/인천 버튼2.jpg"> <span>인천</span></button>
+        <a href="${ contextPath }/region?type=11">
+          <button><img src="${contextPath}/resources/images/region/인천버튼.jpg"> <span>인천</span></button>
         </a>
       </div>
       <div class="Btn-add">
-        <a href="#">
-          <button><img src="${contextPath}/resources/images/region/대전 버튼.jpg"> <span>대전</span></button>
+        <a href="${ contextPath }/region?type=12">
+          <button><img src="${contextPath}/resources/images/region/대전버튼.jpg"> <span>대전</span></button>
         </a>
       </div>
       <div class="Btn-add">
-        <a href="#">
-          <button><img src="${contextPath}/resources/images/region/인천 버튼jpg.jpg"> <span>대구</span></button>
+        <a href="${ contextPath }/region?type=13">
+          <button><img src="${contextPath}/resources/images/region/대구버튼.png"> <span>대구</span></button>
         </a>
       </div>
       <div class="Btn-add">
-        <a href="#">
-          <button><img src="${contextPath}/resources/images/region/서울버튼.jpg"> <span>부산</span></button>
+        <a href="${ contextPath }/region?type=14">
+          <button><img src="${contextPath}/resources/images/region/부산버튼.png"> <span>부산</span></button>
         </a>
       </div>
       <div class="Btn-add">
-        <a href="#">
-          <button><img src="${contextPath}/resources/images/region/서울버튼.jpg"> <span>수원</span></button>
+        <a href="${ contextPath }/region?type=15">
+          <button><img src="${contextPath}/resources/images/region/수원버튼.png"> <span>수원</span></button>
         </a>
       </div>
       <div class="Btn-add">
-        <a href="#">
-          <button><img src="${contextPath}/resources/images/region/서울버튼.jpg"> <span>강원도</span></button>
+        <a href="${ contextPath }/region?type=16">
+          <button><img src="${contextPath}/resources/images/region/강원도버튼.jpg"> <span>강원도</span></button>
         </a>
       </div>
     </section>
@@ -62,11 +63,11 @@
               <div class="main-content"> <!--  //== 6000px -->
                 <div class="main-add"> <!-- //== 각각 2000px -->
                   <div class="image">
-                    <img src="${contextPath}/resources/images/region/경복궁.jpg" id="image">
+                        <img src="${contextPath}/resources/images/region/경복궁.jpg" id="image">
                   </div>
                   <div class="text">
-                    <h1>BOARD_TITLE</h1>
-                    <span> BOARD_CONTENT<br>
+                    <h1>boardTitle</h1>
+                    <span>boardContent<br> 
                        <br>
                     </span>
                     <div class="kakaoAPI">
