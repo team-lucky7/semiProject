@@ -161,12 +161,59 @@ public class BoardService {
 		if(result > 0)	commit(conn);
 		else			rollback(conn);
 		
+		close(conn);
+		
 		return result;
 	}
 
-	public int insertBoard(BoardDetail detail, List<BoardArticle> articleList, List<BoardImage> imageList) {
-		// TODO Auto-generated method stub
-		return 0;
+	/** 자유게시글 삽입 Service
+	 * @param detail
+	 * @param articleList
+	 * @param imageList
+	 * @return boardNo
+	 * @throws Exception
+	 */
+	public int insertFreeBoard(BoardDetail detail, List<BoardArticle> articleList, List<BoardImage> imageList) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int boardNo = dao.nextBoardNo(conn);
+				
+		int result = dao.insertFreeBoard(conn, boardNo, detail);
+		
+		if(result > 0) {
+			
+			System.out.println(boardNo);
+			
+			for(BoardArticle article : articleList) {
+				result = dao.insertFreeBoardArticle(conn, boardNo, article);
+				
+				if(result == 0) {
+					boardNo = 0;
+					break;
+				}
+			}
+			
+			if(boardNo > 0) {
+				for(BoardImage image : imageList) {
+
+					result = dao.insertFreeBoardImage(conn, boardNo, image);
+					
+					if(result == 0) {
+						boardNo = 0;
+						break;
+					}
+				}
+			}
+			
+		}
+		
+		if(boardNo > 0)	commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		
+		return boardNo;
 	}
 
 }
