@@ -18,24 +18,6 @@ import semiProject.member.model.vo.Member;
 public class RegionServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		int type = Integer.parseInt(req.getParameter("type"));
-		int boardNo = Integer.parseInt(req.getParameter("no") ); 
-
-		HttpSession session = req.getSession();
-		Member loginMember= (Member)session.getAttribute("loginMember");
-		
-		try {
-			
-			BoardService service = new BoardService();
-			
-			BoardDetail detail = service.selectRegionList(type,loginMember,boardNo);
-			
-			req.setAttribute("detail", detail);
-			
-			
-		}catch (Exception e) {
-			e.printStackTrace();
-		}
 
 		String path = "/WEB-INF/views/region.jsp";
 		req.getRequestDispatcher(path).forward(req, resp);
