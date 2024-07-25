@@ -64,6 +64,7 @@ public class BoardService {
 		
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
+		map.put("boardName", boardName);
 		
 		close(conn);
 		
