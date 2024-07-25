@@ -499,5 +499,28 @@ public class BoardService {
 		
 		return detail;
 	}
+
+
+	/** 내가 작성한 게시글 목록 조회 Service
+	 * @param memberNo
+	 * @param bCp
+	 * @return
+	 * @throws Exception
+	 */
+	public List<Board> selectMyBoardList(int memberNo, int bCp) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int listCount = dao.getMyBoardListCount(conn, memberNo);
+		
+		Pagination pagination = new Pagination(bCp, listCount);
+		pagination.setLimit(5);
+		
+		List<Board> boardList = dao.selectMyBoardList(conn, memberNo, pagination);
+		
+		close(conn);
+		
+		return boardList;
+	}
 	
 }
