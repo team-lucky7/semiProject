@@ -8,12 +8,12 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
 public class BoardImage {
-	
-	int imgNo;
-	int imgSize;
-	String imgRename;
-	String imgOriginal;
-	int imgLevel;
-	int boardNo;
+	private int imageNo;
+	private int imageSize;
+	private String imageRename;
+	private String imageOriginal;
+	private int imageLevel;
+	private int boardNo;
 }
