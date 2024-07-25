@@ -27,7 +27,7 @@ public class BoardDetail {
 	private int boardCode;
 	private int likeCount;
 	private boolean isLike;
-	
+	private String content;
 	private List<BoardArticle> articleList;
 	private List<BoardImage> ImageList;
 	private List<String> hashtagList;

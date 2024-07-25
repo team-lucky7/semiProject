@@ -76,36 +76,57 @@ html{
     margin: 0 50px;
     cursor: pointer;
 }
-.imgs{
-    width: 100%;;
-    display: flex;  
-    justify-content: center;
-    align-items: center;
-    padding: 50px 0;
-}
-.boardImage  img{
-    width: 940px;
-    height: 100%;
-}
-.writetext{
-    font-size: 20px;
-    border-bottom:1px solid black;
-    padding: 10px 0;
+
+/* 이미지 영역 */
+.img-box{
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.writecontent{
-    width: 940px;
-    padding: 30px 0px;
-    line-height: 30px;
+.img-box img{
+  width: 800px;
 }
+
+.region-Image{
+  width: 800px;
+  min-height: 300px;
+  display: inline-block;
+  text-align: center;
+  position: relative;
+}
+
+.region-Image label{
+  min-height: 100px;
+  border: 1px solid #ccc;
+  width: 800px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.inputImage{display: none;}
+
+.preview{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.delete-image{
+  position: absolute;
+  top: 0;
+  left: 850px;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+
 .KAKAOAPI{
     width: 940px;
     border: 1px solid black;
     height: 300px;
     margin-bottom: 10px;
-}
-.inputImage{
-    display: none;
 }
 
 .select{
@@ -201,12 +222,4 @@ html{
     display: inline-block;
     text-align: center;
     position: relative;
-}
-
-.delete-image{
-    position: absolute;
-    top: 0;
-    left: 900px;
-    font-size: 50px;
-    cursor: pointer;
 }
