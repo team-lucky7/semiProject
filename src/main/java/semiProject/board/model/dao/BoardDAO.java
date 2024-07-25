@@ -670,7 +670,7 @@ public class BoardDAO {
 			pstmt.setInt(1, board.getBoardNo());
 			pstmt.setString(2, board.getBoardTitle());
 			pstmt.setString(3, board.getBoardContent());
-			pstmt.setInt(4, board.getBoardCd());
+			pstmt.setInt(4, board.getBoardCode());
 			pstmt.setInt(5, board.getLocationCode());
 			pstmt.setInt(6, board.getMemberNo());
 

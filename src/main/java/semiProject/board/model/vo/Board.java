@@ -20,12 +20,11 @@ public class Board {
 	private int likeCount;
 	private int locationCode;
 	private int memberNo;
-	private int boardCd;
 	private List<String> hashtagOption;
 	private String locationName;
 	private String memberName;
 	private int boardCode;
-	private String  boardName;
+	private String boardName;
 	
 	private String thumbnail;
 	

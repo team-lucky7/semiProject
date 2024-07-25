@@ -194,7 +194,7 @@ public class CommunityWriteServlet extends HttpServlet{
 			board.setHashtagList(hashtagList);
 			board.setHashtagOption(hashtagOption);
 			board.setLocationCode(10); // 현재는 지역명 받아온다
-			board.setBoardCd(category);
+			board.setBoardCode(category);
 			board.setMemberNo(memberNo);
 
 			int result = service.communityWrite(boardArticleList, imageList, board, hashtagList, hashtagOption, address);
