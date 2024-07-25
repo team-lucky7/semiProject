@@ -19,18 +19,13 @@ public class SearchListServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String query = req.getParameter("query");
-		String reqExp = "^#[\\w\\dㄱ-힣]*$";
 		
 		BoardService service = new BoardService();
 		
 		try {
 			List<Map<String, Object>> mapList = null;
-			
-			if(Pattern.matches(reqExp, query)) {
-				mapList = service.searchHashtag(query);
-			}else {
-				mapList = service.searchKeyword(query);
-			}
+
+			mapList = service.searchKeyword(query);
 			
 			req.setAttribute("mapList", mapList);
 			
