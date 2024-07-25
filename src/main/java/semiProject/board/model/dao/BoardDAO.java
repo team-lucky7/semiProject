@@ -139,7 +139,7 @@ public class BoardDAO {
 				Board board = new Board();
 				board.setBoardNo(rs.getInt("BOARD_NO"));
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
-				board.setMemberNo(rs.getInt("MEMBER_NM"));
+				board.setMemberName(rs.getString("MEMBER_NM"));
 				board.setCreateDate(rs.getString("CREATE_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setLikeCount(rs.getInt("LIKE_COUNT"));
