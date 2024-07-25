@@ -190,6 +190,64 @@
 		UPDATE BOARD SET BOARD_ST = 'Y' WHERE BOARD_NO = ?
 	</entry>
 	
+<<<<<<< HEAD
+<!-- 지역 게시글 상세조회 -->	
+<entry key="regionBoardDetail">
+	SELECT BOARD_NO,BOARD_TITLE,LOCATION_NM,BOARD_CONTENT,CONTENT
+	FROM BOARD
+	JOIN LOCATION USING(LOCATION_CODE)
+	LEFT JOIN BOARD_ARTICLE USING(BOARD_NO)
+	WHERE BOARD_NO = ?
+</entry>	
+
+
+<!-- 지역 게시글 이미지 조회  -->
+<entry key="selectRegionImageList">
+	SELECT *
+	FROM BOARD_IMG
+	WHERE BOARD_NO = ?
+	ORDER BY IMG_LEVEL
+</entry>
+
+
+<!-- 다음 게시글 번호 조회  -->
+<entry key="regionnextBoardNo">
+	SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+</entry>
+
+<!-- 지역 게시글 삽입 -->
+<entry key="regioninsertBoard">
+	INSERT INTO BOARD 
+	VALUES(?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT,?,1,?)
+</entry>
+
+<entry key="regioninsertBoard2">
+	INSERT INTO BOARD_ARTICLE VALUES(0,?,0,0,?)
+</entry>
+	
+<!--지역 게시글 이미지 삽입  -->
+<entry key="regioninsertBoardImage">
+	INSERT INTO BOARD_IMG
+	VALUES(SEQ_IMG_NO.NEXTVAL, 1 , ? , ? , ?, ?)
+</entry>
+
+<!-- 지역 게시글 조회 1 -->
+<entry key="searchRegionBoardList">
+	SELECT  BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_CD
+	FROM BOARD
+	WHERE BOARD_CD IN(
+</entry>	
+
+<!-- 지역 게시글 조회 2 -->
+<entry key="searchRegionBoardList2">
+	)
+	AND BOARD_ST = 'N'
+	ORDER BY BOARD_NO DESC
+</entry>	
+	
+	
+	
+=======
 	<!-- 자유게시글 삽입 -->
 	<entry key="insertFreeBoard">
 		INSERT INTO BOARD VALUES(?, ?, DEFAULT,
@@ -322,4 +380,5 @@
 		WHERE RNUM BETWEEN ? AND ?
 	</entry>
 
+>>>>>>> 66fe19768e790160ab67172ea4037554e80c6677
 </properties>

@@ -683,6 +683,213 @@ public class BoardDAO {
 		return result;
 	}
 
+	/** 지역 게시글 상세 조회 
+	 * @param conn
+	 * @param boardNo
+	 * @param content
+	 * @return 
+	 * @throws Exception
+	 */
+	public BoardDetail selectRegionBoardDetail(Connection conn, int boardNo) throws Exception{
+		
+		BoardDetail detail = null;
+		
+		try {
+			
+			String sql = prop.getProperty("regionBoardDetail");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				
+				detail = new BoardDetail();
+				
+				detail.setBoardNo(rs.getInt("BOARD_NO"));
+				detail.setBoardTitle(rs.getString("BOARD_TITLE"));
+				detail.setLocationName(rs.getString("LOCATION_NM"));
+				detail.setBoardContent(rs.getString("BOARD_CONTENT"));
+				detail.setContent(rs.getString("CONTENT"));
+				
+				
+			}
+			
+		}finally {
+			
+			close(rs);
+			close(pstmt);
+			
+		}
+		
+		return detail;
+	}
+
+	public List<BoardImage> selectRegionImageList(Connection conn, int boardNo) throws Exception{
+		
+		List<BoardImage> imageList = new ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("selectRegionImageList");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				BoardImage image = new BoardImage();
+				
+				image.setImageNo(rs.getInt(1)); 
+				image.setImageSize(rs.getInt(2));
+				image.setImageRename(rs.getString(3));
+				image.setImageOriginal(rs.getString(4));
+				image.setImageLevel(rs.getInt(5));
+				image.setBoardNo(rs.getInt(6));
+				
+				imageList.add(image);
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return imageList;
+	}
+
+	public int regionnextBoardNo(Connection conn) throws Exception{
+		
+		int boardNo = 0;
+		try {
+			
+			String sql = prop.getProperty("regionnextBoardNo");
+			
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				
+				boardNo= rs.getInt(1);
+			}
+	
+		}finally {
+			close(rs);
+			close(stmt);
+		}
+		return boardNo;
+	}
+
+	public int regioninsertBoard(Connection conn, BoardDetail detail, int boardCode) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("regioninsertBoard") + prop.getProperty("regioninsertBoard2");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			
+			pstmt.setInt(1,detail.getBoardNo());
+			pstmt.setString(2, detail.getBoardTitle());
+			pstmt.setString(3, detail.getContent());
+			pstmt.setInt(4, boardCode);
+			pstmt.setInt(5, detail.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public int regioninsertBoardImage(Connection conn, BoardImage image) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("regioninsertBoardImage");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, image.getImageRename());
+			pstmt.setString(2, image.getImageOriginal());
+			pstmt.setInt(3, image.getImageLevel());
+			pstmt.setInt(4, image.getBoardNo());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	public List<Board> searchRegionBoardList(Connection conn, String type) throws Exception{
+		
+		List<Board> boardList = new ArrayList<>();
+		
+		try {
+			
+			String sql = prop.getProperty("searchRegionBoardList") + type + prop.getProperty("searchRegionBoardList2");
+			
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
+			
+			while (rs.next()) {
+				
+				Board board = new Board();
+				
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setBoardCode(rs.getInt("BOARD_CD"));
+				
+				boardList.add(board);
+				
+			}
+		}finally {
+			
+			close(rs);
+			close(stmt);
+		}
+		
+		return boardList;
+	}
+
+	public int regioninsertBoard2(Connection conn, BoardArticle article , BoardDetail detail) throws Exception{
+		
+		int result = 0;
+		
+		try {
+			
+			String sql = prop.getProperty("regioninsertBoard2");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1,article.getContent());
+			pstmt.setInt(2, detail.getMemberNo());
+			
+			result = pstmt.executeUpdate();
+			
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
 
 	public int insertBoardArticle(Connection conn, BoardArticle article) throws SQLException {
 		int result = 0;
