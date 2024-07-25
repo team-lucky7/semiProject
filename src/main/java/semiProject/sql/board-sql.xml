@@ -135,4 +135,20 @@
 	<entry key="insertFreeBoardImage">
 		INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL, 1, ?, ?, ?, ?)
 	</entry>
+	
+	<!-- 자유게시글 제목 수정 -->
+	<entry key="updateFreeBoard">
+		UPDATE BOARD SET BOARD_TITLE = ?, UPDATE_DT = SYSDATE
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 자유게시글 내용 삭제 -->
+	<entry key="deleteBoardArticle">
+		DELETE FROM BOARD_ARTICLE WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 자유게시글 이미지 삭제 -->
+	<entry key="deleteBoardImage">
+		DELETE FROM BOARD_IMG WHERE BOARD_NO = ?
+	</entry>
 </properties>

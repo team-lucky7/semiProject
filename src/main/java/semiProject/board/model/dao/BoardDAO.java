@@ -486,11 +486,6 @@ public class BoardDAO {
 		int result = 0;
 		
 		try {
-			
-			System.out.println(article.getContent());
-			System.out.println(article.getContentLevel());
-			System.out.println(boardNo);
-			
 			String sql = prop.getProperty("insertFreeBoardArticle");
 			
 			pstmt = conn.prepareStatement(sql);
@@ -532,6 +527,76 @@ public class BoardDAO {
 		}finally {
 			close(pstmt);
 		}
+		return result;
+	}
+
+	/** 자유게시글 내용 삭제 DAO
+	 * @param conn
+	 * @param detail
+	 * @return result
+	 * @throws Exception
+	 */
+	public int deleteBoardArticle(Connection conn, int boardNo) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("deleteBoardArticle");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+	
+	public int deleteBoardImage(Connection conn, int boardNo) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("deleteBoardImage");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardNo);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	/** 자유게시글 제목 수정 DAO
+	 * @param conn
+	 * @param detail
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateFreeBoard(Connection conn, BoardDetail detail) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("updateFreeBoard");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, detail.getBoardTitle());
+			pstmt.setInt(2, detail.getBoardNo());
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
 		return result;
 	}
 

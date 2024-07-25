@@ -1,5 +1,3 @@
-const container = document.getElementById("container");
-
 let i = 0;
 
 if(loadContentCount != null){
@@ -7,6 +5,8 @@ if(loadContentCount != null){
 }
 
 function addText(){
+    const container = document.getElementById("container");
+
     const boardText = document.createElement("div");
     boardText.classList.add("boardText")
 
@@ -23,9 +23,12 @@ function addText(){
 
     container.append(boardText);
     i++;
+    console.log(i);
 }
 
 function addImage(){
+    const container = document.getElementById("container");
+    
     const boardImage = document.createElement("div");
     boardImage.classList.add("boardImage")
 
@@ -53,6 +56,7 @@ function addImage(){
 
     container.append(boardImage);
     i++;
+    console.log(i);
 }
 
 function changeImg(typeFile){
@@ -62,28 +66,22 @@ function changeImg(typeFile){
         reader.readAsDataURL(typeFile.files[0]);
 
         reader.onload = function(e) {
-            typeFile.previousSibling.firstElementChild.setAttribute("src", e.target.result);
+            typeFile.previousElementSibling.firstElementChild.setAttribute("src", e.target.result);
         }
 
     }else{
-        typeFile.previousSibling.firstElementChild.removeAttribute("src");
+        typeFile.previousElementSibling.firstElementChild.removeAttribute("src");
     }
 }
 
 function deleteEl(el){
     const submitEl = document.getElementsByClassName("submit");
 
-    let j = Number(el.previousSibling.getAttribute("name"))
-    for(let p=0; p<submitEl.length; p++){
-        let k = Number(submitEl[p].getAttribute("name"));
-        if(k > j){
-            k--;
-            i--;
-            submitEl[p].setAttribute("name", k);
-        }
-        
+    let elNum = Number(el.previousElementSibling.getAttribute("name"));
+    for(let j = elNum + 1; j<submitEl.length; j++){
+        submitEl[j].setAttribute("name", elNum++);
     }
-
+    i--;
     el.parentElement.remove();
 }
 
@@ -91,27 +89,29 @@ function writeValidate(){
 
     const boardTitle = document.getElementsByName('boardTitle')[0];
     const submitEl = document.getElementsByClassName("submit");
+    const div = document.getElementById("container");
 
     if(boardTitle.value.trim().length == 0){
-        alert("제목을 입력해주세요");
         boardTitle.focus();
         return false;
     }
 
-    if(container.innerHTML.length == 0){
-        alert("내용을 입력해주세요");
+    if(div.innerText.trim().length == 0){
+        alert("내용이나 사진을 넣어주세요.");
         return false;
     }
 
     for(let i=0; i<submitEl.length; i++){
         
         if(submitEl[i].value == ""){
-            alert("내용이나 사진을 넣어주세요.");
+            alert("내용을 입력하거나 사진을 재업로드해주세요.");
             return false;
         }
     }
 
     document.getElementById("count").value = i;
+
+    console.log(document.getElementById("count").value);
 
     return true;
 }

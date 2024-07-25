@@ -22,6 +22,10 @@
 		onsubmit="return writeValidate()">
 			<div>
 				<h3 class="board-name">자유게시판</h3>
+
+				<c:if test="${!empty detail}">
+					<h4>수정 시 사진 재업로드 필수 !!!</h4>
+				</c:if>
 				<h1 class="board-title">
 					<input type="text" name="boardTitle" placeholder="제목을 입력해주세요." value="${detail.boardTitle}">
 				</h1>
@@ -57,9 +61,9 @@
 								if(i == image.getImageLevel()){
 									%><div class="boardImage">
 										<label for="img<%=image.getImageLevel()%>">
-											<img src="<%=request.getContextPath()%><%=image.getImageRename()%>">
+											<img src="<%=request.getContextPath()%>/resources/images/user.png">
 										</label>
-										<input type="file" class="inputImage submit" id="img<%=image.getImageLevel()%>" accept="image/*" name="<%=image.getImageLevel()%>" onclick="changeImage(this)">
+										<input type="file" class="inputImage submit" id="img<%=image.getImageLevel()%>" accept="image/*" name="<%=image.getImageLevel()%>" onchange="changeImg(this)">
 										<span class="delete-image" onclick="deleteEl(this)">&times;</span>
 									</div>
 									<script>loadContentCount++;</script><%
@@ -77,12 +81,13 @@
 			<c:if test="${param.mode == 'update'}">
 				<button id="update-Btn">수정하기</button>
 			</c:if>
-			
 			<input type="hidden" id="count" name="count" value="">
 	    </form>
 		<button id="goToListBtn">목록으로</button>
 	</main>
 	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+	<script src="${contextPath}/resources/js/jquery-3.7.1.min.js"></script>
+	<script src="${contextPath}/resources/js/header.js"></script>
 	<script src="${contextPath}/resources/js/freeBoard.js"></script>
 	<script src="${contextPath}/resources/js/freeBoardWriteForm.js"></script>
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a672d1a3dd18b00d1ead688b41bca007&libraries=services"></script>
