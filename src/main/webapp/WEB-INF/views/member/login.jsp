@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>login</title>
-<link rel="stylesheet" href="/semiProject/resources/css/login.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/login.css">
 </head>
 <body>
     <main>
