@@ -24,6 +24,9 @@ public class Board {
 	private List<String> hashtagOption;
 	private String locationName;
 	private String memberName;
+	private int boardCode;
+	private String  boardName;
+	
 	private String thumbnail;
 	
 	private List<String> hashtagList;
