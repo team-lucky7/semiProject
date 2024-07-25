@@ -35,6 +35,7 @@ public class MyRenamePolicy implements FileRenamePolicy{
 		File newFile = new File(originalFile.getParent(), fileName);
 		
 		return newFile;
+    
 	}
 	
 }

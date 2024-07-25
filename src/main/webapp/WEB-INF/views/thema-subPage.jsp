@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+    
 <!DOCTYPE html>
 <html>
 
@@ -9,7 +12,7 @@
 <link rel="stylesheet" href="${contextPath}/resources/css/header.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/footer.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/index.css">
-<link rel="stylesheet" href="${contextPath}/resources/css/thema.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/themaWrite.css">
 
 <script src="https://kit.fontawesome.com/4bef400c33.js"crossorigin="anonymous" defer></script>
 </head>
@@ -19,77 +22,90 @@
 
 
 <body>
-    <div class="thema-explain-div">
-        <p>테마설명</p>
-    </div>
+    <div class="thema-subPage-container">
+        <div class="thema-title">
+            <p>${detail.boardTitle}</p>
+        </div>
 
-    <ul class="thema-explain-img">
-        <li>
-            <iframe width="800" height="500" 
-            src="https://www.youtube.com/embed/6GUM-xmPUjc" 
-            title="영월동강에서 즐기는 서바이벌게임 페인트볼 전투!! survival game" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </li>
-        <li>
-            <img src="https://ktourtop10.kr/data/editor/2203/7ec9f5113368d99fff1448cc43d38586_1648700040_7386.gif">
-        </li>
-        <li>
-            <img src="https://ktourtop10.kr/data/editor/2203/7ec9f5113368d99fff1448cc43d38586_1648700042_7764.jpg">
-        </li>
-        <li>
-            <img src="https://ktourtop10.kr/data/editor/2203/7ec9f5113368d99fff1448cc43d38586_1648700045_3489.jpg">
-        </li>
-        <li>
-            <img src ="https://ktourtop10.kr/data/editor/2203/7ec9f5113368d99fff1448cc43d38586_1648700047_2739.jpg">
-        </li>
-        <li>
-            <img src ="https://ktourtop10.kr/data/editor/2203/7ec9f5113368d99fff1448cc43d38586_1648700096_9383.jpg">
-        </li>
-        <li>
-            <img src ="https://ktourtop10.kr/data/editor/2203/7ec9f5113368d99fff1448cc43d38586_1648700100_8122.jpg">
-        </li>
-        <li>
-            <img src = "https://ktourtop10.kr/data/editor/2203/7ec9f5113368d99fff1448cc43d38586_1648700102_1909.jpg">
-        </li>
-    </ul>
+        <!-- 테마 이미지가 있을 경우 -->
+        <c:if test="${!empty detail.imageList}">
+            <!-- 썸네일이 있을 경우 변수 생성 -->
+            <c:if test="${detail.imageList[0].imageLevel==0}">
+                <c:set var="thumbnail" value="${detail.imageList[0]}"></c:set>
+            </c:if>
+        </c:if>
 
-    <div class="thema-explain-div">
-        <p>이용안내</p>
-    </div>
-<pre>
-영월 동강을 주 필드로 펼쳐지는 서바이벌게임 페인트볼 전투 체험
-가족 단위, 소규모 서바이벌 게임 체험 및 초, 중, 고, 대학생 등 학생 단체,
-기업 단체 등 대단위 서바이벌 게임 행사도 가능한 영월 동강의 전용 필드장에서 진행되는 생존 체험
         
-예약번호: 1544-7569 / 033-375-9800
-①이용희망일 1일 전 16시까지 티켓 구매
- ②업체로 전화하여 날짜 및 시간 예약
-(예약 시점에 티켓은 사용처리되며, 이후로는 업체규정에 따라 취소 위약금이 발생됩니다.)
-③현장 방문 및 구매자 정보 확인 후 이용
         
-동강래프팅㈜ 만의 전용샤워장(온수샤워) 무료 이용가능
-(전원)젖은옷 보관을 위한 지퍼백 1인 당 1매 기본지급
-(래프팅구매자) 스포츠타올 선택구매 가능
-현장 사무실 내 무료 와이파이, 휴게실, 매점 등 운영
-고객안전 제일주의! 자동제세동기(AED) 완비
-동영상 촬영서비스 현장 결제 후 이용가능
+           
+        <div class="img-box">
+
+            <c:if test="${!empty thumbnail}"> <!-- 썸네일 영역(썸네일이 있을 경우) -->
+                <div class="thema-Image thumbnail">
+                    <img src="${contextPath}${thumbnail.imageRename}">
+                </div>
+            </c:if>
+
+            <c:if test="${empty thumbnail}"> <!-- 썸네일 없을 때 -->
+                <c:set var="start" value="0" />
+            </c:if>
+
+            <c:if test="${!empty thumbnail}"> <!-- 썸네일 있을 때 -->
+                <c:set var="start" value="1" />
+            </c:if>   
+
+            <!-- 업로드 이미지가 있는 경우 -->
+            <c:if test="${start < fn:length(detail.imageList)}">
+                <!-- 업로드 이미지 -->
+                <div class="img-box">
+                    <c:forEach var="i" begin="${start}" end="${fn:length(detail.imageList) -1}">
+                        <div class="thema-Image">
+                            <img src="${contextPath}${detail.imageList[i].imageRename}">
+                        </div>
+                    </c:forEach>
+                </div>
+            </c:if>        
+
+
+        </div>
         
-보다 편리한 이용을 위해 이용날짜, 시간, 참여인원, 참여프로그램 등에 대해 사전 전화예약 후 이용 해주시기 바랍니다.
-영월역, 영월시외버스터미널 차량픽업 가능합니다.
-(단, 사전 예약시 에만 가능/당일요청 시 픽업불가)
-동강서바이벌게임 필드장은 전용필드장 기준이며, 최소 진행 전투 인원은 최대 4~6명 이상 입니다.
-각 프로그램 별 최소 참여인원 모집 시 진행이 가능합니다.
-(인원 미달 시 다른 프로그램으로 변경 진행이 가능합니다.)
-체험 레저활동의 특이사항으로, 우천 시 프로그램 진행이 불가능할 경우 1회에 한하여 날짜변경이 가능합니다.
-자세한 내용은 각 프로그램 별 세부일정을 참고해주시기 바랍니다.        
-</pre>
-    
-    <div class="thema-explain-div">
-        <p>만나는 장소</p>
-    </div>
-    <div>
-        *지도api
+        
+        <!-- 이용안내 -->
+        <div class="thema-title">
+            <p>이용안내</p>
+        </div>
+        <div class="thema-content">
+            ${detail.boardContent}
+        </div>
+
+        <!-- 지도 -->
+        <div class="thema-title">
+            <p>위치</p>
+        </div>
+        <div class="thema-map">
+            지도api
+        </div>
+
+        <!-- 버튼 -->
+        <div class="board-btn-area">
+            <!--  관리자 권한이있는 로그인 멤버 -->
+            <c:if test="${loginMember.adminLevel != 0}">
+
+            <!-- 파라미터 cp가 없을 경우 1 -->
+            <c:if test="${empty param.cp}">
+               <c:set var="cp" value="1" />
+            </c:if>
+                
+            <!-- 파라미터 cp가 있을 경우 해당 파라미터로 세팅 -->
+            <c:if test="${!empty param.cp}">
+                <c:set var="cp" value="${param.cp}"/>
+            </c:if>
+
+            <button id="updateBtn" onclick="location.href='themaWrite?mode=update&no=${param.no}&cp=${cp}&type=${param.type}'">수정</button>
+            <button id="deleteBtn">삭제</button>
+        </c:if>
+            <button id="goToListBtn">목록으로</button>
+        </div>
     </div>
 
 </body>
@@ -98,5 +114,6 @@
     <script src="${ contextPath }/resources/js/jquery-3.7.1.min.js"></script>
 	<script src="${ contextPath }/resources/js/header.js"></script>
 	<script src="${ contextPath }/resources/js/regionSubPage.js"></script>
+	<script src="${ contextPath }/resources/js/thema.js"></script>
 </footer>
 </html>
