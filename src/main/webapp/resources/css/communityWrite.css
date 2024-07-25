@@ -1,11 +1,13 @@
-
-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
+.community-main{
+    width: 800px;
+}
 span {
   font-size: 18px;
 }
@@ -79,7 +81,7 @@ input {
 
 .text {
   width: 800px;
-  height: 400px;
+  height: 350px;
   font-size: 18px;
   background-color: #8b8b8b1c;
   resize: none;
@@ -92,7 +94,7 @@ input {
 
 .subtitle{
   width: 50px;
-  padding: 40px 0px;
+  padding: 10px 0px;
 }
 
 
@@ -113,10 +115,23 @@ input {
 
 }
 
+<<<<<<< HEAD
+.fullImage{
+  width: 800px;
+=======
 .fullImage,
 .mapImage {
-  width: 100%x;
+  width: 100%;
+>>>>>>> origin/main
   height: 300px;
+  background-color: #8b8b8b1c;
+  border: none;
+}
+
+
+.mapImage {
+  width: 800px;
+  height: 500px;
   background-color: #8b8b8b1c;
   border: none;
 }
@@ -125,9 +140,8 @@ input {
   width: 800px;
   height: 400px;
   background-color: #8b8b8b1c;
-
+  margin-top: 100px;
 }
-
 .halfContent {
   width: 400px;
   background-color: #8b8b8b1c;
@@ -199,4 +213,8 @@ input {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+#mapDiv{
+  margin-top: 50px;
 }

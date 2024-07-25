@@ -24,9 +24,13 @@ public class BoardDetail {
 	private int locationCode;
 	private String memberName;
 	private int memberNo;
+<<<<<<< HEAD
 	private int boardCode;
+=======
+	private int likeCount;
+	private boolean isLike;
+>>>>>>> origin/main
 	
-	private List<Like> likeList;
 	private List<BoardArticle> articleList;
 	private List<BoardImage> ImageList;
 	private List<String> hashtagList;

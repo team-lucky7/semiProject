@@ -1,90 +1,86 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-  <!DOCTYPE html>
-  <html lang="en">
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>커뮤니티 글 작성</title>
-    <link rel="stylesheet" href="${contextPath}/resources/css/communityWrite.css">
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>커뮤니티 글 작성</title>
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/communityWrite.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/header.css">
+<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
-  <body>
+</head>
+<body>
+	<main class="community-write">
 
-    <section>
-      <div class="container1">
-        <h1>여행정보 작성(수정)</h1>
-        <div>
-          <span class="subtitle"> 커뮤니티 : </span>
-          <select name="category">
-            <option value="vacation">휴양지</option>
-            <option value="resttaurant">맛집정보</option>
-          </select>
-        </div>
-        <div class="subContainer">
-          <span class="subtitle">&nbsp;제&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목 : </span>
-          <input type="text" size="80px" name="inputSubtitle">
-        </div>
-  
-        <div class="subContainer">
-          <span class="subtitle"> 한줄소개 : </span>
-          <input type="text" size="80px" name="inputintro">
-        </div>
-      </div>
-  
-      <div class="container2" id="container2">
-  
-        <div class="compoContainer">
-  
-          <div class="compoBox">
-            <img src="${contextPath}/resources/images/article-icon-png-14.jpg" alt="글" class="imgFull btn" onclick="addFullText()">
-            <img src="${contextPath}/resources/images/image-icon-10.jpg" alt="그림" class="imgFull btn" onclick="addFullImage()">
-            <img src="${contextPath}/resources/images/article-icon-png-14.jpg" alt="반글" class="imgHalf btn" onclick="addHalfText()">
-            <img src="${contextPath}/resources/images/image-icon-10.jpg" alt="반그림" class="imgHalf btn" onclick="addHalfImage()">
-            <img src="${contextPath}/resources/images/Map_1135px_1195280_42272.png" alt="지도" class="imgFull btn" onclick="showMap()">
-          </div>
-        </div>
-      </div>
-  
-      <div clss="mapImage" id="mapDiv">
+		<div class="container1">
+			<h1>제목이 들어갈 겁니다 약간 길지도.</h1>
+			<h3>DB에 한줄 요약소개 부분을 넣을 겂니다.</h3>
 
-        <div>
-          <input type="text" id="inputAddress" placeholder="주소를 입력해주세요">
-          <button type="button" onclick="mapAddress()" id="chk">확인</button>
-        </div>
-  
-        <div class="map_wrap">
-          <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-          <div class="hAddr">
-            <span id="centerAddr"></span>
-          </div>
-        </div>
-  
-        <img src="${contextPath}/resources/images/x-button-327024.png" class="xBtn" onclick="hideMap()">
-      </div>
-  
-      <div>
-        <span class="subtitle"> 해시태그 </span>
-        <button type="button" onclick="addHashtag()">+</button>
-        <div class="hashtag">
-        </div>
-      </div>
-  
-      <div style="text-align: center; width: 800px;">
-        <button type="submit" id="submit">작성완료</button>
-      </div>
+		</div>
 
-    </section>
+		<div class="container2" id="container2">
+			<div class="basic-Info" style=>
+				<span>작성일 :</span> <span>작성자:</span> <span>조회수 :</span>
+			</div>
+			<div class="compoContainer">
+				<div class="compoBox">
+					<button class="btn" id="gray">수 정</button>
+					<button class="btn" id="red">삭 제</button>
+					<button class="btn" id="blue">복 구</button>
+				</div>
+			</div>
+		</div>
+
+<<<<<<< HEAD
+
+		<div class="mapImage" id="mapDiv">
+			<div class="map_wrap">
+				<div id="map"
+					style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
+				<div class="hAddr">
+					<span id="centerAddr"></span>
+				</div>
+
+			</div>
+		</div>
+
+		<div class="hash-Area">
+			<span>#해시태그1</span>
+			<span>#해시태그1</span>
+			<span>#해시태그1</span>
+			<span>#해시태그1</span>
+			<hr>
+		</div>
+
+		<div style="text-align: center; width: 800px;">
+			<button type="submit" id="submit">목록으로</button>
+		</div>
+
+	</main>
+	
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+
+	<script type="text/javascript"
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a672d1a3dd18b00d1ead688b41bca007&libraries=services"></script>
+
+	<script src="${contextPath}/resources/js/communityWrite.js"></script>
+</body>
+
+
+</html>
+=======
+     
+    <script src="${contextPath}/resources/js/communityWrite.js"></script>
     
-
     <script type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a672d1a3dd18b00d1ead688b41bca007&libraries=services"></script>
-
-    <script src="${contextPath}/resources/js/communityWrite.js"></script>
-
-   
-
-  </body>
-
-  </html>
+    
+    </body>
+    
+    </html>
+>>>>>>> origin/main
