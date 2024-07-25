@@ -25,9 +25,7 @@ public class Board {
 	private String memberName;
 	private int boardCode;
 	private String boardName;
-	
 	private String thumbnail;
-	private int boardCode;
 	
 	private List<String> hashtagList;
 }

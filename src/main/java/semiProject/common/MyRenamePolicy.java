@@ -6,6 +6,7 @@ import java.util.Date;
 
 import com.oreilly.servlet.multipart.FileRenamePolicy;
 
+<<<<<<< HEAD
 public class MyRenamePolicy implements FileRenamePolicy {
 
 	@Override
@@ -28,11 +29,27 @@ public class MyRenamePolicy implements FileRenamePolicy {
 		// 파일명을 변경해도 확장자를 유지하기 위하여
 		// 별도로 확장자 명 가져오기
 		
+=======
+public class MyRenamePolicy implements FileRenamePolicy{
+	
+	@Override
+	public File rename(File originalFile) {
+		
+		long currentTime = System.currentTimeMillis();
+
+		SimpleDateFormat ft = new SimpleDateFormat("yyyyMMddHHmmss");
+
+		int ranNum = (int) (Math.random() * 100000);
+
+		String str = "_" + String.format("%05d", ranNum);
+
+>>>>>>> 66fe19768e790160ab67172ea4037554e80c6677
 		String name = originalFile.getName();
 		String ext = null;
 
 		int dot = name.lastIndexOf(".");
 
+<<<<<<< HEAD
 		if (dot != -1) {
 			// dot 포함해서 확장자 추출 (ext)
 			ext = name.substring(dot);
@@ -51,3 +68,20 @@ public class MyRenamePolicy implements FileRenamePolicy {
 	}
 
 }
+=======
+		if(dot != -1) {
+		   ext = name.substring(dot);
+		}else {
+		   ext = "";
+		}
+
+		String fileName = ft.format(new Date(currentTime)) + str + ext;
+		
+		File newFile = new File(originalFile.getParent(), fileName);
+		
+		return newFile;
+    
+	}
+	
+}
+>>>>>>> 66fe19768e790160ab67172ea4037554e80c6677
