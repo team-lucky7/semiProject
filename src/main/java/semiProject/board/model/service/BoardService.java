@@ -13,7 +13,7 @@ import semiProject.board.model.vo.BoardDetail;
 import semiProject.board.model.vo.BoardImage;
 import semiProject.board.model.vo.Hashtag;
 import semiProject.board.model.vo.Pagination;
-import semiProject.common.Util;
+import semiProject.common.Utill;
 
 import semiProject.member.model.vo.Member;
 
@@ -203,11 +203,11 @@ public class BoardService {
 		detail.setBoardNo(boardNo); // 1번에서 조회된 다음 게시글 번호 세팅
 
 		// *) XSS 방지 처리(제목/내용)
-		detail.setBoardTitle(Util.XSSHandling(detail.getBoardTitle()));
-		detail.setBoardContent(Util.XSSHandling(detail.getBoardContent()));
+		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardContent(Utill.XSSHandling(detail.getBoardContent()));
 
 		// *) 개행 문자 처리(내용)
-		detail.setBoardContent(Util.newLineHandling(detail.getBoardContent()));
+		detail.setBoardContent(Utill.newLineHandling(detail.getBoardContent()));
 
 		int result = dao.insertThemaBoard(conn, detail, boardCode);
 
@@ -269,7 +269,7 @@ public class BoardService {
 		
 		int boardNo = dao.nextBoardNo(conn);
 		
-		detail.setBoardTitle(Util.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
 		
 		int result = dao.insertFreeBoard(conn, boardNo, detail);
 		
@@ -277,8 +277,8 @@ public class BoardService {
 			
 			for(BoardArticle article : articleList) {
 				
-				article.setContent(Util.XSSHandling(article.getContent()));
-				article.setContent(Util.newLineHandling(article.getContent()));
+				article.setContent(Utill.XSSHandling(article.getContent()));
+				article.setContent(Utill.newLineHandling(article.getContent()));
 				
 				result = dao.insertFreeBoardArticle(conn, boardNo, article);
 				
@@ -321,7 +321,7 @@ public class BoardService {
 		
 		Connection conn = getConnection();
 		
-		detail.setBoardTitle(Util.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
 		
 		int result = dao.deleteBoardArticle(conn, detail.getBoardNo());
 		
@@ -333,8 +333,8 @@ public class BoardService {
 		if(result > 0) {
 			for(BoardArticle article : articleList) {
 				
-				article.setContent(Util.XSSHandling(article.getContent()));
-				article.setContent(Util.newLineHandling(article.getContent()));
+				article.setContent(Utill.XSSHandling(article.getContent()));
+				article.setContent(Utill.newLineHandling(article.getContent()));
 				
 				result = dao.insertFreeBoardArticle(conn, detail.getBoardNo(), article);
 				

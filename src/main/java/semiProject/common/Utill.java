@@ -1,6 +1,6 @@
 package semiProject.common;
 
-public class Util {
+public class Utill {
 	
 	public static String newLineHandling(String content) {
 		return content.replaceAll("(\r\n|\n\r|\n|\r)","<br>");
