@@ -154,46 +154,6 @@ public class BoardDAO {
 		return boardList;
 	}
 
-
-	public List<Board> communityBoardList(Connection conn, int type, Pagination pagination) throws Exception{
-		List<Board> boardList = new ArrayList<>();
-
-		try {
-			String sql = prop.getProperty("selectBoardList");
-
-
-			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
-			int end = start + pagination.getLimit() - 1;
-
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, start);
-			pstmt.setInt(2, end);
-
-			rs = pstmt.executeQuery();
-
-			while(rs.next()) {
-				Board board = new Board();
-				board.setBoardNo(rs.getInt("BOARD_NO"));
-				board.setBoardTitle(rs.getString("BOARD_TITLE"));
-				board.setMemberNo(rs.getInt("MEMBER_NM"));
-				board.setCreateDate(rs.getString("CREATE_DT"));
-				board.setReadCount(rs.getInt("READ_COUNT"));
-				board.setLikeCount(rs.getInt("LIKE_COUNT"));
-
-
-
-				boardList.add(board);
-			}
-
-		}finally {
-			close(rs);
-			close(pstmt);
-		}
-
-		return boardList;
-	}
-
-
 	/** 게시글 상세조회 DAO
 	 * @param conn
 	 * @param boardNo
