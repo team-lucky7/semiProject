@@ -1,6 +1,7 @@
 package semiProject.board.model.service;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,9 +11,15 @@ import semiProject.board.model.vo.Board;
 import semiProject.board.model.vo.BoardArticle;
 import semiProject.board.model.vo.BoardDetail;
 import semiProject.board.model.vo.BoardImage;
+<<<<<<< HEAD
 import semiProject.board.model.vo.Hashtag;
 import semiProject.board.model.vo.Like;
 import semiProject.board.model.vo.Pagination;
+=======
+import semiProject.board.model.vo.Pagination;
+import semiProject.member.model.vo.Member;
+
+>>>>>>> origin/main
 import static semiProject.common.JDBCTemplate.*;
 
 public class BoardService {
@@ -67,20 +74,37 @@ public class BoardService {
 	
 	/** 게시글 상세조회 Service
 	 * @param boardNo
+	 * @param loginMember 
 	 * @return detail
 	 * @throws Exception
 	 */
+<<<<<<< HEAD
 	
 	public BoardDetail selectBoardDetail(int boardNo) throws Exception{
+=======
+	public BoardDetail selectBoardDetail(int boardNo, Member loginMember) throws Exception{
+>>>>>>> origin/main
 		Connection conn = getConnection();
 		
 		BoardDetail detail = dao.selectBoardDetail(conn, boardNo);
-		
+
 		if(detail != null) {
+<<<<<<< HEAD
 			List<Like> likeList = dao.getLikeMember(conn, boardNo);
 			detail.setLikeList(likeList);
 			// 아직 준비 안됨
 			
+=======
+			
+			int result = dao.increaseReadCount(conn, boardNo);
+			
+			if(result > 0) {
+				commit(conn);
+				detail.setReadCount(detail.getReadCount() + result);
+			}else {
+				rollback(conn);
+			}
+>>>>>>> origin/main
 			
 			List<BoardArticle> articleList = dao.selectBoardArticle(conn, boardNo);
 			detail.setArticleList(articleList);
@@ -88,6 +112,7 @@ public class BoardService {
 			List<BoardImage> imageList = dao.selectBoardImage(conn, boardNo);
 			detail.setImageList(imageList);
 			
+<<<<<<< HEAD
 			// -> 커뮤니티는 이미지랑 아티클이랑 순서대로 통합 해서 넘겨주고 if로 사이즈 비교해서 그리는 방식으로 간다
 			//    (공통 가져갈 것 -> content(글내용, 사진 경위도, 지도는 json), 사이즈, 리스트가 순서여서 순서는 불필요하다)
 			// 	  sortedUserDtoList.sort(Comparator.comparing(UserDto::getUserNm));
@@ -96,6 +121,17 @@ public class BoardService {
 			// -> 지도는 리스트 맨 마지막에 넣어준다. 경위도는 가서 쪼개는 걸로 사
 			// -> 
 			
+=======
+			if(loginMember != null) {
+				int memberNo = loginMember.getMemberNo();
+				
+				result = dao.getIsLike(conn, boardNo, memberNo);
+				
+				if(result > 0) {
+					detail.setLike(true);
+				}
+			}
+>>>>>>> origin/main
 		}
 		
 		close(conn);
@@ -103,6 +139,79 @@ public class BoardService {
 		return detail;
 	}
 	
+<<<<<<< HEAD
+=======
+	/** 키워드 검색
+	 * @param query
+	 * @return mapList
+	 * @throws Exception
+	 */
+	public List<Map<String, Object>> searchKeyword(String query) throws Exception{
+		
+		List<Map<String, Object>> mapList = new ArrayList<>();
+		
+		mapList.add(searchBoardList(1, 1, query));
+		mapList.add(searchBoardList(2, 1, query));
+		mapList.add(searchBoardList(3, 1, query));
+		
+		return mapList;
+	}
+
+	/** 해시태그 검색
+	 * @param query
+	 * @return mapList
+	 * @throws Exception
+	 */
+	public List<Map<String, Object>> searchHashtag(String query) throws Exception{
+		
+		List<Map<String, Object>> mapList = new ArrayList<>();
+		
+		mapList.add(searchBoardList(4, 1, query));
+		mapList.add(searchBoardList(5, 1, query));
+		
+		return mapList;
+	}
+	
+	public Map<String, Object> searchBoardList(int type, int cp, String query) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		String boardName = dao.selectBoardName(conn, type);
+		
+		int listCount = dao.getSearchListCount(conn, type, query);
+		
+		Pagination pagination = new Pagination(cp, listCount);
+		
+		List<Board> boardList = dao.searchBoardList(conn, type, pagination, query);
+		
+		Map<String, Object> map = new HashMap<>();
+		
+		map.put("boardName", boardName);
+		map.put("pagination", pagination);
+		map.put("boardList", boardList);
+		
+		close(conn);
+		
+		return map;
+	}
+
+	/** 게시글 삭제 Service
+	 * @param boardNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int deleteBoard(int boardNo) throws Exception {
+
+		Connection conn = getConnection();
+		
+		int result = dao.deleteBoard(conn, boardNo);
+		
+		if(result > 0)	commit(conn);
+		else			rollback(conn);
+		
+		return result;
+	}
+>>>>>>> origin/main
 
 	
 
