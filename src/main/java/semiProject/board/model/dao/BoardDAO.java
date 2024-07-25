@@ -679,24 +679,6 @@ public class BoardDAO {
 		return result;
 	}
 
-	public int nextBoardNo(Connection conn) throws Exception{
-		int boardNo = 0;
-		try {
-			String sql = prop.getProperty("nextBoardNo");
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-
-			if(rs.next()) {
-				boardNo = rs.getInt(1);
-			}
-		} finally {
-
-			close(rs);
-			close(stmt);
-		}
-		return boardNo;
-	}
-
 	public int insertBoardImage(Connection conn, BoardImage image) throws SQLException {
 		int result = 0;
 
