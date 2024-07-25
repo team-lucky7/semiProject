@@ -30,68 +30,64 @@
                 <div class="list-wrapper">
                     <table class="list-table">
                         <thead>
-                            <tr>
-                                <th>제목</th>
-                                <th>작성자</th>
-                                <th>날짜</th>
-                                <th>조회수</th>
-                                <th>추천수</th>
-                            </tr>
-                        </thead>
-    
-                        <tbody>
-                            <tr>
-                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
-                                <td>이거맞자나</td>
-                                <td>2024-06-25</td>
-                                <td>10</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
-                                <td>이거맞자나</td>
-                                <td>2024-06-25</td>
-                                <td>10</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
-                                <td>이거맞자나</td>
-                                <td>2024-06-25</td>
-                                <td>10</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
-                                <td>이거맞자나</td>
-                                <td>2024-06-25</td>
-                                <td>10</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
-                                <td>이거맞자나</td>
-                                <td>2024-06-25</td>
-                                <td>10</td>
-                                <td>2</td>
-                            </tr>
-                        </tbody>
+							<tr>
+								<th>글번호</th>
+								<th>제목</th>
+								<th>글쓴이</th>
+								<th>날짜</th>
+								<th>조회수</th>
+								<th>좋아요</th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							<c:choose>
+								<c:when test="${empty boardList}">
+									<tr>
+										<td colspan="6">게시물 조회 결과가 없습니다.</td>
+									</tr>
+								</c:when>
+								
+								<c:otherwise>
+									<c:forEach var="board" items="${boardList}">
+										<tr>
+											<td>${board.boardNo}</td>
+											<td><a href="detail?no=${board.boardNo}&type=${param.type}&cp=${param.cp}">${board.boardTitle}</a></td>
+											<td>${board.memberName}</td>
+											<td>${board.createDate}</td>
+											<td>${board.readCount}</td>
+											<td>${board.likeCount}</td>
+										</tr>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+						</tbody>
                     </table>
                 </div>
     
                 <div class="pagination-area">
-                    <ul class="pagination">
-                        <li><a href="">&lt;&lt;</a></li>
-                        <li><a href="">&lt;</a></li>
-                        <li><a href="">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">4</a></li>
-                        <li><a href="">5</a></li>
-                        <li><a href="">&gt;</a></li>
-                        <li><a href="">&gt;&gt;</a></li>
-                    </ul>
-                </div>
+					<ul class="pagination">
+						<c:set var="url" value="list?&type=${param.type}&cp="/>
+						
+						<li><a href="${url}1">&lt;&lt;</a></li>
+						<li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+						
+						<c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+							<c:choose>
+								<c:when test="${i == pagination.currentPage}">
+									<li><a class="current">${i}</a></li>
+								</c:when>
+								
+								<c:otherwise>
+									<li><a href="${url}${i}">${i}</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						
+						<li><a href="${url}${pagination.nextPage}">&gt;</a></li>
+						<li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
+					</ul>
+				</div>
             </section>
     
     
@@ -104,68 +100,64 @@
                 <div class="list-wrapper">
                     <table class="list-table">
                         <thead>
-                            <tr>
-                                <th>내용</th>
-                                <th>작성자</th>
-                                <th>날짜</th>
-                                <th>조회수</th>
-                                <th>추천수</th>
-                            </tr>
-                        </thead>
-    
-                        <tbody>
-                            <tr>
-                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
-                                <td>이거맞자나</td>
-                                <td>2024-06-25</td>
-                                <td>10</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
-                                <td>이거맞자나</td>
-                                <td>2024-06-25</td>
-                                <td>10</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
-                                <td>이거맞자나</td>
-                                <td>2024-06-25</td>
-                                <td>10</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
-                                <td>이거맞자나</td>
-                                <td>2024-06-25</td>
-                                <td>10</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td><a href="${ contextPath }/freeBoard/detail">오늘 점심 뭐 먹지?</a></td>
-                                <td>이거맞자나</td>
-                                <td>2024-06-25</td>
-                                <td>10</td>
-                                <td>2</td>
-                            </tr>
-                        </tbody>
+							<tr>
+								<th>글번호</th>
+								<th>제목</th>
+								<th>글쓴이</th>
+								<th>날짜</th>
+								<th>조회수</th>
+								<th>좋아요</th>
+							</tr>
+						</thead>
+						
+						<tbody>
+							<c:choose>
+								<c:when test="${empty boardList}">
+									<tr>
+										<td colspan="6">게시물 조회 결과가 없습니다.</td>
+									</tr>
+								</c:when>
+								
+								<c:otherwise>
+									<c:forEach var="board" items="${boardList}">
+										<tr>
+											<td>${board.boardNo}</td>
+											<td><a href="detail?no=${board.boardNo}&type=${param.type}&cp=${param.cp}">${board.boardTitle}</a></td>
+											<td>${board.memberName}</td>
+											<td>${board.createDate}</td>
+											<td>${board.readCount}</td>
+											<td>${board.likeCount}</td>
+										</tr>
+									</c:forEach>
+								</c:otherwise>
+							</c:choose>
+						</tbody>
                     </table>
                 </div>
     
                 <div class="pagination-area">
-                    <ul class="pagination">
-                        <li><a href="">&lt;&lt;</a></li>
-                        <li><a href="">&lt;</a></li>
-                        <li><a href="">1</a></li>
-                        <li><a href="">2</a></li>
-                        <li><a href="">3</a></li>
-                        <li><a href="">4</a></li>
-                        <li><a href="">5</a></li>
-                        <li><a href="">&gt;</a></li>
-                        <li><a href="">&gt;&gt;</a></li>
-                    </ul>
-                </div>
+					<ul class="pagination">
+						<c:set var="url" value="list?&type=${param.type}&cp="/>
+						
+						<li><a href="${url}1">&lt;&lt;</a></li>
+						<li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+						
+						<c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+							<c:choose>
+								<c:when test="${i == pagination.currentPage}">
+									<li><a class="current">${i}</a></li>
+								</c:when>
+								
+								<c:otherwise>
+									<li><a href="${url}${i}">${i}</a></li>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
+						
+						<li><a href="${url}${pagination.nextPage}">&gt;</a></li>
+						<li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
+					</ul>
+				</div>
             </section>
         </div>
     </div>
