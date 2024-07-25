@@ -1,3 +1,7 @@
+let contentCnt = 0;
+mapDiv = document.getElementById("mapDiv");
+
+
 function addFullText(){
     const addDiv = document.createElement("div");
     const addSpan = document.createElement("span");
@@ -9,6 +13,8 @@ function addFullText(){
     addSpan.innerHTML = "작성글<br>";
     addSpan.classList.add("subtitle");
     addText.classList.add("text");
+    addText.setAttribute("name",contentCnt+"_fullText");
+    contentCnt++;
     addXBtn.src = "../resources/images/x-button-327024.png";
     addXBtn.classList.add("xBtn");
     
@@ -18,7 +24,6 @@ function addFullText(){
 
     addDiv.append(addSpan, addText, addXBtn);
     container.append(addDiv);
-    
 }
 
 function addHalfText(){
@@ -32,6 +37,8 @@ function addHalfText(){
     addSpan.innerHTML = "작성글(반)<br>";
     addSpan.classList.add("subtitle");
     addText.classList.add("halftext");
+    addText.setAttribute("name",contentCnt+"_halfText");
+    contentCnt++;
     addXBtn.src = "../resources/images/x-button-327024.png";
     addXBtn.classList.add("xBtn");
     
@@ -57,8 +64,8 @@ function addFullImage(){
     addSpan.innerHTML = "사진첨부";
     addSpan.classList.add("subtitle");
     addInput.setAttribute("type","file");
-    addInput.setAttribute("name","photo");
-    addImage.src = "../resources/images/image-icon-10.jpg";
+    addInput.setAttribute("name",contentCnt+"_fullImage");
+    contentCnt++;
     addImage.classList.add("fullImage");
     addXBtn.src = "../resources/images/x-button-327024.png";
     addXBtn.classList.add("xBtn");
@@ -69,6 +76,33 @@ function addFullImage(){
 
     addDiv.append(addSpan, addInput, addImage, addXBtn);
     container.append(addDiv);
+    
+    
+    addInput.addEventListener("change", function(){
+          if(this.files[0] != undefined){
+
+               const reader = new FileReader();
+               // 선택된 파일을 읽을 객체 생성
+               reader.readAsDataURL(this.files[0]);
+               // 지정된 파일을 읽음 -> result에 저장(URL포함)
+               // -> URL을 이용해서 이미지 볼 수 있음
+   
+               reader.onload = function(e){ // reader가 파일을 다 읽어온 경우
+                   // e.target = reader
+                   // e.target.result = 읽어들인 이미지의 URL
+                   // preview[i] == 파일이 선택된 input 태그와 인접한 preview 이미지 태그
+   
+                   addImage.setAttribute("src", e.target.result);
+
+               }
+            } else { // 파일이 선택이 되지 않았을 때 (취소)
+            addImage.removeAttribute("src");
+            }
+
+    })
+    
+    
+    
 }
 
 function addHalfImage(){
@@ -83,8 +117,8 @@ function addHalfImage(){
     addSpan.innerHTML = "사진첨부";
     addSpan.classList.add("subtitle");
     addInput.setAttribute("type","file");
-    addInput.setAttribute("name","photo");
-    addImage.src = "../resources/images/image-icon-10.jpg";
+    addInput.setAttribute("name",contentCnt+"_halfImage");
+    contentCnt++;
     addImage.classList.add("halfImage");
     addXBtn.src = "../resources/images/x-button-327024.png";
     addXBtn.classList.add("xBtn");
@@ -95,11 +129,37 @@ function addHalfImage(){
 
     addDiv.append(addSpan, addInput, addImage, addXBtn);
     container.append(addDiv);
+    
+        addInput.addEventListener("change", function(){
+          if(this.files[0] != undefined){
+
+               const reader = new FileReader();
+               // 선택된 파일을 읽을 객체 생성
+               reader.readAsDataURL(this.files[0]);
+               // 지정된 파일을 읽음 -> result에 저장(URL포함)
+               // -> URL을 이용해서 이미지 볼 수 있음
+   
+               reader.onload = function(e){ // reader가 파일을 다 읽어온 경우
+                   // e.target = reader
+                   // e.target.result = 읽어들인 이미지의 URL
+                   // preview[i] == 파일이 선택된 input 태그와 인접한 preview 이미지 태그
+   
+                   addImage.setAttribute("src", e.target.result);
+
+               }
+            } else { // 파일이 선택이 되지 않았을 때 (취소)
+            addImage.removeAttribute("src");
+            }
+
+    })
+    
+    
 }
 
 
 
 function mapAddress(){
+        
         const mapAddress = document.getElementById("inputAddress").value;
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
@@ -154,15 +214,30 @@ function mapAddress(){
                     marker.setMap(map);
 
                     
-                    
-                   
-                    console.log(result[0].address.address_name);
-                    console.log(marker.getPosition().getLat());
-                    console.log(marker.getPosition().getLng());
-
                     // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
                     infowindow.setContent(content);
                     infowindow.open(map, marker);
+                    
+                    let address = result[0].address.address_name;
+
+                    let [address1, address2] = address.split(' ');
+
+
+                    let mapData = {
+                    lat: marker.getPosition().getLat(),
+                    lng: marker.getPosition().getLng(),
+                    address: address1+" "+address2,
+                  };
+                  
+               		let json = JSON.stringify(mapData);
+                    
+					//document.getElementById("inputAddress").setAttribute("name", "mapAddress");
+                    //document.getElementById("inputAddress").value = json;
+    				const mapvalue = document.getElementById("mapAdr");
+    				
+                    if(mapDiv.style.display!='none'){ 
+	    				mapvalue.value = json;                   
+                    }    
                 }   
             });
         });
@@ -199,9 +274,6 @@ function mapAddress(){
 
 }
 
-
-mapDiv = document.getElementById("mapDiv");
-
 function hideMap(){
 
 mapDiv.style.display = 'none';
@@ -219,15 +291,17 @@ function addHashtag(){
     const addDiv = document.createElement("div");
     const addInput = document.createElement("input");
     const addXBtn = document.createElement("img");
- 	const addSelect = document.createElement("select");
+    const addSelect = document.createElement("select");
     
     addInput.type = "text";
     addInput.value = "#";
     addInput.size = "15";
+    addInput.setAttribute("name", "hashtag");
 
     addXBtn.src = "../resources/images/x-button-327024.png";
     addXBtn.classList.add("xBtn");
 
+   addSelect.setAttribute("name", "hashtagOption")
     addSelect.innerHTML = "<option value='location'>지역</option><option value='keyword'>키워드</option>"
 
     addDiv.append(addInput, addSelect, addXBtn);

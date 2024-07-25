@@ -15,24 +15,28 @@
 	</entry>
 	
 	<!-- 특정 게시판에서 일정한 범위의 목록 조회 -->
-	<entry key="selectBoardList">
+	<entry key="communityBoardList">
 		SELECT * FROM(
 		    SELECT ROWNUM AS RNUM, A.* FROM (
-		        SELECT BOARD_NO, BOARD_TITLE, MEMBER_NM,
-		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD') CREATE_DT,
-		            READ_COUNT, COUNT(BOARD_REPLY_NO) LIKE_COUNT
+		        SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, MEMBER_NM, LOCATION_NM,  
+		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD') AS CREATE_DT,
+		            READ_COUNT, COUNT(BOARD_REPLY_NO) AS LIKE_COUNT
 		        FROM BOARD
 		        JOIN MEMBER USING(MEMBER_NO)
+		        JOIN LOCATION USING(LOCATION_CODE)
 		        LEFT JOIN "LIKE" ON(BOARD_REPLY_NO = BOARD_NO)
 		        WHERE BOARD_CD = ?
 		        AND BOARD_ST = 'N'
-		        GROUP BY BOARD_NO, BOARD_TITLE, MEMBER_NM,
+		        GROUP BY BOARD_NO, BOARD_TITLE, BOARD_CONTENT, MEMBER_NM, LOCATION_NM,
 		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD'), READ_COUNT
 		        ORDER BY BOARD_NO DESC
 		    )A
 		)
 		WHERE RNUM BETWEEN ? AND ?
 	</entry>
+	
+
+	
 	
 	<!-- 게시글 상세조회 -->
 	<entry key="selectBoardDetail">
@@ -151,4 +155,48 @@
 	<entry key="deleteBoardImage">
 		DELETE FROM BOARD_IMG WHERE BOARD_NO = ?
 	</entry>
+
+		<!-- 게시판 번호 확인 -->
+	<entry key="nextBoardNo" >
+		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+	</entry>
+	
+	<!-- 게시판 삽입 -->	
+	<entry key="insertBoard"> INSERT INTO BOARD VALUES(?, ?, ?, sysdate, sysdate, 10, 'N', ?, ?, ?) </entry>
+	
+	<!-- 게시판 그림삽입 -->
+	<entry key="insertBoardImage"> INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL, ?, ?, ?, ?, ?) </entry>
+	
+	<!-- 게시판 글 삽입 -->
+	<entry key="insertArticle"> INSERT INTO BOARD_ARTICLE VALUES(SEQ_ARTICLE_NO.NEXTVAL, ?, ?, ? ,?) </entry>
+	
+	<entry key="insertHashtagList"> INSERT INTO HASHTAG_LIST VALUES(SEQ_HASHTAG_NO.NEXTVAL, ?, ?) </entry>
+	
+	<entry key="insertHashtag"> INSERT INTO HASHTAG VALUES(?, ?) </entry>
+
+	<entry key="locationCode"> SELECT LOCATION_CODE FROM LOCATION WHERE LOCATION_NM = ?
+	</entry>	
+	
+	<entry key="hashtagNo">
+		SELECT HASHTAG_NO FROM HASHTAG_LIST 
+		WHERE HASHTAG_NM = ? 
+	</entry>
+
+	<entry key="selectHashtag">
+		SELECT HASHTAG_CAT, HASHTAG_NM FROM HASHTAG_LIST
+	</entry>
+	
+	
+	<entry key="selectBoardHashtag">
+		SELECT HASHTAG_NM FROM HASHTAG_LIST 
+		JOIN BOARD(USING HASHTAG_CD)
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	<entry key="selectThumbnail">
+		SELECT IMG_ORIGINAL FROM BOARD_IMG
+		WHERE BOARD_NO = ?
+		AND IMG_LEVEL = (SELECT min(IMG_LEVEL) FROM BOARD_IMG);
+	</entry>
+	
 </properties>

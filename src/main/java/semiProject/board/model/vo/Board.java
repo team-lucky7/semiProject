@@ -14,10 +14,14 @@ import lombok.ToString;
 public class Board {
 	private int boardNo;
 	private String boardTitle;
-	private String boardComment;
+	private String boardContent;
 	private String createDate;
 	private int readCount;
 	private int likeCount;
+	private int locationCode;
+	private int memberNo;
+	private int boardCd;
+	private List<String> hashtagOption;
 	private String locationName;
 	private String memberName;
 	private String thumbnail;
