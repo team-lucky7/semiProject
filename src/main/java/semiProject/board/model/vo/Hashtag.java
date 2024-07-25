@@ -8,11 +8,9 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class BoardImage {
-	private int imageNo;
-	private int imageSize;
-	private String imageRename;
-	private String imageOriginal;
-	private int imageLevel;
+@NoArgsConstructor
+public class Hashtag {
+	private String category;
+	private String name;
 	private int boardNo;
 }
