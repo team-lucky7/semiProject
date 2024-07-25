@@ -37,11 +37,7 @@ public class BoardDAO {
 			String path = BoardDAO.class.getResource("/semiProject/sql/board-sql.xml").getPath();
 			prop.loadFromXML(new FileInputStream(new File(path)));
 
-<<<<<<< HEAD
-		} catch (Exception e) {
-=======
 		}catch (Exception e) {
->>>>>>> origin/main
 			e.printStackTrace();
 		}
 	}
@@ -55,10 +51,7 @@ public class BoardDAO {
 	 * @throws Exception
 	 */
 	public String selectBoardName(Connection conn, int type) throws Exception {
-<<<<<<< HEAD
-=======
-		
->>>>>>> origin/main
+
 		String boardName = null;
 
 		try {
@@ -69,26 +62,18 @@ public class BoardDAO {
 
 			rs = pstmt.executeQuery();
 
-<<<<<<< HEAD
-			if (rs.next()) {
-				boardName = rs.getString("BOARD_NM");
-			}
-
-		} finally {
-=======
 			if(rs.next()) {
 				boardName = rs.getString("BOARD_NM");
 			}
 
 		}finally {
->>>>>>> origin/main
+
 			close(pstmt);
 		}
 
 		return boardName;
 	}
 
-<<<<<<< HEAD
 	/**
 	 * 특정 게시판의 전체 게시글 수 조회 DAO
 	 * 
@@ -112,19 +97,11 @@ public class BoardDAO {
 
 			rs = pstmt.executeQuery();
 
-<<<<<<< HEAD
-			if (rs.next()) {
-				listCount = rs.getInt("COUNT(*)");
-			}
-
-		} finally {
-=======
 			if(rs.next()) {
 				listCount = rs.getInt("COUNT(*)");
 			}
 
 		}finally {
->>>>>>> origin/main
 			close(rs);
 			close(pstmt);
 		}
@@ -146,9 +123,6 @@ public class BoardDAO {
 
 		try {
 			String sql = prop.getProperty("selectBoardList");
-
-<<<<<<< HEAD
-=======
 
 			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
 			int end = start + pagination.getLimit() - 1;
@@ -223,7 +197,7 @@ public class BoardDAO {
 	/** 게시글 상세조회 DAO
 	 * @param conn
 	 * @param boardNo
-	 * @return 
+	 * @return detail
 	 * @throws Exception
 	 */
 	public BoardDetail selectBoardDetail(Connection conn, int boardNo) throws Exception {
@@ -378,16 +352,10 @@ public class BoardDAO {
 		try {
 			String sql = prop.getProperty("searchBoardList");
 			
->>>>>>> origin/main
 			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
 			int end = start + pagination.getLimit() - 1;
 
 			pstmt = conn.prepareStatement(sql);
-<<<<<<< HEAD
-			pstmt.setInt(1, start);
-			pstmt.setInt(2, end);
-
-=======
 			pstmt.setInt(1, type);
 			pstmt.setString(2, query);
 			pstmt.setString(3, query);
@@ -396,7 +364,6 @@ public class BoardDAO {
 			pstmt.setInt(6, start);
 			pstmt.setInt(7, end);
 			
->>>>>>> origin/main
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -408,12 +375,8 @@ public class BoardDAO {
 				board.setCreateDate(rs.getString("CREATE_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setLikeCount(rs.getInt("LIKE_COUNT"));
-<<<<<<< HEAD
-
-=======
 				board.setThumbnail(rs.getString("THUMBNAIL"));
 				
->>>>>>> origin/main
 				boardList.add(board);
 			}
 
@@ -425,39 +388,32 @@ public class BoardDAO {
 		return boardList;
 	}
 
-<<<<<<< HEAD
-	/**
-	 * 게시글 상세조회 DAO
-	 * 
-	 * @param conn
-	 * @param boardNo
-	 * @return
-	 * @throws Exception
-	 */
-	public BoardDetail selectBoardDetail(Connection conn, int boardNo) throws Exception {
-		BoardDetail detail = null;
+	public List<Like> getLikeMember(Connection conn, int boardNo) throws Exception {
+		List<Like> likeList = new ArrayList<>();
 
 		try {
-			String sql = prop.getProperty("selectBoardDetail");
+			String sql = prop.getProperty("getLikeMember");
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, boardNo);
 
 			rs = pstmt.executeQuery();
 
-			if (rs.next()) {
-				detail = new BoardDetail();
+			while (rs.next()) {
+				Like like = new Like();
+				like.setBoardReplyNo(rs.getInt("BOARD_REPLY_NO"));
+				like.setMemberNo(rs.getInt("MEMBER_NO"));
+				likeList.add(like);
+			}
 
-				detail.setBoardNo(rs.getInt("BOARD_NO"));
-				detail.setBoardName(rs.getString("BOARD_NM"));
-				detail.setBoardTitle(rs.getString("BOARD_TITLE"));
-				detail.setProfileImage(rs.getString("PROFILE_IMG"));
-				detail.setMemberName(rs.getString("MEMBER_NM"));
-				detail.setCreateDate(rs.getString("CREATE_DT"));
-				detail.setUpdateDate(rs.getString("UPDATE_DT"));
-				detail.setReadCount(rs.getInt("READ_COUNT"));
-				detail.setMemberNo(rs.getInt("MEMBER_NO"));
-=======
+		} finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return likeList;
+	}
+
 	/** 좋아요 여부 조회 DAO
 	 * @param conn
 	 * @param boardNo
@@ -480,68 +436,22 @@ public class BoardDAO {
 			
 			if(rs.next()) {
 				result = rs.getInt(1);
->>>>>>> origin/main
 			}
 
 		} finally {
 			close(rs);
 			close(pstmt);
 		}
-<<<<<<< HEAD
-
-		return detail;
-	}
-
-	/**
-	 * 게시글 내용(글) 조회 DAO
-	 * 
-=======
 		
 		return result;
 	}
 
 	/** 조회수 증가 DAO
->>>>>>> origin/main
 	 * @param conn
 	 * @param boardNo
 	 * @return result
 	 * @throws Exception
 	 */
-<<<<<<< HEAD
-	public List<BoardArticle> selectBoardArticle(Connection conn, int boardNo) throws Exception {
-		List<BoardArticle> articleList = new ArrayList<>();
-
-		try {
-			String sql = prop.getProperty("selectBoardArticle");
-
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
-
-			rs = pstmt.executeQuery();
-
-			while (rs.next()) {
-				BoardArticle article = new BoardArticle();
-
-				article.setBoardContentNo(rs.getInt("BOARD_CT_NO"));
-				article.setContent(rs.getString("CONTENT"));
-				article.setContentSize(rs.getInt("CONTENT_SIZE"));
-				article.setContentLevel(rs.getInt("CONTENT_LEVEL"));
-
-				articleList.add(article);
-			}
-
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-
-		return articleList;
-	}
-
-	/**
-	 * 게시글 내용(사진) 조회 DAO
-	 * 
-=======
 	public int increaseReadCount(Connection conn, int boardNo) throws Exception {
 		
 		int result = 0;
@@ -562,64 +472,11 @@ public class BoardDAO {
 	}
 
 	/** 게시글 삭제 DAO
->>>>>>> origin/main
 	 * @param conn
 	 * @param boardNo
 	 * @return result
 	 * @throws Exception
 	 */
-<<<<<<< HEAD
-	public List<BoardImage> selectBoardImage(Connection conn, int boardNo) throws Exception {
-		List<BoardImage> imageList = new ArrayList<>();
-
-		try {
-			String sql = prop.getProperty("selectBoardImage");
-
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
-
-			rs = pstmt.executeQuery();
-
-			while (rs.next()) {
-				BoardImage image = new BoardImage();
-
-				image.setImageNo(rs.getInt("IMG_NO"));
-				image.setImageSize(rs.getInt("IMG_SIZE"));
-				image.setImageRename(rs.getString("IMG_RENAME"));
-				image.setImageOriginal(rs.getString("IMG_ORIGINAL"));
-				image.setImageLevel(rs.getInt("IMG_LEVEL"));
-
-				imageList.add(image);
-			}
-
-		} finally {
-			close(rs);
-			close(pstmt);
-		}
-
-		return imageList;
-	}
-
-	public List<Like> getLikeMember(Connection conn, int boardNo) throws Exception {
-		List<Like> likeList = new ArrayList<>();
-
-		try {
-			String sql = prop.getProperty("getLikeMember");
-
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
-
-			rs = pstmt.executeQuery();
-
-			while (rs.next()) {
-				Like like = new Like();
-				like.setBoardReplyNo(rs.getInt("BOARD_REPLY_NO"));
-				like.setMemberNo(rs.getInt("MEMBER_NO"));
-				likeList.add(like);
-			}
-
-		} finally {
-=======
 	public int deleteBoard(Connection conn, int boardNo) throws Exception {
 		int result = 0;
 		
@@ -655,11 +512,6 @@ public class BoardDAO {
 		}
 		return boardNo;
 	}
-
-
-
-
-
 
 	public int insertBoardImage(Connection conn, BoardImage image) throws SQLException {
 		int result = 0;
@@ -794,14 +646,10 @@ public class BoardDAO {
 				locationCode = rs.getInt(1);
 			}
 		} finally {
->>>>>>> origin/main
 			close(rs);
 			close(pstmt);
 		}
 
-<<<<<<< HEAD
-		return likeList;
-=======
 		return locationCode;
 
 	}
@@ -861,42 +709,9 @@ public class BoardDAO {
 		}	
 
 		return thumbnail;
->>>>>>> origin/main
 	}
 
 //============================================================================================================================//	
-
-	/**
-	 * (테마) 게시글 번호 조회 DAO
-	 * 
-	 * @param conn
-	 * @return boardNo
-	 * @throws Exception
-	 */
-	public int nextBoardNo(Connection conn) throws Exception {
-		int boardNo = 0;
-
-		try {
-			String sql = prop.getProperty("nextBoardNo");
-
-			if (sql == null || sql.trim().isEmpty()) {
-				throw new SQLException("SQL 쿼리가 비어 있거나 널입니다1.");
-			}
-
-			stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-
-			if (rs.next()) {
-				boardNo = rs.getInt(1);
-			}
-
-		} finally {
-			close(rs);
-			close(stmt);
-		}
-
-		return boardNo;
-	}
 
 	/**
 	 * (테마) 게시글 삽입

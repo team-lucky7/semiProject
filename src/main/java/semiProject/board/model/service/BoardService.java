@@ -13,13 +13,8 @@ import semiProject.board.model.vo.BoardDetail;
 import semiProject.board.model.vo.BoardImage;
 import semiProject.board.model.vo.Hashtag;
 import semiProject.board.model.vo.Pagination;
-<<<<<<< HEAD
-import semiProject.board.model.vo.Reply;
 import semiProject.common.Util;
-
-=======
 import semiProject.member.model.vo.Member;
->>>>>>> origin/main
 
 import static semiProject.common.JDBCTemplate.*;
 
@@ -38,11 +33,8 @@ public class BoardService {
 	public Map<String, Object> selectBoardList(int type, int cp) throws Exception {
 
 		Connection conn = getConnection();
-<<<<<<< HEAD
-=======
 		
 		Map<String, Object> map = new HashMap<>();
->>>>>>> origin/main
 
 		String boardName = dao.selectBoardName(conn, type);
 
@@ -51,9 +43,6 @@ public class BoardService {
 		Pagination pagination = new Pagination(cp, listCount);
 
 		List<Board> boardList = dao.selectBoardList(conn, type, pagination);
-<<<<<<< HEAD
-
-=======
 		
 		if (type == 4 || type == 5) {
 		
@@ -179,7 +168,6 @@ public class BoardService {
 		
 		List<Board> boardList = dao.searchBoardList(conn, type, pagination, query);
 		
->>>>>>> origin/main
 		Map<String, Object> map = new HashMap<>();
 
 		map.put("boardName", boardName);
@@ -189,39 +177,6 @@ public class BoardService {
 		close(conn);
 
 		return map;
-	}
-
-<<<<<<< HEAD
-	/**
-	 * 게시글 상세조회 Service
-	 * 
-=======
-	/** 게시글 삭제 Service
->>>>>>> origin/main
-	 * @param boardNo
-	 * @return result
-	 * @throws Exception
-	 */
-<<<<<<< HEAD
-	public BoardDetail selectBoardDetail(int boardNo) throws Exception {
-		Connection conn = getConnection();
-
-		BoardDetail detail = dao.selectBoardDetail(conn, boardNo);
-
-		if (detail != null) {
-			List<Like> likeList = dao.getLikeMember(conn, boardNo);
-			detail.setLikeList(likeList);
-
-			List<BoardArticle> articleList = dao.selectBoardArticle(conn, boardNo);
-			detail.setArticleList(articleList);
-
-			List<BoardImage> imageList = dao.selectBoardImage(conn, boardNo);
-			detail.setImageList(imageList);
-		}
-
-		close(conn);
-
-		return detail;
 	}
 
 	/**
@@ -281,24 +236,6 @@ public class BoardService {
 
 	}
 
-	/**(테마) 게시글 상세 조회
-	 * @param boardNo
-	 * @return detail
-	 * @throws Exception
-	 */
-	public BoardDetail selectThemaBoardDetail(int boardNo)throws Exception{
-		
-		Connection conn = getConnection();
-		
-		BoardDetail detail = dao.selectThemaBoardDetail(conn, boardNo);
-		
-		if(detail != null) {
-			
-			List<BoardImage> imageList = dao.selectThemaImageList(conn, boardNo);
-			
-			detail.setImageList(imageList);
-		}
-=======
 	public int deleteBoard(int boardNo) throws Exception {
 
 		Connection conn = getConnection();
@@ -307,49 +244,10 @@ public class BoardService {
 		
 		if(result > 0)	commit(conn);
 		else			rollback(conn);
->>>>>>> origin/main
 		
 		return result;
 	}
 
-<<<<<<< HEAD
-	/** (테마)게시글 삭제
-	 * @param no
-	 * @return result
-	 * @throws Exception
-	 */
-	public int deleteThemaBoard(int no)throws Exception{
-		Connection conn = getConnection();
-		
-		int result = dao.deleteThemaBoard(conn, no);
-		
-		if(result>0) commit(conn);
-		else rollback(conn);
-		
-		close(conn);
-		
-		return result;
-	}
-
-	/**(테마) 게시글 목록 조회
-	 * @param type
-	 * @param cp
-	 * @return map
-	 * @throws Exception
-	 */
-	public List<Board> selectThemaBoardList(String type)throws Exception{
-		
-		Connection conn = getConnection();
-		
-		List<Board> boardList = dao.selectThemaBoardList(conn, type);
-		
-		close(conn);
-		
-		return boardList;
-	}
-
-}
-=======
 	public int communityWrite(List<BoardArticle> boardArticleList, List<BoardImage> imageList, Board board,
 							  List<String> hashtagList, List<String> hashtagOption, String address) throws Exception {
 
@@ -429,5 +327,63 @@ public class BoardService {
 		return result;
 
 	}
+
+	/** (테마)게시글 삭제
+	 * @param no
+	 * @return result
+	 * @throws Exception
+	 */
+	public int deleteThemaBoard(int no)throws Exception{
+		Connection conn = getConnection();
+		
+		int result = dao.deleteThemaBoard(conn, no);
+		
+		if(result>0) commit(conn);
+		else rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+	/**(테마) 게시글 목록 조회
+	 * @param type
+	 * @param cp
+	 * @return map
+	 * @throws Exception
+	 */
+	public List<Board> selectThemaBoardList(String type)throws Exception{
+		
+		Connection conn = getConnection();
+		
+		List<Board> boardList = dao.selectThemaBoardList(conn, type);
+		
+		close(conn);
+		
+		return boardList;
+	}
+	
+	/**(테마) 게시글 상세 조회
+	 * @param boardNo
+	 * @return detail
+	 * @throws Exception
+	 */
+	public BoardDetail selectThemaBoardDetail(int boardNo)throws Exception{
+		
+		Connection conn = getConnection();
+		
+		BoardDetail detail = dao.selectThemaBoardDetail(conn, boardNo);
+		
+		if(detail != null) {
+			
+			List<BoardImage> imageList = dao.selectThemaImageList(conn, boardNo);
+			
+			detail.setImageList(imageList);
+		}
+		
+		close(conn);
+		
+		return detail;
+	}
+	
 }
->>>>>>> origin/main
