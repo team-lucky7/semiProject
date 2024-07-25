@@ -21,8 +21,10 @@ public class BoardDetail {
 	private String updateDate;
 	private int readCount;
 	private String locationName;
+	private int locationCode;
 	private String memberName;
 	private int memberNo;
+	private int boardCode;
 	
 	private List<Like> likeList;
 	private List<BoardArticle> articleList;
