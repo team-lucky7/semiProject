@@ -269,7 +269,7 @@ public class BoardService {
 		
 		int boardNo = dao.nextBoardNo(conn);
 		
-		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardTitle(Util.XSSHandling(detail.getBoardTitle()));
 		
 		int result = dao.insertFreeBoard(conn, boardNo, detail);
 		
@@ -277,8 +277,8 @@ public class BoardService {
 			
 			for(BoardArticle article : articleList) {
 				
-				article.setContent(Utill.XSSHandling(article.getContent()));
-				article.setContent(Utill.newLineHandling(article.getContent()));
+				article.setContent(Util.XSSHandling(article.getContent()));
+				article.setContent(Util.newLineHandling(article.getContent()));
 				
 				result = dao.insertFreeBoardArticle(conn, boardNo, article);
 				
@@ -321,7 +321,7 @@ public class BoardService {
 		
 		Connection conn = getConnection();
 		
-		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardTitle(Util.XSSHandling(detail.getBoardTitle()));
 		
 		int result = dao.deleteBoardArticle(conn, detail.getBoardNo());
 		
@@ -333,8 +333,8 @@ public class BoardService {
 		if(result > 0) {
 			for(BoardArticle article : articleList) {
 				
-				article.setContent(Utill.XSSHandling(article.getContent()));
-				article.setContent(Utill.newLineHandling(article.getContent()));
+				article.setContent(Util.XSSHandling(article.getContent()));
+				article.setContent(Util.newLineHandling(article.getContent()));
 				
 				result = dao.insertFreeBoardArticle(conn, detail.getBoardNo(), article);
 				
