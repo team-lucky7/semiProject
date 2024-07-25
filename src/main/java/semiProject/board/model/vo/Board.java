@@ -18,9 +18,16 @@ public class Board {
 	private String createDate;
 	private int readCount;
 	private int likeCount;
+<<<<<<< HEAD
 	private int locationCode;
 	private int memberNo;
 	private int boardCd;
 	private List<String> hashtagOption;
+=======
+	private String locationName;
+	private String memberName;
+	private String thumbnail;
+	
+>>>>>>> origin/main
 	private List<String> hashtagList;
 }
