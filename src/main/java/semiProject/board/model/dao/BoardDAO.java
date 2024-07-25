@@ -118,16 +118,11 @@ public class BoardDAO {
 			int end = start + pagination.getLimit() - 1;
 
 			pstmt = conn.prepareStatement(sql);
-<<<<<<< HEAD
-			pstmt.setInt(1, start);
-			pstmt.setInt(2, end);
 
-=======
 			pstmt.setInt(1, type);
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);
 			
->>>>>>> origin/main
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
@@ -303,24 +298,6 @@ public class BoardDAO {
 		return imageList;
 	}
 
-<<<<<<< HEAD
-	public List<Like> getLikeMember(Connection conn, int boardNo) throws Exception{
-		List<Like> likeList = new ArrayList<>();
-
-		try {
-			String sql = prop.getProperty("getLikeMember");
-
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
-
-			rs = pstmt.executeQuery();
-
-			while(rs.next()) {
-				Like like = new Like();
-				like.setBoardReplyNo(rs.getInt("BOARD_REPLY_NO"));
-				like.setMemberNo(rs.getInt("MEMBER_NO"));
-				likeList.add(like);
-=======
 	public int getSearchListCount(Connection conn, int type, String query) throws Exception {
 		
 		int listCount = 0;
@@ -340,17 +317,12 @@ public class BoardDAO {
 			
 			if(rs.next()) {
 				listCount = rs.getInt(1);
->>>>>>> origin/main
 			}
 
 		}finally {
 			close(rs);
 			close(pstmt);
 		}
-<<<<<<< HEAD
-
-		return likeList;
-=======
 		
 		return listCount;
 	}
@@ -483,8 +455,8 @@ public class BoardDAO {
 		}finally {
 			close(pstmt);
 		}
+		
 		return result;
->>>>>>> origin/main
 	}
 
 	public int nextBoardNo(Connection conn) throws Exception{
