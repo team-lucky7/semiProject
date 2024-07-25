@@ -57,7 +57,7 @@
 					for(int i=0; i<articleList.size() + imageList.size(); i++){
 						for(BoardArticle article : articleList){
 							if(i == article.getContentLevel()){
-								%><div><%=article.getContent()%></div><%
+								%><p><%=article.getContent()%></p><%
 							}
 						}
 						

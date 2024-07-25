@@ -63,6 +63,10 @@
     max-height: 200px;
 }
 
+.board-content p{
+    white-space: pre;
+}
+
 #likeBtn{
     display: block;
     margin: 30px auto;

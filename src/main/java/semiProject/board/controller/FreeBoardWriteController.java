@@ -67,7 +67,6 @@ public class FreeBoardWriteController extends HttpServlet{
 			
 			while(files.hasMoreElements()) {
 				String name = files.nextElement();
-				System.out.println("이미지 레벨 : " + name);
 				
 				String rename = mpReq.getFilesystemName(name);
 				String original = mpReq.getOriginalFileName(name);
@@ -98,7 +97,6 @@ public class FreeBoardWriteController extends HttpServlet{
 			}
 			
 			String boardTitle = mpReq.getParameter("boardTitle");
-			System.out.println(boardTitle);
 			
 			Member loginMember = (Member)session.getAttribute("loginMember");
 			int memberNo = loginMember.getMemberNo();
@@ -137,6 +135,29 @@ public class FreeBoardWriteController extends HttpServlet{
 				
 				resp.sendRedirect(path); // 리다이렉트
 			} 
+			
+			if(mode.equals("update")) {
+				int boardNo = Integer.parseInt(mpReq.getParameter("no"));
+				
+				detail.setBoardNo(boardNo);
+				int result = service.updateBoardContent(detail, articleList, imageList);
+				
+				String path = null;
+				if(result > 0) { // 성공
+					session.setAttribute("message", "게시글이 수정되었습니다.");
+					
+					// 등록한 게시글 상세화면
+					path = "detail?no=" + boardNo + "&type=3&cp=1";
+					
+				}else { // 실패
+					session.setAttribute("message", "게시글 수정 실패 ㅠㅠ");
+					
+					// 게시글 작성 화면
+					path = "write?mode=" + mode + "&type=3" + "&no=" + boardNo;
+				}
+				
+				resp.sendRedirect(path);
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
