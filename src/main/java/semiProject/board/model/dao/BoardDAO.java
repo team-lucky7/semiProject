@@ -49,6 +49,7 @@ public class BoardDAO {
 	 * @throws Exception
 	 */
 	public String selectBoardName(Connection conn, int type) throws Exception {
+		
 		String boardName = null;
 
 		try {
@@ -122,7 +123,7 @@ public class BoardDAO {
 			pstmt.setInt(1, type);
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);
-			
+
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
@@ -282,11 +283,11 @@ public class BoardDAO {
 			while(rs.next()) {
 				BoardImage image = new BoardImage();
 
-				image.setImgNo(rs.getInt("IMG_NO")); 
-				image.setImgSize(rs.getInt("IMG_SIZE"));
-				image.setImgRename(rs.getString("IMG_RENAME"));
-				image.setImgOriginal(rs.getString("IMG_ORIGINAL"));
-				image.setImgLevel(rs.getInt("IMG_LEVEL"));
+				image.setImageNo(rs.getInt("IMG_NO")); 
+				image.setImageSize(rs.getInt("IMG_SIZE"));
+				image.setImageRename(rs.getString("IMG_RENAME"));
+				image.setImageOriginal(rs.getString("IMG_ORIGINAL"));
+				image.setImageLevel(rs.getInt("IMG_LEVEL"));
 				imageList.add(image);
 			}
 
@@ -455,7 +456,7 @@ public class BoardDAO {
 		}finally {
 			close(pstmt);
 		}
-		
+
 		return result;
 	}
 
@@ -489,10 +490,10 @@ public class BoardDAO {
 			String sql = prop.getProperty("insertBoardImage");
 			pstmt = conn.prepareStatement(sql);
 
-			pstmt.setInt(1, image.getImgSize());
-			pstmt.setString(2, image.getImgRename());
-			pstmt.setString(3, image.getImgOriginal());
-			pstmt.setInt(4, image.getImgLevel());
+			pstmt.setInt(1, image.getImageSize());
+			pstmt.setString(2, image.getImageRename());
+			pstmt.setString(3, image.getImageOriginal());
+			pstmt.setInt(4, image.getImageLevel());
 			pstmt.setInt(5, image.getBoardNo());
 
 			result = pstmt.executeUpdate();
