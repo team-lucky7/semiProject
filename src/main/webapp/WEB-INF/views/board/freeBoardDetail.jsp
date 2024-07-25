@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,11 +18,10 @@
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 	<main>
-
+  
 		<section class="board-detail">
 			<h3 class="board-name">${detail.boardName}</h3>
 			<div class="board-title">${detail.boardTitle}</div>
-
 			<div class="board-header">
                 <div class="board-writer">
                 	<c:if test="${empty detail.profileImage}">
