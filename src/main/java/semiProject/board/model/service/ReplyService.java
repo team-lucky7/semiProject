@@ -5,6 +5,7 @@ import java.util.List;
 
 import semiProject.board.model.dao.ReplyDAO;
 import semiProject.board.model.vo.Reply;
+import semiProject.common.Utill;
 import semiProject.member.model.vo.Member;
 
 import static semiProject.common.JDBCTemplate.*;
@@ -49,6 +50,9 @@ public class ReplyService {
 		
 		Connection conn = getConnection();
 		
+		reply.setReplyContent(Utill.XSSHandling(reply.getReplyContent()));
+		reply.setReplyContent(Utill.newLineHandling(reply.getReplyContent()));
+		
 		int result = dao.insertReply(conn, reply);
 		
 		if(result > 0)	commit(conn);
@@ -87,6 +91,9 @@ public class ReplyService {
 	public int updateReply(int replyNo, String replyContent) throws Exception {
 		
 		Connection conn = getConnection();
+		
+		replyContent = Utill.XSSHandling(replyContent);
+		replyContent = Utill.newLineHandling(replyContent);
 		
 		int result = dao.updateReply(conn, replyNo, replyContent);
 		
