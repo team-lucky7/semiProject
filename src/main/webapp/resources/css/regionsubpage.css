@@ -59,7 +59,7 @@ html{
     border-right: none;
     border-left: none;
 }
-.text > span{
+.text > label{
     margin: 0 50px;
     cursor: pointer;
 }
@@ -91,5 +91,5 @@ html{
     width: 940px;
     border: 1px solid black;
     height: 300px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }

@@ -9,10 +9,15 @@
 
   <ul class="nav">
     <li><a href="${ contextPath }">홈</a></li>
+<<<<<<< HEAD
     <li><a href="${ contextPath }/thema/list?type=1">테마</a></li>
     <li><a href="${ contextPath }/region">지역</a></li>
+=======
+    <li><a href="${ contextPath }/thema">테마</a></li>
+    <li><a href="${ contextPath }/region?type=1">지역</a></li>
+>>>>>>> origin/main
     <li>
-      <a href="#">커뮤니티</a>
+      <a href="${ contextPath }/community/write">커뮤니티</a>
       <div class="community-nav-wrap">
         <ul>
           <li><a href="${ contextPath }/vacation/list">휴양지</a></li>
@@ -50,12 +55,15 @@
   <div class="search-index">
     <div>
       <div class="search-wrap">
-        <img src="${contextPath}/resources/images/logo.jpg" height="100px">
-        <button type="button" onclick="closeSearch()">&times;</button>
+      	<div class="search-index-logo">
+      		<img src="${contextPath}/resources/images/logo.jpg" height="100px">
+        	<button type="button" onclick="closeSearch()">&times;</button>
+      	</div>
+      	
         <div class="search-area">
           <form action="${contextPath}/search" name="query-form">
             <div>
-              <input type="search" id="inp-search" name="query" autocomplete="off" placeholder="검색어를 입력해주세요">
+              <input type="text" id="inp-search" name="query" autocomplete="off" placeholder="검색어를 입력해주세요">
               <button class="fa-solid fa-magnifying-glass"></button>
             </div>
           </form>

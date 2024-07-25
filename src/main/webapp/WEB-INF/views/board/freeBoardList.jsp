@@ -40,7 +40,7 @@
 						<c:choose>
 							<c:when test="${empty boardList}">
 								<tr>
-									<td colspan="6">게시글 조회 결과가 없습니다.<td>
+									<td colspan="6">게시물 조회 결과가 없습니다.</td>
 								</tr>
 							</c:when>
 							
