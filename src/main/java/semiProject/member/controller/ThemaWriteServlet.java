@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 import com.oreilly.servlet.MultipartRequest;
 
 import semiProject.member.model.vo.Member;
@@ -89,13 +92,26 @@ public class ThemaWriteServlet extends HttpServlet{
 			String categoryStr = mpReq.getParameter("category");
 			int boardCode = Integer.parseInt(categoryStr);
 			
-			/*
-			 * String locationName = mpReq.getParameter("locationName");
-			 * System.out.println(locationName);///
-			 * 
-			 * String locationNM = mpReq.getParameter("mapAddress");
-			 * System.out.println(locationNM);///
-			 */			
+			// 카카오맵 좌표, 주소("lat", "lng", "address")
+			 String mapAddress = mpReq.getParameter("mapAdr");
+			
+			 
+			  
+			 String address = null;
+	         
+	         if(mapAddress != null) {
+
+	         JSONParser parser = new JSONParser();
+
+	         JSONObject jObject = null;
+
+	         jObject = (JSONObject)parser.parse(mapAddress);
+
+	         address = (String)jObject.get("address");
+
+	         }
+			 
+			 		
 			Member loginMember = (Member)session.getAttribute("loginMember");
 			int memberNo = loginMember.getMemberNo(); //회원번호
 			
@@ -105,6 +121,9 @@ public class ThemaWriteServlet extends HttpServlet{
 			detail.setBoardTitle(boardTitle);
 			detail.setBoardContent(boardContent);
 			detail.setMemberNo(memberNo);
+			detail.setMapAddress(mapAddress);
+			detail.setLocationName(address);
+			
 			// boardCode는 별도 매개변수로 전달 예정
 			
 			BoardService service = new BoardService();
@@ -112,11 +131,15 @@ public class ThemaWriteServlet extends HttpServlet{
 			// 모드(insert/update)에 따라서 추가 파라미터 얻어오기 및 서비스 호출
 			String mode = mpReq.getParameter("mode"); // hidden
 			
+			
 			if(mode.equals("insert")) { // 삽입
 				
 				// 게시글 삽입 서비스 호출 후 결과 반환 받기
 				// -> 반환된 게시글 번호를 이용해서 상세조회로 리다이렉트 예정
 				int boardNo = service.insertThemaBoard(detail, imageList, boardCode);
+				
+	
+				
 				
 				String path = null;
 				if(boardNo > 0) { //성공

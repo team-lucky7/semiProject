@@ -136,12 +136,14 @@ function mapAddress(){
                     address: address1+" "+address2,
                   };
                   
-               let json = JSON.stringify(mapData);  // json 합치고 인풋에다가 갑 넣어줌             
+                    let json = JSON.stringify(mapData);  // json 합치고 인풋에다가 갑 넣어줌             
 
 
-                    if(mapDiv.style.display!='none'){   // 지운거는 안보내 주려고 함
-                       mapAddress.setAttribute("name", "mapAddress");
-                    }    
+                    const mapvalue = document.getElementById("mapAdr");
+                
+                    if(mapDiv.style.display!='none'){ 
+                   mapvalue.value = json;                   
+                    }  
                 }   
             });
         });
@@ -190,3 +192,6 @@ function showMap(){
    mapDiv.style.display = 'block';
     
 }
+
+
+ 
