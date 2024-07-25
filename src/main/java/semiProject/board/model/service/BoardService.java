@@ -14,6 +14,7 @@ import semiProject.board.model.vo.BoardImage;
 import semiProject.board.model.vo.Hashtag;
 import semiProject.board.model.vo.Pagination;
 import semiProject.common.Util;
+
 import semiProject.member.model.vo.Member;
 
 import static semiProject.common.JDBCTemplate.*;
@@ -96,7 +97,12 @@ public class BoardService {
 			}
 			
 			List<BoardArticle> articleList = dao.selectBoardArticle(conn, boardNo);
+			
+			for(BoardArticle article : articleList) {
+				article.setContent(article.getContent().replaceAll("<br>", "\n"));
+			}
 			detail.setArticleList(articleList);
+			
 			
 			List<BoardImage> imageList = dao.selectBoardImage(conn, boardNo);
 			detail.setImageList(imageList);
@@ -241,6 +247,113 @@ public class BoardService {
 		Connection conn = getConnection();
 		
 		int result = dao.deleteBoard(conn, boardNo);
+		
+		if(result > 0)	commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+	/** 자유게시글 삽입 Service
+	 * @param detail
+	 * @param articleList
+	 * @param imageList
+	 * @return boardNo
+	 * @throws Exception
+	 */
+	public int insertFreeBoard(BoardDetail detail, List<BoardArticle> articleList, List<BoardImage> imageList) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int boardNo = dao.nextBoardNo(conn);
+		
+		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
+		
+		int result = dao.insertFreeBoard(conn, boardNo, detail);
+		
+		if(result > 0) {
+			
+			for(BoardArticle article : articleList) {
+				
+				article.setContent(Utill.XSSHandling(article.getContent()));
+				article.setContent(Utill.newLineHandling(article.getContent()));
+				
+				result = dao.insertFreeBoardArticle(conn, boardNo, article);
+				
+				if(result == 0) {
+					boardNo = 0;
+					break;
+				}
+			}
+			
+			if(boardNo > 0) {
+				for(BoardImage image : imageList) {
+					
+					result = dao.insertFreeBoardImage(conn, boardNo, image);
+					
+					if(result == 0) {
+						boardNo = 0;
+						break;
+					}
+				}
+			}
+			
+		}
+		
+		if(boardNo > 0)	commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		
+		return boardNo;
+	}
+
+	/** 자유게시글 수정 Service
+	 * @param imageList 
+	 * @param articleList 
+	 * @param boardNo
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateBoardContent(BoardDetail detail, List<BoardArticle> articleList, List<BoardImage> imageList) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
+		
+		int result = dao.deleteBoardArticle(conn, detail.getBoardNo());
+		
+		System.out.println(result);
+		
+		dao.deleteBoardImage(conn, detail.getBoardNo());
+		dao.updateFreeBoard(conn, detail);
+
+		if(result > 0) {
+			for(BoardArticle article : articleList) {
+				
+				article.setContent(Utill.XSSHandling(article.getContent()));
+				article.setContent(Utill.newLineHandling(article.getContent()));
+				
+				result = dao.insertFreeBoardArticle(conn, detail.getBoardNo(), article);
+				
+				if(result == 0) {
+					break;
+				}
+			}
+		}
+		
+		if(result > 0) {
+			for(BoardImage image : imageList) {
+				
+				result = dao.insertFreeBoardImage(conn, detail.getBoardNo(), image);
+				
+				if(result == 0) {
+					break;
+				}
+			}
+		}
 		
 		if(result > 0)	commit(conn);
 		else			rollback(conn);

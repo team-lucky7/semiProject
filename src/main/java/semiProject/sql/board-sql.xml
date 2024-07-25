@@ -190,7 +190,44 @@
 		UPDATE BOARD SET BOARD_ST = 'Y' WHERE BOARD_NO = ?
 	</entry>
 	
-	<!-- 게시판 번호 확인 -->
+	<!-- 자유게시글 삽입 -->
+	<entry key="insertFreeBoard">
+		INSERT INTO BOARD VALUES(?, ?, DEFAULT,
+			DEFAULT, DEFAULT, DEFAULT, DEFAULT, 3, DEFAULT, ?)
+	</entry>
+	
+	<!-- 다음 게시글 번호 얻어오기 -->
+	<entry key="nextBoardNo">
+		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+	</entry>
+	
+	<!-- 자유게시글 내용 삽입 -->
+	<entry key="insertFreeBoardArticle">
+		INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL, ?, 1, ?, ?)
+	</entry>
+	
+	<!-- 자유게시글 이미지 삽입 -->
+	<entry key="insertFreeBoardImage">
+		INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL, 1, ?, ?, ?, ?)
+	</entry>
+	
+	<!-- 자유게시글 제목 수정 -->
+	<entry key="updateFreeBoard">
+		UPDATE BOARD SET BOARD_TITLE = ?, UPDATE_DT = SYSDATE
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 자유게시글 내용 삭제 -->
+	<entry key="deleteBoardArticle">
+		DELETE FROM BOARD_ARTICLE WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 자유게시글 이미지 삭제 -->
+	<entry key="deleteBoardImage">
+		DELETE FROM BOARD_IMG WHERE BOARD_NO = ?
+	</entry>
+
+		<!-- 게시판 번호 확인 -->
 	<entry key="nextBoardNo" >
 		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
 	</entry>
@@ -232,4 +269,5 @@
 		WHERE BOARD_NO = ?
 		AND IMG_LEVEL = (SELECT min(IMG_LEVEL) FROM BOARD_IMG);
 	</entry>
+
 </properties>
