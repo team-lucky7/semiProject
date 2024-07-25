@@ -1,3 +1,7 @@
+<%@page import="semiProject.board.model.vo.BoardImage"%>
+<%@page import="semiProject.board.model.vo.BoardArticle"%>
+<%@page import="java.util.List"%>
+<%@page import="semiProject.board.model.vo.BoardDetail"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -46,15 +50,25 @@
             </div>
 
 			<div class="board-content">
-				<c:if test="${!empty detail.imageList}">
-					<c:forEach var="i" begin="0" end="${fn:length(detail.imageList) - 1}">
-						<img src="${contextPath}${detail.imageList[i].imageRename}"></img>
-					</c:forEach>
-				</c:if>
-				
-				<c:forEach var="i" begin="0" end="${fn:length(detail.articleList) - 1}">
-					<div>${detail.articleList[i].content}</div>
-				</c:forEach>
+				<% 
+					BoardDetail detail = (BoardDetail)request.getAttribute("detail");
+					List<BoardArticle> articleList = detail.getArticleList();
+					List<BoardImage> imageList = detail.getImageList();
+					
+					for(int i=0; i<articleList.size() + imageList.size(); i++){
+						for(BoardArticle article : articleList){
+							if(i == article.getContentLevel()){
+								%><p><%=article.getContent()%></p><%
+							}
+						}
+						
+						for(BoardImage image : imageList){
+							if(i == image.getImageLevel()){
+								 %><img src="<%=request.getContextPath()%><%=image.getImageRename()%>"><%
+							}
+						}
+					}
+				%>
 			</div>
 
 			<div>
@@ -69,7 +83,7 @@
 
 			<div class="board-btn-area">
 				<c:if test="${loginMember.memberNo == detail.memberNo}">
-					<button id="updateBtn">수정</button>
+					<button id="updateBtn" onclick="location.href='write?mode=update&type=${param.type}&cp=${param.cp}&no=${param.no}'">수정</button>
 					<button id="deleteBtn">삭제</button>
 				</c:if>
 				<button id="goToListBtn">목록으로</button>
