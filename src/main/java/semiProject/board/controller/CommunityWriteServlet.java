@@ -94,17 +94,17 @@ public class CommunityWriteServlet extends HttpServlet{
 					// 이미지 정보를 담은 객체(BoardImage)를 생성
 					BoardImage image = new BoardImage();
 
-					image.setImgOriginal(original); // 원본명 (다운로드 시 사용)
-					image.setImgRename(folderPath + rename); // 폴더 경로 + 변경명
+					image.setImageOriginal(original); // 원본명 (다운로드 시 사용)
+					image.setImageRename(folderPath + rename); // 폴더 경로 + 변경명
 
 					// 이미지 name 속성 받아서 타입, 순서로 쪼갠다
 
 					String[] str = name.split("_");
 
-					image.setImgLevel(Integer.parseInt(str[0]));
+					image.setImageLevel(Integer.parseInt(str[0]));
 
-					if(str[1].equals("fullImage")) image.setImgSize(2);
-					else image.setImgSize(3);
+					if(str[1].equals("fullImage")) image.setImageSize(2);
+					else image.setImageSize(3);
 					// 큰 이미지 사이즈는 2, 작은 이미지 사이즈는 3
 
 					imageList.add(image); // 리스트 추가

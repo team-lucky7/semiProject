@@ -8,6 +8,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
+@NoArgsConstructor
 public class BoardImage {
 	private int imageNo;
 	private int imageSize;
