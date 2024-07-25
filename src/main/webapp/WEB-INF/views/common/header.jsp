@@ -9,7 +9,7 @@
 
   <ul class="nav">
     <li><a href="${ contextPath }">홈</a></li>
-    <li><a href="${ contextPath }/thema">테마</a></li>
+    <li><a href="${ contextPath }/thema/list?type=1">테마</a></li>
     <li><a href="${ contextPath }/region">지역</a></li>
     <li>
       <a href="#">커뮤니티</a>

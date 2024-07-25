@@ -1,74 +1,175 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 
 <head>
 <meta charset="UTF-8">
-<title>여행</title>
-<link rel="stylesheet" href="resources/css/header.css">
-<link rel="stylesheet" href="resources/css/footer.css">
-<link rel="stylesheet" href="resources/css/index.css">
-<link rel="stylesheet" href="resources/css/thema.css">
+<title>테마</title>
+<link rel="stylesheet" href="${contextPath}/resources/css/header.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/footer.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/index.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/thema.css">
 
-<script src="https://kit.fontawesome.com/4bef400c33.js"
-	crossorigin="anonymous" defer></script>
+<script src="https://kit.fontawesome.com/4bef400c33.js" crossorigin="anonymous" defer></script>
 </head>
 
 <jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
 <body id="thema-container">
-	<section class="thema-main">
-		<div class="thema-title first">
-			<span>감성 힐링 여행</span>
-		</div>
 
-		<ul class="thema-contents first">
-			<li><a href="${ contextPath }/thema/subPage"><img
-					src="https://ktourtop10.kr/data/item/1649310804/thumb-22_290x290.jpg"></a>
-				<a href="${ contextPath }/thema/subPage"><p>추억의 수학여행 코스</p></a> <span>경주
-					| 숙박여행</span></li>
-			<li><a href="${ contextPath }/thema/subPage"><img
-					src="https://ktourtop10.kr/data/item/1649298396/thumb-002_290x290.png"></a>
-				<a href="${ contextPath }/thema/subPage"><p>마을 맛 여행</p></a> <span>충청
-					| 숙박여행</span></li>
-			<li><a href="${ contextPath }/thema/subPage"><img
-					src="https://ktourtop10.kr/data/item/1649035401/thumb-7JWM7J6Q7Iqk_290x290.jpg"></a>
-				<a href="${ contextPath }/thema/subPage"><p>프랑스 농부와 소설가의
-						문화양조장 작은알자스 체험</p></a> <span>충청 | 이용권/체험</span></li>
 
-		</ul>
-	</section>
+<section class="thema-main">
+	<c:choose>
+		<c:when test="${empty boardList}">
+			<p>게시글이 존재하지 않습니다.</p>
+		</c:when>
+		
+		<c:otherwise>
+			
+				<c:set var="found" value="false" />
+				<c:forEach var="board" items="${boardList}">
+					<c:if test="${board.boardCode == 6 && !found}">
+						<div class="thema-title first">
+							<span>${board.boardName}</span>
+							<button>저장</button>
+						</div>
+						<c:set var="found" value="true" />
+					</c:if>
+				</c:forEach>
 
-	<section class="thema-main" id="thema-main">
-		<div class="thema-title second">
-			<span>이색 체험 여행</span>
-		</div>
+				<ul class="thema-contents first">
+					<c:forEach var="board" items="${boardList}">
+						<c:if test="${board.boardCode == 6}">
+							<c:if test="${!empty board.thumbnail}">
+									<li>
+										<a href="subPage?no=${board.boardNo}&type=${param.type}">
+											<img src="${contextPath}${board.thumbnail}"></a>
+										<a href="${ contextPath }/thema/subPage">
+											<p>${board.boardTitle}</p>
+										</a>
+										<span>지역받아오기</span>
+									</li>
+							</c:if>
+						</c:if>
+					</c:forEach>
+				</ul>
+				
+				
+				<c:set var="found" value="false" />
+				<c:forEach var="board" items="${boardList}">
+					<c:if test="${board.boardCode == 7 && !found}">
+						<div class="thema-title second">
+							<span>${board.boardName}</span>
+							<button>저장</button>
+						</div>
+						<c:set var="found" value="true" />
+					</c:if>
+				</c:forEach>
+				<ul class="thema-contents second">
+					<c:forEach var="board" items="${boardList}">
+						<c:if test="${board.boardCode == 7}">
+							<c:if test="${!empty board.thumbnail}">
+									<li>
+										<a href="subPage?no=${board.boardNo}&type=${param.type}">
+											<img src="${contextPath}${board.thumbnail}"></a>
+										<a href="${ contextPath }/thema/subPage">
+											<p>${board.boardTitle}</p>
+										</a>
+										<span>지역받아오기</span>
+									</li>
+							</c:if>
+						</c:if>
+					</c:forEach>
+				</ul>
+				
+				
+				<c:set var="found" value="false" />
+				<c:forEach var="board" items="${boardList}">
+					<c:if test="${board.boardCode == 8 && !found}">
+						<div class="thema-title first">
+							<span>${board.boardName}</span>
+							<button>저장</button>
+						</div>
+						<c:set var="found" value="true" />
+					</c:if>
+				</c:forEach>
+				<ul class="thema-contents first">
+					<c:forEach var="board" items="${boardList}">
+						<c:if test="${board.boardCode == 8}">
+							<c:if test="${!empty board.thumbnail}">
+									<li>
+										<a href="subPage?no=${board.boardNo}&type=${param.type}">
+											<img src="${contextPath}${board.thumbnail}"></a>
+										<a href="${ contextPath }/thema/subPage">
+											<p>${board.boardTitle}</p>
+										</a>
+										<span>지역받아오기</span>
+									</li>
+							</c:if>
+						</c:if>
+					</c:forEach>
+				</ul>
+				
+				
+				<c:set var="found" value="false" />
+				<c:forEach var="board" items="${boardList}">
+					<c:if test="${board.boardCode == 9 && !found}">
+						<div class="thema-title second">
+							<span>${board.boardName}</span>
+							<button>저장</button>
+						</div>
+						<c:set var="found" value="true" />
+					</c:if>
+				</c:forEach>
+				<ul class="thema-contents second">
+					<c:forEach var="board" items="${boardList}">
+						<c:if test="${board.boardCode == 9}">
+							<c:if test="${!empty board.thumbnail}">
+									<li>
+										<a href="subPage?no=${board.boardNo}&type=${param.type}">
+											<img src="${contextPath}${board.thumbnail}"></a>
+										<a href="${ contextPath }/thema/subPage">
+											<p>${board.boardTitle}</p>
+										</a>
+										<span>지역받아오기</span>
+									</li>
+							</c:if>
+						</c:if>
+					</c:forEach>
+				</ul>
+				
+				
+		</c:otherwise>
+	</c:choose>
 
-		<ul class="thema-contents second">
-			<li><a href="#"><img
-					src="https://ktourtop10.kr/data/item/1679979247/thumb-64yA7ZGc7J206647KeA_290x290.png"></a>
-				<a href="#"><p>포항 야외방탈출 미션추리 게임</p></a> <span>경상 | 이용권/체험</span></li>
-			<li><a href="#"><img
-					src="https://ktourtop10.kr/data/item/1626248483/thumb-top_290x290.jpg"></a>
-				<a href="#"><p>부여하늘날기 1박2일 열기구체험</p></a> <span>충청 | 숙박여행</span></li>
-			<li><a href="#"><img
-					src="https://ktourtop10.kr/data/item/1638410800/thumb-7I2464Sk7J28_290x290.jpg"></a>
-				<a href="#"><p>DMZ 평화꽃반지 체험</p></a> <span>경기 | 이용권/체험</span></li>
-		</ul>
-	</section>
+</section>
 
-	<div id="more">
-		<button id="load-more-btn">더보기</button>
-	</div>
 
-	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
-	<script src="${ contextPath }/resources/js/jquery-3.7.1.min.js"></script>
-	<script src="${ contextPath }/resources/js/header.js"></script>
-	<script src="${ contextPath }/resources/js/thema.js"></script>
-	<script>
-		const contextPath = "${contextPath}";
-	</script>
+
+<div id="more">
+	<button id="load-more-btn">더보기</button>
+</div>
+
+<div class="write">
+
+	<c:if test="${!empty loginMember}">
+
+		<button id="insertBtn"
+			onclick="location.href='themaWrite?mode=insert&type=${param.type}'">글쓰기</button>
+	</c:if>
+
+</div>
+
+<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+<script src="${ contextPath }/resources/js/jquery-3.7.1.min.js"></script>
+<script src="${ contextPath }/resources/js/header.js"></script>
+<script src="${ contextPath }/resources/js/thema.js"></script>
+<script>
+	const contextPath = "${contextPath}";
+</script>
 
 </body>
+
 </html>
