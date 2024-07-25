@@ -9,8 +9,13 @@
 
   <ul class="nav">
     <li><a href="${ contextPath }">홈</a></li>
+<<<<<<< HEAD
+    <li><a href="${ contextPath }/thema/list?type=1">테마</a></li>
+    <li><a href="${ contextPath }/region">지역</a></li>
+=======
     <li><a href="${ contextPath }/thema">테마</a></li>
     <li><a href="${ contextPath }/region?type=1">지역</a></li>
+>>>>>>> origin/main
     <li>
       <a href="${ contextPath }/community/write">커뮤니티</a>
       <div class="community-nav-wrap">
