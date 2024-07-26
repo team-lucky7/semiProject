@@ -789,16 +789,17 @@ public class BoardDAO {
 		
 		try {
 			
-			String sql = prop.getProperty("regioninsertBoard") + prop.getProperty("regioninsertBoard2");
+			String sql = prop.getProperty("regioninsertBoard");
 			
 			pstmt = conn.prepareStatement(sql);
 			
 			
 			pstmt.setInt(1,detail.getBoardNo());
 			pstmt.setString(2, detail.getBoardTitle());
-			pstmt.setString(3, detail.getContent());
+			pstmt.setString(3, detail.getBoardContent());
 			pstmt.setInt(4, boardCode);
 			pstmt.setInt(5, detail.getMemberNo());
+			
 			
 			result = pstmt.executeUpdate();
 			
@@ -835,29 +836,28 @@ public class BoardDAO {
 		return result;
 	}
 
-	public List<Board> searchRegionBoardList(Connection conn, String type) throws Exception{
+	public List<BoardDetail> selectRegionList(Connection conn, int type) throws Exception{
 		
-		List<Board> boardList = new ArrayList<>();
+		List<BoardDetail> boardList = new ArrayList<>();
 		
 		try {
 			
-			String sql = prop.getProperty("searchRegionBoardList") + type + prop.getProperty("searchRegionBoardList2");
+			String sql = prop.getProperty("selectRegionList");
 			
-			stmt = conn.createStatement();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, type);
 			
-			rs = stmt.executeQuery(sql);
+			rs = pstmt.executeQuery();
 			
 			while (rs.next()) {
 				
-				Board board = new Board();
+				BoardDetail board = new BoardDetail();
 				
 				board.setBoardNo(rs.getInt("BOARD_NO"));
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 				board.setBoardCode(rs.getInt("BOARD_CD"));
-				
 				boardList.add(board);
-				
 			}
 		}finally {
 			
@@ -879,9 +879,10 @@ public class BoardDAO {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1,article.getContent());
-			pstmt.setInt(2, detail.getMemberNo());
+			pstmt.setInt(2, detail.getBoardNo());
 			
 			result = pstmt.executeUpdate();
+			
 			
 			
 		}finally {
@@ -1300,4 +1301,5 @@ public class BoardDAO {
 		}
 		return boardList;
 	}
+
 }

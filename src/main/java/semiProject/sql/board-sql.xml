@@ -222,7 +222,7 @@
 	</entry>
 	
 	<entry key="regioninsertBoard2">
-		INSERT INTO BOARD_ARTICLE VALUES(0,?,0,0,?)
+		INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,?,0,0,?)
 	</entry>
 		
 	<!--지역 게시글 이미지 삽입  -->
@@ -231,22 +231,15 @@
 		VALUES(SEQ_IMG_NO.NEXTVAL, 1 , ? , ? , ?, ?)
 	</entry>
 	
-	<!-- 지역 게시글 조회 1 -->
-	<entry key="searchRegionBoardList">
+	<!-- 지역 게시글 조회 -->
+	<entry key="selectRegionList">
 		SELECT  BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_CD
 		FROM BOARD
-		WHERE BOARD_CD IN(
-	</entry>	
-	
-	<!-- 지역 게시글 조회 2 -->
-	<entry key="searchRegionBoardList2">
-		)
+		WHERE BOARD_CD = ?
 		AND BOARD_ST = 'N'
 		ORDER BY BOARD_NO DESC
 	</entry>	
-	
-	
-	
+
 	<!-- 자유게시글 삽입 -->
 	<entry key="insertFreeBoard">
 		INSERT INTO BOARD VALUES(?, ?, DEFAULT,
