@@ -258,6 +258,12 @@ public class BoardService {
 		
 		int boardNo = dao.regionnextBoardNo(conn);
 		
+		int locationCode = dao.selectLocationCode(conn, boardNo, detail);
+		
+		detail.setLocationCode(locationCode);
+		
+		int updateLocation = dao.updateLocation(conn, boardNo, detail);
+		
 		
 		detail.setBoardNo(boardNo);
 		
@@ -274,6 +280,13 @@ public class BoardService {
 				image.setBoardNo(boardNo); 
 				
 				result = dao.regioninsertBoardImage(conn,image);
+				
+				BoardArticle article2 = new BoardArticle();
+				article2.setContent(detail.getMapAddress());
+				article2.setBoardNo(detail.getBoardNo());
+				
+				int insertArticle = dao.insertBoardArticle(conn, article2);
+				int insertAtricle2 = dao.insertBoardArticle2(conn, article2);
 				
 				if(result == 0) { 
 					break;
