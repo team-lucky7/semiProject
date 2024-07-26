@@ -393,5 +393,33 @@
 		)
 		WHERE RNUM BETWEEN ? AND ?
 	</entry>
+	
+	<!-- (테마) 게시판 수정 -->
+	<entry key ="updateThemaBoard">
+		UPDATE BOARD SET
+		BOARD_TITLE = ?,
+		BOARD_CONTENT= ?, 
+		UPDATE_DT = sysdate,
+		BOARD_CD = ?,
+		LOCATION_CODE = ?
+		WHERE BOARD_NO = ?
+	</entry>
 
+	<!-- 게시판 이미지 업데이트 -->
+	<entry key="updateBoardImage">
+		UPDATE BOARD_IMG SET
+		IMG_SIZE = ?,
+		IMG_RENAME =?,
+		IMG_ORIGINAL=?
+		WHERE IMG_LEVEL =?
+		AND BOARD_NO =?
+	</entry>
+	
+	<!-- (테마) BOARD_ARTICLE 업데이트 -->
+	<entry key ="updateBoardArticle">
+		UPDATE BOARD_ARTICLE SET
+		CONTENT = ?
+		WHERE BOARD_NO = ?
+	</entry>
+	
 </properties>
