@@ -15,47 +15,50 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 	
     <main>
-        <form action="">
+        <form action="regionWrite" enctype="multipart/form-data" method="POST" onsubmit="return writeValidate()">
             <section class="content">
                 <div class="select">
                     <div class="selectRegion">
                         지역 선택 : 
                     </div>
-                    <select id="select-region">
-                        <option value="#">BOARD_TYPE(10)</option>
-                        <option value="#">인천11</option>
-                        <option value="#">대전12</option>
-                        <option value="#">대구13</option>
-                        <option value="#">부산14</option>
-                        <option value="#">수원15</option>
-                        <option value="#">강원도16</option>
+                    <select id="select-region" name="category">
+                        <option value="10">서울</option>
+                        <option value="11">인천</option>
+                        <option value="12">대전</option>
+                        <option value="13">대구</option>
+                        <option value="14">부산</option>
+                        <option value="15">수원</option>
+                        <option value="16">강원도</option>
                     </select>
                 </div>
              
     
                 <div class="destination">
-                    <input type="text" class="textbigname" placeholder="BOARD_TITLE">
-                    <input type="text" class="textsmallname" placeholder="LOCATION_NM">
-                    <input type="text" class="textName" placeholder="BOARD_CONTENT">
+                    <input type="text" class="textbigname" placeholder="BOARD_TITLE" name="regionBoardTitle">
+                    <input type="text" class="textsmallname" placeholder="LOCATION_NM" name="locationCode">
+                    <input type="text" class="textName" placeholder="BOARD_CONTENT" name="regionContent">
                 </div>
+
                 <div class="text">
-                  <label for="image1">사진 업로드</label></span>
+                  <label for="img0">사진 업로드</label></span>
                 </div>
         
-                <div class="boardImage">
-                    <label for="image1">
-                        <img src="${contextPath}/resources/images/image-icon-10.jpg">
+                <div class="img-box">
+                  <div class="region-Image">
+                    <label for="img0">
+                      <img class="preview">
                     </label>
-                    <input type="file" class="inputImage" id="image1" accept="image/*" name="1">
-                   
+                    <input type="file" class="inputImage" id="img0" name="0" accept="image/*">
                     <span class="delete-image">&times;</span>
+                  </div>
                 </div>
-        
+
+
                 <div class="writetext">
                     <span id="slide">상세정보</span>
                 </div>
                 <div class="writecontent">
-                    <textarea>BOARD_ARTICLE(CONTENT)</textarea>
+                    <textarea name="boardContent"></textarea>
                 </div>
         
                 <div class="mapImage" id="mapDiv">
@@ -77,6 +80,14 @@
                     <button type="button" id="goToListBtn">목록으로</button>
                 </div>
 
+
+                <input type="hidden" name="mode" value="${param.mode}">
+
+                <input type="hidden" name="type" value="${param.type}">
+
+                <input type="hidden" name="no"   value="${param.no}">
+
+                <input type="hidden" name="deleteList" value="" id="deleteList">
             </section>
         </form>
        

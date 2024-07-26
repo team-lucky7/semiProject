@@ -18,7 +18,7 @@
 <body>
 
 <main>
-  
+ ${detail}
     <section class="region-Btn">
       <div class="Btn-add">
         <a href="${ contextPath }/region?type=10" >
@@ -26,7 +26,7 @@
         </a>
       </div>
       <div class="Btn-add">
-        <a href="${ contextPath }/region?type=11">
+        <a href="${ contextPath }/region?type=11&no=521">
           <button><img src="${contextPath}/resources/images/region/인천버튼.jpg"> <span>인천</span></button>
         </a>
       </div>
@@ -59,22 +59,30 @@
       <section class="content">
         <form action="#">
           <div class="contentMain">
-            <a href="${ contextPath }/regionSubpage"> 
-              <div class="main-content"> <!--  //== 6000px -->
-                <div class="main-add"> <!-- //== 각각 2000px -->
-                  <div class="image">
-                        <img src="${contextPath}/resources/images/region/경복궁.jpg" id="image">
+            <div class="main-content">
+          
+              <a href="regionSubpage/detail?no=${board.boardNo}&type=${param.type}">
+                <div class="main-add">
+          
+                  <div class="imgs">
+                    <c:if test="${!empty detail.imageList}">
+                      <c:forEach var="i" begin="0" end="${fn:length(detail.imageList) - 1}">
+                        <img src="${contextPath}${detail.imageList[i].imageRename}" id="image${i}">
+                      </c:forEach>
+                    </c:if>
                   </div>
                   <div class="text">
-                    <h1>boardTitle</h1>
-                    <span>boardContent<br> 
-                       <br>
-                    </span>
+                    <h1>${detail.boardTitle}</h1>
+                    <span>${detail.boardContent}</span>
+          
                     <div class="kakaoAPI">
                       <div class="staticMap" style="width:500px;height:300px; border-radius:20px;"></div>
                     </div>
                   </div>
                 </div>
+              </a>
+          
+              <a href="regionSubpage/detail?no=${board.boardNo}&type=${param.type}">
                 <div class="main-add">
                   <div class="image">
                     <img src="${contextPath}/resources/images/region/남산타워.jpg" id="image">
@@ -89,13 +97,16 @@
                     </div>
                   </div>
                 </div>
+              </a>
+
+              <a href="regionSubpage/detail?no=${board.boardNo}&type=${param.type}">
                 <div class="main-add">
                   <div class="image">
                     <img src="${contextPath}/resources/images/region/국중박.jpg" id="image">
                   </div>
                   <div class="text">
                     <h1>국립중앙박물관</h1>
-                    <span>서울특별시 용산구 용산동6가에 위치한 한국 최대의 대표 국립 박물관. 
+                    <span>서울특별시 용산구 용산동6가에 위치한 한국 최대의 대표 국립 박물관.
                       한국의 고미술, 유물을 중심으로 소장하고 있다.<br>
                       가까운 곳에는 국립한글박물관이 있다.<br>
                     </span>
@@ -104,6 +115,9 @@
                     </div>
                   </div>
                 </div>
+              </a>
+
+              <a href="regionSubpage/detail?no=${board.boardNo}&type=${param.type}">
                 <div class="main-add">
                   <div class="image">
                     <img src="${contextPath}/resources/images/region/북촌한옥마을.jpg" id="image">
@@ -118,6 +132,9 @@
                     </div>
                   </div>
                 </div>
+              </a>
+
+              <a href="regionSubpage/detail?no=${board.boardNo}&type=${param.type}">
                 <div class="main-add">
                   <div class="image">
                     <img src="${contextPath}/resources/images/region/DDP.jpg" id="image">
@@ -125,7 +142,7 @@
                   <div class="text">
                     <h1>DDP</h1>
                     <span>서울특별시 중구의 전시장 및 쇼핑몰. 영국의 건축가 자하 하디드가 설계했다<br>
-                      건물 구역은 크게 아트홀(A), 뮤지엄(M), 디자인랩(D), 어울림광장(DDP마켓 포함),<br> 
+                      건물 구역은 크게 아트홀(A), 뮤지엄(M), 디자인랩(D), 어울림광장(DDP마켓 포함),<br>
                       동대문역사문화공원으로 이루어져 있다.<br>
                     </span>
                     <div class="kakaoAPI">
@@ -133,16 +150,15 @@
                     </div>
                   </div>
                 </div>
-              </div>
-            </a>
+              </a>
+
+            </div>
           </div>
-        
         </form>
 
         <c:if test="${! empty loginMember}">
           <div id="write">
-            <a href="${contextPath}/board/regionWrite">
-              <button id="insertBtn">글쓰기</button>
+              <button id="insertBtn" onclick="location.href='regionWrite?mode=insert&type=${param.type}'">글쓰기</button>
             </a>
           </div>
         </c:if>
