@@ -24,7 +24,7 @@
         <div class="boardList-container">
             <section class="board-list">
                 <div class="board-name-div">
-                    <h2 class="board-name">내 게시글</h2>
+                    <h2 class="board-name">내가 작성한 자유게시글</h2>
                 </div>
     
                 <div class="list-wrapper">
@@ -33,7 +33,6 @@
 							<tr>
 								<th>글번호</th>
 								<th>제목</th>
-								<th>글쓴이</th>
 								<th>날짜</th>
 								<th>조회수</th>
 								<th>좋아요</th>
@@ -42,18 +41,17 @@
 						
 						<tbody>
 							<c:choose>
-								<c:when test="${empty boardList}">
+								<c:when test="${empty boardMap.boardList}">
 									<tr>
-										<td colspan="6">게시물 조회 결과가 없습니다.</td>
+										<td colspan="5">게시물 조회 결과가 없습니다.</td>
 									</tr>
 								</c:when>
 								
 								<c:otherwise>
-									<c:forEach var="board" items="${boardList}">
+									<c:forEach var="board" items="${boardMap.boardList}">
 										<tr>
 											<td>${board.boardNo}</td>
-											<td><a href="detail?no=${board.boardNo}&type=${param.type}&cp=${param.cp}">${board.boardTitle}</a></td>
-											<td>${board.memberName}</td>
+											<td><a href="${contextPath}/freeBoard/detail?no=${board.boardNo}&type=${param.type}&cp=1">${board.boardTitle}</a></td>
 											<td>${board.createDate}</td>
 											<td>${board.readCount}</td>
 											<td>${board.likeCount}</td>
@@ -67,14 +65,14 @@
     
                 <div class="pagination-area">
 					<ul class="pagination">
-						<c:set var="url" value="list?&type=${param.type}&cp="/>
+						<c:set var="url" value="boardList?&type=${param.type}&rCp=${param.rCp}&bCp="/>
 						
 						<li><a href="${url}1">&lt;&lt;</a></li>
-						<li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+						<li><a href="${url}${boardMap.pagination.prevPage}">&lt;</a></li>
 						
-						<c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+						<c:forEach var="i" begin="${boardMap.pagination.startPage}" end="${boardMap.pagination.endPage}" step="1">
 							<c:choose>
-								<c:when test="${i == pagination.currentPage}">
+								<c:when test="${i == boardMap.pagination.currentPage}">
 									<li><a class="current">${i}</a></li>
 								</c:when>
 								
@@ -84,8 +82,8 @@
 							</c:choose>
 						</c:forEach>
 						
-						<li><a href="${url}${pagination.nextPage}">&gt;</a></li>
-						<li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
+						<li><a href="${url}${boardMap.pagination.nextPage}">&gt;</a></li>
+						<li><a href="${url}${boardMap.pagination.maxPage}">&gt;&gt;</a></li>
 					</ul>
 				</div>
             </section>
@@ -94,39 +92,35 @@
     
             <section class="board-list">
                 <div class="board-name-div">
-                    <h2 class="board-name">내 댓글</h2>
+                    <h2 class="board-name">내가 작성한 자유게시글 댓글</h2>
                 </div>
-    
+
                 <div class="list-wrapper">
                     <table class="list-table">
                         <thead>
 							<tr>
-								<th>글번호</th>
-								<th>제목</th>
-								<th>글쓴이</th>
+								<th>댓글번호</th>
+								<th>내용</th>
 								<th>날짜</th>
-								<th>조회수</th>
 								<th>좋아요</th>
 							</tr>
 						</thead>
 						
 						<tbody>
 							<c:choose>
-								<c:when test="${empty boardList}">
+								<c:when test="${empty replyMap.replyList}">
 									<tr>
-										<td colspan="6">게시물 조회 결과가 없습니다.</td>
+										<td colspan="4">게시물 조회 결과가 없습니다.</td>
 									</tr>
 								</c:when>
 								
 								<c:otherwise>
-									<c:forEach var="board" items="${boardList}">
+									<c:forEach var="reply" items="${replyMap.replyList}">
 										<tr>
-											<td>${board.boardNo}</td>
-											<td><a href="detail?no=${board.boardNo}&type=${param.type}&cp=${param.cp}">${board.boardTitle}</a></td>
-											<td>${board.memberName}</td>
-											<td>${board.createDate}</td>
-											<td>${board.readCount}</td>
-											<td>${board.likeCount}</td>
+											<td>${reply.replyNo}</td>
+											<td>${reply.replyContent}</td>
+											<td>${reply.createDate}</td>
+											<td>${reply.likeCount}</td>
 										</tr>
 									</c:forEach>
 								</c:otherwise>
@@ -137,25 +131,25 @@
     
                 <div class="pagination-area">
 					<ul class="pagination">
-						<c:set var="url" value="list?&type=${param.type}&cp="/>
+						<c:set var="rUrl" value="boardList?&type=${param.type}&bCp=${param.bCp}&rCp="/>
 						
-						<li><a href="${url}1">&lt;&lt;</a></li>
-						<li><a href="${url}${pagination.prevPage}">&lt;</a></li>
+						<li><a href="${rUrl}1">&lt;&lt;</a></li>
+						<li><a href="${rUrl}${replyMap.pagination.prevPage}">&lt;</a></li>
 						
-						<c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
+						<c:forEach var="i" begin="${replyMap.pagination.startPage}" end="${replyMap.pagination.endPage}" step="1">
 							<c:choose>
-								<c:when test="${i == pagination.currentPage}">
+								<c:when test="${i == replyMap.pagination.currentPage}">
 									<li><a class="current">${i}</a></li>
 								</c:when>
 								
 								<c:otherwise>
-									<li><a href="${url}${i}">${i}</a></li>
+									<li><a href="${rUrl}${i}">${i}</a></li>
 								</c:otherwise>
 							</c:choose>
 						</c:forEach>
 						
-						<li><a href="${url}${pagination.nextPage}">&gt;</a></li>
-						<li><a href="${url}${pagination.maxPage}">&gt;&gt;</a></li>
+						<li><a href="${rUrl}${replyMap.pagination.nextPage}">&gt;</a></li>
+						<li><a href="${rUrl}${replyMap.pagination.maxPage}">&gt;&gt;</a></li>
 					</ul>
 				</div>
             </section>
