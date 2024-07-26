@@ -62,6 +62,7 @@ public class MemberDAO {
 				loginMember.setMemberEmail(rs.getString("MEMBER_EMAIL"));
 				loginMember.setMemberTel(rs.getString("MEMBER_TEL"));
 				loginMember.setProfileImage(rs.getString("PROFILE_IMG"));
+				loginMember.setAdminLevel(rs.getInt("ADMIN_LEVEL"));
 			}
 			
 		}finally {

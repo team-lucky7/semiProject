@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 import semiProject.board.model.dao.BoardDAO;
 import semiProject.board.model.vo.Board;
 import semiProject.board.model.vo.BoardArticle;
@@ -157,63 +160,6 @@ public class BoardService {
 		return map;
 	}
 
-	/**
-	 * (테마) 게시글 등록 Service
-	 * 
-	 * @param detail
-	 * @param imageList
-	 * @param boardCode
-	 * @return result
-	 */
-	public int insertThemaBoard(BoardDetail detail, List<BoardImage> imageList, int boardCode) throws Exception {
-
-		Connection conn = getConnection();
-
-		int boardNo = dao.nextBoardNo(conn);
-
-		// 2. 게시글 부분만 삽입(detail, boardCode 사용)
-		detail.setBoardNo(boardNo); // 1번에서 조회된 다음 게시글 번호 세팅
-
-		// *) XSS 방지 처리(제목/내용)
-		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
-		detail.setBoardContent(Utill.XSSHandling(detail.getBoardContent()));
-
-		// *) 개행 문자 처리(내용)
-		detail.setBoardContent(Utill.newLineHandling(detail.getBoardContent()));
-
-		int result = dao.insertThemaBoard(conn, detail, boardCode);
-
-		if (result > 0) { // 게시글 삽입 성공 시
-
-			// 3. 이미지 정보만 삽입(imageList 사용)
-			for (BoardImage image : imageList) { // 하나씩 꺼내서 DAO 수행
-
-				image.setBoardNo(boardNo); // 1번에서 조회된 다음 게시글 번호 세팅
-
-				result = dao.insertThemaBoardImage(conn, image);
-
-				if (result == 0) {// 이미지 삽입 실패
-					break;
-				}
-			} // for문 끝
-		} // if문 끝
-
-		// 트랜잭션
-		if (result > 0) {
-
-			commit(conn);
-
-		} else { // 2, 3번에서 한 번이라도 실패한 경우
-			rollback(conn);
-			boardNo = 0; // 게시글 번호를 0으로 바꿔서 실패했음을 컨트롤러로 전달
-		}
-
-		close(conn);
-		
-		return boardNo;
-
-	}
-
 	public int deleteBoard(int boardNo) throws Exception {
 
 		Connection conn = getConnection();
@@ -226,6 +172,150 @@ public class BoardService {
 		close(conn);
 		
 		return result;
+	}
+	
+
+	public BoardDetail selectRegionBoardDetail(int boardNo,Member loginMember) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		BoardDetail detail =  dao.selectRegionBoardDetail(conn, boardNo);
+		
+		
+		if(detail != null) { 
+			
+			List<BoardImage> imageList = dao.selectRegionImageList(conn,boardNo);
+			
+			detail.setImageList(imageList);
+			
+		}
+		
+		int result = dao.increaseReadCount(conn, boardNo);
+		
+		if(result > 0) {
+			commit(conn);
+			
+			detail.setReadCount(detail.getReadCount() + result);
+		}else {
+			rollback(conn);
+		}
+		
+		if(loginMember != null) {
+			int memberNo = loginMember.getMemberNo();
+			
+			result = dao.getIsLike(conn, boardNo, memberNo);
+			
+			if(result > 0) {
+				detail.setLike(true);
+			}
+		}
+		
+		
+		close(conn);
+		
+		return detail;
+	}
+
+	/** 지역 게시글 수정
+	 * @param detail
+	 * @param imageList
+	 * @param deleteList
+	 * @return result
+	 */
+	public int updateBoard(BoardDetail detail, List<BoardImage> imageList, String deleteList) throws Exception {
+		
+		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardContent(Utill.XSSHandling(detail.getBoardContent()));	
+		
+		detail.setBoardContent(Utill.newLineHandling(detail.getBoardContent()));
+//		int re
+//		
+//		if(result > 0) {
+//			
+//			for(BoardImage img : imageList) {
+//				
+//				img.
+//			}
+//		}
+		
+		
+		
+		return 0;
+	}
+
+	
+	
+	/** 지역 게시글 삽입 
+	 * @param detail
+	 * @param imageList
+	 * @param boardCode
+	 * @return
+	 * @throws Exception
+	 */
+	public int regioninsertBoard(BoardDetail detail, List<BoardImage> imageList, int boardCode, BoardArticle article) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int boardNo = dao.regionnextBoardNo(conn);
+		
+		
+		detail.setBoardNo(boardNo);
+		
+		
+		int result = dao.regioninsertBoard(conn,detail,boardCode);
+		
+		
+		
+		if(result > 0) { 
+			
+			commit(conn);
+			
+			for(BoardImage image : imageList) { 
+				image.setBoardNo(boardNo); 
+				
+				result = dao.regioninsertBoardImage(conn,image);
+				
+				if(result == 0) { 
+					break;
+				}
+			}
+		
+		}
+
+
+		if(result > 0) {
+			result = dao.regioninsertBoard2(conn,article,detail);
+		}
+		
+		if(result > 0) {
+			commit(conn);
+		
+		}else { 
+			rollback(conn);
+			
+			boardNo = 0; 
+		}
+		
+		close(conn);
+
+		return boardNo;
+	}
+
+	public List<BoardDetail> selectRegionList(int type) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		List<BoardDetail> boardList = dao.selectRegionList(conn,type);
+		
+		for(BoardDetail board : boardList) {
+			List<BoardImage> imageList = dao.selectRegionImageList(conn,board.getBoardNo());
+			
+			board.setImageList(imageList);
+		}
+		
+		close(conn);
+		
+		return boardList;
 	}
 
 	/** 자유게시글 삽입 Service
@@ -411,22 +501,78 @@ public class BoardService {
 
 	}
 
-	/** (테마)게시글 삭제
-	 * @param no
+
+	/**
+	 * (테마) 게시글 등록 Service
+	 * 
+	 * @param detail
+	 * @param imageList
+	 * @param boardCode
 	 * @return result
-	 * @throws Exception
 	 */
-	public int deleteThemaBoard(int no)throws Exception{
+	public int insertThemaBoard(BoardDetail detail, List<BoardImage> imageList, int boardCode) throws Exception {
+
 		Connection conn = getConnection();
+
+		int boardNo = dao.nextBoardNo(conn);
 		
-		int result = dao.deleteThemaBoard(conn, no);
+		detail.setBoardNo(boardNo); 
 		
-		if(result>0) commit(conn);
-		else rollback(conn);
+		int locationCode = dao.selectLocationCode(conn, boardNo, detail);
+	
+		detail.setLocationCode(locationCode);
 		
+		int updateLocation = dao.updateLocation(conn,boardNo, detail);
+		
+		int result = 0;
+		
+		// *) XSS 방지 처리(제목/내용)
+		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardContent(Utill.XSSHandling(detail.getBoardContent()));
+
+		// *) 개행 문자 처리(내용)
+		detail.setBoardContent(Utill.newLineHandling(detail.getBoardContent()));
+
+		result = dao.insertThemaBoard(conn, detail, boardCode);
+
+		if (result > 0) { // 게시글 삽입 성공 시
+
+			// 3. 이미지 정보만 삽입(imageList 사용)
+			for (BoardImage image : imageList) { // 하나씩 꺼내서 DAO 수행
+
+				image.setBoardNo(boardNo); // 1번에서 조회된 다음 게시글 번호 세팅
+
+				result = dao.insertThemaBoardImage(conn, image);
+				
+				
+				// BoardArticle에 MapAddress 값 삽입 **BORRD가 부모기 때문에 먼저 세팅 필요
+				BoardArticle article = new BoardArticle();
+				article.setContent(detail.getMapAddress());
+				article.setBoardNo(detail.getBoardNo());
+				
+				int  insertArticle = dao.insertBoardArticle(conn, article);
+
+				if (result == 0) {// 이미지 삽입 실패
+					break;
+				}
+			} // for문 끝
+		} // if문 끝
+		
+
+		// 트랜잭션
+		if (result > 0) {
+
+			commit(conn);
+
+		} else { // 2, 3번에서 한 번이라도 실패한 경우
+			rollback(conn);
+			boardNo = 0; // 게시글 번호를 0으로 바꿔서 실패했음을 컨트롤러로 전달
+		}
+
 		close(conn);
 		
-		return result;
+		return boardNo;
+
 	}
 
 	/**(테마) 게시글 목록 조회
@@ -495,5 +641,80 @@ public class BoardService {
 		
 		return map;
 	}
+	
+	
+	
+	/** (테마)게시글 삭제
+	 * @param no
+	 * @return result
+	 * @throws Exception
+	 */
+	public int deleteThemaBoard(int no)throws Exception{
+		Connection conn = getConnection();
+		
+		int result = dao.deleteThemaBoard(conn, no);
+		
+		if(result>0) commit(conn);
+		else rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+
+	/**(테마) 게시글 수정
+	 * @param detail
+	 * @param imageList
+	 * @param deleteList
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateThemaBoard(BoardDetail detail, List<BoardImage> imageList, String deleteList)throws Exception{
+		
+		Connection conn = getConnection();
+		
+		//XSS
+		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardContent(Utill.XSSHandling(detail.getBoardContent()));
+		// 개행문자
+		detail.setBoardContent(Utill.newLineHandling(detail.getBoardContent()));
+		
+		int locationCode = dao.selectLocationCode(conn, detail.getBoardNo(), detail);
+		
+		detail.setLocationCode(locationCode);
+		
+		int Coordinate = dao.updateBoardArticle(conn, detail);
+		
+		int result = dao.updateThemaBoard(conn,detail);
+		
+		if(result>0) { // 게시글 수정 성공 시
+			
+			// 이미지 부분 수정(기존 -> 변경, 없다가 -> 추가)
+			for(BoardImage image : imageList) {
+				image.setBoardNo(detail.getBoardNo()); 
+				
+				result = dao.updateBoardImage(conn, image);
+				
+				if(result == 0) {
+					result = dao.insertBoardImage(conn, image);
+				}	
+			}
+			// 이미지 삭제 : deleteList에 값이 존재하면 "0,1,2..", 없으면 ""
+			if(!deleteList.equals("")) { 
+				result = dao.deleteThemaBoardImage(conn, deleteList, detail.getBoardNo());
+			}
+		}
+		
+		if(result>0) commit(conn);
+		else rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+
+	
 	
 }

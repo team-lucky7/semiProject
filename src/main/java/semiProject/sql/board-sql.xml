@@ -74,14 +74,28 @@
 	
 	<!-- ========== 테마 ========== -->
 	
-	<!-- 테마 게시글 번호 조회 -->
+	<!-- 게시글 번호 조회 -->
 	<entry key="nextBoardNo">
 		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
 	</entry>
 	
+	<!-- 지역번호 조회 -->
+	<entry key="selectLocationCode">
+		SELECT LOCATION_CODE
+		FROM LOCATION 
+		WHERE LOCATION_NM = ?
+	</entry>
+	
+	<!-- 지역 정보 삽입 -->
+	<entry key="updateLocation">
+		UPDATE BOARD SET 
+		LOCATION_CODE = ?
+		WHERE BOARD_NO= ?
+	</entry>
+	
 	<!-- 게시글 삽입 -->
 	<entry key="insertThemaBoard">
-		INSERT INTO BOARD VALUES(?,?,?,DEFAULT, DEFAULT, DEFAULT,DEFAULT,?,1,?)
+		INSERT INTO BOARD VALUES(?,?,?,DEFAULT, DEFAULT, DEFAULT,DEFAULT,?,?,?)
 	</entry>
 	
 	<!-- 게시글 이미지 삽입 -->
@@ -94,11 +108,12 @@
 		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT,
 		    TO_CHAR(CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DT,
 		    TO_CHAR(UPDATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') UPDATE_DT,
-		    READ_COUNT, PROFILE_IMG, MEMBER_NO, BOARD_NM , LOCATION_NM
+		    READ_COUNT, MEMBER_NO, BOARD_NM , LOCATION_NM, CONTENT
 		FROM BOARD
 		JOIN MEMBER USING(MEMBER_NO)
 		JOIN BOARD_TYPE USING(BOARD_CD)
 		JOIN LOCATION USING(LOCATION_CODE)
+		JOIN BOARD_ARTICLE USING(BOARD_NO)
 		WHERE BOARD_NO = ?
 		AND BOARD_ST='N'		
 	</entry>
@@ -195,6 +210,58 @@
 		UPDATE BOARD SET BOARD_ST = 'Y' WHERE BOARD_NO = ?
 	</entry>
 	
+	
+	<!-- =========== 지역  -->
+	
+	<!-- 지역 게시글 상세조회 -->	
+	<entry key="regionBoardDetail">
+		SELECT BOARD_NO,BOARD_TITLE,LOCATION_NM,BOARD_CONTENT,CONTENT
+		FROM BOARD
+		JOIN LOCATION USING(LOCATION_CODE)
+		LEFT JOIN BOARD_ARTICLE USING(BOARD_NO)
+		WHERE BOARD_NO = ?
+	</entry>	
+	
+	
+	<!-- 지역 게시글 이미지 조회  -->
+	<entry key="selectRegionImageList">
+		SELECT *
+		FROM BOARD_IMG
+		WHERE BOARD_NO = ?
+		ORDER BY IMG_LEVEL
+	</entry>
+	
+	
+	<!-- 다음 게시글 번호 조회  -->
+	<entry key="regionnextBoardNo">
+		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+	</entry>
+	
+	<!-- 지역 게시글 삽입 -->
+	<entry key="regioninsertBoard">
+		INSERT INTO BOARD 
+		VALUES(?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT,?,1,?)
+	</entry>
+	
+	<entry key="regioninsertBoard2">
+		INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,?,0,0,?)
+	</entry>
+		
+	<!--지역 게시글 이미지 삽입  -->
+	<entry key="regioninsertBoardImage">
+		INSERT INTO BOARD_IMG
+		VALUES(SEQ_IMG_NO.NEXTVAL, 1 , ? , ? , ?, ?)
+	</entry>
+	
+	<!-- 지역 게시글 조회 -->
+	<entry key="selectRegionList">
+		SELECT  BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_CD
+		FROM BOARD
+		WHERE BOARD_CD = ?
+		AND BOARD_ST = 'N'
+		ORDER BY BOARD_NO DESC
+	</entry>	
+
 	<!-- 자유게시글 삽입 -->
 	<entry key="insertFreeBoard">
 		INSERT INTO BOARD VALUES(?, ?, DEFAULT,
@@ -301,6 +368,34 @@
 		    )A
 		)
 		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+
+	<!-- (테마) 게시판 수정 -->
+	<entry key ="updateThemaBoard">
+		UPDATE BOARD SET
+		BOARD_TITLE = ?,
+		BOARD_CONTENT= ?, 
+		UPDATE_DT = sysdate,
+		BOARD_CD = ?,
+		LOCATION_CODE = ?
+		WHERE BOARD_NO = ?
+	</entry>
+
+	<!-- 게시판 이미지 업데이트 -->
+	<entry key="updateBoardImage">
+		UPDATE BOARD_IMG SET
+		IMG_SIZE = ?,
+		IMG_RENAME =?,
+		IMG_ORIGINAL=?
+		WHERE IMG_LEVEL =?
+		AND BOARD_NO =?
+	</entry>
+	
+	<!-- (테마) BOARD_ARTICLE 업데이트 -->
+	<entry key ="updateBoardArticle">
+		UPDATE BOARD_ARTICLE SET
+		CONTENT = ?
+		WHERE BOARD_NO = ?
 	</entry>
 	
 </properties>
