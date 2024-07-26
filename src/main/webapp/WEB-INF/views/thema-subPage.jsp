@@ -94,7 +94,6 @@
 
 
         <script>
-            console.log('${detail.content}');
             document.addEventListener("DOMContentLoaded", function() {
                 // 서버 측에서 전달된 JSON 데이터를 JavaScript로 변환
                 var jsonData = '${detail.content}';
@@ -151,7 +150,7 @@
                 <c:set var="cp" value="${param.cp}"/>
             </c:if>
 
-            <button id="updateBtn" onclick="location.href='themaWrite?mode=update&no=${param.no}&cp=${cp}&type=${param.type}'">수정</button>
+            <button id="updateBtn" onclick="location.href='themaWrite?mode=update&no=${param.no}&type=${param.type}'">수정</button>
             <button id="deleteBtn">삭제</button>
         </c:if>
             <button id="goToListBtn">목록으로</button>
