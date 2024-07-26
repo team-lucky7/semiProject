@@ -140,6 +140,8 @@ public class BoardDAO {
 				board.setCreateDate(rs.getString("CREATE_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setLikeCount(rs.getInt("LIKE_COUNT"));
+				board.setThumbnail(rs.getString("THUMBNAIL"));
+				
 				boardList.add(board);
 			}
 
@@ -265,7 +267,7 @@ public class BoardDAO {
 		return imageList;
 	}
 
-	public int getSearchListCount(Connection conn, int type, String query) throws Exception {
+	public int getSearchListCount(Connection conn, String query) throws Exception {
 		
 		int listCount = 0;
 		query = "%" + query + "%";
@@ -274,7 +276,7 @@ public class BoardDAO {
 			String sql = prop.getProperty("getSearchListCount");
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, type);
+			pstmt.setString(1, query);
 			pstmt.setString(2, query);
 			pstmt.setString(3, query);
 			pstmt.setString(4, query);
@@ -296,13 +298,11 @@ public class BoardDAO {
 
 	/** 게시글 검색 DAO
 	 * @param conn
-	 * @param type
-	 * @param pagination
 	 * @param query
 	 * @return boardList
 	 * @throws Exception
 	 */
-	public List<Board> searchBoardList(Connection conn, int type, Pagination pagination, String query) throws Exception {
+	public List<Board> searchBoardList(Connection conn, Pagination pagination,String query) throws Exception {
 		List<Board> boardList = new ArrayList<>();
 		query = "%" + query + "%";
 		
@@ -313,7 +313,7 @@ public class BoardDAO {
 			int end = start + pagination.getLimit() - 1;
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, type);
+			pstmt.setString(1, query);
 			pstmt.setString(2, query);
 			pstmt.setString(3, query);
 			pstmt.setString(4, query);
@@ -327,6 +327,7 @@ public class BoardDAO {
 				Board board = new Board();
 
 				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardCode(rs.getInt("BOARD_CD"));
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
 				board.setMemberName(rs.getString("MEMBER_NM"));
 				board.setCreateDate(rs.getString("CREATE_DT"));
@@ -1294,7 +1295,83 @@ public class BoardDAO {
 		return boardList;
 	}
 
-	/**지역 번호 조회(카카오맵에서 얻어온 address이용)
+	/** 내가 작성한 전체 게시글 수 조회
+	 * @param conn
+	 * @param memberNo
+	 * @return listCount
+	 * @throws Exception
+	 */
+	public int getMyBoardListCount(Connection conn, int memberNo) throws Exception {
+		
+		int listCount = 0;
+		
+		try {
+			String sql = prop.getProperty("getMyBoardListCount");
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return listCount;
+	}
+
+	/** 내가 작성한 전체 게시글의 일정한 범위 목록 조회
+	 * @param conn
+	 * @param memberNo
+	 * @param pagination
+	 * @return boardList
+	 * @throws Exception
+	 */
+	public List<Board> selectMyBoardList(Connection conn, int memberNo, Pagination pagination) throws Exception {
+		
+		List<Board> boardList = new ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("selectMyBoardList");
+			
+			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
+			int end = start + pagination.getLimit() - 1;
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Board board = new Board();
+				
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardCode(rs.getInt("BOARD_CD"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setMemberName(rs.getString("MEMBER_NM"));
+				board.setCreateDate(rs.getString("CREATE_DT"));
+				board.setReadCount(rs.getInt("READ_COUNT"));
+				board.setLikeCount(rs.getInt("LIKE_COUNT"));
+				board.setThumbnail(rs.getString("THUMBNAIL"));
+				
+				boardList.add(board);
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return boardList;
+	}
+
+		/**지역 번호 조회(카카오맵에서 얻어온 address이용)
 	 * @param conn
 	 * @param boardNo
 	 * @param detail 
@@ -1459,4 +1536,5 @@ public class BoardDAO {
 		
 		return Coordinate;
 	}
+
 }

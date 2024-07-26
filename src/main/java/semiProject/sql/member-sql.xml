@@ -10,7 +10,7 @@
 		       || '년 ' || SUBSTR(MEMBER_DOB, 5,2) 
 		       || '월 ' || SUBSTR(MEMBER_DOB, 7,2)
 		       || '일' AS MEMBER_DOB, MEMBER_EMAIL,
-		       MEMBER_TEL, ADMIN_LEVEL
+		       MEMBER_TEL, PROFILE_IMG, ADMIN_LEVEL
 		FROM MEMBER
 		WHERE MEMBER_ID = ?
 		AND MEMBER_PW = ?
@@ -44,7 +44,8 @@
 	<entry key="updateMember">
 		UPDATE MEMBER SET
 		MEMBER_EMAIL = ?, 
-		MEMBER_TEL = ?
+		MEMBER_TEL = ?,
+		PROFILE_IMG = ?
 		WHERE MEMBER_NO = ?
 	</entry>
 	

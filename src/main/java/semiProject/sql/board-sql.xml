@@ -17,7 +17,9 @@
 	<!-- 특정 게시판에서 일정한 범위의 목록 조회 -->
 	<entry key="selectBoardList">
 		SELECT * FROM(
-		    SELECT ROWNUM AS RNUM, A.* FROM (
+		    SELECT ROWNUM AS RNUM, A.*,(SELECT IMG_RENAME FROM BOARD_IMG
+		                WHERE IMG_LEVEL = (SELECT min(IMG_LEVEL) FROM BOARD_IMG)
+		                AND BOARD_IMG.BOARD_NO = A.BOARD_NO) THUMBNAIL FROM (
 		        SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, MEMBER_NM, LOCATION_NM,
 		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD') AS CREATE_DT,
 		            READ_COUNT, COUNT(BOARD_REPLY_NO) AS LIKE_COUNT
@@ -34,7 +36,6 @@
 		)
 		WHERE RNUM BETWEEN ? AND ?
 	</entry>
-	
 	
 	<!-- 게시글 상세조회 -->
 	<entry key="selectBoardDetail">
@@ -157,40 +158,46 @@
 		AND BOARD_ST='N'
 		ORDER BY BOARD_NO DESC
 	</entry>
-<!-- 검색 시 특정 게시판의 전체 게시글 수 조회 -->
+	
+	<!-- 검색 시 전체 게시글 수 조회 -->
 	<entry key="getSearchListCount">
-		SELECT COUNT(COUNT(*))FROM BOARD
+		SELECT COUNT(COUNT(*)) FROM BOARD
 		JOIN MEMBER USING(MEMBER_NO)
 		LEFT JOIN BOARD_ARTICLE USING(BOARD_NO)
-		WHERE BOARD_ST = 'N' AND BOARD_CD = ? AND
-		    (BOARD_TITLE LIKE ? OR 
-		    BOARD_CONTENT LIKE ? OR CONTENT LIKE ? OR MEMBER_NM LIKE ?)
+		LEFT JOIN HASHTAG USING(BOARD_NO)
+		LEFT JOIN HASHTAG_LIST USING(HASHTAG_NO)
+		WHERE BOARD_ST = 'N'
+		AND (BOARD_TITLE LIKE ? OR BOARD_CONTENT LIKE ? OR 
+		CONTENT LIKE ? OR MEMBER_NM LIKE ? OR 
+		HASHTAG_NM LIKE ?)
 		GROUP BY BOARD_NO
 	</entry>
 	
-	<!-- 검색 시 특정 게시판에서 일정한 범위의 목록 조회 -->
+	<!-- 검색 시 일정한 범위의 목록 조회 -->
 	<entry key="searchBoardList">
 		SELECT * FROM(
 		    SELECT ROWNUM AS RNUM, A.*, (SELECT IMG_RENAME FROM BOARD_IMG
-		                WHERE IMG_LEVEL = 0
+		                WHERE IMG_LEVEL = (SELECT min(IMG_LEVEL) FROM BOARD_IMG)
 		                AND BOARD_IMG.BOARD_NO = A.BOARD_NO) THUMBNAIL FROM (
-		        SELECT BOARD_NO, BOARD_TITLE, MEMBER_NM,
+		        SELECT BOARD_NO, BOARD_CD, BOARD_TITLE, MEMBER_NM,
 		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD') CREATE_DT,
 		            READ_COUNT, COUNT(BOARD_REPLY_NO) LIKE_COUNT
 		        FROM BOARD
 		        JOIN MEMBER USING(MEMBER_NO)
 		        LEFT JOIN "LIKE" ON(BOARD_REPLY_NO = BOARD_NO)
-                LEFT JOIN BOARD_ARTICLE USING(BOARD_NO)
-		        WHERE BOARD_CD = ?
-		        AND BOARD_ST = 'N'
-                AND (BOARD_TITLE LIKE ? OR 
-                     BOARD_CONTENT LIKE ? OR CONTENT LIKE ? OR MEMBER_NM LIKE ?)
-		        GROUP BY BOARD_NO, BOARD_TITLE, MEMBER_NM,
+		        LEFT JOIN BOARD_ARTICLE USING(BOARD_NO)
+		        LEFT JOIN HASHTAG USING(BOARD_NO)
+		        LEFT JOIN HASHTAG_LIST USING(HASHTAG_NO)
+		        WHERE BOARD_ST = 'N'
+		        AND (BOARD_TITLE LIKE ? OR BOARD_CONTENT LIKE ? OR 
+		             CONTENT LIKE ? OR MEMBER_NM LIKE ? OR 
+		             HASHTAG_NM LIKE ?)
+		        GROUP BY BOARD_NO, BOARD_CD, BOARD_TITLE, MEMBER_NM,
 		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD'), READ_COUNT
 		        ORDER BY BOARD_NO DESC
 		    )A
 		)
-        WHERE RNUM BETWEEN ? AND ?		
+		WHERE RNUM BETWEEN ? AND ?
 	</entry>
 	
 	<!-- 조회수 증가 -->
@@ -340,16 +347,13 @@
 		SELECT COUNT(*) FROM BOARD WHERE BOARD_ST = 'N' AND MEMBER_NO = ?
 	</entry>
 	
-	<!-- 내가 작성한 전체 댓글 수 조회 -->
-	<entry key="getMyReplyListCount">
-		SELECT COUNT(*) FROM REPLY WHERE REPLY_ST = 'N' AND MEMBER_NO = ?
-	</entry>
-	
 	<!-- 내가 작성한 전체 게시글의 일정한 범위 목록 조회  -->
 	<entry key="selectMyBoardList">
 		SELECT * FROM(
-		    SELECT ROWNUM AS RNUM, A.* FROM (
-		        SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, MEMBER_NM, LOCATION_NM,
+		    SELECT ROWNUM AS RNUM, A.*, (SELECT IMG_RENAME FROM BOARD_IMG
+		                WHERE IMG_LEVEL = (SELECT min(IMG_LEVEL) FROM BOARD_IMG)
+		                AND BOARD_IMG.BOARD_NO = A.BOARD_NO) THUMBNAIL FROM (
+		        SELECT BOARD_NO, BOARD_CD, BOARD_TITLE, BOARD_CONTENT, MEMBER_NM, LOCATION_NM,
 		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD') AS CREATE_DT,
 		            READ_COUNT, COUNT(BOARD_REPLY_NO) AS LIKE_COUNT
 		        FROM BOARD
@@ -358,35 +362,14 @@
 		        LEFT JOIN "LIKE" ON(BOARD_REPLY_NO = BOARD_NO)
 		        WHERE BOARD.MEMBER_NO = ?
 		        AND BOARD_ST = 'N'
-		        GROUP BY BOARD_NO, BOARD_TITLE, BOARD_CONTENT, MEMBER_NM, LOCATION_NM,
+		        GROUP BY BOARD_NO, BOARD_CD, BOARD_TITLE, BOARD_CONTENT, MEMBER_NM, LOCATION_NM,
 		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD'), READ_COUNT
 		        ORDER BY BOARD_NO DESC
 		    )A
 		)
 		WHERE RNUM BETWEEN ? AND ?
 	</entry>
-	
-	<!-- 내가 작성한 전체 댓글의 일정한 범위 목록 조회  -->
-	<entry key="selectMyReplyList">
-		SELECT * FROM(
-		    SELECT ROWNUM AS RNUM, A.* FROM (
-		        SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, MEMBER_NM, LOCATION_NM,
-		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD') AS CREATE_DT,
-		            READ_COUNT, COUNT(BOARD_REPLY_NO) AS LIKE_COUNT
-		        FROM BOARD
-		        JOIN MEMBER ON(BOARD.MEMBER_NO = MEMBER.MEMBER_NO)
-		        LEFT JOIN LOCATION USING(LOCATION_CODE)
-		        LEFT JOIN "LIKE" ON(BOARD_REPLY_NO = BOARD_NO)
-		        WHERE BOARD.MEMBER_NO = ?
-		        AND BOARD_ST = 'N'
-		        GROUP BY BOARD_NO, BOARD_TITLE, BOARD_CONTENT, MEMBER_NM, LOCATION_NM,
-		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD'), READ_COUNT
-		        ORDER BY BOARD_NO DESC
-		    )A
-		)
-		WHERE RNUM BETWEEN ? AND ?
-	</entry>
-	
+
 	<!-- (테마) 게시판 수정 -->
 	<entry key ="updateThemaBoard">
 		UPDATE BOARD SET

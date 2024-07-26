@@ -48,7 +48,12 @@
 								<c:forEach var="board" items="${boardList}">
 									<tr>
 										<td>${board.boardNo}</td>
-										<td><a href="detail?no=${board.boardNo}&type=${param.type}&cp=${param.cp}">${board.boardTitle}</a></td>
+										<td>
+											<c:if test="${!empty board.thumbnail }">
+				                            		<img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
+				                            </c:if>
+											<a href="detail?no=${board.boardNo}&type=${param.type}&cp=${param.cp}">${board.boardTitle}</a>
+										</td>
 										<td>${board.memberName}</td>
 										<td>${board.createDate}</td>
 										<td>${board.readCount}</td>
