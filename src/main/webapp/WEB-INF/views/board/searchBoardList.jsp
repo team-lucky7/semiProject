@@ -69,7 +69,7 @@
 											</c:if>
 											
 											<c:if test="${board.boardCode >= 10 && board.boardCode <= 16}">
-												<a href="${contextPath}regionSubpage/detail?no=${board.boardNo}&type=${board.boardCode}">${board.boardTitle}</a>
+												<a href="${contextPath}/regionSubpage/detail?no=${board.boardNo}&type=${board.boardCode}">${board.boardTitle}</a>
 											</c:if>
 										</td>
 										<td>${board.memberName}</td>
