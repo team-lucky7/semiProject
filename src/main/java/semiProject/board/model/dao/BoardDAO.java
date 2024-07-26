@@ -67,7 +67,7 @@ public class BoardDAO {
 			}
 
 		}finally {
-
+			close(rs);
 			close(pstmt);
 		}
 
@@ -1061,9 +1061,7 @@ public class BoardDAO {
 		try {
 			String sql = prop.getProperty("insertThemaBoard");
 
-			if (sql == null || sql.trim().isEmpty()) {
-				throw new SQLException("SQL 쿼리가 비어 있거나 널입니다2.");
-			}
+		
 
 			pstmt = conn.prepareStatement(sql);
 
@@ -1071,8 +1069,8 @@ public class BoardDAO {
 			pstmt.setString(2, detail.getBoardTitle());
 			pstmt.setString(3, detail.getBoardContent());
 			pstmt.setInt(4, boardCode);
-			// pstmt.setInt(5, detail.getLocationCode());
-			pstmt.setInt(5, detail.getMemberNo());///
+			pstmt.setInt(5, detail.getLocationCode());
+			pstmt.setInt(6, detail.getMemberNo());
 
 			result = pstmt.executeUpdate();
 
@@ -1097,9 +1095,6 @@ public class BoardDAO {
 		try {
 			String sql = prop.getProperty("insertThemaBoardImage");
 
-			if (sql == null || sql.trim().isEmpty()) {
-				throw new SQLException("SQL 쿼리가 비어 있거나 널입니다3.");
-			}
 
 			pstmt = conn.prepareStatement(sql);
 
@@ -1148,10 +1143,10 @@ public class BoardDAO {
 				detail.setCreateDate(rs.getString(4));
 				detail.setUpdateDate(rs.getString(5));
 				detail.setReadCount(rs.getInt(6));
-				detail.setProfileImage(rs.getString(7));
-				detail.setMemberNo(rs.getInt(8));
-				detail.setBoardName(rs.getString(9));
-				detail.setLocationName(rs.getString(10));
+				detail.setMemberNo(rs.getInt(7));
+				detail.setBoardName(rs.getString(8));
+				detail.setLocationName(rs.getString(9));
+				detail.setContent(rs.getString(10));
 			}
 
 		} finally {
@@ -1299,5 +1294,64 @@ public class BoardDAO {
 
 		}
 		return boardList;
+	}
+
+	/**지역 번호 조회(카카오맵에서 얻어온 address이용)
+	 * @param conn
+	 * @param boardNo
+	 * @param detail 
+	 * @return locationCode
+	 * @throws Exception
+	 */
+	public int selectLocationCode(Connection conn, int boardNo, BoardDetail detail)throws Exception {
+		int locationCode = 0;
+		
+		try {
+			String sql = prop.getProperty("selectLocationCode");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, detail.getLocationName());
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				locationCode = rs.getInt("LOCATION_CODE");
+			}
+			
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+			
+		}
+	
+		
+		return locationCode;
+	}
+
+
+	/**지역 정보 삽입
+	 * @param conn
+	 * @param locationCode
+	 * @param detail
+	 * @return insertLocation
+	 * @throws Exception
+	 */
+	public int updateLocation(Connection conn, int boardNo, BoardDetail detail)throws Exception {
+		int updateLocation = 0;
+		
+		try {
+			String sql = prop.getProperty("updateLocation");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, detail.getLocationCode());
+			pstmt.setInt(2, boardNo);
+			
+			updateLocation = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+			
+		}
+		
+		return updateLocation;
 	}
 }

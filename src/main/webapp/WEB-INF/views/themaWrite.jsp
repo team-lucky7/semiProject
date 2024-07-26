@@ -90,7 +90,6 @@
         <div class="thema-title">
             <p>위치</p>
         </div>
-       
         <div class="thema-map" id="mapDiv">
             <div>
                 <input type="text" id="inputAddress" placeholder="주소를 입력해주세요">
@@ -114,6 +113,8 @@
         <input type="hidden" name="mode" value="${param.mode}">
 
         <input type="hidden" name="type" value="${param.type}">
+
+        <input type="hidden" id = "mapAdr" name = "mapAdr">
 
     </form>
     <script type="text/javascript"

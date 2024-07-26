@@ -49,7 +49,7 @@
 										<a href="${ contextPath }/thema/subPage">
 											<p>${board.boardTitle}</p>
 										</a>
-										<span>지역받아오기</span>
+										<span>${board.locationName}</span>
 									</li>
 							</c:if>
 						</c:if>
@@ -77,7 +77,7 @@
 										<a href="${ contextPath }/thema/subPage">
 											<p>${board.boardTitle}</p>
 										</a>
-										<span>지역받아오기</span>
+										<span>${board.locationName}</span>
 									</li>
 							</c:if>
 						</c:if>
@@ -105,7 +105,7 @@
 										<a href="${ contextPath }/thema/subPage">
 											<p>${board.boardTitle}</p>
 										</a>
-										<span>지역받아오기</span>
+										<span>${board.locationName}</span>
 									</li>
 							</c:if>
 						</c:if>
@@ -133,7 +133,7 @@
 										<a href="${ contextPath }/thema/subPage">
 											<p>${board.boardTitle}</p>
 										</a>
-										<span>지역받아오기</span>
+										<span>${board.locationName}</span>
 									</li>
 							</c:if>
 						</c:if>
