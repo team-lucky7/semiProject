@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import semiProject.board.model.service.BoardService;
+import semiProject.board.model.vo.Board;
 
 @WebServlet("/search")
 public class SearchListServlet extends HttpServlet{
@@ -23,11 +24,19 @@ public class SearchListServlet extends HttpServlet{
 		BoardService service = new BoardService();
 		
 		try {
-			List<Map<String, Object>> mapList = null;
-
-			mapList = service.searchKeyword(query);
+			int cp = 1;
 			
-			req.setAttribute("mapList", mapList);
+			if(req.getParameter("cp") != null) {
+				cp = Integer.parseInt(req.getParameter("cp"));
+			}
+			
+			System.out.println(cp);
+
+			Map<String, Object> map = service.searchBoardList(cp, query);
+			
+			System.out.println(map);
+			
+			req.setAttribute("map", map);
 			
 		}catch(Exception e) {
 			e.printStackTrace();

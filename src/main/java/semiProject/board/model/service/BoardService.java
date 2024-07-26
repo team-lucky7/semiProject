@@ -132,55 +132,26 @@ public class BoardService {
 		return detail;
 	}
 	
-	/** 키워드 검색
+	/** 게시글 검색 Service
 	 * @param query
-	 * @return mapList
+	 * @return map
 	 * @throws Exception
 	 */
-	public List<Map<String, Object>> searchKeyword(String query) throws Exception{
-		
-		List<Map<String, Object>> mapList = new ArrayList<>();
-		
-		mapList.add(searchBoardList(1, 1, query));
-		mapList.add(searchBoardList(2, 1, query));
-		mapList.add(searchBoardList(3, 1, query));
-		
-		return mapList;
-	}
-
-	/** 해시태그 검색
-	 * @param query
-	 * @return mapList
-	 * @throws Exception
-	 */
-	public List<Map<String, Object>> searchHashtag(String query) throws Exception{
-		
-		List<Map<String, Object>> mapList = new ArrayList<>();
-		
-		mapList.add(searchBoardList(4, 1, query));
-		mapList.add(searchBoardList(5, 1, query));
-		
-		return mapList;
-	}
-	
-	public Map<String, Object> searchBoardList(int type, int cp, String query) throws Exception{
+	public Map<String, Object> searchBoardList(int cp, String query) throws Exception{
 		
 		Connection conn = getConnection();
 		
-		String boardName = dao.selectBoardName(conn, type);
-		
-		int listCount = dao.getSearchListCount(conn, type, query);
+		int listCount = dao.getSearchListCount(conn, query);
 		
 		Pagination pagination = new Pagination(cp, listCount);
-		
-		List<Board> boardList = dao.searchBoardList(conn, type, pagination, query);
+
+		List<Board> boardList = dao.searchBoardList(conn, pagination, query);
 		
 		Map<String, Object> map = new HashMap<>();
-
-		map.put("boardName", boardName);
+		
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
-
+		
 		close(conn);
 
 		return map;
@@ -324,12 +295,10 @@ public class BoardService {
 		
 		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
 		
-		int result = dao.deleteBoardArticle(conn, detail.getBoardNo());
-		
-		System.out.println(result);
-		
+		dao.deleteBoardArticle(conn, detail.getBoardNo());
 		dao.deleteBoardImage(conn, detail.getBoardNo());
-		dao.updateFreeBoard(conn, detail);
+		
+		int result = dao.updateFreeBoard(conn, detail);
 
 		if(result > 0) {
 			for(BoardArticle article : articleList) {

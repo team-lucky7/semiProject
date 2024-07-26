@@ -26,7 +26,7 @@
 
 			<h1 class="myPage-title">내 정보 수정</h1>
 
-			<form action="update"  method="post" name="myPage-form" onsubmit="return infoValidate()">
+			<form action="update" enctype="multipart/form-data" method="post" name="myPage-form" onsubmit="return infoValidate()">
 
 				<div class="myPage-row">
 					<label>이메일</label> 
@@ -40,7 +40,7 @@
 				
 				<div class="myPage-row profileImage">
 					<span>프로필 이미지</span></label>
-					<input type="file" id="input-image">
+					<input type="file" name="profileImage" id="input-image" accept="image/*">
 					<label for="input-image">선택하기</label>
 				</div>
 
