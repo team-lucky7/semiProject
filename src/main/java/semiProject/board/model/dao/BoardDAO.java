@@ -143,6 +143,8 @@ public class BoardDAO {
 				board.setCreateDate(rs.getString("CREATE_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setLikeCount(rs.getInt("LIKE_COUNT"));
+				board.setThumbnail(rs.getString("THUMBNAIL"));
+				
 				boardList.add(board);
 			}
 
@@ -268,7 +270,7 @@ public class BoardDAO {
 		return imageList;
 	}
 
-	public int getSearchListCount(Connection conn, int type, String query) throws Exception {
+	public int getSearchListCount(Connection conn, String query) throws Exception {
 		
 		int listCount = 0;
 		query = "%" + query + "%";
@@ -277,7 +279,7 @@ public class BoardDAO {
 			String sql = prop.getProperty("getSearchListCount");
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, type);
+			pstmt.setString(1, query);
 			pstmt.setString(2, query);
 			pstmt.setString(3, query);
 			pstmt.setString(4, query);
@@ -299,13 +301,11 @@ public class BoardDAO {
 
 	/** 게시글 검색 DAO
 	 * @param conn
-	 * @param type
-	 * @param pagination
 	 * @param query
 	 * @return boardList
 	 * @throws Exception
 	 */
-	public List<Board> searchBoardList(Connection conn, int type, Pagination pagination, String query) throws Exception {
+	public List<Board> searchBoardList(Connection conn, Pagination pagination,String query) throws Exception {
 		List<Board> boardList = new ArrayList<>();
 		query = "%" + query + "%";
 		
@@ -316,7 +316,7 @@ public class BoardDAO {
 			int end = start + pagination.getLimit() - 1;
 
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, type);
+			pstmt.setString(1, query);
 			pstmt.setString(2, query);
 			pstmt.setString(3, query);
 			pstmt.setString(4, query);
@@ -330,6 +330,7 @@ public class BoardDAO {
 				Board board = new Board();
 
 				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardCode(rs.getInt("BOARD_CD"));
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
 				board.setMemberName(rs.getString("MEMBER_NM"));
 				board.setCreateDate(rs.getString("CREATE_DT"));
@@ -1151,11 +1152,13 @@ public class BoardDAO {
 				Board board = new Board();
 				
 				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardCode(rs.getInt("BOARD_CD"));
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
 				board.setMemberName(rs.getString("MEMBER_NM"));
 				board.setCreateDate(rs.getString("CREATE_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setLikeCount(rs.getInt("LIKE_COUNT"));
+				board.setThumbnail(rs.getString("THUMBNAIL"));
 				
 				boardList.add(board);
 			}

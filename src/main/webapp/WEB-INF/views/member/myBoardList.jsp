@@ -24,7 +24,7 @@
         <div class="boardList-container">
             <section class="board-list">
                 <div class="board-name-div">
-                    <h2 class="board-name">내가 작성한 자유게시글</h2>
+                    <h2 class="board-name">내 게시글</h2>
                 </div>
     
                 <div class="list-wrapper">
@@ -51,7 +51,27 @@
 									<c:forEach var="board" items="${boardMap.boardList}">
 										<tr>
 											<td>${board.boardNo}</td>
-											<td><a href="${contextPath}/freeBoard/detail?no=${board.boardNo}&type=${param.type}&cp=1">${board.boardTitle}</a></td>
+											<td>
+												<c:if test="${!empty board.thumbnail }">
+				                            		<img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
+				                            	</c:if>
+											
+												<c:if test="${board.boardCode == 3}">
+													<a href="${contextPath}/freeBoard/detail?no=${board.boardNo}&type=${board.boardCode}&cp=1">${board.boardTitle}</a>
+												</c:if>
+												
+												<c:if test="${board.boardCode >= 4 && board.boardCode <= 5}">
+													<a href="${contextPath}/community/detail?no=${board.boardNo}&type=${board.boardCode}&cp=1">${board.boardTitle}</a>
+												</c:if>
+												
+												<c:if test="${board.boardCode >= 6 && board.boardCode <= 9}">
+													<a href="${contextPath}/thema/subPage?no=${board.boardNo}&type=${board.boardCode}">${board.boardTitle}</a>
+												</c:if>
+												
+												<c:if test="${board.boardCode >= 10 && board.boardCode <= 16}">
+													<a href="${contextPath}regionSubpage/detail?no=${board.boardNo}&type=${board.boardCode}">${board.boardTitle}</a>
+												</c:if>
+											</td>
 											<td>${board.createDate}</td>
 											<td>${board.readCount}</td>
 											<td>${board.likeCount}</td>
@@ -92,7 +112,7 @@
     
             <section class="board-list">
                 <div class="board-name-div">
-                    <h2 class="board-name">내가 작성한 자유게시글 댓글</h2>
+                    <h2 class="board-name">내 댓글</h2>
                 </div>
 
                 <div class="list-wrapper">
