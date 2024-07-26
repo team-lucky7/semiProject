@@ -73,14 +73,28 @@
 	
 	<!-- ========== 테마 ========== -->
 	
-	<!-- 테마 게시글 번호 조회 -->
+	<!-- 게시글 번호 조회 -->
 	<entry key="nextBoardNo">
 		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
 	</entry>
 	
+	<!-- 지역번호 조회 -->
+	<entry key="selectLocationCode">
+		SELECT LOCATION_CODE
+		FROM LOCATION 
+		WHERE LOCATION_NM = ?
+	</entry>
+	
+	<!-- 지역 정보 삽입 -->
+	<entry key="updateLocation">
+		UPDATE BOARD SET 
+		LOCATION_CODE = ?
+		WHERE BOARD_NO= ?
+	</entry>
+	
 	<!-- 게시글 삽입 -->
 	<entry key="insertThemaBoard">
-		INSERT INTO BOARD VALUES(?,?,?,DEFAULT, DEFAULT, DEFAULT,DEFAULT,?,1,?)
+		INSERT INTO BOARD VALUES(?,?,?,DEFAULT, DEFAULT, DEFAULT,DEFAULT,?,?,?)
 	</entry>
 	
 	<!-- 게시글 이미지 삽입 -->
@@ -93,11 +107,12 @@
 		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT,
 		    TO_CHAR(CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DT,
 		    TO_CHAR(UPDATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') UPDATE_DT,
-		    READ_COUNT, PROFILE_IMG, MEMBER_NO, BOARD_NM , LOCATION_NM
+		    READ_COUNT, MEMBER_NO, BOARD_NM , LOCATION_NM, CONTENT
 		FROM BOARD
 		JOIN MEMBER USING(MEMBER_NO)
 		JOIN BOARD_TYPE USING(BOARD_CD)
 		JOIN LOCATION USING(LOCATION_CODE)
+		JOIN BOARD_ARTICLE USING(BOARD_NO)
 		WHERE BOARD_NO = ?
 		AND BOARD_ST='N'		
 	</entry>
