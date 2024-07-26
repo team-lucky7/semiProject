@@ -7,9 +7,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import semiProject.board.model.service.BoardService;
+import semiProject.board.model.vo.BoardArticle;
 import semiProject.board.model.vo.BoardDetail;
+import semiProject.member.model.vo.Member;
 
 @WebServlet("/regionSubpage/detail")
 public class RegionSubPageServlet extends HttpServlet{
@@ -18,10 +21,10 @@ public class RegionSubPageServlet extends HttpServlet{
 		
 		try {
 				int boardNo = Integer.parseInt(req.getParameter("no"));
+				HttpSession session = req.getSession();
+				Member loginMember= (Member)session.getAttribute("loginMember");
 				
-				System.out.println(boardNo);
-
-				BoardDetail detail = new BoardService().selectRegionBoardDetail(boardNo);
+				BoardDetail detail = new BoardService().selectRegionBoardDetail(boardNo,loginMember);
 
 				req.setAttribute("detail", detail);
 

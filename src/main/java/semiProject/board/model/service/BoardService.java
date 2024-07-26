@@ -258,13 +258,12 @@ public class BoardService {
 	}
 	
 
-	public BoardDetail selectRegionBoardDetail(int boardNo) throws Exception{
+	public BoardDetail selectRegionBoardDetail(int boardNo,Member loginMember) throws Exception{
 		
 		Connection conn = getConnection();
 		
 		BoardDetail detail =  dao.selectRegionBoardDetail(conn, boardNo);
 		
-		System.out.println(detail);
 		
 		if(detail != null) { 
 			
@@ -274,18 +273,55 @@ public class BoardService {
 			
 		}
 		
-			close(conn);
+		int result = dao.increaseReadCount(conn, boardNo);
+		
+		if(result > 0) {
+			commit(conn);
 			
-			return detail;
+			detail.setReadCount(detail.getReadCount() + result);
+		}else {
+			rollback(conn);
 		}
+		
+		if(loginMember != null) {
+			int memberNo = loginMember.getMemberNo();
+			
+			result = dao.getIsLike(conn, boardNo, memberNo);
+			
+			if(result > 0) {
+				detail.setLike(true);
+			}
+		}
+		
+		
+		close(conn);
+		
+		return detail;
+	}
 
 	/** 지역 게시글 수정
 	 * @param detail
 	 * @param imageList
 	 * @param deleteList
-	 * @return
+	 * @return result
 	 */
 	public int updateBoard(BoardDetail detail, List<BoardImage> imageList, String deleteList) throws Exception {
+		
+		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardContent(Utill.XSSHandling(detail.getBoardContent()));	
+		
+		detail.setBoardContent(Utill.newLineHandling(detail.getBoardContent()));
+//		int re
+//		
+//		if(result > 0) {
+//			
+//			for(BoardImage img : imageList) {
+//				
+//				img.
+//			}
+//		}
+		
+		
 		
 		return 0;
 	}
@@ -311,7 +347,11 @@ public class BoardService {
 		
 		int result = dao.regioninsertBoard(conn,detail,boardCode);
 		
+		
+		
 		if(result > 0) { 
+			
+			commit(conn);
 			
 			for(BoardImage image : imageList) { 
 				image.setBoardNo(boardNo); 
@@ -322,9 +362,10 @@ public class BoardService {
 					break;
 				}
 			}
-			
-		}
 		
+		}
+
+
 		if(result > 0) {
 			result = dao.regioninsertBoard2(conn,article,detail);
 		}
@@ -343,14 +384,19 @@ public class BoardService {
 		return boardNo;
 	}
 
-	public List<Board> searchRegionBoardList(String type) throws Exception{
+	public List<BoardDetail> selectRegionList(int type) throws Exception{
 		
 		Connection conn = getConnection();
 		
-		List<Board> boardList = dao.searchRegionBoardList(conn,type);
+		List<BoardDetail> boardList = dao.selectRegionList(conn,type);
+		
+		for(BoardDetail board : boardList) {
+			List<BoardImage> imageList = dao.selectRegionImageList(conn,board.getBoardNo());
+			
+			board.setImageList(imageList);
+		}
 		
 		close(conn);
-		
 		
 		return boardList;
 	}
@@ -423,6 +469,10 @@ public class BoardService {
 		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
 		
 		int result = dao.deleteBoardArticle(conn, detail.getBoardNo());
+		
+		
+		
+		
 		
 		System.out.println(result);
 		
