@@ -1537,4 +1537,25 @@ public class BoardDAO {
 		return Coordinate;
 	}
 
+	public int insertBoardArticle2(Connection conn, BoardArticle article2) throws Exception{
+		
+		int result = 0;
+
+		try {
+			String sql = prop.getProperty("insertArticle");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, article2.getContent());
+			pstmt.setInt(2, article2.getContentSize());
+			pstmt.setInt(3, article2.getContentLevel());
+			pstmt.setInt(4, article2.getBoardNo());
+
+			result = pstmt.executeUpdate();
+
+		} finally {
+			close(pstmt);
+		}
+
+		return result;
+	}
+
 }
