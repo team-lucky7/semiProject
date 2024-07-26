@@ -621,6 +621,58 @@ public class BoardService {
 	}
 
 
+	/**(테마) 게시글 수정
+	 * @param detail
+	 * @param imageList
+	 * @param deleteList
+	 * @return result
+	 * @throws Exception
+	 */
+	public int updateThemaBoard(BoardDetail detail, List<BoardImage> imageList, String deleteList)throws Exception{
+		
+		Connection conn = getConnection();
+		
+		//XSS
+		detail.setBoardTitle(Utill.XSSHandling(detail.getBoardTitle()));
+		detail.setBoardContent(Utill.XSSHandling(detail.getBoardContent()));
+		// 개행문자
+		detail.setBoardContent(Utill.newLineHandling(detail.getBoardContent()));
+		
+		int locationCode = dao.selectLocationCode(conn, detail.getBoardNo(), detail);
+		
+		detail.setLocationCode(locationCode);
+		
+		int Coordinate = dao.updateBoardArticle(conn, detail);
+		
+		int result = dao.updateThemaBoard(conn,detail);
+		
+		if(result>0) { // 게시글 수정 성공 시
+			
+			// 이미지 부분 수정(기존 -> 변경, 없다가 -> 추가)
+			for(BoardImage image : imageList) {
+				image.setBoardNo(detail.getBoardNo()); 
+				
+				result = dao.updateBoardImage(conn, image);
+				
+				if(result == 0) {
+					result = dao.insertBoardImage(conn, image);
+				}	
+			}
+			// 이미지 삭제 : deleteList에 값이 존재하면 "0,1,2..", 없으면 ""
+			if(!deleteList.equals("")) { 
+				result = dao.deleteThemaBoardImage(conn, deleteList, detail.getBoardNo());
+			}
+		}
+		
+		if(result>0) commit(conn);
+		else rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+
 	
 	
 }
