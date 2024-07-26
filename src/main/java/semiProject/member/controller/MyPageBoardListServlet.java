@@ -2,6 +2,7 @@ package semiProject.member.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -27,24 +28,23 @@ public class MyPageBoardListServlet extends HttpServlet{
 			Member loginMember = (Member)session.getAttribute("loginMember");
 			
 			int memberNo = loginMember.getMemberNo();
+			
 			int bCp = Integer.parseInt(req.getParameter("bCp"));
 			int rCp = Integer.parseInt(req.getParameter("rCp"));
+			
 			
 			BoardService service = new BoardService();
 			ReplyService service2 = new ReplyService();
 			
-			List<Board> boardList = service.selectMyBoardList(memberNo, bCp);
-			List<Reply> replyList = service2.selectMyReplyList(memberNo, rCp);
+			Map<String, Object> boardMap = service.selectMyBoardList(memberNo, bCp);
+			Map<String, Object> replyMap = service2.selectMyReplyList(memberNo, rCp);
 			
-			req.setAttribute("boardList", boardList);
-			req.setAttribute("replyList", replyList);
+			req.setAttribute("boardMap", boardMap);
+			req.setAttribute("replyMap", replyMap);
 			
 			String path = "/WEB-INF/views/member/myBoardList.jsp";
 			
 			req.getRequestDispatcher(path).forward(req, resp);
-			
-			System.out.println(boardList);
-			System.out.println(replyList);
 			
 		}catch(Exception e) {
 			e.printStackTrace();

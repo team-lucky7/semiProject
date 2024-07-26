@@ -504,10 +504,10 @@ public class BoardService {
 	/** 내가 작성한 게시글 목록 조회 Service
 	 * @param memberNo
 	 * @param bCp
-	 * @return
+	 * @return map
 	 * @throws Exception
 	 */
-	public List<Board> selectMyBoardList(int memberNo, int bCp) throws Exception {
+	public Map<String, Object> selectMyBoardList(int memberNo, int bCp) throws Exception {
 		
 		Connection conn = getConnection();
 		
@@ -518,9 +518,13 @@ public class BoardService {
 		
 		List<Board> boardList = dao.selectMyBoardList(conn, memberNo, pagination);
 		
+		Map<String, Object> map = new HashMap<>();
+		map.put("boardList", boardList);
+		map.put("pagination", pagination);
+		
 		close(conn);
 		
-		return boardList;
+		return map;
 	}
 	
 }
