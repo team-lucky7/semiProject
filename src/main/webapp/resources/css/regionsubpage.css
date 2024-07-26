@@ -64,12 +64,12 @@ html{
     cursor: pointer;
 }
 .imgs{
-    width: 100%;;
-    display: flex;  
+    width: 100%;
     justify-content: center;
     align-items: center;
     padding: 50px 0;
 }
+
 .imgs > img{
     width: 940px;
     height: 100%;

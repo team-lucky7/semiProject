@@ -67,6 +67,7 @@ public class BoardService {
 		
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
+		map.put("boardName", boardName);
 		
 		close(conn);
 		
@@ -200,6 +201,104 @@ public class BoardService {
 		close(conn);
 		
 		return result;
+	}
+	
+
+	public BoardDetail selectRegionBoardDetail(int boardNo) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		BoardDetail detail =  dao.selectRegionBoardDetail(conn, boardNo);
+		
+		System.out.println(detail);
+		
+		if(detail != null) { 
+			
+			List<BoardImage> imageList = dao.selectRegionImageList(conn,boardNo);
+			
+			detail.setImageList(imageList);
+			
+		}
+		
+			close(conn);
+			
+			return detail;
+		}
+
+	/** 지역 게시글 수정
+	 * @param detail
+	 * @param imageList
+	 * @param deleteList
+	 * @return
+	 */
+	public int updateBoard(BoardDetail detail, List<BoardImage> imageList, String deleteList) throws Exception {
+		
+		return 0;
+	}
+
+	
+	
+	/** 지역 게시글 삽입 
+	 * @param detail
+	 * @param imageList
+	 * @param boardCode
+	 * @return
+	 * @throws Exception
+	 */
+	public int regioninsertBoard(BoardDetail detail, List<BoardImage> imageList, int boardCode, BoardArticle article) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int boardNo = dao.regionnextBoardNo(conn);
+		
+		
+		detail.setBoardNo(boardNo);
+		
+		
+		int result = dao.regioninsertBoard(conn,detail,boardCode);
+		
+		if(result > 0) { 
+			
+			for(BoardImage image : imageList) { 
+				image.setBoardNo(boardNo); 
+				
+				result = dao.regioninsertBoardImage(conn,image);
+				
+				if(result == 0) { 
+					break;
+				}
+			}
+			
+		}
+		
+		if(result > 0) {
+			result = dao.regioninsertBoard2(conn,article,detail);
+		}
+		
+		if(result > 0) {
+			commit(conn);
+		
+		}else { 
+			rollback(conn);
+			
+			boardNo = 0; 
+		}
+		
+		close(conn);
+
+		return boardNo;
+	}
+
+	public List<Board> searchRegionBoardList(String type) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		List<Board> boardList = dao.searchRegionBoardList(conn,type);
+		
+		close(conn);
+		
+		
+		return boardList;
 	}
 
 	/** 자유게시글 삽입 Service
