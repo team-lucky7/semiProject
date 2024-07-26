@@ -22,27 +22,25 @@ public class RegionServlet extends HttpServlet {
 
 		try {
 			
-			String type = "10, 11 , 12 ,13 ,14 ,15, 16";
+			int type = Integer.parseInt(req.getParameter("type"));
 			
 			BoardService service = new BoardService();
 			
-			List<Board> boardList = service.searchRegionBoardList(type);
+			List<BoardDetail> boardList = service.selectRegionList(type);
 			
-			int boardNo = Integer.parseInt(req.getParameter("no"));
-			
-			BoardDetail detail = new BoardService().selectRegionBoardDetail(boardNo);
+			System.out.println(boardList);
 			
 			req.setAttribute("boardList", boardList);
-			req.setAttribute("detail", detail);
-
-			System.out.println(detail);
-
+			
+			String path = "/WEB-INF/views/region.jsp";
+			
+			req.getRequestDispatcher(path).forward(req, resp);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		String path = "/WEB-INF/views/region.jsp";
-		req.getRequestDispatcher(path).forward(req, resp);
+		
 	}
 
 }
