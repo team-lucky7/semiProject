@@ -33,7 +33,8 @@
         </div>
 
         <div class="thema-title">
-            <input type="text" name="themaTitle" placeholder="제목을 입력해주세요.  ↓↓↓사진파일을 첨부해주세요 *첫 번째 파일은 썸네일입니다.">
+            <input type="text" name="themaTitle" placeholder="제목을 입력해주세요(30자 이내).  ↓↓ 첫 번째 파일은 썸네일입니다. ↓↓"
+                maxlength="30">
         </div>
 
         <div class="img-box">
@@ -83,17 +84,16 @@
             <p>이용안내</p>
         </div>
         <div class="thema-content">
-            <textarea name="themaContent"></textarea>
+            <textarea name="themaContent" placeholder="내용을 입력해주세요(1200자 이내)." maxlength="1200"></textarea>
         </div>
 
         <!-- 지도 -->
         <div class="thema-title">
             <p>위치</p>
         </div>
-       
         <div class="thema-map" id="mapDiv">
-            <div>
-                <input type="text" id="inputAddress" placeholder="주소를 입력해주세요">
+            <div class="inputAddress-area">
+                <input type="text" id="inputAddress" placeholder="검색후 위치를 선택해 주세요.">
                 <button type="button" onclick="mapAddress()" id="chk">확인</button>
             </div>
         
@@ -107,13 +107,24 @@
 
         <!-- 버튼 -->
         <div class="board-btn-area">
-            <button type="submit" id="writeBtn">저장</button>
-            <button type="button" id="goToListBtn">목록으로</button>
+            <button type="submit" id="writeBtn">등록</button>
+
+            <c:if test="${param.mode == 'insert'}">
+                <!-- insert 모드 -->
+                <button type="button" id="goToListBtn">목록으로</button>
+            </c:if>
+
+            <c:if test="${param.mode=='update'}">
+                <!-- update 모드 -->
+                <button type="button" onclick="location.href='${header.referer}'">이전으로</button>
+            </c:if>
         </div>
 
         <input type="hidden" name="mode" value="${param.mode}">
 
         <input type="hidden" name="type" value="${param.type}">
+
+        <input type="hidden" id = "mapAdr" name = "mapAdr">
 
     </form>
     <script type="text/javascript"

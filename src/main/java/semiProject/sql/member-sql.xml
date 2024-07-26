@@ -10,7 +10,7 @@
 		       || '년 ' || SUBSTR(MEMBER_DOB, 5,2) 
 		       || '월 ' || SUBSTR(MEMBER_DOB, 7,2)
 		       || '일' AS MEMBER_DOB, MEMBER_EMAIL,
-		       MEMBER_TEL, PROFILE_IMG
+		       MEMBER_TEL, PROFILE_IMG, ADMIN_LEVEL
 		FROM MEMBER
 		WHERE MEMBER_ID = ?
 		AND MEMBER_PW = ?
