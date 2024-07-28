@@ -16,6 +16,8 @@ function showRecent(){
 	if(recentWord != ""){
 		const words = recentWord.split("||");
 		
+		let i = 0;
+		
 		for(let word of words){
 			const li = document.createElement("li");
 			const a = document.createElement("a");
@@ -24,7 +26,7 @@ function showRecent(){
 			li.append(a);
 			const span = document.createElement("span");
 			span.innerHTML = "&times;"
-			span.setAttribute("onclick", "deleteRecent(this)");
+			span.setAttribute("onclick", "deleteRecent(" + i + ")");
 			li.append(span);
 			searchRecent.append(li);
 		}
@@ -39,28 +41,22 @@ function searchWord(el){
 	location.href = encodeURI("/semiProject/search?query=" + el.innerHTML);
 }
 
-function deleteRecent(el){
-	
-	const deleteRecent = el.previousElementSibling.innerHTML;
+function deleteRecent(index){
 	
 	const recentWord = decodeURI(document.cookie).replace("query=", "");
-	const words = recentWord.split("||");
+	let words = recentWord.split("||");
 	
-	let temp = "";
+	words.splice(index, 1);
 	
-	for(let i=0; i<words.length; i++){
-		if(words[i] != deleteRecent){
-			temp += words[i];
-		}
-		
-		if(i != words.length - 2){
-			temp += "||";
-		}
-	}
-	
-	document.cookie = "query=" + recentWord;
+	const temp = words.join("||");
+
+	document.cookie = "query=" + temp;
 	
 	showRecent();
+}
+
+function isfind(){
+	
 }
 
 function recentValidate(){
