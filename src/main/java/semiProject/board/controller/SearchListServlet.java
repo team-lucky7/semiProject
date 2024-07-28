@@ -56,9 +56,7 @@ public class SearchListServlet extends HttpServlet{
 				}
 			}
 			
-			System.out.println(recent);
-			
-			Cookie c = new Cookie("query", URLEncoder.encode(recent, "UTF-8"));
+			Cookie c = new Cookie("query", URLEncoder.encode(recent, "UTF-8").replaceAll("\\+", "%20"));
 			
 			c.setMaxAge(60 * 60 * 24 * 30);
 			

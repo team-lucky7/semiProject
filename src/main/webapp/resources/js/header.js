@@ -41,15 +41,22 @@ function searchWord(el){
 
 function deleteRecent(el){
 	
-	let recentWord = decodeURI(document.cookie).replace("query=", "");
-	
 	const deleteRecent = el.previousElementSibling.innerHTML;
-	recentWord = recentWord.replace(deleteRecent, "");
-	recentWord = recentWord.replace("||" + deleteRecent, "");
-	recentWord = recentWord.replace(deleteRecent + "||", "");
-	recentWord = recentWord.replace("||" + deleteRecent + "||", "");
 	
-	console.log(recentWord);
+	const recentWord = decodeURI(document.cookie).replace("query=", "");
+	const words = recentWord.split("||");
+	
+	let temp = "";
+	
+	for(let i=0; i<words.length; i++){
+		if(words[i] != deleteRecent){
+			temp += words[i];
+		}
+		
+		if(i != words.length - 2){
+			temp += "||";
+		}
+	}
 	
 	document.cookie = "query=" + recentWord;
 	
