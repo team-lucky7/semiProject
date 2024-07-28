@@ -8,11 +8,62 @@ $(".nav>li").hover(function () {
     $(this).find("div").slideUp();
 })
 
-if($(".recent-search > ul").html() == ""){
-    $(".recent-search > p").css('display', 'block');
-}else{
-    $(".recent-search > p").css('display', 'none');
+
+function showRecent(){
+	const searchRecent = document.getElementById("recent-search-ul");
+	searchRecent.innerText = "";
+	const recentWord = decodeURI(document.cookie).replace("query=", "");
+	if(recentWord != ""){
+		const words = recentWord.split("||");
+		
+		for(let word of words){
+			const li = document.createElement("li");
+			const a = document.createElement("a");
+			a.innerText = word;
+			a.setAttribute("onclick", "searchWord(this)");
+			li.append(a);
+			const span = document.createElement("span");
+			span.innerHTML = "&times;"
+			span.setAttribute("onclick", "deleteRecent(this)");
+			li.append(span);
+			searchRecent.append(li);
+		}
+	}
+	
+	recentValidate();
 }
+
+showRecent();
+
+function searchWord(el){
+	location.href = encodeURI("/semiProject/search?query=" + el.innerHTML);
+}
+
+function deleteRecent(el){
+	
+	let recentWord = decodeURI(document.cookie).replace("query=", "");
+	
+	const deleteRecent = el.previousElementSibling.innerHTML;
+	recentWord = recentWord.replace(deleteRecent, "");
+	recentWord = recentWord.replace("||" + deleteRecent, "");
+	recentWord = recentWord.replace(deleteRecent + "||", "");
+	recentWord = recentWord.replace("||" + deleteRecent + "||", "");
+	
+	console.log(recentWord);
+	
+	document.cookie = "query=" + recentWord;
+	
+	showRecent();
+}
+
+function recentValidate(){
+	if($(".recent-search > ul").html() == ""){
+	    $(".recent-search > p").css('display', 'block');
+	}else{
+	    $(".recent-search > p").css('display', 'none');
+	}
+}
+
 
 const body = document.getElementsByTagName("body")[0];
 const searchIndex = document.getElementsByClassName("search-index")[0];
