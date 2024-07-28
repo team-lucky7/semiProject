@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<c:set var="boardName" value="${map.boardName}"/>
+<c:set var="pagination" value="${map.pagination}"/>
+<c:set var="boardList" value="${map.boardList}"/>
+
 	<!DOCTYPE html>
 	<html>
 
@@ -63,8 +69,41 @@
 
 						<div class="community-cont">
 							<p><a href="${contextPath}/freeBoard/list?type=3">자유게시판</a></p>
-							<div class="">
-								asdf
+							<div class="list-wrapper">
+								<table class="list-table">
+									<thead>
+										<tr>
+											<th>제목</th>
+											<th>조회수</th>
+											<th>좋아요</th>
+										</tr>
+									</thead>
+									
+									<tbody>
+										<c:choose>
+											<c:when test="${empty boardList}">
+												<tr>
+													<td colspan="3">게시물 조회 결과가 없습니다.</td>
+												</tr>
+											</c:when>
+											
+											<c:otherwise>
+												<c:forEach var="board" items="${boardList}">
+													<tr>
+														<td>
+															<c:if test="${!empty board.thumbnail }">
+								                            		<img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
+								                            </c:if>
+															<a href="${contextPath}/freeBoard/detail?no=${board.boardNo}&type=3&cp=1">${board.boardTitle}</a>
+														</td>
+														<td>${board.readCount}</td>
+														<td>${board.likeCount}</td>
+													</tr>
+												</c:forEach>
+											</c:otherwise>
+										</c:choose>
+									</tbody>
+								</table>
 							</div>
 						</div>
 					</div>
