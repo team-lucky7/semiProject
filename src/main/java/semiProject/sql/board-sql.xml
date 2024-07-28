@@ -398,4 +398,20 @@
 		WHERE BOARD_NO = ?
 	</entry>
 	
+	<!-- 검색어 삽입 -->
+	<entry key="insertSearchWord">
+		INSERT INTO QUERY VALUES(?)
+	</entry>
+	
+	<!-- 인기 검색어 조회 -->
+	<entry key="selectPopualrWordList">
+		SELECT * FROM(SELECT ROWNUM RNUM, A.* FROM
+		    (SELECT WORD FROM QUERY
+				GROUP BY WORD
+				ORDER BY COUNT(*) DESC
+		    )A
+		)
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
 </properties>

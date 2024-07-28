@@ -713,8 +713,44 @@ public class BoardService {
 		
 		return result;
 	}
-
-
 	
-	
+	/** 검색어 삽입
+	 * @param query
+	 * @return
+	 * @throws Exception
+	 */
+	public int insertSearchWord(String query) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int result = dao.insertSearchWord(conn, query);
+		
+		if(result > 0)	commit(conn);
+		else			rollback(conn);
+		
+		close(conn);
+		
+		return result;
+	}
+
+	/** 인기 검색어 Service
+	 * @return popualrWordList
+	 * @throws Exception
+	 */
+	public Map<String, Object> selectPopualrWordList() throws Exception {
+		
+		Connection conn = getConnection();
+		
+		List<String> popualrWordList = dao.selectPopualrWordList(conn, 1, 5);
+		List<String> popualrWordList2 = dao.selectPopualrWordList(conn, 6, 10);
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("wordList", popualrWordList);
+		map.put("wordList2", popualrWordList2);
+
+		close(conn);
+		
+		return map;
+	}
+
 }

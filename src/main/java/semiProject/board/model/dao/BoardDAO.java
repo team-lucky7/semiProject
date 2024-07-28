@@ -1536,5 +1536,66 @@ public class BoardDAO {
 		
 		return Coordinate;
 	}
+	
+	/** 검색어 삽입 Service
+	 * @param conn
+	 * @param query
+	 * @return result
+	 * @throws Exception
+	 */
+	public int insertSearchWord(Connection conn, String query) throws Exception {
+		
+		int result = 0;
+		
+		try {
+			String sql = prop.getProperty("insertSearchWord");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, query);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+	/** 인기 검색어 DAO
+	 * @param conn
+	 * @param end 
+	 * @param start 
+	 * @return popualrWordList
+	 * @throws Exception
+	 */
+	public List<String> selectPopualrWordList(Connection conn, int start, int end) throws Exception {
+		
+		List<String> popualrWordList = new ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("selectPopualrWordList");
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, start);
+			pstmt.setInt(2, end);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				String word = rs.getString("WORD");
+				
+				popualrWordList.add(word);
+			}
+			
+		}finally {
+			close(pstmt);
+			close(rs);
+		}
+		
+		return popualrWordList;
+	}
 
 }
