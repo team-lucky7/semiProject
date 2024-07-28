@@ -55,10 +55,6 @@ function deleteRecent(index){
 	showRecent();
 }
 
-function isfind(){
-	
-}
-
 function recentValidate(){
 	if($(".recent-search > ul").html() == ""){
 	    $(".recent-search > p").css('display', 'block');
