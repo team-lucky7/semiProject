@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <header class="header">
   <section class="logo">
     <a href="${ contextPath }">
@@ -72,21 +73,20 @@
           <div class="popualr-search">
             <h2>최근 인기 검색어</h2>
             <div class="popualr">
-              <ol>
-                <li><a href="">제주도</a></li>
-                <li><a href="">부산</a></li>
-                <li><a href="">여수</a></li>
-                <li><a href="">서울</a></li>
-                <li><a href="">단양</a></li>
-              </ol>
-              
-              <ol start="6">
-                <li><a href="">강릉</a></li>
-                <li><a href="">경주</a></li>
-                <li><a href="">속초</a></li>
-                <li><a href="">통영</a></li>
-                <li><a href="">대전</a></li>
-              </ol>
+              <c:if test="${!empty wordMap.wordList}">
+                <ol>
+                  <c:forEach var="word" items="${wordMap.wordList}">
+                    <li><a href="${contextPath}/search?query=${word}">${word}</a></li>
+                  </c:forEach>
+                </ol>
+              </c:if>
+              <c:if test="${!empty wordMap.wordList2}">
+                <ol start="6">
+                  <c:forEach var="word" items="${wordMap.wordList2}">
+                    <li><a href="${contextPath}/search?query=${word}">${word}</a></li>
+                  </c:forEach>
+                </ol>
+              </c:if>
             </div>
           </div>
         </div>

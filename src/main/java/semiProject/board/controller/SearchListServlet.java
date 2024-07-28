@@ -34,8 +34,9 @@ public class SearchListServlet extends HttpServlet{
 			}
 			
 			Map<String, Object> map = service.searchBoardList(cp, query);
-			
 			req.setAttribute("map", map);
+			
+			service.insertSearchWord(query);
 			
 			String recent = "";
 			
