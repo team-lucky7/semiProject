@@ -66,7 +66,7 @@
 
           <div class="recent-search">
             <h2>최근 검색어</h2>
-            <ul></ul>
+            <ul id="recent-search-ul"></ul>
             <p class="no_data">최근 검색어 내역이 없습니다.</p>
           </div>
           <div class="popualr-search">
