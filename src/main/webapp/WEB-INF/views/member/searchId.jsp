@@ -8,8 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>아이디 찾기</title>
-    <link rel="stylesheet" href="${contextPath }/resources/css/searchId.css">
-
+    <link rel="stylesheet" href="${contextPath}/resources/css/searchId.css">
 </head>
 <header>
     <ul>
@@ -34,8 +33,7 @@
             <a href="${contextPath}">
                 <img src="${contextPath}/resources/images/logo.jpg" height="150px">
             </a>
-            <form action="${contextPath}/searchID" name="searchID-form" onsubmit="">
-            
+            <form action="${contextPath}/searchIdResult" name="searchID-form"  method="POST" onsubmit= "return searchIdValidate()">            
                 <div>
                     <span>이메일</span>
                     <input type="text" name="inputEmail">
@@ -43,17 +41,16 @@
                 
                 <div>
                     <span>휴대폰 번호</span>
-                    <input type="text" name="inputPhone">
-                </div>
-                
+                    <input type="text" name="inputPhone" placeholder="(-)빼고 입력해주세요.">                </div>
                 <div>
-                    <button id="searchID-btn">확인</button>
+                  <button id="searchId-btn">확인</button>
                 </div>
 
             </form>
         </section>
     </main>
-  
+    <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
+    <script src="${contextPath}/resources/js/searchId.js"></script>
 </body>
 
 </html>

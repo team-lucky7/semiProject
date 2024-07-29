@@ -59,17 +59,17 @@ html{
     border-right: none;
     border-left: none;
 }
-.text > span{
+.text > label{
     margin: 0 50px;
     cursor: pointer;
 }
 .imgs{
-    width: 100%;;
-    display: flex;  
+    width: 100%;
     justify-content: center;
     align-items: center;
     padding: 50px 0;
 }
+
 .imgs > img{
     width: 940px;
     height: 100%;
@@ -90,6 +90,28 @@ html{
 .KAKAOAPI{
     width: 940px;
     border: 1px solid black;
-    height: 300px;
-    margin-bottom: 10px;
+    height: 400px;
+    margin-bottom: 30px;
 }
+
+
+.board-btn-area{
+    text-align: center;
+    margin-top: 50px;
+}
+.board-btn-area button{
+    width: 80px;
+    height: 50px;
+    font-weight: bold;
+    border: 0;
+    background-color: #1386b0;
+    color: white;
+    cursor: pointer;
+}
+
+.board-btn-area button:hover{
+    background-color: white;
+    color: #1386b0;
+    border: 2px solid #1386b0;
+}
+

@@ -2,12 +2,13 @@
   box-sizing: border-box;
 }
 .region-Btn {
-  width: 100%;
+  width: 1600px;
   height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: rgba(135, 206, 235, 0.5);
+  margin: auto;
 }
 
 .Btn-add{
@@ -47,8 +48,9 @@
 
 /* content  구역 */
 .content{
-  width: 100%;
-  height: 600px;
+  width: 1600px;
+  height: 900px;
+  margin: auto;
   background-color: rgba(135, 206, 235, 1.0);
   display: flex;
   align-items: center;
@@ -62,28 +64,32 @@
   position: relative;
 }
 .main-content{
-  width: 7200px;
-  height: 500px;
+  height: 700px;
   display: flex;
   transition-duration: 0.5s;
 }
 .main-add{
-  width: 2000px;
+  width: 1200px;
   height: 500px;
   display: flex;
 }
 
-.image{
+.imgs{
   display: flex;
   flex-basis: 50%;
+  height: 800px;
+  width: 800px;
+  align-items: center;
 }
 
-#image{
-  width: 100%;
+.imgs > img{
+  width: 700px;
   height: 500px;
   padding: 30px;
   border-radius: 30%;
 }
+
+
 .text{
   flex-basis: 50%;
   display: flex;
@@ -99,7 +105,7 @@
   font-style: normal;
 }
 .text > h1{
-  font-size: 70px;
+  font-size: 50px;
   font-family: OKGUNG;
 }
 
@@ -118,7 +124,10 @@
   top: 50;
 }
 #left {
-  right: 1350px;
+  right: 1310px;
+}
+#right {
+  right: 50px;
 }
 
 #left , #right:hover{
@@ -128,5 +137,25 @@
 .kakaoAPI{
   width: 500px;
   height: 200px;
-  background-color: blue;
+  margin-top: 30px;
+}
+
+#write{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+
+#insertBtn{
+  width: 80px;
+  height: 40px;
+  margin-right: 50px;
+  background-color: #455ba8;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+  top: 300px;
 }
