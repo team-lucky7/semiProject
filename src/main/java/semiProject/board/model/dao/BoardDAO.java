@@ -878,7 +878,8 @@ public class BoardDAO {
 			pstmt.setString(2, detail.getBoardTitle());
 			pstmt.setString(3, detail.getBoardContent());
 			pstmt.setInt(4, boardCode);
-			pstmt.setInt(5, detail.getMemberNo());
+			pstmt.setInt(5, detail.getLocationCode());
+			pstmt.setInt(6, detail.getMemberNo());
 			
 			
 			result = pstmt.executeUpdate();
