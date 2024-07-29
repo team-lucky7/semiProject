@@ -20,8 +20,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import semiProject.board.model.service.BoardService;
 import semiProject.board.model.vo.BoardImage;
-import semiProject.board.model.vo.Board;
 import semiProject.board.model.vo.BoardArticle;
+import semiProject.board.model.vo.BoardDetail;
 import semiProject.common.MyRenamePolicy;
 
 @WebServlet("/community/write")
@@ -30,15 +30,7 @@ public class CommunityWriteServlet extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
-
 			
-			//String mode = req.getParameter("mode");  아직 필요한지 물음표
-
-			// insert는 별도 처리 없이 jsp로 위임
-
-			// update는 기존 게시글 내요을 조회하는 처리가 필요함
-			//if(mode.equals("update")) {
-
 			String path="/WEB-INF/views/board/communityWrite.jsp";
 
 			req.getRequestDispatcher(path).forward(req, resp);
@@ -160,7 +152,11 @@ public class CommunityWriteServlet extends HttpServlet{
 			List<String> hashtagOption = new ArrayList<>();
 
 			if (hashtag!=null) {
-				hashtagList = Arrays.asList(hashtag);
+				
+				for(String hash : hashtag) {
+					hashtagList.add(hash.substring(1));
+				}
+				
 				hashtagOption = Arrays.asList(hashtagOptionList);
 			}
 			// 지도 받기
@@ -169,7 +165,10 @@ public class CommunityWriteServlet extends HttpServlet{
 			
 			String address = null;
 			
-			if(mapAddress != null) {
+			System.out.println("mapAddress");
+			System.out.println(mapAddress);
+			
+			//if(mapAddress != null && mapAddress.trim() != "") {
 
 			JSONParser parser = new JSONParser();
 
@@ -181,33 +180,32 @@ public class CommunityWriteServlet extends HttpServlet{
 
 			//System.out.println("주소뽑기 : " + address);
 
-			}
+			//} 
 			
-			//Member loginMember = (Member)session.getAttribute("loginMember");
+			Member loginMember = (Member)session.getAttribute("loginMember");
 
-			int memberNo = 1; //loginMember.getMemberNo(); // 회원번호
+			BoardDetail detail = new BoardDetail();
+			int memberNo = loginMember.getMemberNo();
 
-			Board board = new Board();
+			
+			detail.setBoardTitle(subtitle);
+			detail.setBoardContent(intro);
+			detail.setHashtagList(hashtagList);
+			detail.setHashtagOption(hashtagOption);
+			detail.setBoardCode(category);
+			detail.setMemberNo(memberNo);
 
-			board.setBoardTitle(subtitle);
-			board.setBoardContent(intro);
-			board.setHashtagList(hashtagList);
-			board.setHashtagOption(hashtagOption);
-			board.setLocationCode(10); // 현재는 지역명 받아온다
-			board.setBoardCode(category);
-			board.setMemberNo(memberNo);
-
-			int result = service.communityWrite(boardArticleList, imageList, board, hashtagList, hashtagOption, address);
+			int result = service.communityWrite(boardArticleList, imageList, detail, hashtagList, hashtagOption, address);
 
 			String message = null;
 			String path = null;
 			if(result > 0 ) {
 				message = "커뮤니티 게시글 등록을 완료하였습니다.";
-				path = req.getContextPath();
+				path = req.getContextPath() + "\\community\\list?type="+ category;
 
 			} else {
 				message = "게시글 등록을 완료하지 못하였습니다.";
-				path = req.getContextPath();
+				path = req.getContextPath() + "\\community\\write";
 
 			}
 			

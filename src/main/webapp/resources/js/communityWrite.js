@@ -29,8 +29,8 @@ function addFullText(){
 function addHalfText(){
     const addDiv = document.createElement("div");
     const addSpan = document.createElement("span");
-    const addText = document.createElement("textarea");
     const addXBtn = document.createElement("img");
+    const addText = document.createElement("textarea");
     const container = document.getElementById("container2");
     
     addDiv.classList.add("halfContent");
@@ -59,7 +59,7 @@ function addFullImage(){
     const addInput = document.createElement("input");
     const addImage = document.createElement("img");
     const addXBtn = document.createElement("img");
-
+    
     addDiv.classList.add("fullContent");
     addSpan.innerHTML = "사진첨부";
     addSpan.classList.add("subtitle");
@@ -69,36 +69,38 @@ function addFullImage(){
     addImage.classList.add("fullImage");
     addXBtn.src = "../resources/images/x-button-327024.png";
     addXBtn.classList.add("xBtn");
-
+    
     addXBtn.addEventListener("click", function(){
         this.parentElement.remove();
     })
-
+    
+    
+    
     addDiv.append(addSpan, addInput, addImage, addXBtn);
     container.append(addDiv);
     
     
     addInput.addEventListener("change", function(){
           if(this.files[0] != undefined){
-
-               const reader = new FileReader();
+              
+              const reader = new FileReader();
                // 선택된 파일을 읽을 객체 생성
                reader.readAsDataURL(this.files[0]);
                // 지정된 파일을 읽음 -> result에 저장(URL포함)
                // -> URL을 이용해서 이미지 볼 수 있음
-   
+               
                reader.onload = function(e){ // reader가 파일을 다 읽어온 경우
-                   // e.target = reader
-                   // e.target.result = 읽어들인 이미지의 URL
-                   // preview[i] == 파일이 선택된 input 태그와 인접한 preview 이미지 태그
+                // e.target = reader
+                // e.target.result = 읽어들인 이미지의 URL
+                // preview[i] == 파일이 선택된 input 태그와 인접한 preview 이미지 태그
    
-                   addImage.setAttribute("src", e.target.result);
-
-               }
-            } else { // 파일이 선택이 되지 않았을 때 (취소)
-            addImage.removeAttribute("src");
+                addImage.setAttribute("src", e.target.result);
+                
             }
-
+        } else { // 파일이 선택이 되지 않았을 때 (취소)
+            addImage.removeAttribute("src");
+        }
+        
     })
     
     
@@ -112,7 +114,7 @@ function addHalfImage(){
     const addInput = document.createElement("input");
     const addImage = document.createElement("img");
     const addXBtn = document.createElement("img");
-
+    
     addDiv.classList.add("halfContent");
     addSpan.innerHTML = "사진첨부";
     addSpan.classList.add("subtitle");
@@ -122,7 +124,7 @@ function addHalfImage(){
     addImage.classList.add("halfImage");
     addXBtn.src = "../resources/images/x-button-327024.png";
     addXBtn.classList.add("xBtn");
-
+    
     addXBtn.addEventListener("click", function(){
         this.parentElement.remove();
     })
@@ -130,37 +132,59 @@ function addHalfImage(){
     addDiv.append(addSpan, addInput, addImage, addXBtn);
     container.append(addDiv);
     
-        addInput.addEventListener("change", function(){
+    addInput.addEventListener("change", function(){
           if(this.files[0] != undefined){
-
+              
                const reader = new FileReader();
                // 선택된 파일을 읽을 객체 생성
                reader.readAsDataURL(this.files[0]);
                // 지정된 파일을 읽음 -> result에 저장(URL포함)
                // -> URL을 이용해서 이미지 볼 수 있음
-   
+               
                reader.onload = function(e){ // reader가 파일을 다 읽어온 경우
-                   // e.target = reader
-                   // e.target.result = 읽어들인 이미지의 URL
-                   // preview[i] == 파일이 선택된 input 태그와 인접한 preview 이미지 태그
-   
-                   addImage.setAttribute("src", e.target.result);
-
-               }
-            } else { // 파일이 선택이 되지 않았을 때 (취소)
-            addImage.removeAttribute("src");
+                // e.target = reader
+                // e.target.result = 읽어들인 이미지의 URL
+                // preview[i] == 파일이 선택된 input 태그와 인접한 preview 이미지 태그
+                
+                addImage.setAttribute("src", e.target.result);
+                
             }
+            } else { // 파일이 선택이 되지 않았을 때 (취소)
+                addImage.removeAttribute("src");
+            }
+            
+        })
+        
+    }
 
-    })
-    
-    
+
+
+function writeValidate(){
+	
+	console.log(mapDiv.style.display);
+	
+	if(mapDiv.style.display == 'none') 	{
+	 alert("지도를 입력해주세요");
+	 return false
+	}
+	
+	console.log(document.getElementById("mapAdr").value);
+	
+	if(document.getElementById("mapAdr").value.trim() == ""){
+		 alert("지도를에 마커를 입력해주세요");
+		 return false 
+	} 	
+	return true;
 }
+
+
 
 
 
 function mapAddress(){
         
-        const mapAddress = document.getElementById("inputAddress").value;
+        const mapAddress = document.getElementById("inputAddress").value;        
+        
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
             mapOption = {
                 center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
@@ -187,6 +211,7 @@ function mapAddress(){
         
             } 
         });    
+
 
 
 
@@ -235,7 +260,7 @@ function mapAddress(){
                     //document.getElementById("inputAddress").value = json;
     				const mapvalue = document.getElementById("mapAdr");
     				
-                    if(mapDiv.style.display!='none'){ 
+                    if(mapDiv.style.display!='none' || mapData != null){ 
 	    				mapvalue.value = json;                   
                     }    
                 }   
@@ -312,3 +337,53 @@ function addHashtag(){
     })
 
 }
+
+
+(function(){
+    const goToListBtn = document.getElementById("goToListBtn");
+
+    if(goToListBtn != null) { // 목록으로 버튼이 화면에 있을 때만 이벤트 추가
+
+        goToListBtn.addEventListener("click", function(){
+
+            const pathname = location.pathname //주소상에서 요청 경로 반환
+            //    /community/board/detail
+
+            // 이동할 주소 저장
+
+            let url = pathname.substring(0, pathname.indexOf("/", 1));
+            url += "/community/list?"
+            
+            const params = new URL(location.href).searchParams;
+
+            const type = "type=" + params.get("type");
+            const cp = "cp=" + params.get("cp");
+
+            url += type + "&" + cp
+
+            location.href = url;
+
+        })
+    } 
+    
+})();
+
+(function(){
+
+    const deleteBtn = document.getElementById("deleteBtn");
+	console.log("test");
+    if(deleteBtn != null){
+        deleteBtn.addEventListener("click", function(){
+            let url = "delete";
+            const params = new URL(location.href).searchParams;
+            const no = "?no=" + params.get("no");
+            const type = "&type=" + params.get("type");
+            url += no + type;
+
+            if(confirm('정말로 삭제하시겠습니까?')){
+                location.href = url;
+            }
+        })
+    }
+
+})();

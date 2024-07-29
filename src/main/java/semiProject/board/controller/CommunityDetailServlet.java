@@ -23,8 +23,7 @@ public class CommunityDetailServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		int boardNo = Integer.parseInt(req.getParameter("no"));
-		// 4 또는 5
-		
+	
 		HttpSession session = req.getSession();
 		Member loginMember = (Member)session.getAttribute("loginMember");
 		
@@ -32,19 +31,19 @@ public class CommunityDetailServlet extends HttpServlet{
 			BoardService service = new BoardService();
 			
 			BoardDetail detail = service.selectBoardDetail(boardNo, loginMember);
-			
 			if(detail != null) {
 				List<Reply> replyList = new ReplyService().selectReplyList(boardNo, loginMember);
 				req.setAttribute("replyList", replyList);
 			}
 			
+			//System.out.println(detail);
 			req.setAttribute("detail", detail);
 			
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
-		String path = "/WEB-INF/views/board/coummunityDetail.jsp";
+		String path = "/WEB-INF/views/board/communityDetail.jsp";
 		req.getRequestDispatcher(path).forward(req, resp);
 	}
 
