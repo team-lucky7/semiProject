@@ -109,11 +109,11 @@ public class MemberService {
 	 * @param memberNo
 	 * @return result
 	 */
-	public int updateMember(String memberEmail, String memberTel, int memberNo) throws Exception{
+	public int updateMember(Member mem) throws Exception{
 		
 		Connection conn = getConnection();
 		
-		int result = dao.updateMember(conn,memberEmail,memberTel,memberNo);
+		int result = dao.updateMember(conn, mem);
 		
 		if(result > 0) commit(conn);
 		else		   rollback(conn);
@@ -122,5 +122,24 @@ public class MemberService {
 		
 		return result;
 	}
+	
+	 
+    /** 아이디 찾기 Service
+     * @param inputEmail
+     * @param inputPhone
+     * @return loginMember
+     */
+    public Member searchId(String inputEmail, String inputPhone)  throws Exception{
+        
+        Connection conn = getConnection();
+        
+        
+        Member loginMember = dao.searchId(conn,inputEmail,inputPhone);
+        
+        close(conn);
+        
+        return loginMember;
+        
+    }
 
 }

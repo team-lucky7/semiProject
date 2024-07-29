@@ -17,8 +17,8 @@ public class Reply {
 	private String createDate;
 	private int boardNo;
 	private int memberNo;
-	private String membeName;
+	private String memberName;
 	private String profileImage;
-	
-	private List<Like> likeList;
+	private int likeCount;
+	private boolean isLike;
 }

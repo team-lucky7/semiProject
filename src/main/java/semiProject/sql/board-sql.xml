@@ -17,16 +17,19 @@
 	<!-- 특정 게시판에서 일정한 범위의 목록 조회 -->
 	<entry key="selectBoardList">
 		SELECT * FROM(
-		    SELECT ROWNUM AS RNUM, A.* FROM (
-		        SELECT BOARD_NO, BOARD_TITLE, MEMBER_NM,
+		    SELECT ROWNUM AS RNUM, A.*,(SELECT IMG_RENAME FROM BOARD_IMG
+		                WHERE IMG_LEVEL = (SELECT min(IMG_LEVEL) FROM BOARD_IMG)
+		                AND BOARD_IMG.BOARD_NO = A.BOARD_NO) THUMBNAIL FROM (
+		        SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT, MEMBER_NM, LOCATION_NM,
 		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD') AS CREATE_DT,
-		            READ_COUNT, COUNT(BOARD_REPLY_NO) AS "LIKE_COUNT"
+		            READ_COUNT, COUNT(BOARD_REPLY_NO) AS LIKE_COUNT
 		        FROM BOARD
 		        JOIN MEMBER USING(MEMBER_NO)
+		        LEFT JOIN LOCATION USING(LOCATION_CODE)
 		        LEFT JOIN "LIKE" ON(BOARD_REPLY_NO = BOARD_NO)
-		        WHERE BOARD_CD = 3
+		        WHERE BOARD_CD = ?
 		        AND BOARD_ST = 'N'
-		        GROUP BY BOARD_NO, BOARD_TITLE, MEMBER_NM,
+		        GROUP BY BOARD_NO, BOARD_TITLE, BOARD_CONTENT, MEMBER_NM, LOCATION_NM,
 		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD'), READ_COUNT
 		        ORDER BY BOARD_NO DESC
 		    )A
@@ -38,13 +41,20 @@
 	<entry key="selectBoardDetail">
 		SELECT BOARD_NO, BOARD_NM, BOARD_TITLE,
 		    BOARD_CONTENT, PROFILE_IMG, MEMBER_NM,
-		    TO_CHAR(CREATE_DT, 'YYYY-MM-DD') AS CREATE_DT,
-		    TO_CHAR(UPDATE_DT, 'YYYY-MM-DD') AS UPDATE_DT,
-		    READ_COUNT, B.MEMBER_NO
+		    TO_CHAR(CREATE_DT, 'YYYY-MM-DD') CREATE_DT,
+		    TO_CHAR(UPDATE_DT, 'YYYY-MM-DD') UPDATE_DT,
+		    READ_COUNT, B.MEMBER_NO, LOCATION_NM, COUNT(BOARD_REPLY_NO) LIKE_COUNT
 		FROM BOARD B
 		JOIN BOARD_TYPE USING(BOARD_CD)
+        LEFT JOIN "LIKE" ON(BOARD_NO = BOARD_REPLY_NO)
+        LEFT JOIN LOCATION USING(LOCATION_CODE)
 		JOIN MEMBER M ON(B.MEMBER_NO = M.MEMBER_NO)
 		WHERE BOARD_NO = ?
+        GROUP BY BOARD_NO, BOARD_NM, BOARD_TITLE,
+		    BOARD_CONTENT, PROFILE_IMG, MEMBER_NM,
+		    TO_CHAR(CREATE_DT, 'YYYY-MM-DD'),
+		    TO_CHAR(UPDATE_DT, 'YYYY-MM-DD'),
+		    READ_COUNT, B.MEMBER_NO, LOCATION_NM
 	</entry>
 	
 	<!-- 게시글 내용(글) 조회 -->
@@ -57,8 +67,359 @@
 		SELECT IMG_NO, IMG_SIZE, IMG_RENAME, IMG_ORIGINAL, IMG_LEVEL FROM BOARD_IMG WHERE BOARD_NO = ?
 	</entry>
 	
-	<!-- 좋아요 누른 회원번호 목록 조회 -->
-	<entry key="getLikeMember">
-		SELECT * FROM "LIKE" WHERE BOARD_REPLY_NO = ?
+	<!-- 좋아요 여부 조회 -->
+	<entry key="getIsLike">
+		SELECT COUNT(*) FROM "LIKE" WHERE BOARD_REPLY_NO = ? AND MEMBER_NO = ?
 	</entry>
+	
+	<!-- ========== 테마 ========== -->
+	
+	<!-- 게시글 번호 조회 -->
+	<entry key="nextBoardNo">
+		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+	</entry>
+	
+	<!-- 지역번호 조회 -->
+	<entry key="selectLocationCode">
+		SELECT LOCATION_CODE
+		FROM LOCATION 
+		WHERE LOCATION_NM = ?
+	</entry>
+	
+	<!-- 지역 정보 삽입 -->
+	<entry key="updateLocation">
+		UPDATE BOARD SET 
+		LOCATION_CODE = ?
+		WHERE BOARD_NO= ?
+	</entry>
+	
+	<!-- 게시글 삽입 -->
+	<entry key="insertThemaBoard">
+		INSERT INTO BOARD VALUES(?,?,?,DEFAULT, DEFAULT, DEFAULT,DEFAULT,?,?,?)
+	</entry>
+	
+	<!-- 게시글 이미지 삽입 -->
+	<entry key ="insertThemaBoardImage">
+		INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,?,?,?,?)
+	</entry>
+	
+	<!-- 테마 게시글 내용 조회  /// ** LOCATION_CODE, LOCATION_NAME(지역코드, 지역명) 들어와야함!-->
+	<entry key="selectThemaBoardDetail">
+		SELECT BOARD_NO, BOARD_TITLE, BOARD_CONTENT,
+		    TO_CHAR(CREATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') CREATE_DT,
+		    TO_CHAR(UPDATE_DT, 'YYYY"년" MM"월" DD"일" HH24:MI:SS') UPDATE_DT,
+		    READ_COUNT, MEMBER_NO, BOARD_NM , LOCATION_NM, CONTENT, LOCATION_CODE
+		FROM BOARD
+		JOIN MEMBER USING(MEMBER_NO)
+		JOIN BOARD_TYPE USING(BOARD_CD)
+		JOIN LOCATION USING(LOCATION_CODE)
+		JOIN BOARD_ARTICLE USING(BOARD_NO)
+		WHERE BOARD_NO = ?
+		AND BOARD_CD = ?
+		AND BOARD_ST='N'		
+	</entry>
+	
+	<!-- 테마 게시글 첨부된 이미지 조회 -->
+	<entry key ="selectThemaImageList">
+		SELECT * 
+		FROM BOARD_IMG
+		WHERE BOARD_NO = ?
+		ORDER BY IMG_LEVEL
+	</entry>
+	
+	<!-- 테마 게시글 삭제 -->
+	<entry key="deleteThemaBoard">
+		UPDATE BOARD SET
+		BOARD_ST='Y'
+		WHERE BOARD_NO=?
+	</entry>
+	
+	<!-- 테마 게시판 이름 조회 -->
+	<entry key ="selectThemaBoardName">
+		SELECT BOARD_NM
+		FROM BOARD_TYPE
+		WHERE BOARD_CD=?
+	</entry>
+	
+	<!-- 특정 게시판에서 일정한 범위의 목록 조회 -->
+	<entry key="selectThemaBoardList1">
+		SELECT BOARD_NO, BOARD_TITLE, LOCATION_NM, BOARD_CD, BOARD_NM,
+		       (SELECT MAX(IMG_RENAME) 
+		        FROM BOARD_IMG 
+		        WHERE IMG_LEVEL = 0 
+		          AND BOARD_IMG.BOARD_NO = BOARD.BOARD_NO) AS THUMBNAIL
+		FROM BOARD
+		JOIN BOARD_TYPE USING(BOARD_CD)
+		JOIN MEMBER USING(MEMBER_NO)
+		JOIN LOCATION USING(LOCATION_CODE)
+		WHERE BOARD_CD IN (
+	</entry>
+	
+	<entry key="selectThemaBoardList2">
+				)
+		AND BOARD_ST = 'N'
+		GROUP BY BOARD_NO, BOARD_TITLE, LOCATION_NM, BOARD_CD, BOARD_NM
+		ORDER BY BOARD_NO DESC
+	</entry>
+	
+	<!-- 검색 시 전체 게시글 수 조회 -->
+	<entry key="getSearchListCount">
+		SELECT COUNT(COUNT(*)) FROM BOARD
+		JOIN MEMBER USING(MEMBER_NO)
+		LEFT JOIN BOARD_ARTICLE USING(BOARD_NO)
+		LEFT JOIN HASHTAG USING(BOARD_NO)
+		LEFT JOIN HASHTAG_LIST USING(HASHTAG_NO)
+		WHERE BOARD_ST = 'N'
+		AND (BOARD_TITLE LIKE ? OR BOARD_CONTENT LIKE ? OR 
+		CONTENT LIKE ? OR MEMBER_NM LIKE ? OR 
+		HASHTAG_NM LIKE ?)
+		GROUP BY BOARD_NO
+	</entry>
+	
+	<!-- 검색 시 일정한 범위의 목록 조회 -->
+	<entry key="searchBoardList">
+		SELECT * FROM(
+		    SELECT ROWNUM AS RNUM, A.*, (SELECT IMG_RENAME FROM BOARD_IMG
+		                WHERE IMG_LEVEL = (SELECT min(IMG_LEVEL) FROM BOARD_IMG)
+		                AND BOARD_IMG.BOARD_NO = A.BOARD_NO) THUMBNAIL FROM (
+		        SELECT BOARD_NO, BOARD_CD, BOARD_TITLE, MEMBER_NM,
+		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD') CREATE_DT,
+		            READ_COUNT, COUNT(BOARD_REPLY_NO) LIKE_COUNT
+		        FROM BOARD
+		        JOIN MEMBER USING(MEMBER_NO)
+		        LEFT JOIN "LIKE" ON(BOARD_REPLY_NO = BOARD_NO)
+		        LEFT JOIN BOARD_ARTICLE USING(BOARD_NO)
+		        LEFT JOIN HASHTAG USING(BOARD_NO)
+		        LEFT JOIN HASHTAG_LIST USING(HASHTAG_NO)
+		        WHERE BOARD_ST = 'N'
+		        AND (BOARD_TITLE LIKE ? OR BOARD_CONTENT LIKE ? OR 
+		             CONTENT LIKE ? OR MEMBER_NM LIKE ? OR 
+		             HASHTAG_NM LIKE ?)
+		        GROUP BY BOARD_NO, BOARD_CD, BOARD_TITLE, MEMBER_NM,
+		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD'), READ_COUNT
+		        ORDER BY BOARD_NO DESC
+		    )A
+		)
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+	
+	<!-- 조회수 증가 -->
+	<entry key="increaseReadCount">
+		UPDATE BOARD SET READ_COUNT = READ_COUNT + 1 WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 게시글 삭제 -->
+	<entry key="deleteBoard">
+		UPDATE BOARD SET BOARD_ST = 'Y' WHERE BOARD_NO = ?
+	</entry>
+	
+	
+	<!-- =========== 지역  -->
+	
+	<!-- 지역 게시글 상세조회 -->	
+	<entry key="regionBoardDetail">
+		SELECT BOARD_NO,BOARD_TITLE,LOCATION_NM,BOARD_CONTENT,CONTENT
+		FROM BOARD
+		JOIN LOCATION USING(LOCATION_CODE)
+		LEFT JOIN BOARD_ARTICLE USING(BOARD_NO)
+		WHERE BOARD_NO = ?
+	</entry>	
+	
+	
+	<!-- 지역 게시글 이미지 조회  -->
+	<entry key="selectRegionImageList">
+		SELECT *
+		FROM BOARD_IMG
+		WHERE BOARD_NO = ?
+		ORDER BY IMG_LEVEL
+	</entry>
+	
+	
+	<!-- 다음 게시글 번호 조회  -->
+	<entry key="regionnextBoardNo">
+		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+	</entry>
+	
+	<!-- 지역 게시글 삽입 -->
+	<entry key="regioninsertBoard">
+		INSERT INTO BOARD 
+		VALUES(?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT,?,1,?)
+	</entry>
+	
+	<entry key="regioninsertBoard2">
+		INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,?,0,0,?)
+	</entry>
+		
+	<!--지역 게시글 이미지 삽입  -->
+	<entry key="regioninsertBoardImage">
+		INSERT INTO BOARD_IMG
+		VALUES(SEQ_IMG_NO.NEXTVAL, 1 , ? , ? , ?, ?)
+	</entry>
+	
+	<!-- 지역 게시글 조회 -->
+	<entry key="selectRegionList">
+		SELECT  BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_CD
+		FROM BOARD
+		WHERE BOARD_CD = ?
+		AND BOARD_ST = 'N'
+		ORDER BY BOARD_NO DESC
+	</entry>	
+
+	<!-- 자유게시글 삽입 -->
+	<entry key="insertFreeBoard">
+		INSERT INTO BOARD VALUES(?, ?, DEFAULT,
+			DEFAULT, DEFAULT, DEFAULT, DEFAULT, 3, DEFAULT, ?)
+	</entry>
+	
+	<!-- 다음 게시글 번호 얻어오기 -->
+	<entry key="nextBoardNo">
+		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+	</entry>
+	
+	<!-- 자유게시글 내용 삽입 -->
+	<entry key="insertFreeBoardArticle">
+		INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL, ?, 1, ?, ?)
+	</entry>
+	
+	<!-- 자유게시글 이미지 삽입 -->
+	<entry key="insertFreeBoardImage">
+		INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL, 1, ?, ?, ?, ?)
+	</entry>
+	
+	<!-- 자유게시글 제목 수정 -->
+	<entry key="updateFreeBoard">
+		UPDATE BOARD SET BOARD_TITLE = ?, UPDATE_DT = SYSDATE
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 자유게시글 내용 삭제 -->
+	<entry key="deleteBoardArticle">
+		DELETE FROM BOARD_ARTICLE WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 자유게시글 이미지 삭제 -->
+	<entry key="deleteBoardImage">
+		DELETE FROM BOARD_IMG WHERE BOARD_NO = ?
+	</entry>
+
+		<!-- 게시판 번호 확인 -->
+	<entry key="nextBoardNo" >
+		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
+	</entry>
+	
+	<!-- 게시판 삽입 -->	
+	<entry key="insertBoard"> INSERT INTO BOARD VALUES(?, ?, ?, sysdate, sysdate, 10, 'N', ?, ?, ?) </entry>
+	
+	<!-- 게시판 그림삽입 -->
+	<entry key="insertBoardImage"> INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL, ?, ?, ?, ?, ?) </entry>
+	
+	<!-- 게시판 글 삽입 -->
+	<entry key="insertArticle"> INSERT INTO BOARD_ARTICLE VALUES(SEQ_ARTICLE_NO.NEXTVAL, ?, ?, ? ,?) </entry>
+	
+	<entry key="insertHashtagList"> INSERT INTO HASHTAG_LIST VALUES(SEQ_HASHTAG_NO.NEXTVAL, ?, ?) </entry>
+	
+	<entry key="insertHashtag"> INSERT INTO HASHTAG VALUES(?, ?) </entry>
+
+	<entry key="locationCode"> SELECT LOCATION_CODE FROM LOCATION WHERE LOCATION_NM = ?
+	</entry>	
+	
+	<entry key="hashtagNo">
+		SELECT HASHTAG_NO FROM HASHTAG_LIST 
+		WHERE HASHTAG_NM = ? 
+	</entry>
+
+	<entry key="selectHashtag">
+		SELECT HASHTAG_CAT, HASHTAG_NM FROM HASHTAG_LIST
+	</entry>
+	
+	
+	<entry key="selectBoardHashtag">
+		SELECT HASHTAG_NM FROM HASHTAG_LIST 
+		JOIN BOARD(USING HASHTAG_CD)
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	<entry key="selectThumbnail">
+		SELECT IMG_ORIGINAL FROM BOARD_IMG
+		WHERE BOARD_NO = ?
+		AND IMG_LEVEL = (SELECT min(IMG_LEVEL) FROM BOARD_IMG);
+	</entry>
+
+	<!-- 내가 작성한 전체 게시글 수 조회 -->
+	<entry key="getMyBoardListCount">
+		SELECT COUNT(*) FROM BOARD WHERE BOARD_ST = 'N' AND MEMBER_NO = ?
+	</entry>
+	
+	<!-- 내가 작성한 전체 게시글의 일정한 범위 목록 조회  -->
+	<entry key="selectMyBoardList">
+		SELECT * FROM(
+		    SELECT ROWNUM AS RNUM, A.*, (SELECT IMG_RENAME FROM BOARD_IMG
+		                WHERE IMG_LEVEL = (SELECT min(IMG_LEVEL) FROM BOARD_IMG)
+		                AND BOARD_IMG.BOARD_NO = A.BOARD_NO) THUMBNAIL FROM (
+		        SELECT BOARD_NO, BOARD_CD, BOARD_TITLE, BOARD_CONTENT, MEMBER_NM, LOCATION_NM,
+		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD') AS CREATE_DT,
+		            READ_COUNT, COUNT(BOARD_REPLY_NO) AS LIKE_COUNT
+		        FROM BOARD
+		        JOIN MEMBER ON(BOARD.MEMBER_NO = MEMBER.MEMBER_NO)
+		        LEFT JOIN LOCATION USING(LOCATION_CODE)
+		        LEFT JOIN "LIKE" ON(BOARD_REPLY_NO = BOARD_NO)
+		        WHERE BOARD.MEMBER_NO = ?
+		        AND BOARD_ST = 'N'
+		        GROUP BY BOARD_NO, BOARD_CD, BOARD_TITLE, BOARD_CONTENT, MEMBER_NM, LOCATION_NM,
+		            TO_CHAR(CREATE_DT, 'YYYY-MM-DD'), READ_COUNT
+		        ORDER BY BOARD_NO DESC
+		    )A
+		)
+		WHERE RNUM BETWEEN ? AND ?
+	</entry>
+
+	<!-- (테마) 게시판 수정 -->
+	<entry key ="updateThemaBoard">
+		UPDATE BOARD SET
+		BOARD_TITLE = ?,
+		BOARD_CONTENT= ?, 
+		UPDATE_DT = sysdate,
+		BOARD_CD = ?,
+		LOCATION_CODE = ?
+		WHERE BOARD_NO = ?
+	</entry>
+
+	<!-- 게시판 이미지 업데이트 -->
+	<entry key="updateBoardImage">
+		UPDATE BOARD_IMG SET
+		IMG_SIZE = ?,
+		IMG_RENAME =?,
+		IMG_ORIGINAL=?
+		WHERE IMG_LEVEL =?
+		AND BOARD_NO =?
+	</entry>
+	
+	<!-- (테마) BOARD_ARTICLE 업데이트 -->
+	<entry key ="updateBoardArticle">
+		UPDATE BOARD_ARTICLE SET
+		CONTENT = ?
+		WHERE BOARD_NO = ?
+	</entry>
+	
+	<!-- 로컬코드 업데이트 -->
+	<entry key ="updateLocationCode">
+		UPDATE LOCATION SET 
+		LOCATION_CODE = ?
+		WHERE LOCATION_NM= ?
+	</entry>
+	
+	<entry key="insertLocation">
+		INSERT INTO LOCATION (LOCATION_NM) VALUES (?)
+	</entry>
+	
+
+	
+	<entry key="selectBoardName">
+		SELECT BOARD_NM 
+		FROM BOARD_TYPE
+		JOIN BOARD USING(BOARD_CD)
+		WHERE BOARD_CD = ?
+		AND BOARD_NO= ?
+	</entry>
+	
 </properties>

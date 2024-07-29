@@ -40,7 +40,7 @@
 						<c:choose>
 							<c:when test="${empty boardList}">
 								<tr>
-									<td colspan="6">게시글 조회 결과가 없습니다.<td>
+									<td colspan="6">게시물 조회 결과가 없습니다.</td>
 								</tr>
 							</c:when>
 							
@@ -48,7 +48,12 @@
 								<c:forEach var="board" items="${boardList}">
 									<tr>
 										<td>${board.boardNo}</td>
-										<td><a href="detail?no=${board.boardNo}&type=${param.type}&cp=${param.cp}">${board.boardTitle}</a></td>
+										<td>
+											<c:if test="${!empty board.thumbnail }">
+				                            		<img class="list-thumbnail" src="${contextPath}${board.thumbnail}">
+				                            </c:if>
+											<a href="detail?no=${board.boardNo}&type=${param.type}&cp=${param.cp}">${board.boardTitle}</a>
+										</td>
 										<td>${board.memberName}</td>
 										<td>${board.createDate}</td>
 										<td>${board.readCount}</td>
@@ -61,9 +66,9 @@
 				</table>
 			</div>
 			<div class="btn-area">
-        <a href="${contextPath}/communityWrite">
-          <button id="insertBtn">글쓰기</button>
-        </a>
+				<c:if test="${!empty loginMember}">
+	          		<button id="insertBtn" onclick="location.href='write?mode=insert&type=${param.type}&cp=${param.cp}'">글쓰기</button>
+				</c:if>
 			</div>
 
 			<div class="pagination-area">

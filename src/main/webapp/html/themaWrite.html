@@ -23,7 +23,7 @@
         </div>
 
         <div class="thema-title">
-            <input type="text" name="boardTitle" placeholder="제목을 입력해주세요.  ↓↓↓사진파일을 첨부해주세요 *첫 번째 파일은 썸네일입니다.">
+            <input type="text" name="themaTitle" placeholder="제목을 입력해주세요.  ↓↓↓사진파일을 첨부해주세요 *첫 번째 파일은 썸네일입니다.">
         </div>
 
         <div class="img-box">
@@ -33,6 +33,7 @@
                 </label>
                 <input type="file" class="inputImage" id="img0" name="0" accept="image/*">
                 <span class="delete-image">&times;</span>
+            
             </div>
             
             <div class="thema-Image">
@@ -81,7 +82,19 @@
             <p>위치</p>
         </div>
         <div class="thema-map">
-            지도api
+            <div class="mapImage" id="mapDiv">
+
+                <div>
+                  <input type="text" id="inputAddress" placeholder="주소를 입력해주세요">
+                  <button type="button" onclick="mapAddress()" id="chk">확인</button>
+                </div>
+          
+                <div class="map_wrap">
+                  <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
+                  <div class="hAddr">
+                    <span id="centerAddr"></span>
+                  </div>
+                </div>
         </div>
 
         <!-- 버튼 -->
@@ -90,6 +103,9 @@
         </div>
 
     </form>
+    <script type="text/javascript"
+    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a672d1a3dd18b00d1ead688b41bca007&libraries=services"></script>
+    <script src="../resources/js/themaWrtie.js"></script>
 </body>
 
 </html>
