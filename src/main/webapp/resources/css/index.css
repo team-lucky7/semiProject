@@ -89,3 +89,32 @@
     font-size: 24px;
     font-weight: bold;
 }
+
+.list-table{
+    width: 100%;
+}
+
+.list-table tr{ height: 50px; }
+
+.list-table > tbody> tr{ border-bottom: 1px solid gray; }
+
+.list-table tr > td:nth-of-type(1){
+    width: 70%;
+    text-align: left;
+    padding-left: 50px;
+    position: relative;
+}
+.list-table tr > td:nth-of-type(2){width: 15%;}
+.list-table tr > td:nth-of-type(3){width: 15%;}
+
+.list-table td {
+    text-align: center;
+}
+
+.list-thumbnail{
+	max-width: 50px;
+    max-height: 30px;
+    position: absolute;
+    left: -5px;
+    top: 10px;
+}
