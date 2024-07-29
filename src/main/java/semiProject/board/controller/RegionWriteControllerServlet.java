@@ -89,7 +89,7 @@ public class RegionWriteControllerServlet extends HttpServlet {
 			// * 이미지를 제외한 게시글 관련 정보 *
 			String boardTitle = mpReq.getParameter("regionBoardTitle");
 			String boardContent = mpReq.getParameter("boardContent");
-			String Content = mpReq.getParameter("regionContent");
+			String content = mpReq.getParameter("regionContent");
 			String category = mpReq.getParameter("category");
 			String locationCode = mpReq.getParameter("locationCode");
 			
@@ -100,11 +100,10 @@ public class RegionWriteControllerServlet extends HttpServlet {
 
 			// 게시글 관련 정보를 하나의 객체(BoardDetail)에 담기
 			BoardDetail detail = new BoardDetail();
-			
 			BoardArticle article = new BoardArticle();
 			
 			
-			article.setContent(Content);
+			article.setContent(content);
 			detail.setBoardTitle(boardTitle);
 			detail.setBoardContent(boardContent);
 			detail.setLocationName(locationCode);
@@ -135,38 +134,38 @@ public class RegionWriteControllerServlet extends HttpServlet {
 				resp.sendRedirect(path); // 리다이렉트
 			}
 
-//			if (mode.equals("update")) { // 수정
-//
-//
-//				int boardNo = Integer.parseInt(mpReq.getParameter("no"));
-//				String deleteList = mpReq.getParameter("deleteList"); 
-//
-//
-//				detail.setBoardNo(boardNo);
-//
-//				int result = service.updateBoard(detail, imageList, deleteList);
-//
-//				String path = null;
-//				String message = null;
-//
-//				if (result > 0) { 
-//
-//					message = "게시글이 수정되었습니다.";
-//					
-//					path = "detail?no=" + boardNo + "&type=" + boardCode;
-//							
-//				} else { // 실패
-//
-//					path = req.getHeader("referer");
-//
-//					message = "게시글이 수정에 실패하였습니다.";
-//
-//				}
-//				session.setAttribute("message", message);
-//
-//				resp.sendRedirect(path);
-//
-//			}
+			if (mode.equals("update")) { // 수정
+
+
+				int boardNo = Integer.parseInt(mpReq.getParameter("no"));
+				String deleteList = mpReq.getParameter("deleteList"); 
+
+
+				detail.setBoardNo(boardNo);
+
+				int result = service.updateBoard(detail, imageList, deleteList);
+
+				String path = null;
+				String message = null;
+
+				if (result > 0) { 
+
+					message = "게시글이 수정되었습니다.";
+					
+					path = "detail?no=" + boardNo + "&type=" + boardCode;
+							
+				} else { // 실패
+
+					path = req.getHeader("referer");
+
+					message = "게시글이 수정에 실패하였습니다.";
+
+				}
+				session.setAttribute("message", message);
+
+				resp.sendRedirect(path);
+
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

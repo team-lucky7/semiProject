@@ -1,9 +1,12 @@
 package semiProject.board.model.service;
 
 import java.sql.Connection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import semiProject.board.model.dao.ReplyDAO;
+import semiProject.board.model.vo.Pagination;
 import semiProject.board.model.vo.Reply;
 import semiProject.common.Utill;
 import semiProject.member.model.vo.Member;
@@ -103,6 +106,32 @@ public class ReplyService {
 		close(conn);
 		
 		return result;
+	}
+
+	/** 내가 작성한 전체 댓글의 일정한 범위 목록 조회 Service
+	 * @param memberNo
+	 * @param rCp
+	 * @return map
+	 * @throws Exception
+	 */
+	public Map<String, Object> selectMyReplyList(int memberNo, int rCp) throws Exception {
+		
+		Connection conn = getConnection();
+		
+		int listCount = dao.getMyReplyListCount(conn, memberNo);
+		
+		Pagination pagination = new Pagination(rCp, listCount);
+		pagination.setLimit(5);
+		
+		List<Reply> replyList = dao.selectMyReplyList(conn, memberNo, pagination);
+		
+		Map<String, Object> map = new HashMap<>();
+		map.put("replyList", replyList);
+		map.put("pagination", pagination);
+		
+		close(conn);
+		
+		return map;
 	}
 	
 	

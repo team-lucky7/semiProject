@@ -1,112 +1,116 @@
 /* 테마 메인 */
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
-.thema-main{
+
+.thema-main {
     width: 1000px;
 }
 
+#emptyBoardList {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin: 400px auto;
+}
+
 /* 배경색 */
-.first{
+.first {
     background-color: #fff;
     margin: 0;
     padding: 30px 0px 20px 0px;
 }
-.second{
-    background-color: #f2f2f2;
+
+.second {
+    background-color: #eee;
     margin: 0;
     padding: 30px 0px 20px 0px;
 }
 
-.thema-title{
+.thema-title {
     width: 1000px;
     text-align: center;
     font-size: 24px;
     font-weight: bold;
 }
 
-.thema-contents{
+.thema-contents {
     width: 1000px;
     display: flex;
     justify-content: center;
     list-style: none;
-    
+
     padding: 0;
 }
 
-.thema-contents>li{
+.thema-contents>li {
     width: 300px;
     padding: 15px;
-    
+
 }
 
-.thema-contents a{
+.thema-contents a {
     text-decoration: none;
 }
-.thema-contents img{
+
+.thema-contents img {
     border-radius: 10px;
     width: 290px;
     height: 290px;
 }
 
-.thema-contents p{
+.thema-contents p {
     margin: 0;
     color: black;
     font-size: 16px;
     font-weight: bold;
 }
 
-.thema-contents span{
+.thema-contents span {
     margin: 0;
     font-size: 12px;
     color: gray;
 }
 
-/* 더보기 버튼 */
-#more{
-    display: flex;
-    justify-content: center;
-    padding: 30px;
-}
-
-#load-more-btn{
-    width: 200px;
-    height: 50px;
-    border-radius: 10px;
-    background-color: #f2f2f2;
-    font-weight: bold;
-}
 
 /* 테마 페이지 */
-.themasubPage-title{
+.themasubPage-title {
     width: 1000px;
     height: 50px;
     border-bottom: 2px solid #ddd;
 }
 
-.themasubPage-title > p{
-  font-weight: bold;
-  font-size: 18px;
+.themasubPage-title>p {
+    font-weight: bold;
+    font-size: 18px;
 }
 
-.themasubPage-img{
+.themasubPage-img {
     list-style: none;
     padding: 0;
 }
 
-.write{
-  display: flex;
-  justify-content: flex-end ;
+.write {
+    margin: 10px 0;
 }
+
 /* 글쓰기 버튼 */
-.write > button{
-  width: 200px;
-  height: 50px;
-  background-color: rgba(135, 206, 235, 1.0);
-  font-size: 20px;
-  margin-top: 20px;
-  
+.write>button {
+    width: 150px;
+    height: 50px;
+    font-weight: bold;
+    border: 0;
+    background-color:  rgba(52, 196, 219, 0.5);
+    color: white;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.write>button:hover{
+    background-color: white;
+    color:  rgba(52, 196, 219, 0.5);
+    border: 2px solid  rgba(52, 196, 219, 0.5);
 }
