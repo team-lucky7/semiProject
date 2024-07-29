@@ -240,7 +240,7 @@
 	<!-- 지역 게시글 삽입 -->
 	<entry key="regioninsertBoard">
 		INSERT INTO BOARD 
-		VALUES(?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT,?,1,?)
+		VALUES(?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT,?,?,?)
 	</entry>
 	
 	<entry key="regioninsertBoard2">
@@ -255,7 +255,9 @@
 	
 	<!-- 지역 게시글 조회 -->
 	<entry key="selectRegionList">
-		SELECT  BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_CD
+		SELECT  BOARD_NO, BOARD_TITLE, BOARD_CONTENT, BOARD_CD, 
+		(SELECT CONTENT FROM BOARD_ARTICLE WHERE BOARD_ARTICLE.BOARD_NO = BOARD.BOARD_NO
+		AND CONTENT_LEVEL = 1) CONTENT
 		FROM BOARD
 		WHERE BOARD_CD = ?
 		AND BOARD_ST = 'N'

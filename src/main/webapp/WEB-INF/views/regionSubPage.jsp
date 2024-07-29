@@ -3,6 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<c:forEach var="article" items="${detail.articleList}">
+    <c:if test="${article.contentLevel == 0}">
+        <c:set var="detailContent" value="${article}"/>
+    </c:if>
+
+    <c:if test="${article.contentLevel == 1}">
+        <c:set var="mapContent" value="${article}"/>
+    </c:if>
+</c:forEach>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +65,7 @@
      
                 <div class="writecontent">
                     <span>
-                       ${detail.content}
+                        ${detailContent.content}
                     </span>
                 </div>
                 <div class="KAKAOAPI">
@@ -65,10 +75,8 @@
             </section>
 
             <div class="board-btn-area">
-                <button type="submit" id="writeBtn">등록</button>
                 <button type="button" id="goToListBtn">목록으로</button>
             </div>
-
     </main>
     
     
@@ -77,8 +85,9 @@
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a672d1a3dd18b00d1ead688b41bca007&libraries=services"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // 서버 측에서 전달된 JSON 데이터를 JavaScript로 변환
-            var jsonData = '${detail.content}';
+            // 서버 측에서 전달된 JSON 데이터를 JavaScript로 변환\
+            var jsonData = '${mapContent.content}';
+            console.log(jsonData);
             if (jsonData) {
                 var obj = JSON.parse(jsonData);
                 console.log(obj.lat);

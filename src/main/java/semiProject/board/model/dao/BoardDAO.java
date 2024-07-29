@@ -796,7 +796,8 @@ public class BoardDAO {
 			pstmt.setString(2, detail.getBoardTitle());
 			pstmt.setString(3, detail.getBoardContent());
 			pstmt.setInt(4, boardCode);
-			pstmt.setInt(5, detail.getMemberNo());
+			pstmt.setInt(5, detail.getLocationCode());
+			pstmt.setInt(6, detail.getMemberNo());
 			
 			
 			result = pstmt.executeUpdate();
@@ -855,6 +856,7 @@ public class BoardDAO {
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 				board.setBoardCode(rs.getInt("BOARD_CD"));
+				board.setContent(rs.getString("CONTENT"));
 				boardList.add(board);
 			}
 		}finally {
@@ -1535,27 +1537,6 @@ public class BoardDAO {
 		}
 		
 		return Coordinate;
-	}
-
-	public int insertBoardArticle2(Connection conn, BoardArticle article2) throws Exception{
-		
-		int result = 0;
-
-		try {
-			String sql = prop.getProperty("insertArticle");
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, article2.getContent());
-			pstmt.setInt(2, article2.getContentSize());
-			pstmt.setInt(3, article2.getContentLevel());
-			pstmt.setInt(4, article2.getBoardNo());
-
-			result = pstmt.executeUpdate();
-
-		} finally {
-			close(pstmt);
-		}
-
-		return result;
 	}
 
 }

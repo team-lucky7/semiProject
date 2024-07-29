@@ -188,6 +188,10 @@ public class BoardService {
 			
 			detail.setImageList(imageList);
 			
+			List<BoardArticle> articleList = dao.selectBoardArticle(conn, boardNo);
+			
+			detail.setArticleList(articleList);
+			
 		}
 		
 		int result = dao.increaseReadCount(conn, boardNo);
@@ -262,15 +266,12 @@ public class BoardService {
 		
 		detail.setLocationCode(locationCode);
 		
-		int updateLocation = dao.updateLocation(conn, boardNo, detail);
 		
+		int updateLocation = dao.updateLocation(conn, boardNo, detail);
 		
 		detail.setBoardNo(boardNo);
 		
-		
 		int result = dao.regioninsertBoard(conn,detail,boardCode);
-		
-		
 		
 		if(result > 0) { 
 			
@@ -281,12 +282,14 @@ public class BoardService {
 				
 				result = dao.regioninsertBoardImage(conn,image);
 				
+				article.setBoardNo(detail.getBoardNo());
+				
 				BoardArticle article2 = new BoardArticle();
 				article2.setContent(detail.getMapAddress());
+				article2.setContentLevel(1);
 				article2.setBoardNo(detail.getBoardNo());
 				
-				int insertArticle = dao.insertBoardArticle(conn, article2);
-				int insertAtricle2 = dao.insertBoardArticle2(conn, article2);
+				result = dao.insertBoardArticle(conn, article2);
 				
 				if(result == 0) { 
 					break;
@@ -297,7 +300,7 @@ public class BoardService {
 
 
 		if(result > 0) {
-			result = dao.regioninsertBoard2(conn,article,detail);
+			result = dao.insertBoardArticle(conn, article);
 		}
 		
 		if(result > 0) {

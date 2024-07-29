@@ -67,10 +67,8 @@
                         <button type="button" onclick="mapAddress()" id="chk">확인</button>
                     </div>
 
-                    <div class="mapImage">
-                        <div id="map" style="width:100%;height:100%;"></div>
-                            <span id="centerAddr"></span>
-                            <div id="map"></div>
+                    <div class="KAKAOAPI">
+                        <div id="map" style="width:100%;height:400px;"></div>    
                         </div>
                     </div>
                 </div>
