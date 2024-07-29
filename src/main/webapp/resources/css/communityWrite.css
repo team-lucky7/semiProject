@@ -129,6 +129,13 @@ input {
   border: none;
 }
 
+.mapImage {
+  width: 800px;
+  height: 500px;
+  background-color: #8b8b8b1c;
+  border: none;
+}
+
 
 .mapImage {
   width: 800px;
