@@ -11,6 +11,9 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
+
+// BoardDetail로 대체
+
 public class Board {
 	private int boardNo;
 	private String boardTitle;
