@@ -63,7 +63,7 @@
         
                 <div class="mapImage" id="mapDiv">
                     <div>
-                        <input type="text" id="inputAddress" placeholder="LOCATION_CD">
+                        <input type="text" id="inputAddress">
                         <button type="button" onclick="mapAddress()" id="chk">확인</button>
                     </div>
 

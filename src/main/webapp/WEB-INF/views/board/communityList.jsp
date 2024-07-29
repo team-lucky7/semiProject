@@ -71,7 +71,7 @@
 
 							<c:otherwise>
 								<c:if test="${fn:length(boardList) > 0}">
-									<c:forEach var="i" begin="0" end="${fn:length(boardList)-1}">
+									<c:forEach var="i" begin="0" end="${fn:length(boardList)}">
 										<div class="boardListBox">
 											<c:if test="${empty thumbnail[i]}">
 												<img src="https://via.placeholder.com/100"
@@ -168,7 +168,7 @@
 
 							<c:if test="${fn:length(boardList) > 0}">
 
-								<c:forEach var="i" begin="0" end="${fn:length(hashtagList)-1}">
+								<c:forEach var="i" begin="0" end="${fn:length(hashtagList)}">
 									<c:if
 										test="${fn:contains(hashtagList[i].category, 'location')}">
 
@@ -185,7 +185,7 @@
 						<ul>
 							<p>키워드</p>
 							<c:if test="${fn:length(boardList) > 0}">
-								<c:forEach var="i" begin="0" end="${fn:length(hashtagList)-1}">
+								<c:forEach var="i" begin="0" end="${fn:length(hashtagList)}">
 									<c:if test="${fn:contains(hashtagList[i].category, 'keyword')}">
 
 										<li><a href="${url}&query=${hashtagList[i].name}"

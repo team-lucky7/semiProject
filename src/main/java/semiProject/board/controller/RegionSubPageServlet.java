@@ -25,6 +25,8 @@ public class RegionSubPageServlet extends HttpServlet{
 			Member loginMember= (Member)session.getAttribute("loginMember");
 			
 			BoardDetail detail = new BoardService().selectRegionBoardDetail(boardNo,loginMember);
+			
+			System.out.println(detail);
 
 			req.setAttribute("detail", detail);
 
