@@ -878,8 +878,7 @@ public class BoardDAO {
 			pstmt.setString(2, detail.getBoardTitle());
 			pstmt.setString(3, detail.getBoardContent());
 			pstmt.setInt(4, boardCode);
-			pstmt.setInt(5, detail.getLocationCode());
-			pstmt.setInt(6, detail.getMemberNo());
+			pstmt.setInt(5, detail.getMemberNo());
 			
 			
 			result = pstmt.executeUpdate();
@@ -1513,140 +1512,6 @@ public class BoardDAO {
 		
 		return locationCode;
 	}
-
-
-	/**지역 정보 삽입
-	 * @param conn
-	 * @param locationCode
-	 * @param detail
-	 * @return insertLocation
-	 * @throws Exception
-	 */
-	public int updateLocation(Connection conn, int boardNo, BoardDetail detail)throws Exception {
-		int updateLocation = 0;
-		
-		try {
-			String sql = prop.getProperty("updateLocation");
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, detail.getLocationCode());
-			pstmt.setInt(2, boardNo);
-			
-			updateLocation = pstmt.executeUpdate();
-			
-		}finally {
-			close(pstmt);
-			
-		}
-		
-		return updateLocation;
-	}
-
-	/**(테마) 게시글 수정
-	 * @param conn
-	 * @param detail
-	 * @return result
-	 * @throws Exception
-	 */
-	public int updateThemaBoard(Connection conn, BoardDetail detail)throws Exception{
-		int result = 0;
-		
-		try {
-			String sql = prop.getProperty("updateThemaBoard");
-			pstmt =conn.prepareStatement(sql);
-			
-			pstmt.setString(1, detail.getBoardTitle());
-			pstmt.setString(2, detail.getBoardContent());
-			pstmt.setInt(3, detail.getBoardCode());
-			pstmt.setInt(4, detail.getLocationCode());
-			pstmt.setInt(5, detail.getBoardNo());
-			
-			result = pstmt.executeUpdate();
-			
-		}finally {
-			close(pstmt);
-		}
-		
-		return result;
-	}
-
-	/**(테마) 게시글 이미지 수정
-	 * @param conn
-	 * @param image
-	 * @return result
-	 * @throws Exception
-	 */
-	public int updateBoardImage(Connection conn, BoardImage image)throws Exception{
-		int result = 0;
-		
-		try {
-
-			String sql = prop.getProperty("updateBoardImage");
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setInt(1, image.getImageSize());
-			pstmt.setString(2, image.getImageRename());
-			pstmt.setString(3, image.getImageOriginal());
-			pstmt.setInt(4, image.getImageLevel());
-			pstmt.setInt(5, image.getBoardNo());
-
-			result = pstmt.executeUpdate();
-
-		} finally {
-			close(pstmt);
-		}
-		
-		return 0;
-	}
-
-	/**(테마)이미지 삭제
-	 * @param conn
-	 * @param deleteList
-	 * @param boardNo
-	 * @return result
-	 */
-	public int deleteThemaBoardImage(Connection conn, String deleteList, int boardNo)throws Exception{
-		int result = 0;
-		
-		try {
-			String sql = prop.getProperty("deleteBoardImage") + " AND IMG_LEVEL IN ( " + deleteList + " ) ";
-			
-			pstmt=conn.prepareStatement(sql);
-			pstmt.setInt(1, boardNo);
-			
-			result = pstmt.executeUpdate();
-			
-			
-		}finally {
-			close(pstmt);
-		}
-		
-		
-		return result;
-	}
-
-	/**
-	 * @param conn
-	 * @param mapAddress
-	 * @param boardNo
-	 * @return
-	 * @throws Exception
-	 */
-	public int updateBoardArticle(Connection conn, BoardDetail detail)throws Exception{
-		int Coordinate = 0;
-		
-		try {
-			String sql = prop.getProperty("updateBoardArticle");
-			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, detail.getMapAddress());
-			pstmt.setInt(2, detail.getBoardNo());
-			
-			Coordinate = pstmt.executeUpdate();
-		}finally {
-			
-		}
-		
-		return Coordinate;
-	}
 	
 	/** 검색어 삽입 Service
 	 * @param conn
@@ -1918,40 +1783,5 @@ public class BoardDAO {
 				
 		return locationCode;
 	}
-
-
-
-	public String selectBoardName(Connection conn, BoardDetail detail)throws Exception {
-		String boardName = "";
-		try {
-			String sql = prop.getProperty("selectBoardName");
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, detail.getBoardCode());		
-			pstmt.setInt(2, detail.getBoardNo());
-			
-			rs = pstmt.executeQuery(); 
-			
-			if (rs.next()) {
-				boardName = rs.getString("BOARD_NM");
-            }
-			
-			
-		}finally {
-			close(rs);
-			close(pstmt);
-			
-		}
-		
-		
-		return boardName;
-	}
-
-
 	
-	
-	
-
-
-	
-
 }
