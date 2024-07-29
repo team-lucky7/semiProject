@@ -38,7 +38,7 @@ function showRecent(){
 showRecent();
 
 function searchWord(el){
-	location.href = encodeURI("/semiProject/search?query=" + el.innerHTML);
+	location.href = encodeURI(contextPaaath + "/search?query=" + el.innerHTML);
 }
 
 function deleteRecent(index){
