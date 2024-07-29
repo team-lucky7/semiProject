@@ -9,7 +9,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 
 import semiProject.board.model.vo.Board;
@@ -115,8 +114,8 @@ public class BoardDAO {
 	 * @return boardList
 	 * @throws Exception
 	 */
-	public List<Board> selectBoardList(Connection conn, int type, Pagination pagination) throws Exception {
-		List<Board> boardList = new ArrayList<>();
+	public List<BoardDetail> selectBoardList(Connection conn, int type, Pagination pagination) throws Exception {
+		List<BoardDetail> boardList = new ArrayList<>();
 
 		try {
 			String sql = prop.getProperty("selectBoardList");
@@ -124,19 +123,27 @@ public class BoardDAO {
 			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
 			int end = start + pagination.getLimit() - 1;
 
+			System.out.println(type);
+			System.out.println(start);
+			System.out.println(end);
+			
 			pstmt = conn.prepareStatement(sql);
 
 			pstmt.setInt(1, type);
 			pstmt.setInt(2, start);
 			pstmt.setInt(3, end);
 
+			
+			
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
-				Board board = new Board();
+				BoardDetail board = new BoardDetail();
 				board.setBoardNo(rs.getInt("BOARD_NO"));
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 				board.setMemberName(rs.getString("MEMBER_NM"));
+				board.setLocationName(rs.getString("LOCATION_NM"));
 				board.setCreateDate(rs.getString("CREATE_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setLikeCount(rs.getInt("LIKE_COUNT"));
@@ -153,6 +160,58 @@ public class BoardDAO {
 		return boardList;
 	}
 
+	// community query 검색 결과 반영 용
+	public List<BoardDetail> selectCommunityBoardList(Connection conn, int type, Pagination pagination, String query) throws Exception {
+		List<BoardDetail> boardList = new ArrayList<>();
+
+		try {
+			String sql = prop.getProperty("selectBoardListQuery");
+
+			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
+			int end = start + pagination.getLimit() - 1;
+
+			System.out.println(type);
+			System.out.println(start);
+			System.out.println(end);
+			
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, type);
+			pstmt.setString(2, query);
+			pstmt.setInt(3, start);
+			pstmt.setInt(4, end);
+
+			
+			
+			rs = pstmt.executeQuery();
+
+			while(rs.next()) {
+				BoardDetail board = new BoardDetail();
+				board.setBoardNo(rs.getInt("BOARD_NO"));
+				board.setBoardTitle(rs.getString("BOARD_TITLE"));
+				board.setBoardContent(rs.getString("BOARD_CONTENT"));
+				board.setMemberName(rs.getString("MEMBER_NM"));
+				board.setLocationName(rs.getString("LOCATION_NM"));
+				board.setCreateDate(rs.getString("CREATE_DT"));
+				board.setReadCount(rs.getInt("READ_COUNT"));
+				board.setLikeCount(rs.getInt("LIKE_COUNT"));
+				System.out.println("보드");
+				System.out.println(board);
+				
+				boardList.add(board);
+			}
+
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+
+		return boardList;
+	}
+	
+	
+	
+	
 	/** 게시글 상세조회 DAO
 	 * @param conn
 	 * @param boardNo
@@ -176,16 +235,19 @@ public class BoardDAO {
 				detail.setBoardNo(rs.getInt("BOARD_NO"));
 				detail.setBoardName(rs.getString("BOARD_NM"));
 				detail.setBoardTitle(rs.getString("BOARD_TITLE"));
+				detail.setBoardTitle(rs.getString("BOARD_CONTENT"));
 				detail.setProfileImage(rs.getString("PROFILE_IMG"));
 				detail.setMemberName(rs.getString("MEMBER_NM"));
+				detail.setBoardCode(rs.getInt("BOARD_CD"));
 				detail.setCreateDate(rs.getString("CREATE_DT"));
 				detail.setUpdateDate(rs.getString("UPDATE_DT"));
 				detail.setReadCount(rs.getInt("READ_COUNT"));
 				detail.setMemberNo(rs.getInt("MEMBER_NO"));
+				detail.setLocationName(rs.getString("LOCATION_NM"));
 				detail.setLikeCount(rs.getInt("LIKE_COUNT"));
-				
 			}
 
+	
 		}finally {
 			close(rs);
 			close(pstmt);
@@ -296,6 +358,31 @@ public class BoardDAO {
 		return listCount;
 	}
 
+	public int getHashtagSearchListCount(Connection conn, int type, String query) throws Exception {
+		
+		int listCount = 0;
+		
+		try {
+			String sql = prop.getProperty("getHashtagSearchListCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, type);
+			pstmt.setString(2, query);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return listCount;
+	}
+	
+	
 	/** 게시글 검색 DAO
 	 * @param conn
 	 * @param query
@@ -324,7 +411,7 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				Board board = new Board();
+				BoardDetail board = new BoardDetail();
 
 				board.setBoardNo(rs.getInt("BOARD_NO"));
 				board.setBoardCode(rs.getInt("BOARD_CD"));
@@ -659,18 +746,18 @@ public class BoardDAO {
 		return result;
 	}
 
-	public int insertBoard(Connection conn, Board board) throws SQLException {
+	public int insertBoard(Connection conn, BoardDetail detail) throws SQLException {
 		int result = 0;
 
 		try {
 			String sql = prop.getProperty("insertBoard");
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, board.getBoardNo());
-			pstmt.setString(2, board.getBoardTitle());
-			pstmt.setString(3, board.getBoardContent());
-			pstmt.setInt(4, board.getBoardCode());
-			pstmt.setInt(5, board.getLocationCode());
-			pstmt.setInt(6, board.getMemberNo());
+			pstmt.setInt(1, detail.getBoardNo());
+			pstmt.setString(2, detail.getBoardTitle());
+			pstmt.setString(3, detail.getBoardContent());
+			pstmt.setInt(4, detail.getBoardCode());
+			pstmt.setInt(5, detail.getLocationCode());
+			pstmt.setInt(6, detail.getMemberNo());
 
 			result = pstmt.executeUpdate();
 
@@ -927,6 +1014,30 @@ public class BoardDAO {
 		return result;
 	}
 
+	
+	/** 해시태그 중복검사
+	 * @param hashtagName
+	 * @param conn
+	 * @return
+	 * @throws Exception
+	 */
+	public int HashtagDupCheck(String hashtagName, Connection conn) throws Exception {
+		int result = 0;
+
+		try {
+			String sql = prop.getProperty("HashtagDupCheck");
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, hashtagName);
+			result = pstmt.executeUpdate();
+		} finally {
+			close(pstmt);
+
+		}
+
+		return result;
+	}
+	
+	
 
 	public int hashtagNo(String hashtagName, Connection conn) throws Exception {
 		int hashtagNo = 0;
@@ -990,6 +1101,7 @@ public class BoardDAO {
 		List<Hashtag> hashtagList = new ArrayList<>();
 		try { 
 			String sql = prop.getProperty("selectHashtag");
+
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
 			while(rs.next()) {
@@ -1007,13 +1119,12 @@ public class BoardDAO {
 
 	public List<String> selectBoardHashtag(Connection conn, int boardNo) throws Exception {
 		List<String> boardHashtag = new ArrayList<>();
-		try { 
+		try {
 			String sql = prop.getProperty("selectBoardHashtag");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, boardNo);
 			rs = pstmt.executeQuery();
 			while(rs.next()) {
-
 				String hashtag = rs.getString(1);
 				boardHashtag.add(hashtag);
 			}
@@ -1535,6 +1646,30 @@ public class BoardDAO {
 		}
 		
 		return Coordinate;
+	}
+
+	public Integer selectReplyCount(Connection conn, int boardNo) throws SQLException {
+		int replyCount = 0;
+		
+		try {
+			String sql = prop.getProperty("selectReplyCount");
+
+			pstmt = conn.prepareStatement(sql);
+
+			pstmt.setInt(1, boardNo);
+			
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				replyCount = rs.getInt("COUNT(*)");
+			}
+
+		} finally {
+			close(rs);
+			close(pstmt);
+
+		}
+		return replyCount;
 	}
 
 }

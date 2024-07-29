@@ -33,5 +33,10 @@ public class BoardDetail {
 	private List<BoardArticle> articleList;
 	private List<BoardImage> ImageList;
 	private List<String> hashtagList;
+
+	
+	// community용 추가(2개)
+	private List<String> hashtagOption;
+	private String thumbnail;
 	
 }
