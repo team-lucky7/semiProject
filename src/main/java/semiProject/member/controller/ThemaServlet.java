@@ -31,9 +31,6 @@ public class ThemaServlet extends HttpServlet{
 			
 			req.getRequestDispatcher("/WEB-INF/views/thema.jsp").forward(req, resp);
 			
-			for(Board board : boardList) {
-			}
-			
 		}catch (Exception e) {
 			e.printStackTrace();
 		}

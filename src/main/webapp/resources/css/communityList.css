@@ -1,0 +1,220 @@
+.vacation-container {
+  width: 900px;
+  margin: 0 auto;
+
+}
+
+
+.vacation-header {
+    width: 700px;
+    height: 50px;
+    text-align: center;
+}
+
+.vacation-header span{
+    font-size: 30px;
+    font-weight: bolder;
+
+}
+
+.vacation-hashtag{
+    width: 700px;
+    height: 50px;
+    border-bottom: 1px solid #888;
+
+}
+
+.vacation-hashtag span{
+    font-size: 24px;
+    font-weight: bolder;
+
+}
+
+.vacation-array{
+    display: flex;
+    width: 700px;
+    height: 50px;
+    border-bottom: 1px solid #888;
+    justify-content: space-between;
+}
+
+
+.vacation-array ul{
+    display: flex;
+    list-style: none;
+}
+
+.vacation-array li{
+    margin: 0 10px;
+}
+
+.vacation-array a{
+    text-decoration: none;
+    color: black;
+}
+
+.vacation-array a:hover {
+    text-decoration: underline;
+}
+
+
+
+.vacation-content {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    
+}
+
+
+.vacation-main {
+    width: 700px;
+    padding: 0 20px 0 0;
+}
+
+.vacation-main .vacation-post {
+    width: 700px;
+    display: flex;
+    flex-wrap:wrap;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.boardListBox {
+	width: 700px;
+	display: flex;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0;
+	
+	
+}
+
+.vacation-main .vacation-post img {
+    width: 80px;
+    height: 80px;
+    margin-right: 20px;
+}
+
+.vacation-main .vacation-info {
+    flex: 1;
+}
+
+.vacation-main .vacation-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.vacation-main .vacation-details {
+    font-size: 14px;
+    color: #555;
+}
+
+.vacation-main .vacation-tags {
+    font-size: 12px;
+    color: #888;
+}
+
+.vacation-main .vacation-tags span {
+    margin-right: 5px;
+}
+
+.vacation-main .vacation-stats {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    justify-content: space-between;
+}
+
+.vacation-main .vacation-stats span {
+    margin-right: 10px;
+    font-size: 14px;
+}
+
+/* 편집 버튼 공간 */
+
+
+/* 글쓰기 버튼 공간 */
+.vacation-btn-area{
+    text-align: end;
+    margin-top: 10px;
+}
+
+
+/* pagination*/
+
+.pagination {
+    width: 700px;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pagination a {
+    margin: 0 5px;
+    text-decoration: none;
+    color: black;
+}
+
+.pagination a:hover {
+    text-decoration: underline;
+}
+
+
+.current{
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 사이드바 */
+.vacation-sidebar {
+    padding: 90px 20px 20px 20px;
+}
+
+.vacation-sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+}
+
+.vacation-sidebar ul p {
+    width: 240px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.vacation-sidebar ul li {
+    width: 50%;
+    padding: 5px 0;
+    cursor: pointer;
+}
+
+.sidebar{
+    background-color: #ddd;
+    padding: 0 0 10px 20px;
+}
+.sidebar a{
+    text-decoration: none;
+    color: black;
+}
+
+.sidebar a:hover {
+    text-decoration: underline;
+}
