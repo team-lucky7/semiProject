@@ -5,7 +5,7 @@ body{
     flex-direction: column;
 }
 
-.community-main{
+.community-write{
     width: 800px;
 }
 span {
@@ -24,6 +24,14 @@ div {
 }
 
 .container2 {
+  width: 800px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.content-box{
   width: 800px;
   height: auto;
   display: flex;
@@ -69,14 +77,13 @@ input {
   width: 800px;
   display: flex;
   justify-content: end;
+  margin: 0;
 }
 
 .compoBox {
   width: 200px;
   text-align: center;
   letter-spacing: 10px;
-  border-top: 1px solid gray;
-  border-bottom: 1px solid gray;
 }
 
 .text {
@@ -115,15 +122,9 @@ input {
 
 }
 
-<<<<<<< HEAD
 .fullImage{
-  width: 800px;
-=======
-.fullImage,
-.mapImage {
-  width: 100%;
->>>>>>> origin/main
-  height: 300px;
+  width: 790px;
+  height: 400px;
   background-color: #8b8b8b1c;
   border: none;
 }
@@ -138,18 +139,21 @@ input {
 
 .fullContent {
   width: 800px;
-  height: 400px;
+  min-height: 100px;
   background-color: #8b8b8b1c;
-  margin-top: 100px;
+  margin-top: 10px;
 }
 .halfContent {
-  width: 400px;
+  width: 390px;
+  min-height: 50px;
   background-color: #8b8b8b1c;
+  margin-top: 10px;
+  
 }
 
 
 .halfImage {
-  width: 380px;
+  width: 390px;
   height: 400px;
   background-color: #8b8b8b1c;
 }
@@ -180,7 +184,7 @@ input {
   cursor: pointer;
 }
 
-.map_wrap {
+map_wrap {
   position: relative;
   width: 800px;
   height: 400px;
@@ -216,5 +220,5 @@ input {
 }
 
 #mapDiv{
-  margin-top: 50px;
+  margin-top: 20px;
 }
