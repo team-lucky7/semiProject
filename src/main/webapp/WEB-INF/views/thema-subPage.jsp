@@ -30,47 +30,40 @@
             <p>${detail.boardTitle}</p>
         </div>
 
-        <!-- 테마 이미지가 있을 경우 -->
-        <c:if test="${!empty detail.imageList}">
-            <!-- 썸네일이 있을 경우 변수 생성 -->
-            <c:if test="${detail.imageList[0].imageLevel==0}">
-                <c:set var="thumbnail" value="${detail.imageList[0]}"></c:set>
-            </c:if>
-        </c:if>
+ <!-- 테마 이미지가 있을 경우 -->
+<c:if test="${!empty detail.imageList}">
+    <!-- 썸네일이 있을 경우 변수 생성 -->
+    <c:if test="${detail.imageList[0].imageLevel == 0}">
+        <c:set var="thumbnail" value="${detail.imageList[0]}"></c:set>
+    </c:if>
+</c:if>
 
-        
-        
-           
-        <div class="img-box">
-
-            <c:if test="${!empty thumbnail}"> <!-- 썸네일 영역(썸네일이 있을 경우) -->
-                <div class="thema-Image thumbnail">
-                    <img src="${contextPath}${thumbnail.imageRename}">
-                </div>
-            </c:if>
-
-            <c:if test="${empty thumbnail}"> <!-- 썸네일 없을 때 -->
-                <c:set var="start" value="0" />
-            </c:if>
-
-            <c:if test="${!empty thumbnail}"> <!-- 썸네일 있을 때 -->
-                <c:set var="start" value="1" />
-            </c:if>   
-
-            <!-- 업로드 이미지가 있는 경우 -->
-            <c:if test="${start < fn:length(detail.imageList)}">
-                <!-- 업로드 이미지 -->
-                <div class="img-box">
-                    <c:forEach var="i" begin="${start}" end="${fn:length(detail.imageList) -1}">
-                        <div class="thema-Image">
-                            <img src="${contextPath}${detail.imageList[i].imageRename}">
-                        </div>
-                    </c:forEach>
-                </div>
-            </c:if>        
-
-
+<div class="img-box">
+    <!-- 썸네일 영역(썸네일이 있을 경우) -->
+    <c:if test="${!empty thumbnail}">
+        <div class="thema-Image thumbnail">
+            <img src="${contextPath}${thumbnail.imageRename}">
         </div>
+    </c:if>
+
+    <!-- 썸네일이 있을 때와 없을 때를 구분 -->
+    <c:set var="start" value="${empty thumbnail ? 0 : 1}" />
+
+    <!-- 업로드 이미지가 있는 경우 -->
+    <c:if test="${start < fn:length(detail.imageList)}">
+        <!-- 업로드 이미지 목록에서 썸네일 이미지를 제거 -->
+        <c:forEach var="i" begin="${start}" end="${fn:length(detail.imageList) -1}">
+            <c:choose>
+                <c:when test="${detail.imageList[i].imageRename != thumbnail.imageRename}">
+                    <div class="thema-Image">
+                        <img src="${contextPath}${detail.imageList[i].imageRename}">
+                    </div>
+                </c:when>
+            </c:choose>
+        </c:forEach>
+    </c:if>
+</div>
+
         
         
         <!-- 이용안내 -->

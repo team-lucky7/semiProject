@@ -16,8 +16,8 @@
       <a>커뮤니티</a>
       <div class="community-nav-wrap">
         <ul>
-          <li><a href="${ contextPath }/vacation/list">휴양지</a></li>
-          <li><a href="${ contextPath }/restaurant/list">맛집</a></li>
+          <li><a href="${ contextPath }/community/list?type=4">휴양지</a></li>
+          <li><a href="${ contextPath }/community/list?type=5">맛집</a></li>
           <li><a href="${ contextPath }/freeBoard/list?type=3&cp=1">자유게시판</a></li>
         </ul>
       </div>

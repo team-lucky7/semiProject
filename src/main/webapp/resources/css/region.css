@@ -134,11 +134,13 @@
   box-shadow: 3px 3px 3px gray;
 }
 
-.kakaoAPI{
+.KAKAOAPI{
   width: 500px;
-  height: 200px;
-  margin-top: 30px;
+  border: 1px solid black;
+  height: 400px;
+  margin-bottom: 30px;
 }
+
 
 #write{
   display: flex;

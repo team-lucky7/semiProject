@@ -20,15 +20,13 @@ public class RegionSubPageServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		try {
-				int boardNo = Integer.parseInt(req.getParameter("no"));
-				HttpSession session = req.getSession();
-				Member loginMember= (Member)session.getAttribute("loginMember");
-				
-				BoardDetail detail = new BoardService().selectRegionBoardDetail(boardNo,loginMember);
+			int boardNo = Integer.parseInt(req.getParameter("no"));
+			HttpSession session = req.getSession();
+			Member loginMember= (Member)session.getAttribute("loginMember");
+			
+			BoardDetail detail = new BoardService().selectRegionBoardDetail(boardNo,loginMember);
 
-				req.setAttribute("detail", detail);
-
-				
+			req.setAttribute("detail", detail);
 
 		} catch (Exception e) {
 			e.printStackTrace();
