@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
+import semiProject.board.model.vo.Pagination;
 import semiProject.board.model.vo.Reply;
 import static semiProject.common.JDBCTemplate.*;
 
@@ -191,5 +192,81 @@ public class ReplyDAO {
 		
 		return result;
 	}
+
+
+	/** 내가 작성한 전체 게시글 수 조회
+	 * @param conn
+	 * @param memberNo
+	 * @return listCount
+	 * @throws Exception
+	 */
+	public int getMyReplyListCount(Connection conn, int memberNo) throws Exception {
+		
+		int listCount = 0;
+		
+		try {
+			String sql = prop.getProperty("getMyReplyListCount");
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				listCount = rs.getInt(1);
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return listCount;
+	}
+
+
+	/** 내가 작성한 전체 게시글의 일정한 범위 목록 조회
+	 * @param memberNo
+	 * @param rCp
+	 * @return replyList
+	 * @throws Exception
+	 */
+	public List<Reply> selectMyReplyList(Connection conn, int memberNo, Pagination pagination) throws Exception {
+		
+		List<Reply> replyList = new ArrayList<>();
+		
+		try {
+			String sql = prop.getProperty("selectMyReplyList");
+			
+			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
+			int end = start + pagination.getLimit() - 1;
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, memberNo);
+			pstmt.setInt(2, start);
+			pstmt.setInt(3, end);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				Reply reply = new Reply();
+				
+				reply.setReplyNo(rs.getInt("REPLY_NO"));
+				reply.setReplyContent(rs.getString("REPLY_CONTENT"));
+				reply.setMemberName(rs.getString("MEMBER_NM"));
+				reply.setCreateDate(rs.getString("CREATE_DT"));
+				reply.setLikeCount(rs.getInt("LIKE_COUNT"));
+				
+				replyList.add(reply);
+			}
+			
+		}finally {
+			close(rs);
+			close(pstmt);
+		}
+		
+		return replyList;
+	}
+
 	
 }

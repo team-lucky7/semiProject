@@ -62,7 +62,7 @@
 						</div>
 
 						<div class="community-cont">
-							<p><a href="${contextPath}/freeBoard/list">자유게시판</a></p>
+							<p><a href="${contextPath}/freeBoard/list?type=3">자유게시판</a></p>
 							<div class="">
 								asdf
 							</div>

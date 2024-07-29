@@ -22,7 +22,11 @@ public class FreeBoardListServlet extends HttpServlet{
 			String path = "/WEB-INF/views/board/freeBoardList.jsp";
 			
 			int type = Integer.parseInt(req.getParameter("type"));
-			int cp = Integer.parseInt(req.getParameter("cp"));
+			int cp = 1;
+			
+			if(req.getParameter("cp") != null) {
+				cp = Integer.parseInt(req.getParameter("cp"));
+			}
 			
 			BoardService service = new BoardService();
 			

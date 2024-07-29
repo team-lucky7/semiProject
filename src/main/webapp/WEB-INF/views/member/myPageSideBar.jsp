@@ -25,7 +25,7 @@
         </div>
 
 
-        <a href="${contextPath}/myPage/boardList">
+        <a href="${contextPath}/myPage/boardList?type=3&rCp=1&bCp=1">
             <div class="sideBarMenu">내 게시글/댓글 조회</div>
         </a>
         

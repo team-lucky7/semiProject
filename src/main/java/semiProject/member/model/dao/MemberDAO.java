@@ -54,15 +54,15 @@ public class MemberDAO {
 				
 				loginMember = new Member();
 				
-				loginMember.setMemberNo( rs.getInt("MEMBER_NO") );
-				loginMember.setMemberId( rs.getString("MEMBER_ID") );
-				loginMember.setMemberName( rs.getString("MEMBER_NM") );
-				loginMember.setMemberGender( rs.getString("MEMBER_GENDER") );
-				loginMember.setMemberDOB( rs.getString("MEMBER_DOB") );
-				loginMember.setMemberEmail( rs.getString("MEMBER_EMAIL") );
-				loginMember.setMemberTel( rs.getString("MEMBER_TEL") );
-				
-				
+				loginMember.setMemberNo(rs.getInt("MEMBER_NO"));
+				loginMember.setMemberId(rs.getString("MEMBER_ID"));
+				loginMember.setMemberName(rs.getString("MEMBER_NM"));
+				loginMember.setMemberGender(rs.getString("MEMBER_GENDER"));
+				loginMember.setMemberDOB(rs.getString("MEMBER_DOB"));
+				loginMember.setMemberEmail(rs.getString("MEMBER_EMAIL"));
+				loginMember.setMemberTel(rs.getString("MEMBER_TEL"));
+				loginMember.setProfileImage(rs.getString("PROFILE_IMG"));
+				loginMember.setAdminLevel(rs.getInt("ADMIN_LEVEL"));
 			}
 			
 		}finally {
@@ -206,32 +206,28 @@ public class MemberDAO {
 	 * @return result
 	 * @throws Exception
 	 */
-	public int updateMember(Connection conn, String memberEmail, String memberTel, int memberNo) throws Exception {
+	public int updateMember(Connection conn, Member mem) throws Exception {
 		
 		int result = 0;
 		
 		try {
-			
 			String sql = prop.getProperty("updateMember");
 			
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1,memberEmail);
-			pstmt.setString(2, memberTel);
-			pstmt.setInt(3, memberNo);
+			pstmt.setString(1, mem.getMemberEmail());
+			pstmt.setString(2, mem.getMemberTel());
+			pstmt.setString(3, mem.getProfileImage());
+			pstmt.setInt(4, mem.getMemberNo());
 			
 			result = pstmt.executeUpdate();
 			
-			
-		} finally {
-			
+		}finally {
 			close(pstmt);
-			
 		}
 		
 		return result;
 	}
-
 
     public Member searchId(Connection conn, String inputEmail, String inputPhone) throws Exception {
         

@@ -29,7 +29,6 @@ public class FreeBoardDetailServlet extends HttpServlet{
 		try {
 			BoardService service = new BoardService();
 			
-			
 			BoardDetail detail = service.selectBoardDetail(boardNo, loginMember);
 			
 			if(detail != null) {
