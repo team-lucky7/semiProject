@@ -13,7 +13,6 @@ import semiProject.board.model.service.BoardService;
 
 @WebServlet("/community/list")
 public class CommunityListServlet extends HttpServlet{
-
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		

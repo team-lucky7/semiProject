@@ -43,10 +43,10 @@
 									<c:if test="${board.boardCode == 6}">
 										<li>
 											<c:if test="${!empty board.thumbnail}">
-												<a href="subPage?no=${board.boardNo}&type=${param.type}"><img src="${contextPath}${board.thumbnail}"></a>
+												<a href="subPage?no=${board.boardNo}&type=6"><img src="${contextPath}${board.thumbnail}"></a>
 											</c:if>
 											<c:if test="${empty board.thumbnail}">
-												<a href="subPage?no=${board.boardNo}&type=${param.type}"><img src="${contextPath}/resources/images/image-icon-10.jpg"></a>
+												<a href="subPage?no=${board.boardNo}&type=6"><img src="${contextPath}/resources/images/image-icon-10.jpg"></a>
 											</c:if>
 											<a href="${ contextPath }/thema/subPage">
 												<p>${board.boardTitle}</p>
@@ -72,10 +72,10 @@
 									<c:if test="${board.boardCode == 7}">
 										<li>
 											<c:if test="${!empty board.thumbnail}">
-												<a href="subPage?no=${board.boardNo}&type=${param.type}"><img src="${contextPath}${board.thumbnail}"></a>
+												<a href="subPage?no=${board.boardNo}&type=7"><img src="${contextPath}${board.thumbnail}"></a>
 											</c:if>
 											<c:if test="${empty board.thumbnail}">
-												<a href="subPage?no=${board.boardNo}&type=${param.type}"><img src="${contextPath}/resources/images/image-icon-10.jpg"></a>
+												<a href="subPage?no=${board.boardNo}&type=7"><img src="${contextPath}/resources/images/image-icon-10.jpg"></a>
 											</c:if>
 											<a href="${ contextPath }/thema/subPage">
 												<p>${board.boardTitle}</p>
@@ -101,10 +101,10 @@
 									<c:if test="${board.boardCode == 8}">
 										<li>
 											<c:if test="${!empty board.thumbnail}">
-												<a href="subPage?no=${board.boardNo}&type=${param.type}"><img src="${contextPath}${board.thumbnail}"></a>
+												<a href="subPage?no=${board.boardNo}&type=8"><img src="${contextPath}${board.thumbnail}"></a>
 											</c:if>
 											<c:if test="${empty board.thumbnail}">
-												<a href="subPage?no=${board.boardNo}&type=${param.type}"><img src="${contextPath}/resources/images/image-icon-10.jpg"></a>
+												<a href="subPage?no=${board.boardNo}&type=8"><img src="${contextPath}/resources/images/image-icon-10.jpg"></a>
 											</c:if>
 											<a href="${ contextPath }/thema/subPage">
 												<p>${board.boardTitle}</p>
@@ -130,10 +130,10 @@
 									<c:if test="${board.boardCode == 9}">
 										<li>
 											<c:if test="${!empty board.thumbnail}">
-												<a href="subPage?no=${board.boardNo}&type=${param.type}"><img src="${contextPath}${board.thumbnail}"></a>
+												<a href="subPage?no=${board.boardNo}&type=9"><img src="${contextPath}${board.thumbnail}"></a>
 											</c:if>
 											<c:if test="${empty board.thumbnail}">
-												<a href="subPage?no=${board.boardNo}&type=${param.type}"><img src="${contextPath}/resources/images/image-icon-10.jpg"></a>
+												<a href="subPage?no=${board.boardNo}&type=9"><img src="${contextPath}/resources/images/image-icon-10.jpg"></a>
 											</c:if>
 											<a href="${ contextPath }/thema/subPage">
 												<p>${board.boardTitle}</p>

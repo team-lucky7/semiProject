@@ -18,10 +18,12 @@ public class ThemaSubPageServlet extends HttpServlet{
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		try {
 			int boardNo = Integer.parseInt(req.getParameter("no"));
+			int boardCode = Integer.parseInt(req.getParameter("type"));
 			
 			BoardService service = new BoardService();
 			
-			BoardDetail detail = service.selectThemaBoardDetail(boardNo);
+			BoardDetail detail = service.selectThemaBoardDetail(boardNo, boardCode);
+			
 			
 			req.setAttribute("detail", detail);
 			
