@@ -255,7 +255,7 @@
 	<!-- 지역 게시글 삽입 -->
 	<entry key="regioninsertBoard">
 		INSERT INTO BOARD 
-		VALUES(?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT,?,44250,?)
+		VALUES(?,?,?,DEFAULT,DEFAULT,DEFAULT,DEFAULT,?,?,?)
 	</entry>
 	
 	<entry key="regioninsertBoard2">
