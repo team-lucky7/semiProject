@@ -3,6 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
+<c:forEach var="article" items="${detail.articleList}">
+    <c:if test="${article.contentLevel == 0}">
+        <c:set var="detailContent" value="${article}"/>
+    </c:if>
+
+    <c:if test="${article.contentLevel == 1}">
+        <c:set var="mapContent" value="${article}"/>
+    </c:if>
+</c:forEach>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +65,7 @@
      
                 <div class="writecontent">
                     <span>
-                       ${detail.content}
+                        ${detailContent.content}
                     </span>
                 </div>
                 <div class="KAKAOAPI">
@@ -65,17 +75,53 @@
             </section>
 
             <div class="board-btn-area">
-                <button type="submit" id="writeBtn">등록</button>
                 <button type="button" id="goToListBtn">목록으로</button>
             </div>
-
     </main>
     
     
     <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 	<script src="${ contextPath }/resources/js/jquery-3.7.1.min.js"></script>
-  <script type="text/javascript"
-  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a672d1a3dd18b00d1ead688b41bca007&libraries=services"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a672d1a3dd18b00d1ead688b41bca007&libraries=services"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // 서버 측에서 전달된 JSON 데이터를 JavaScript로 변환\
+            var jsonData = '${mapContent.content}';
+            console.log(jsonData);
+            if (jsonData) {
+                var obj = JSON.parse(jsonData);
+                console.log(obj.lat);
+
+                // 지도 생성 및 초기 설정
+                var mapContainer = document.getElementById('map'); // 지도를 표시할 div 
+                var mapOption = {
+                    center: new kakao.maps.LatLng(obj.lat, obj.lng), // 지도의 중심좌표를 JSON 데이터에서 가져온 좌표로 설정
+                    level: 3 // 지도의 확대 레벨
+                };
+
+                var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+                // 마커가 표시될 위치를 JSON 데이터에서 가져온 좌표로 설정합니다
+                var markerPosition  = new kakao.maps.LatLng(obj.lat, obj.lng); 
+
+                // 마커를 생성합니다
+                var marker = new kakao.maps.Marker({
+                    position: markerPosition
+                });
+
+                // 마커가 지도 위에 표시되도록 설정합니다
+                marker.setMap(map);
+
+                // 지도가 숨겨진 상태에서 로드된 경우 resize 이벤트 트리거
+                if (mapContainer.style.display === 'none') {
+                    kakao.maps.event.trigger(map, 'resize');
+                    map.setCenter(new kakao.maps.LatLng(obj.lat, obj.lng)); // 센터를 다시 잡아줍니다
+                }
+            } else {
+                console.error("Invalid map address data");
+            }
+        });
+    </script>
 	<script src="${ contextPath }/resources/js/header.js"></script>
 	<script src="${ contextPath }/resources/js/regionSubPage.js"></script>
 	
