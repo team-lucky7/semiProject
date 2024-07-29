@@ -197,11 +197,27 @@ form[name="query-form"] button{
 }
 
 /* 최근 검색어 */
-.recent-search > ul{
+#recent-search-ul{
     height: 40px;
     display: flex;
     list-style: none;
     padding: 0;
+}
+
+#recent-search-ul li{
+	border: 1px solid #ddd;
+	border-radius: 10px;
+	padding: 8px 10px 10px;
+	margin-right: 20px;
+}
+
+#recent-search-ul li > a{
+	cursor: pointer;
+}
+
+#recent-search-ul li > span{
+	margin-left: 10px;
+	cursor: pointer;
 }
 
 .recent-search > p{
