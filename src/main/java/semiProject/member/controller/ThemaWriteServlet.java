@@ -127,6 +127,7 @@ public class ThemaWriteServlet extends HttpServlet {
 			detail.setMemberNo(memberNo);
 			detail.setMapAddress(mapAddress);
 			detail.setLocationName(address);
+<<<<<<< HEAD
 			// boardCode 매개변수로 전달
 			
 			
@@ -138,10 +139,22 @@ public class ThemaWriteServlet extends HttpServlet {
 
 			if (mode.equals("insert")) { // 삽입
 
+=======
+			// boardCode 매개변수로 전달 
+			
+			BoardService service = new BoardService();
+			
+			// insert/update
+			String mode = mpReq.getParameter("mode"); 
+			
+			if(mode.equals("insert")) { // 삽입
+				
+>>>>>>> origin/main
 				// 게시글 삽입 서비스 호출 후 결과 반환 받기
 				// -> 반환된 게시글 번호를 이용해서 상세조회로 리다이렉트 예정
 				int boardNo = service.insertThemaBoard(detail, imageList, boardCode);
 				
+<<<<<<< HEAD
 				
 				
 				String path = null;
@@ -196,5 +209,72 @@ public class ThemaWriteServlet extends HttpServlet {
 		}
 
 	}
+=======
+				String path = null;
+				if(boardNo > 0) { //성공
+					session.setAttribute("message", "게시글이 등록되었습니다.");
+					
+					path = "subPage?no="+boardNo+"&type="+boardCode; 
+				}else { // 실패
+					session.setAttribute("message", "게시글 등록에 실패했습니다.");
+					
+					path = "themaWrite?mode="+mode+"&type="+boardCode;
+				}
+				
+				resp.sendRedirect(path); 
+			}
+			
+			if(mode.equals("update")) { //
+				// 업로드된 이미지 저장, imageList생성, 제목/내용 파라미터는 동일함
+				
+				// + update일 때 추가된 내용
+				// 어떤 게시글 수정? -> 파라미터 no
+				// 이미지 중 x 버튼 눌러서 삭제할 이미지 레벨 목록 -> 파라미터 deleteList
+				
+				int boardNo = Integer.parseInt( mpReq.getParameter("no") );
+				
+				String deleteList = mpReq.getParameter("deleteList"); // 0,1,2 배열기호 사라지면서 넘어옴
+				
+				// 게시글 수정 서비스 호출 후 결과 반환 받기
+				detail.setBoardNo(boardNo);
+				
+				
+				// detail, imageList, deleteList
+				int result = service.updateThemaBoard(detail, imageList, deleteList);
+				
+				String path = "";
+				String message = "";
+				if(result>0) { 
+					message ="게시글이 수정되었습니다.";
+					path = "detail?no="+boardNo+"&type="+boardCode;
+					
+				}else { 
+					path = req.getHeader("referer");
+					message ="게시글 수정에 실패했습니다.";
+					
+				}
+				resp.sendRedirect(path); 
+				session.setAttribute("message", message);
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
+	
+	
+	
+	
+	
+>>>>>>> origin/main
 
 }

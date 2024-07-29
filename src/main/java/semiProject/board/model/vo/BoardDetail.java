@@ -29,10 +29,14 @@ public class BoardDetail {
 	private boolean isLike;
 	private String mapAddress;
 	private String content;
-	
 
 	private List<BoardArticle> articleList;
 	private List<BoardImage> ImageList;
 	private List<String> hashtagList;
+
+	
+	// community용 추가(2개)
+	private List<String> hashtagOption;
+	private String thumbnail;
 	
 }

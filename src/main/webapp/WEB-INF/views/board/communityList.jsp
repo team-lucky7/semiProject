@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %> 
 
 <c:set var="boardName" value="${map.boardName}" />
 <c:set var="pagination" value="${map.pagination}" />
 <c:set var="boardList" value="${map.boardList}" />
+<c:set var="hashtagList" value="${map.hashtagList}" />
+<c:set var="hashtag" value="${map.hashtag}" />
+<c:set var="thumbnail" value="${map.thumbnail}" />
+<c:set var="query" value="${map.query}" />
+<c:set var="replyCount" value="${map.replyCount}" />
+
+
 
 
 <!DOCTYPE html>
@@ -14,12 +21,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>휴양지 게시판</title>
-<link rel="stylesheet" href="${contextPath}/resources/css/vacation.css">
+<title>커뮤니티 게시판</title>
+<link rel="stylesheet"
+	href="${contextPath}/resources/css/communityList.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/header.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/footer.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/index.css">
-<script src="https://kit.fontawesome.com/4bef400c33.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/4bef400c33.js"
+	crossorigin="anonymous"></script>
 
 
 </head>
@@ -29,28 +38,25 @@
 	<main>
 		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 
-
 		<div class="vacation-container">
 			<div class="vacation-content">
 
 				<div class="vacation-main">
 					<div class="vacation-header">
-						<span>휴양지</span>
+						<span>${boardName}</span>
 					</div>
 					<div class="vacation-hashtag">
-						<span># 전체</span>
+						<!-- 해시태그 반영 필요 -->
+						<c:if test="${empty query}">
+							<span># 전체</span>
+						</c:if>
+
+						<c:if test="${!empty query}">
+							<span>${query}</span>
+						</c:if>
 					</div>
 					<div class="vacation-array">
-						<p>총 00건</p>
-						<ul>
-							<li><a href="">최신순</a></li>
-							<li>|</li>
-							<li><a href="">조회순</a></li>
-							<li>|</li>
-							<li><a href="">좋아요순</a></li>
-						</ul>
-
-
+						<p>총 ${pagination.listCount}건</p>
 					</div>
 
 					<div class="vacation-post">
@@ -64,50 +70,58 @@
 							</c:when>
 
 							<c:otherwise>
-								<!-- 게시글 목록 조회 결과가 비어있지 않다면 -->
-								<c:forEach var="board" items="${boardList}">
-									<tr>
-										<td>${board.boardNo}</td>
-										<td></td>
-										<td>${board.memberNickname}</td>
-										<td>${board.createDate}</td>
-										<td>${board.readCount}</td>
-									</tr>
-								</c:forEach>
+								<c:if test="${fn:length(boardList) > 0}">
+									<c:forEach var="i" begin="0" end="${fn:length(boardList)-1}">
+										<div class="boardListBox">
+											<c:if test="${empty thumbnail[i]}">
+												<img src="https://via.placeholder.com/100"
+													style="width: 100px; height: 100px;" alt="썸네일">
+											</c:if>
+											<c:if test="${!empty thumbnail[i]}">
+												<img src="${contextPath}${thumbnail[i]}"
+													style="width: 100px; height: 100px;" alt="썸네일">
+											</c:if>
+
+											<div class="vacation-info">
+												<div class="vacation-title">
+													<a
+														href="detail?no=${boardList[i].boardNo}&cp=${pagination.currentPage}&type=${param.type}">${boardList[i].boardTitle}</a>
+												</div>
+												<div class="vacation-details">작 성 :
+													${boardList[i].memberName}</div>
+												<div class="vacation-details">한줄소개 :
+													${boardList[i].boardContent}</div>
+												<div class="vacation-details">소재지역 :
+													${boardList[i].locationName}</div>
+												<div class="vacation-tags">
+													<c:forEach var="hash" items="${hashtag[i]}">
+														<span># ${hash}</span>
+													</c:forEach>
+
+												</div>
+												<div class="vacation-stats">
+													<div>
+														<span>조회수: ${boardList[i].readCount}</span><span>❤️
+															${boardList[i].likeCount}</span><span>💬 ${replyCount[i]}</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</c:forEach>
+								</c:if>
 
 							</c:otherwise>
 						</c:choose>
 
 
-						<img src="https://via.placeholder.com/80" alt="이미지">
-						<div class="vacation-info">
-							<div class="vacation-title">
-								<a
-									href="detail?no=${board.boardNo}&cp=${pagination.currentPage}&type=${param.type}">${board.boardTitle}</a>
-							</div>
-							<div class="vacation-details">${board.memberId}</div>
-							<div class="vacation-details">지역 (지도에서 주소 확인)</div>
-							<div class="vacation-details">한줄소개(게시글)</div>
-							<div class="vacation-tags">
-								<span>#태그1</span><span>#태그2</span><span>#태그3</span>
-							</div>
-							<div class="vacation-stats">
-								<div>
-									<span>조회수: ${board.readCount}</span><span>❤️ 42</span><span>💬
-										15</span>
-								</div>
-								<div class="vacation-edit-area">
-									<button id="restoration">복구</button>
-									<button id="change">수정</button>
-									<button id="remove">삭제</button>
-								</div>
-							</div>
-						</div>
 					</div>
 
-
 					<div class="vacation-btn-area">
-						<button id="vatcation-btn">글쓰기</button>
+						<c:if test="${not empty loginMember}">
+							<!-- /community/board/write -->
+							<button id="insertBtn"
+								onclick="location.href='${contextPath}/community/write'">글쓰기</button>
+						</c:if>
 					</div>
 
 
@@ -138,48 +152,55 @@
 						<a href="${url}${pagination.nextPage}">다음&gt;</a> <a
 							href="${url}${pagination.maxPage}">&gt;&gt;</a>
 					</div>
-
-
 				</div>
+
 
 				<div class="vacation-sidebar">
 					<div class="sidebar up">
 						<ul>
 							<p>지역</p>
-							<li><a href="#"># 전체</a></li>
-							<li><a href="#"># 경기</a></li>
-							<li><a href="#"># 강원</a></li>
-							<li><a href="#"># 경북</a></li>
-							<li><a href="#"># 전북</a></li>
-							<li><a href="#"># 대구</a></li>
-							<li><a href="#"># 광주</a></li>
-							<li><a href="#"># 인천</a></li>
-							<li><a href="#"># 부산</a></li>
-							<li><a href="#"># 경남</a></li>
-							<li><a href="#"># 전남</a></li>
-							<li><a href="#"># 울산</a></li>
+
+							<c:set var="url" value="list?&type=${param.type}&cp=" />
+
+							<li><a
+								href="${contextPath}/community/list?&type=${param.type}"
+								style="color: blue;"># 전체</a></li>
+
+							<c:if test="${fn:length(boardList) > 0}">
+
+								<c:forEach var="i" begin="0" end="${fn:length(hashtagList)-1}">
+									<c:if
+										test="${fn:contains(hashtagList[i].category, 'location')}">
+
+										<li><a href="${url}&query=${hashtagList[i].name}"
+											style="color: blue;"># ${hashtagList[i].name}</a></li>
+									</c:if>
+								</c:forEach>
+
+							</c:if>
 						</ul>
 					</div>
 					<br>
 					<div class="sidebar down">
 						<ul>
 							<p>키워드</p>
-							<li><a href="#"># 인기</a></li>
-							<li><a href="#"># 수상</a></li>
-							<li><a href="#"># 방송출연</a></li>
-							<li><a href="#"># 지역특산</a></li>
-							<li><a href="#"># 전통</a></li>
-							<li><a href="#"># 3대째</a></li>
-							<li><a href="#"># 창업</a></li>
-							<li><a href="#"># 원조</a></li>
+							<c:if test="${fn:length(boardList) > 0}">
+								<c:forEach var="i" begin="0" end="${fn:length(hashtagList)-1}">
+									<c:if test="${fn:contains(hashtagList[i].category, 'keyword')}">
+
+										<li><a href="${url}&query=${hashtagList[i].name}"
+											style="color: blue;"># ${hashtagList[i].name}</a></li>
+									</c:if>
+								</c:forEach>
+							</c:if>
 						</ul>
 					</div>
-
 				</div>
 			</div>
 		</div>
+
+	</main>
 </body>
 <jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
-</main>
 <script src="${contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 <script src="${contextPath}/resources/js/header.js"></script>
