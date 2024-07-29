@@ -285,7 +285,9 @@ function deleteLike(boardReplyNo, el){
 	})
 }
 
-document.getElementById("likeBtn").addEventListener("click", function(){
-	location.reload();
-})
-
+const listBtn = document.getElementById("likeBtn");
+if(listBtn != null){
+	document.getElementById("likeBtn").addEventListener("click", function(){
+		location.reload();
+	})
+}
