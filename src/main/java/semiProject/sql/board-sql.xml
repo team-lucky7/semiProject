@@ -91,11 +91,6 @@
 	
 	<!-- ========== 테마 ========== -->
 	
-	<!-- 게시글 번호 조회 -->
-	<entry key="nextBoardNo">
-		SELECT SEQ_BOARD_NO.NEXTVAL FROM DUAL
-	</entry>
-	
 	<!-- 지역번호 조회 -->
 	<entry key="selectLocationCode">
 		SELECT LOCATION_CODE
