@@ -777,6 +777,10 @@ public Map<String, Object> searchCommunityBoardList(int type, int cp, String que
 			
 			detail.setImageList(imageList);
 			
+			List<BoardArticle> articleList = dao.selectBoardArticle(conn, boardNo);
+			
+			detail.setArticleList(articleList);
+			
 		}
 		
 		int result = dao.increaseReadCount(conn, boardNo);
@@ -847,13 +851,16 @@ public Map<String, Object> searchCommunityBoardList(int type, int cp, String que
 		
 		int boardNo = dao.regionnextBoardNo(conn);
 		
+		int locationCode = dao.selectLocationCode(conn, boardNo, detail);
+		
+		detail.setLocationCode(locationCode);
+		
+		
+		int updateLocation = dao.updateLocation(conn, boardNo, detail);
 		
 		detail.setBoardNo(boardNo);
 		
-		
 		int result = dao.regioninsertBoard(conn,detail,boardCode);
-		
-		
 		
 		if(result > 0) { 
 			
@@ -864,6 +871,15 @@ public Map<String, Object> searchCommunityBoardList(int type, int cp, String que
 				
 				result = dao.regioninsertBoardImage(conn,image);
 				
+				article.setBoardNo(detail.getBoardNo());
+				
+				BoardArticle article2 = new BoardArticle();
+				article2.setContent(detail.getMapAddress());
+				article2.setContentLevel(1);
+				article2.setBoardNo(detail.getBoardNo());
+				
+				result = dao.insertBoardArticle(conn, article2);
+				
 				if(result == 0) { 
 					break;
 				}
@@ -873,7 +889,7 @@ public Map<String, Object> searchCommunityBoardList(int type, int cp, String que
 
 
 		if(result > 0) {
-			result = dao.regioninsertBoard2(conn,article,detail);
+			result = dao.insertBoardArticle(conn, article);
 		}
 		
 		if(result > 0) {

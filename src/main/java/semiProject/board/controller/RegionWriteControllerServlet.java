@@ -12,6 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
 import com.oreilly.servlet.MultipartRequest;
 
 import semiProject.board.model.service.BoardService;
@@ -93,22 +96,42 @@ public class RegionWriteControllerServlet extends HttpServlet {
 			String category = mpReq.getParameter("category");
 			String locationCode = mpReq.getParameter("locationCode");
 			
-			int boardCode = Integer.parseInt(category); 
 
-			Member loginMember = (Member) session.getAttribute("loginMember");
-			int memberNo = loginMember.getMemberNo(); // 회원 번호
+			int boardCode = Integer.parseInt(category);
 
 			// 게시글 관련 정보를 하나의 객체(BoardDetail)에 담기
 			BoardDetail detail = new BoardDetail();
 			BoardArticle article = new BoardArticle();
+
+			String mapAddress = mpReq.getParameter("mapAdr");
+
+			String address = null;
+
+			if (mapAddress != null) {
+
+				JSONParser parser = new JSONParser();
+
+				JSONObject jObject = null;
+
+				jObject = (JSONObject) parser.parse(mapAddress);
+
+				address = (String) jObject.get("address");
+
+			}
 			
-			
+
+			Member loginMember = (Member) session.getAttribute("loginMember");
+			int memberNo = loginMember.getMemberNo(); // 회원 번호
+
+
 			article.setContent(content);
 			detail.setBoardTitle(boardTitle);
 			detail.setBoardContent(boardContent);
 			detail.setLocationName(locationCode);
 			detail.setMemberNo(memberNo);
-			
+			detail.setMapAddress(mapAddress);
+			detail.setLocationName(address);
+
 			BoardService service = new BoardService();
 
 			String mode = mpReq.getParameter("mode"); // hidden

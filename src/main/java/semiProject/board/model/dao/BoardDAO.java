@@ -878,7 +878,8 @@ public class BoardDAO {
 			pstmt.setString(2, detail.getBoardTitle());
 			pstmt.setString(3, detail.getBoardContent());
 			pstmt.setInt(4, boardCode);
-			pstmt.setInt(5, detail.getMemberNo());
+			pstmt.setInt(5, detail.getLocationCode());
+			pstmt.setInt(6, detail.getMemberNo());
 			
 			
 			result = pstmt.executeUpdate();
@@ -937,6 +938,7 @@ public class BoardDAO {
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
 				board.setBoardCode(rs.getInt("BOARD_CD"));
+				board.setContent(rs.getString("CONTENT"));
 				boardList.add(board);
 			}
 		}finally {
