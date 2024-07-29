@@ -2,6 +2,7 @@ package semiProject.board.model.service;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,32 +47,43 @@ public class BoardService {
 
 		Pagination pagination = new Pagination(cp, listCount);
 
-		List<Board> boardList = dao.selectBoardList(conn, type, pagination);
+		List<BoardDetail> boardList = dao.selectBoardList(conn, type, pagination);
 		
-		if (type == 4 || type == 5) {
-		
-		List<Hashtag> hashtagList = dao.selectHashtag(conn);	
+	      if (type == 4 || type == 5) {
+	          
+	          List<Hashtag> hashtagList = dao.selectHashtag(conn); // 전체 해시태그 리스트
 
-		int i = 0;
-		for(Board board : boardList) {
-			
-		map.put("hashtag" + (i++), dao.selectBoardHashtag(conn, board.getBoardNo()));
-		
-		map.put("thumbnail", dao.selectThumbnail(conn, board.getBoardNo()));
-		
-		}
-		
-		map.put("hashtag", hashtagList);
-		
-		}
-		
-		map.put("pagination", pagination);
-		map.put("boardList", boardList);
-		map.put("boardName", boardName);
-		
-		close(conn);
-		
-		return map;
+	          List<List<String>> hashtag = new ArrayList<>(); // 게시글 각각 해시태그 
+	          
+	          List<String> thumbnail = new ArrayList<>(); // 게시글 각각 썸네일
+	          
+	          List<Integer> replyCount = new ArrayList<>();
+	          
+	          for(BoardDetail board : boardList) {
+		          System.out.println(board);
+
+	          hashtag.add(dao.selectBoardHashtag(conn, board.getBoardNo()));
+	          thumbnail.add(dao.selectThumbnail(conn, board.getBoardNo()));
+	          replyCount.add(dao.selectReplyCount(conn, board.getBoardNo()));
+	          
+	          }
+	          
+	          map.put("hashtag", hashtag);
+	          map.put("thumbnail", thumbnail);
+	          map.put("hashtagList", hashtagList);
+	          map.put("replyCount", replyCount);
+
+	          }
+
+
+
+	      map.put("pagination", pagination);
+	      map.put("boardList", boardList);
+	      map.put("boardName", boardName);
+
+	      close(conn);
+
+	      return map;
 	}
 
 	
@@ -87,7 +99,10 @@ public class BoardService {
 		Connection conn = getConnection();
 		
 		BoardDetail detail = dao.selectBoardDetail(conn, boardNo);
-
+		
+		System.out.println(boardNo);
+		System.out.println(detail);
+		
 		if(detail != null) {
 
 			
@@ -105,10 +120,30 @@ public class BoardService {
 			for(BoardArticle article : articleList) {
 				article.setContent(article.getContent().replaceAll("<br>", "\n"));
 			}
-			detail.setArticleList(articleList);
-			
 			
 			List<BoardImage> imageList = dao.selectBoardImage(conn, boardNo);
+
+	        
+
+			System.out.println(detail.getBoardCode());
+			if (detail.getBoardCode() == 4 || detail.getBoardCode() == 5) {
+				
+				for(BoardImage image : imageList) { // 정렬을 위해 이미지를 아티클에 추가한다.
+					BoardArticle article = new BoardArticle();
+					article.setContentNo(image.getImageNo());
+					article.setContent(image.getImageRename());
+					article.setContentSize(image.getImageSize());
+					article.setContentLevel(image.getImageLevel());
+					articleList.add(article);
+				}
+				
+				articleList.sort(Comparator.comparing(BoardArticle::getContentLevel));			
+				detail.setHashtagList(dao.selectBoardHashtag(conn, boardNo));
+				
+			}
+			
+
+			detail.setArticleList(articleList);
 			detail.setImageList(imageList);
 			
 			// -> 커뮤니티는 이미지랑 아티클이랑 순서대로 통합 해서 넘겨주고 if로 사이즈 비교해서 그리는 방식으로 간다
@@ -159,6 +194,52 @@ public class BoardService {
 
 		return map;
 	}
+	
+public Map<String, Object> searchCommunityBoardList(int type, int cp, String query) throws Exception{
+		
+		Connection conn = getConnection();
+		
+		String boardName = dao.selectBoardName(conn, type);
+		
+		int listCount = dao.getHashtagSearchListCount(conn, type, query);
+		
+		Pagination pagination = new Pagination(cp, listCount);
+		
+		List<BoardDetail> boardList = dao.selectCommunityBoardList(conn, type, pagination, query);
+		
+		Map<String, Object> map = new HashMap<>();
+
+	    List<Hashtag> hashtagList = dao.selectHashtag(conn); // 전체 해시태그 리스트
+
+	    List<List<String>> hashtag = new ArrayList<>(); // 게시글 각각 해시태그 
+	          
+	    List<String> thumbnail = new ArrayList<>(); // 게시글 각각 썸네일
+	        
+	    List<Integer> replyCount = new ArrayList<>();
+	        
+	    for(BoardDetail board : boardList) {
+
+	      hashtag.add(dao.selectBoardHashtag(conn, board.getBoardNo()));
+	      thumbnail.add(dao.selectThumbnail(conn, board.getBoardNo()));
+	      replyCount.add(dao.selectReplyCount(conn, board.getBoardNo()));
+
+	    }
+	          
+	    map.put("hashtag", hashtag); // 게시글 각각 해시태그
+	    map.put("thumbnail", thumbnail); // 각 게시글 첫번째 그림
+	    map.put("hashtagList", hashtagList); // 전체 해시태그
+	    map.put("query", query); // 해시태그 선택한거 검색결과에 표시
+		map.put("boardName", boardName); 
+		map.put("pagination", pagination);
+		map.put("boardList", boardList);
+		map.put("replyCount", replyCount);
+		
+		close(conn);
+
+		return map;
+	}
+	
+	
 
 	public int deleteBoard(int boardNo) throws Exception {
 
@@ -421,7 +502,7 @@ public class BoardService {
 		return result;
 	}
 
-	public int communityWrite(List<BoardArticle> boardArticleList, List<BoardImage> imageList, Board board,
+	public int communityWrite(List<BoardArticle> boardArticleList, List<BoardImage> imageList, BoardDetail detail,
 							  List<String> hashtagList, List<String> hashtagOption, String address) throws Exception {
 
 		Connection conn = getConnection();
@@ -434,14 +515,14 @@ public class BoardService {
 		// 지역코드 찾고 게시글에 넣기         
         int locationCode = dao.locationCode(conn, address); // 코드 검색해서 게시판에 넣어준다
 
-        board.setLocationCode(locationCode);
+        detail.setLocationCode(locationCode);
 		
 		// 2. 게시글 보드넘버 삽입
-		board.setBoardNo(boardNo); // 조회된 다음 게시글 번호세팅
+		detail.setBoardNo(boardNo); // 조회된 다음 게시글 번호세팅
 
 		
 		// 3. 게시글 DB에 보내기
-		int result = dao.insertBoard(conn, board);
+		int result = dao.insertBoard(conn, detail);
 
 		if(result > 0) { 
 			
@@ -453,7 +534,7 @@ public class BoardService {
 				result = dao.insertBoardImage(conn, image);
 
 				if(result == 0) { // 이미지 삽입 실패
-					break;
+				break;
 				}
 			} // for문 끝
 
@@ -469,22 +550,26 @@ public class BoardService {
 			} // for문 끝
 			
 			// hashtag 삽입       
-	         for(int i = 0; i < hashtagList.size(); i++) {
-	            
-	            result = dao.insertHashtagList(hashtagList.get(i), hashtagOption.get(i), conn);
-	            
-	            // 해시태그는 중복된거 안받아서 업데이트 안될 가능성 있어서 체크 안해도 된다.
-	            
-	            
-	            int hashtagNo = dao.hashtagNo(hashtagList.get(i),conn);
-	            
-	            result = dao.insertHashtag(hashtagNo, boardNo, conn);
-	            
-	            if(result == 0) {
-	               break;
-	            }
-	         }
-	         
+			for(int i = 0; i < hashtagList.size(); i++) { // 해시태그가 이미 존재한다면 리스트에 올리지 않는다.
+
+				if (dao.hashtagNo(hashtagList.get(i), conn) == 0) {
+
+					result = dao.insertHashtagList(hashtagList.get(i), hashtagOption.get(i), conn);
+
+				}
+					// 해시태그는 중복된거 안받아서 업데이트 안될 가능성 있어서 체크 안해도 된다.
+
+
+					int hashtagNo = dao.hashtagNo(hashtagList.get(i),conn);
+
+					result = dao.insertHashtag(hashtagNo, boardNo, conn);
+
+					if(result == 0) {
+						break;
+					}
+				
+			}
+
 		} // if문 끝
 
 		// 트랜잭션
