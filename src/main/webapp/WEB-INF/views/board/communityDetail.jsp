@@ -154,4 +154,5 @@
 	<script src="${contextPath}/resources/js/jquery-3.7.1.min.js"></script>
 	<script src="${contextPath}/resources/js/communityWrite.js"></script>
 	<script src="${contextPath}/resources/js/freeBoardReply.js"></script>
+	<script src="${contextPath}/resources/js/header.js"></script>
 </body>
