@@ -15,7 +15,7 @@ function addFullText(){
     addText.classList.add("text");
     addText.setAttribute("name",contentCnt+"_fullText");
     contentCnt++;
-    addXBtn.src = "../resources/images/x-button-327024.png";
+    addXBtn.src = contextPath + "/resources/images/x-button-327024.png";
     addXBtn.classList.add("xBtn");
     
     addXBtn.addEventListener("click", function(){
@@ -39,7 +39,7 @@ function addHalfText(){
     addText.classList.add("halftext");
     addText.setAttribute("name",contentCnt+"_halfText");
     contentCnt++;
-    addXBtn.src = "../resources/images/x-button-327024.png";
+    addXBtn.src = contextPath + "/resources/images/x-button-327024.png";
     addXBtn.classList.add("xBtn");
     
     addXBtn.addEventListener("click", function(){
@@ -67,7 +67,7 @@ function addFullImage(){
     addInput.setAttribute("name",contentCnt+"_fullImage");
     contentCnt++;
     addImage.classList.add("fullImage");
-    addXBtn.src = "../resources/images/x-button-327024.png";
+    addXBtn.src = contextPath + "/resources/images/x-button-327024.png";
     addXBtn.classList.add("xBtn");
     
     addXBtn.addEventListener("click", function(){
@@ -122,7 +122,7 @@ function addHalfImage(){
     addInput.setAttribute("name",contentCnt+"_halfImage");
     contentCnt++;
     addImage.classList.add("halfImage");
-    addXBtn.src = "../resources/images/x-button-327024.png";
+    addXBtn.src = contextPath + "/resources/images/x-button-327024.png";
     addXBtn.classList.add("xBtn");
     
     addXBtn.addEventListener("click", function(){
@@ -323,7 +323,7 @@ function addHashtag(){
     addInput.size = "15";
     addInput.setAttribute("name", "hashtag");
 
-    addXBtn.src = "../resources/images/x-button-327024.png";
+    addXBtn.src = contextPath + "/resources/images/x-button-327024.png";
     addXBtn.classList.add("xBtn");
 
    addSelect.setAttribute("name", "hashtagOption")
