@@ -237,7 +237,6 @@
 		WHERE BOARD_NO = ?
 	</entry>	
 	
-	
 	<!-- 지역 게시글 이미지 조회  -->
 	<entry key="selectRegionImageList">
 		SELECT *
@@ -246,6 +245,10 @@
 		ORDER BY IMG_LEVEL
 	</entry>
 	
+	<!-- 댓글 수 조회 -->
+	<entry key="selectReplyCount">
+		SELECT COUNT(*) FROM REPLY WHERE BOARD_NO = ?
+	</entry>
 	
 	<!-- 다음 게시글 번호 조회  -->
 	<entry key="regionnextBoardNo">
@@ -342,6 +345,14 @@
 		SELECT HASHTAG_CAT, HASHTAG_NM FROM HASHTAG_LIST
 	</entry>
 	
+	<entry key="getHashtagSearchListCount">
+		SELECT COUNT(COUNT(*))FROM BOARD
+		LEFT JOIN HASHTAG USING(BOARD_NO)
+		JOIN HASHTAG_LIST USING(HASHTAG_NO)
+		WHERE BOARD_ST = 'N' AND BOARD_CD = ?
+		AND HASHTAG_NM = ?
+		GROUP BY BOARD_NO
+	</entry>
 	
 	<entry key="selectBoardHashtag">
 		SELECT HASHTAG_NM FROM HASHTAG 
@@ -350,9 +361,9 @@
 	</entry>
 	
 	<entry key="selectThumbnail">
-		SELECT IMG_ORIGINAL FROM BOARD_IMG
+		SELECT IMG_RENAME FROM BOARD_IMG
 		WHERE BOARD_NO = ?
-		AND IMG_LEVEL = (SELECT min(IMG_LEVEL) FROM BOARD_IMG);
+		AND IMG_LEVEL = (SELECT min(IMG_LEVEL) FROM BOARD_IMG WHERE BOARD_NO = ?)
 	</entry>
 
 	<!-- 내가 작성한 전체 게시글 수 조회 -->
