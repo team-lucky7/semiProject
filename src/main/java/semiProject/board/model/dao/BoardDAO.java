@@ -1712,7 +1712,7 @@ public class BoardDAO {
 			close(pstmt);
 		}
 		
-		return 0;
+		return result;
 	}
 
 	/**(테마)이미지 삭제

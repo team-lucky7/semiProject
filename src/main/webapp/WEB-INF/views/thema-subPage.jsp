@@ -131,7 +131,7 @@
         <!-- 버튼 -->
         <div class="board-btn-area">
             <!--  관리자 권한이있는 로그인 멤버 -->
-            <c:if test="${loginMember.adminLevel != 0}">
+            <c:if test="${!empty loginMember}">
 
             <!-- 파라미터 cp가 없을 경우 1 -->
             <c:if test="${empty param.cp}">
