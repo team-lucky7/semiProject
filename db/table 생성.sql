@@ -689,7 +689,440 @@ Insert into HASHTAG_LIST (HASHTAG_NO,HASHTAG_NM,HASHTAG_CAT) values (81,'부산'
 Insert into HASHTAG_LIST (HASHTAG_NO,HASHTAG_NM,HASHTAG_CAT) values (82,'부산맛집','keyword             ');
 Insert into HASHTAG_LIST (HASHTAG_NO,HASHTAG_NM,HASHTAG_CAT) values (83,'오리고기','keyword             ');
 
--- 자유게시글 삽입
+-- 해시태그 삽입
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (37,1);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (38,1);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (39,1);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (40,1);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (33,2);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (35,2);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (38,2);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (39,2);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (65,14);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (66,14);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (67,14);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (68,14);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (41,4);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (42,4);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (33,4);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (43,4);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (33,7);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (34,7);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (35,7);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (36,1);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (33,5);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (44,5);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (45,5);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (33,5);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (41,6);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (46,6);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (33,6);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (47,6);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (34,6);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (41,8);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (46,8);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (43,8);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (48,8);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (49,8);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (41,9);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (49,9);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (43,9);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (50,9);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (49,10);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (51,10);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (34,10);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (52,10);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (53,11);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (54,11);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (55,11);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (56,11);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (57,12);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (58,12);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (59,12);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (60,12);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (61,13);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (62,13);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (63,13);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (33,13);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (64,13);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (33,3);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (69,3);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (70,3);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (72,15);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (73,15);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (74,15);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (33,15);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (75,15);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (33,16);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (50,16);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (76,16);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (77,16);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (78,16);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (79,17);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (80,17);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (65,18);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (81,18);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (82,18);
+Insert into HASHTAG (HASHTAG_NO,BOARD_NO) values (83,18);
+
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":34.785683013756426,"lng":128.62593907195384,"address":"경남 거제시"}',4,-1,1);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'성주산자연휴양림은 보령시 동쪽에 솟은 성주산(676.7m) 자락에 위치해 있으며, 산림청에서 폐광 지역을 개발하여 휴양림으로 조성한 곳이다. 이곳에는 숲속의 집(숙박시설)과 물놀이장, 야영장 등의 시설들이 마련되어 있다. 봄에는 벚꽃 등 온갖 야생화가 만발하고, 여름에는 피서를 즐길 수 있으며, 가을에는 단풍을 즐기고, 겨울에는 눈꽃이 피는 등 사계절 내내 즐길 거리가 있다. 산책코스를 따라 휴양림 이곳저곳을 둘러보며 여유 있게 산림욕을 즐겨도 좋고 등산을 좋아하는 여행객이라면 전망대에 올라보는 것도 괜찮다.
+4월에서 11월에 운영하는 숲해설 프로그램에 참여하면 꽃, 나무, 열매, 단풍, 초화류 등을 주제로 한 숲 이야기를 듣고 탐방로 등 관람 및 체험 안내를 받을 수 있다.
+성주산자연휴양림은 국도 40호선에서 화장골길을 통해 접근할 수 있으며, 서해안고속도로 대천IC, 무창포IC와 서천공주고속도로 서부여IC가 가깝다. 주변에는 성주산 외에 옥마산, 보령무궁화수목원, 보령석탄박물관, 보령시청소년수련관, 성주면 소재지 등이 있다.',0,0,2);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":36.33269818753072,"lng":126.66382226840271,"address":"충남 보령시"}',4,-1,2);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'민주지산 자연휴양림은 충청북도 최남단인 영동군 용화면 조동리에 자리하고 있다. 소백산맥 줄기에 분포하는 각호산(1,176m), 민주지산(1,241.7m) 등 주변의 명산에 둘러싸여 사계절 숲의 아름다움을 만끽할 수 있는, 태고의 신비를 간직한 자연 그대로의 휴양림이다. 해발 700m의 민주지산 휴양림은 인체에 가장 적합한 기압 상태로 생체리듬에 가장 좋다. 깨끗하게 정돈된 숙박시설, 철 따라 산행의 즐거움이 달라지는 등산로, 피톤치드 풍부한 산림욕장, 건강지압을 위한 맨발 숲길, 야간조명이 갖춰진 사방댐 분수는 일상에 지친 몸과 마음을 맑게 하기에 충분하다.
+휴양림 관리도를 따라 조성된 산열매향수길은 고향의 향수를 느끼게 하고, 울창한 숲 속의 다양한 식생은 수목에 대한 해설이 있어 가족 단위나 학생들에게 자연학습의 좋은 기회를 제공하고 있다. 또 영동의 맑은 산수로 빚은 곶감, 포도, 사과, 배, 호도, 고로쇠수액, 표고, 산 약초 등 전국에서도 유명한 영동의 특산물을 만나보는 행복한 장소이기도 하다. 숙박시설은 홈페이지를 통해 예약할 수 있으며, 야영장은 선착순으로 현장 방문 시에만 예약 가능하다.
+',0,0,7);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":36.0532208022755,"lng":127.82435823207675,"address":"충북 영동군"}',4,-1,7);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'거제자연휴양림은 노자산 해발 150m~565m에 조성되어 있으며, 단풍나무, 참나무, 고로쇠나무, 노각나무 등의 활엽수가 주종을 이루고 있어 봄의 신록, 여름의 녹음, 가을의 단풍이 아름답다.
+산 정상의 전망대에서 한려해상국립공원의 크고 작은 섬들과 다도해를 바라다보면 가슴이 확 트이는 느낌과 상쾌함을 만끽할 수 있으며, 주변의 관광명소와 접근성이 매우 좋아 다양한 체험과 볼거리로 가족과 함께 즐길 수 있다는 것이 거제자연휴양림의 매력이다.',0,0,1);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'송계계곡은 월악산 국립공원 내에 위치한 계곡으로 제천의 대표적인 계곡 관광지라 할 수 있다. 송계계곡은 월악산(1,094m) 자락이 병풍처럼 둘러싸고 있어 가히 여름 더위를 잊을 만하다. 특히 계곡에서 흐르는 맑은 물은 얼음처럼 차가워 여름철에는 더위를 식히려는 많은 피서객이 찾고 있다. 여름철에는 울창한 수림과 깊은 계곡 속에 더위를 피하려는 사람들에게 인기가 있으며 가을에는 충주호와 연계한 단풍 관광지로 각광받고 있다. 월악산 일대는 1984년 12월 31일에 국립공원으로 지정되었다. 또한 천연기념물인 망개나무, 덕주사, 미륵리사지 등의 관광명소가 흩어져 있어 등산객들의 발길을 멈추게 한다.
+계곡 주변에 있는 월광폭포, 학소대, 자연대, 청벽대, 와룡대, 팔랑소, 망폭대, 수경대 등은 송계 팔경으로 이름이 알려져 있다. 자연대는 송계계곡 첫 입구에 소재한 곳으로 맑은 계곡물과 넓은 암반, 깊은 소가 인상적인 곳이다. 월광폭포는 30여 m의 3단 폭포이며, 수경대는 신라시대부터 월악신사를 설치하고 제천하던 곳이다. 학소대는 한 쌍의 학이 월악산을 오가며 살았다는 곳이며, 망폭대는 덕주산성 남문과 한쪽 맥이 이어져 있는 곳으로 기암줄바위와 고무서리계곡을 굽이도는 맑은 물과 어울린 절벽이다. 와룡대는 용이 승천하였다고 전하는 수심 5m의 깊은 웅덩이이며, 팔랑소는 200여 평의 화강암 반석 위로 맑은 물이 흐르고 있는 곳으로 옛날 하늘나라 공주가 하강하여 목욕했다고 전해지는 곳이다. 자연의 풍광이 아름다운 곳이니 들러보면 좋을 것이다.',0,0,4);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":36.86434098828818,"lng":128.0880826983916,"address":"충북 제천시"}',4,-1,4);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'심원계곡은 전북특별자치도 남원시 산내면과 전남 구례군 산동면의 경계에 있는 계곡이다. 칠선계곡, 문수계곡과 함께 지리산 3대 계곡 가운데 하나로 지리산 반야봉과 노고단 사이에 있다. 반야봉, 날라리봉, 노고단, 종석대 등에서 발원한 물이 한데 모여 계곡의 물줄기를 이루며 50여 개의 담과 소를 이룬다. 특히 주변의 숲은 한국 자생식물의 보고이다. 고로쇠 약수로도 유명하고 하늘을 가리는 우거진 숲과 시원한 계곡물 때문에 한 여름 밤에도 추위를 느낄 만큼 서늘하다.
+계곡 등반은 마한의 별궁터가 있는 달궁계곡과 연계하여 오르는 것이 좋다. 달궁에서 계곡 쪽으로 오르다 보면 쟁반소와 비가 오면 수천 마리의 두꺼비가 모여서 울었다는 두꺼비소를 비롯하여 이름 모를 수많은 소와 담들이 계곡을 찾는 이들을 매료시킨다. 쟁기소에서 500여 m를 더 올라가면 반야봉 서북 능선 자락과 만복대 사이로 전라남도와 전북특별자치도의 경계선이 지나는데 그 아래가 달궁계곡이고 위쪽이 심원계곡에 속한다. 달궁에서 계곡을 따라 도로가 뚫리면서 심원마을까지 쉽게 갈 수 있게 되었고 성삼재에서 30분이면 노고단에 오를 수 있다.',0,0,5);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":35.376434344773436,"lng":127.58053302561618,"address":"전북특별자치도 남원시"}',4,-1,5);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'횡성 병지방계곡은 강원도 횡성군 갑천면에 있는 아름다운 계곡이다. 병지방리계곡 또는 산디계곡이라고도 한다. 어답산, 태의산, 발교산 등 높은 산봉우리에 둘러싸여 있어 경치가 수려하고, 계곡물은 남한강의 지류인 섬강의 발원지에서 흘러나와 매우 깨끗하고 차갑다. 병지방이라는 이름은 옛날 박혁거세에게 쫓기던 진한의 마지막 왕인 태기왕의 수하 병졸들이 머물렀다는 설화에서 유래되었다 한다. 계곡을 따라 포장도로가 10km 정도 연결되어 있고, 계곡의 도로변에는 대형 무료 주차장이 설치되어 있다.',1,1,6);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.60048015517454,"lng":128.06991548424455,"address":"강원특별자치도 횡성군"}',4,-1,6);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'사천 해변은 경포대 해변과 연곡 해변 사이에 있는 길이 300m, 18,000㎡의 매우 조용하고 깨끗함을 자랑하는 해변이다. 1975년 7월 1일 개장하였으며, 경포도립공원과 인접해 있어 매년 많은 피서객이 찾고 있다. 해송숲이 넓게 우거져 있고 깨끗한 백사장과 얕은 수심으로 조용하게 피서를 즐기기 좋은 곳이다. 소나무 숲에서 풍겨 나오는 향긋한 냄새와 시원한 그늘은 깊은 추억을 만들기에 더욱 좋다.',1,1,8);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.84288405922429,"lng":128.87329086251333,"address":"강원특별자치도 강릉시"}',4,-1,8);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'하늘에서 바라본 모습이 한문 평(平) 자를 이룬 모양을 하고 있어 김녕이라고 불리는, 김녕마을에 있는 해수욕장이다. 거대한 너럭바위 용암 위에 모래가 쌓여 만들어졌으며, 성세기는 외세의 침략을 막기 위한 작은 성이라는 뜻이 담겨 있다.
+하얀 모래에 부서지는 파도들이 시원한 소리를 내고, 코발트빛 바다 풍경이 제주 자연의 아름다움을 새삼 느끼게 해주는 곳이다.
+해변가를 걷다 보면 제주의 바람으로 돌아가는 김녕풍력발전기들을 관찰할 수 있다. 인근에는 갓돔과 노래미돔이 잘 잡히는 갯바위 낚시터가 낚시꾼들에게 인기 명소이며, 용천동굴, 당처물동굴, 만장굴 등 다양한 굴이 근처에 위치해 있어 여름에 시원하게 피서를 즐길 수 있다.
+김녕해수욕장은 특이한 지형으로 인해 지질트레일도 조성이 되어 있는데, 지질트레일은 유네스코 세계지질공원을 활용해 각 지역의 지질자원과 마을의 역사 및 문화와 어울려진 도보길이다.',0,0,9);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":33.5550082353092,"lng":126.73760512113137,"address":"제주특별자치도 제주시"}',4,-1,9);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'강화에서 가장 큰 모래톱을 자랑하는 동막해변은 세계 5대 갯벌 중 하나로 꼽힐 만큼 갯벌 체험을 하기에 좋은 곳이다. 동막 해변은 백사장과 울창한 소나무 숲으로 둘러싸여 천혜의 자연경관을 자랑하고 있다. 밀물 시에는 해수욕을 즐길 수 있고, 썰물 시에는 갯벌에 사는 여러 가지 생물들을 관찰할 수 있다. 물이 빠지면 끝없이 펼쳐진 갯벌이 드러나면서 칠게, 가무락, 쌀무늬고둥, 갯지렁이 등 다양한 바다 생물들을 관찰할 수 있어 가족단위의 여름 휴양지로 널리 알려져 있다.
+해변 한쪽으로는 ‘저어새 보러 가는 길’이라는 해안 산책로가 조성되어 있다. 저어새는 세계적인 멸종 위기종으로 천연기념물로 지정해 보호하고 있는데 강화 갯벌에서 번식지가 발견된 바 있다. 강화 갯벌 및 저어새 번식지는 천연기념물로 지정됐다.',0,0,10);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.59275137074619,"lng":126.45804734157002,"address":"인천 강화군"}',4,-1,10);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'모항항은 봄, 가을 국내산 꽃게잡이 배들이 입항하여 수협 위판장에서 경매를 통해 국내로 유통되고 있다. 자연산 활어회뿐만 아니라 자연산 전복, 해삼 등이 유통되고 있으며, 다양한 수산물이 거래되고 있다. 이러한 곳에 위치한 모항자연산횟집은 자연산만을 이용하여 손님들에게 제공하는 자연산 활어회 전문 음식점이다.
+우럭, 광어, 놀래미 등과 꽃게, 낙지 등을 이용한 제철 음식을 제공하고 있다. 제공되는 음식메뉴는 게국지, 생우럭 매운탕, 생우럭 지리, 우럭젓국, 활꽃게탕, 낙지 연포탕, 아나고 구이 등이다. 점심특선 메뉴로는 전복죽, 소면물회, 회덮밥, 바지락 칼국수를 판매하고 있다. 계절별로 반찬을 직접 만들어 손님들에게 제공하고 음식점 내외부를 항상 청결하게 유지하고 있다.',0,4,11);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":36.77530520590313,"lng":126.13571017318876,"address":"충남 태안군"}',4,-1,11);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.566254399266654,"lng":127.02092028743343,"address":"서울 중구"}',4,-1,12);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'올로지는 신당동에 위치한 카페로 서울 중앙시장과 황학동 도깨비 시장 바로 옆 골목에 위치한 에스프레소바 카페이다. 서울 도심에 있지만 이탈리아 스타일로 되어있는 카페여서 시골 마을에 분위기 있는 에스프레소바의 느낌이 난다. 여러 가지 디저트와 커피를 함께 즐길 수 있다. 올로지는 파인 베버리지 코스를 운영하고 있는데 선별된 음료와 조화된 다과, 빵, 디저트 등을 맛볼 수 있는 오마카세 형식의 코스이다. 주차는 불가하며 인근 황학아크로타워 상가주차장(유료)을 이용해야 한다.',1,3,12);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.76269544948109,"lng":128.940929523903,"address":"강원특별자치도 강릉시"}',4,-1,13);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'타샤의 정원은 퓨전한정식전문 코스요리전문점으로, 고급 손님 접대와 상견례 장소로서 이국적인 분위기와 정갈한 맛으로 유명해진 곳이다.
+한번 다녀가신 손님은 잊지 않고 다시 찿아오실 수 있도록 정성을 다하는 경기 파주의 명소이며, 더욱 편안하고 쾌적한 공간에서 음식을 음미하실 수 있도록 각종 모임이나 연회를 위한 장소로 단체 고객에게 적합한 장소이다. 또, 맛과 멋이 두루 갖춘 인테리어로 많은 고객과 한국의 대표 맛집에 선정되었다',0,0,14);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.729064157821405,"lng":126.7022677799425,"address":"경기 파주시"}',4,-1,14);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'팔봉제빵점은 KBS 드라마 [제빵왕 김탁구]를 촬영했던 곳으로, 현재 카페로 운영하고 있다. 수암골 벽화 앞에 있는 2층 건물로, 드라마 사진과 소품이 전시되어 있어 촬영 현장에 있는 듯한 느낌이 든다. 다양한 빵과 음료를 판매 중이며 이름값에 의존하지 않고 맛 좋고 가성비 좋은 가격으로 손님을 맞이하고 있다. 추억의 3종 세트인 단팥빵, 소보루빵, 크림빵 등이 대표 메뉴이다. 공갈빵과 보리를 발효해서 만든 보리봉도 쫄깃하고 담백해서 인기가 많다.
+지금은 조용한 베이커리 카페이지만 드라마 방영 직후에는 상당히 인기 있는 빵집이었다. 실내에는 테이블과 의자가 있고 밖에도 벤치가 있어 편하게 빵을 맛보고 갈 수 있다. 1층 한쪾에서는 빨간 머리 앤 관련 소품들이 전시, 판매하고 있으며 2층에는 196~70년대 감성의 의자와 테이블이 마련되어 있어 창밖 수암골의 정겨운 풍경을 볼 수 있다.',0,0,3);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":36.64734737307824,"lng":127.494040146531,"address":"충북 청주시"}',4,-1,3);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'중리동 곱창골목은 대구광역시 여행의 또 다른 즐거움인 맛집들이 밀집해 있는 골목이다.
+대구광역시 남구 안지랑곱창골목과 이 곳 중리동곱창골목은 대구를 대표하는 먹거리 중 하나인 곱창요리의 대표 골목이다. 두 골목의 차이점은 안지랑곱창골목은 돼지막창으로 주로 구이로 서비스가 되는 곳이 많은가 하면 중리동곱창골목은 소막창으로 전골로 제공되는 집이 많다.
+1980년대 성당못에 있던 도축장이 중리동으로 이전하면서 자연스럽게 식육점과 식육식당이 생기고 도축장에서 나오는 부산물인 곱창, 간, 천엽 등을 파는 포창마차 골목이 지금 중리동 곱창골목의 원조인 셈이다.
+그 후 도축장이 검단동으로 옮겨가고 그 자리에는 아울렛이 들어오면서 대부분의 식육식당이 이 골목을 떠났지만 곱창집들은 남아 지금까지 명성을 이어오고 있다.
+특히 이곳은 대구에서는 흔치 않게 소곱창과 막창, 주먹시 등을 맛볼 수 있고, 또 아울렛이 바로 이웃에 있으니 쇼핑하러 왔다 곱창을 맛 보기 위해 방문하기도 한다.
+걸어서 5분거리에 의류패션명물거리인 퀸스로드광장과 그린웨이의 수목과 각종 꽃 구경은 중리동 곱창골목이 주는 또 다른 매력이다.',0,0,15);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":35.862242176634304,"lng":128.5439331741639,"address":"대구 서구"}',4,-1,15);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'제주항 탑동광장 부근에 조성된 제주 흑돼지 거리는 제주의 특산물인 흑돼지 전문점 30여 개가 모여 있는 골목으로, 흑돼지를 맛보고 싶다면 방문하는 것을 추천한다. 흑돼지 거리는 30여 년의 오랜 전통을 자랑하고 있으며, 초입에는 흑돼지 거리 간판 조형물과 돼지 동상 조형물이 설치되어 있어 단번에 흑돼지 거리임을 알 수 있게 해주고 있다. 흑돼지는 일반 돼지고기에 비해 쫄깃하고 영양도 많다고 알려져 있으며, 흑돼지고기를 구워 꽃멸치 젓갈에 찍어 먹으면 그 맛이 담백하고 고소하여 씹을수록 입맛을 돋게 한다.
+주변에는 칠성로 쇼핑거리, 동문재래시장, 생태하천 산지천, 100년 전통의 산지 등대, 탑동광장 등 여러 관광지가 있는 제주 특화 거리이다.',0,0,16);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":33.515480792032875,"lng":126.52681147225591,"address":"제주특별자치도 제주시"}',4,-1,16);
+Insert into BOARD_ARTICLE values(SEQ_BOARD_CT_NO.NEXTVAL,'‘갈치 조림 기똥차게 맛있는 집’은 여수의 향일암으로 향하는 길에 있는 50년 전통의 갈치조림 전문점이다. 식당 이름에서 맛에 대한 자부심을 알 수 있듯 신선한 갈치로 만든 갈치 조림을 메인으로 오랜 시간 같은 곳에서 현지인들은 물론 관광객들에게 꾸준한 사랑을 받아왔다. 매일 싱싱한 재료로 모든 밑반찬을 직접 만들며, 특히 직접 담근 간장게장을 무한 리필로 즐길 수 있다. 매장은 넓고 깨끗하며, 방도 있어 단체석 이용도 가능하다. 대형버스도 주차할 수 있을 정도로 주차장이 넓어 단체 여행객들이 들리기에도 좋은 곳이다. 또한, 반려견 동반 룸이 따로 있어 반려견과 함께 편하게 식사할 수도 있다. 근처에는 아쿠아플라넷과 여수 예술 랜드가 있어 연계 여행도 수월하다.
+※ 반려동물 동반가능',0,3,17);
+Insert into BOARD_ARTICLE values (SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":34.606558164189835,"lng":127.78670523145058,"address":"전남 여수시"}',4,-1,17);
+Insert into BOARD_ARTICLE values (SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":35.173883169443975,"lng":129.17676181899287,"address":"부산 해운대구"}',4,-1,18);
+Insert into BOARD_ARTICLE values (SEQ_BOARD_CT_NO.NEXTVAL,'부산 해운대 맛소문오리불고기는 생오리를 수제 고추장 소스와 함께 저온숙성 시킨 생오리불고기로 유명한 맛집이다. 주문 즉시 조리에 들어가므로 오리백숙은 최소 2시간 전에 예약해야 한다. 오리불고기와 백숙 외에도 로스구이, 추어탕 등 다양한 메뉴도 있다.
+',1,3,18);
+        
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730100614_29369.JPG','거제자연 휴양림 1.JPG',1,1);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730100614_21070.jpg','거제자연 휴양림 2.jpg',2,1);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730100614_57525.jpg','거제자연 휴양림 3.jpg',3,1);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730100953_04407.jpg','성주산 휴양림 2.jpg',5,2);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730100953_75377.jpg','성주산 휴양림 5.jpg',2,2);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730100953_22703.jpg','성주산 휴양림 4.jpg',3,2);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730100953_37212.jpg','성주산 휴양림 1.jpg',4,2);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730095107_02327.JPG','민주지산 휴양림 4.JPG',5,7);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730095107_55251.JPG','민주지산 휴양림 2.JPG',2,7);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730095107_52297.JPG','민주지산 휴양림 3.JPG',3,7);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730095107_37756.JPG','민주지산 휴양림 1.JPG',1,7);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730100614_99086.JPG','거제자연 휴양림 4.JPG',4,1);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730100953_36925.jpg','성주산 휴양림 3.jpg',1,2);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730101432_40527.jpg','송계계곡 4.jpg',4,4);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730101432_15978.jpg','송계계곡 1.jpg',1,4);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730101432_25891.jpg','송계계곡 2.jpg',2,4);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730101432_64222.jpg','송계계곡 3.jpg',3,4);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730101649_24147.jpg','심원계곡 4.jpg',4,5);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730101649_18459.jpg','심원계곡 2.jpg',2,5);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730101649_24566.jpg','심원계곡 3.jpg',3,5);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730101649_68715.jpg','심원계곡 1.jpg',1,5);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730101942_41502.jpg','병지방계곡 4.jpg',4,6);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730101942_63951.jpg','병지방계곡 2.jpg',2,6);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730101942_13442.jpg','병지방계곡 3.jpg',3,6);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730101942_09273.jpg','병지방계곡 1.jpg',0,6);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730102234_31431.jpg','사천해변 1.jpg',2,8);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730102234_99683.jpg','사천해변 3.jpg',3,8);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730102234_06024.jpg','사천해변 2.jpg',0,8);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730102234_94331.jpg','사천해변 4.jpg',4,8);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730102521_64120.jpg','김녕성세기해변 2.jpg',2,9);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730102521_88789.jpg','김녕성세기해변 1.jpg',1,9);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730102750_03644.jpg','동막해변 4.jpg',4,10);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730102750_24991.jpg','동막해변 1.jpg',1,10);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730102750_76007.jpg','동막해변 2.jpg',2,10);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730102750_78971.jpg','동막해변 3.jpg',3,10);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730103229_98712.jpg','모항 자연산횟집 2.jpg',1,11);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730103229_00201.jpg','모항 자연산횟집 3.jpg',2,11);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730103229_87774.jpg','모항 자연산횟집 4.jpg',3,11);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730103229_81422.jpg','모항 자연산횟집 1.jpg',0,11);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730103555_66797.jpg','올로지 1.jpg',1,12);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730103555_25467.jpg','올로지 2.jpg',6,12);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730103555_55293.jpg','올로지 3.jpg',7,12);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730103555_68934.jpg','올로지 4.jpg',4,12);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730103936_18563.jpg','옹심이마을 1.jpg',0,13);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730103936_50784.jpg','옹심이마을 2.jpg',1,13);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730104313_85450.jpg','타샤의정원 2.jpg',2,14);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730104313_30654.jpg','타샤의정원 4.jpg',3,14);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730104313_06613.jpg','타샤의정원 1.jpg',1,14);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730104521_65034.jpg','팔봉제과점 4.jpg',4,3);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730104521_75182.jpg','팔봉제과점 2.jpg',2,3);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730104521_71448.jpg','팔봉제과점 3.jpg',3,3);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730104521_27102.jpg','팔봉제과점 1.jpg',1,3);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730110116_34362.jpg','중리동 곱창마을 4.jpg',4,15);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730110116_77501.jpg','중리동 곱창마을 1.jpg',1,15);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730110116_79833.jpg','중리동 곱창마을 2.jpg',2,15);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730110116_33622.jpg','중리동 곱창마을 3.jpg',3,15);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730110324_94541.jpg','흑돼지거리 4.jpg',4,16);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730110324_09391.jpg','흑돼지거리 2.jpg',2,16);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730110324_26135.jpg','흑돼지거리 3.jpg',3,16);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730110324_57225.jpg','흑돼지거리 1.jpg',1,16);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730110547_21955.jpg','갈치조림기똥차게맛있는집 3.jpg',8,17);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730110547_48024.jpg','갈치조림기똥차게맛있는집 2.jpg',5,17);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,2,'/resources/images/board/20240730110547_17474.jpg','갈치조림기똥차게맛있는집 1.jpg',4,17);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730110817_96190.jpg','맛소문 오리불고기 2.jpg',4,18);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730110817_08937.jpg','맛소문 오리불고기 3.jpg',5,18);
+Insert into BOARD_IMG values(SEQ_IMG_NO.NEXTVAL,3,'/resources/images/board/20240730110817_54113.jpg','맛소문 오리불고기 1.jpg',2,18);
+
+-- 테마 게시글 삽입
+SET DEFINE OFF
+Insert into BOARD (BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATE_DT,UPDATE_DT,READ_COUNT,BOARD_ST,BOARD_CD,LOCATION_CODE,MEMBER_NO) values (SEQ_BOARD_NO.NEXTVAL,'신라의 달밤, 불국사 야간투어','- 경주키즈가족호텔 -<br>키즈 &amp; 가족호텔(불국사) *관광숙박업소 @ 여행스케줄 /정보/할인/등 여행자 센터 운영 @ 체험 프로그램운영 - 소원등 만들기/ 3대사찰 템플투어/ 서예/ 추억만들기(기와) *불국사 도보5분거리 / 경주월드10분 (차량) *불국사역(100년 역사) 5분 (차량) / 블루원 5분(차량) *첨성대(대릉원일대) 20분 (차량) *문무대왕(바다 25분) @ 위생관리 최우수등급. @ 수시 방역 소독 (자체소독방역모범업체) @ 무료영화 - 넷플렉스 / 유튜브 시청가능합니다.',to_date('2024-07-30 10:48:50','YYYY-MM-DD HH24:MI:SS'),to_date('2024-07-30 10:57:04','YYYY-MM-DD HH24:MI:SS'),0,'N',9,47130,1);
+Insert into BOARD_ARTICLE (BOARD_CT_NO,CONTENT,CONTENT_SIZE,CONTENT_LEVEL,BOARD_NO) values (SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":35.789861917236856,"lng":129.3318211616679,"address":"경북 경주시"}',0,0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,0,'/resources/images/thema/20240730105704_77844.png','Silla1.png',1,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,0,'/resources/images/thema/20240730105704_59192.png','Silla0.png',0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,0,'/resources/images/thema/20240730105704_88194.jpg','Silla2.jpg',2,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD (BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATE_DT,UPDATE_DT,READ_COUNT,BOARD_ST,BOARD_CD,LOCATION_CODE,MEMBER_NO) values (SEQ_BOARD_NO.NEXTVAL,'파주로컬크리에이터와 함께하는 로컬여행','- 농업회사법인주식회사DMZ천년꽃차 -<br>DMZ 청정지역에서 재배한 목련꽃을 활용한 상품개발 및 로컬체험을 경험할수 있습니다. DMZ Lounge 체험홍보관을 운영하여, 상시 체험 및 상품구매가 가능하며, 북한 앞 첫번째 카페로 옥상전망대에서 북한을 관람할수 있습니다. DMZ 평화꽃반지 체험, DMZ평화마스크 체험, 꽃 족욕 체험, 한반도 평화쿠키 체험, 로컬 디자인 초코렛 체험, 로컬베이커리 체험이 가능합니다.',to_date('2024-07-30 11:01:35','YYYY-MM-DD HH24:MI:SS'),to_date('2024-07-30 11:01:35','YYYY-MM-DD HH24:MI:SS'),0,'N',9,41480,1);
+Insert into BOARD_ARTICLE (BOARD_CT_NO,CONTENT,CONTENT_SIZE,CONTENT_LEVEL,BOARD_NO) values (SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.80039643755785,"lng":126.68357309974694,"address":"경기 파주시"}',0,0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730110135_29553.jpg','paju1.jpg',1,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730110135_12795.jpg','paju0.jpg',0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD (BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATE_DT,UPDATE_DT,READ_COUNT,BOARD_ST,BOARD_CD,LOCATION_CODE,MEMBER_NO) values (SEQ_BOARD_NO.NEXTVAL,'로블 포항 택시투어','- 주식회사나나리즘 -<br>나나리즘(nanarism)은 로컬의 스토리, 공간, 사람이 가진 특색을 발굴해 융합적 사고와 컬처테크를 더한 독창적인 콘텐츠를 개발하며 나다운 방식으로의 여행이 가능하도록 설계된 이색적인 경험을 제공합니다',to_date('2024-07-30 11:12:25','YYYY-MM-DD HH24:MI:SS'),to_date('2024-07-30 11:12:25','YYYY-MM-DD HH24:MI:SS'),0,'N',9,47110,1);
+Insert into BOARD_ARTICLE (BOARD_CT_NO,CONTENT,CONTENT_SIZE,CONTENT_LEVEL,BOARD_NO) values (SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":36.07160861879645,"lng":129.3419365836117,"address":"경북 포항시"}',0,0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730111225_36406.jpg','pohang1.jpg',1,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730111225_69481.png','pohang0.png',0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD (BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATE_DT,UPDATE_DT,READ_COUNT,BOARD_ST,BOARD_CD,LOCATION_CODE,MEMBER_NO) values (SEQ_BOARD_NO.NEXTVAL,'세계문화유산 마을 풍류 체험 양동마을','- 만호고택 -<br>술익는 마을 유네스코 등제 양동마을에는 집집마다 술을 만드는 가양주 문화가 있었다. 일제강점기 동안 소중한 우리의 전통주 문화가 많이 살아졌지만 양동역사마을에는 아직도 대를 이어 술을 담구어 제례를 지내는 집이 많이 있다. 전통주의 인기가 대중화 되고 있다 인공 감미료가 없는 건강한 전통주를 직접 빚어 보는 체험을 우리나라에서 전통한옥이 가장 많아 관광객이 즐겨 찾는 양동마을의 고즈늑한 한옥에서의 전통주 체험은 전통문화를 알고 싶어 하는 분들에게 좋은 체험이 될수 있다고 생각된다. 전통주 빗기체험 ,소주내리기체험 ,전통엿만들기, 모시송편만들기체험 등을 국내외 관광객을 대상으로 판매하고 있습니다.',to_date('2024-07-30 11:24:24','YYYY-MM-DD HH24:MI:SS'),to_date('2024-07-30 11:24:24','YYYY-MM-DD HH24:MI:SS'),0,'N',7,47130,1);
+Insert into BOARD_ARTICLE (BOARD_CT_NO,CONTENT,CONTENT_SIZE,CONTENT_LEVEL,BOARD_NO) values (SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":36.001610663031485,"lng":129.253055713825,"address":"경북 경주시"}',0,0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730112424_29405.png','yangdong1.png',1,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730112424_89289.png','yangdong0.png',0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD (BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATE_DT,UPDATE_DT,READ_COUNT,BOARD_ST,BOARD_CD,LOCATION_CODE,MEMBER_NO) values (SEQ_BOARD_NO.NEXTVAL,'DMZ 평화꽃반지 체험','- 농업회사법인주식회사DMZ천년꽃차 -<br>DMZ 청정지역에서 재배한 목련꽃을 활용한 상품개발 및 로컬체험을 경험할수 있습니다. DMZ Lounge 체험홍보관을 운영하여, 상시 체험 및 상품구매가 가능하며, 북한 앞 첫번째 카페로 옥상전망대에서 북한을 관람할수 있습니다. DMZ 평화꽃반지 체험, DMZ평화마스크 체험, 꽃 족욕 체험, 한반도 평화쿠키 체험, 로컬 디자인 초코렛 체험, 로컬베이커리 체험이 가능합니다.',to_date('2024-07-30 11:34:03','YYYY-MM-DD HH24:MI:SS'),to_date('2024-07-30 11:34:03','YYYY-MM-DD HH24:MI:SS'),0,'N',7,41480,1);
+Insert into BOARD_ARTICLE (BOARD_CT_NO,CONTENT,CONTENT_SIZE,CONTENT_LEVEL,BOARD_NO) values (SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.80039648330164,"lng":126.68359013139465,"address":"경기 파주시"}',0,0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730113402_24319.png','paju01.png',1,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730113402_96243.jpg','paju00.jpg',0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD (BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATE_DT,UPDATE_DT,READ_COUNT,BOARD_ST,BOARD_CD,LOCATION_CODE,MEMBER_NO) values (SEQ_BOARD_NO.NEXTVAL,'포항 야외방탈출 미션추리게임','- 주식회사나나리즘 -<br>나나리즘(nanarism)은 로컬의 스토리, 공간, 사람이 가진 특색을 발굴해 융합적 사고와 컬처테크를 더한 독창적인 콘텐츠를 개발하며 나다운 방식으로의 여행이 가능하도록 설계된 이색적인 경험을 제공합니다<br><br><br>- 유의사항 -<br>키트 불량으로 환불 및 교환을 원하는 경우 010-2235-2125로 문의바랍니다',to_date('2024-07-30 11:52:16','YYYY-MM-DD HH24:MI:SS'),to_date('2024-07-30 11:52:16','YYYY-MM-DD HH24:MI:SS'),0,'N',7,47110,1);
+Insert into BOARD_ARTICLE (BOARD_CT_NO,CONTENT,CONTENT_SIZE,CONTENT_LEVEL,BOARD_NO) values (SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":35.99056396532774,"lng":129.560424027479,"address":"경북 포항시"}',0,0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730115216_36837.jpg','Guryongpo1.jpg',1,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730115216_98093.png','Guryongpo0.png',0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD (BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATE_DT,UPDATE_DT,READ_COUNT,BOARD_ST,BOARD_CD,LOCATION_CODE,MEMBER_NO) values (SEQ_BOARD_NO.NEXTVAL,'추억의 수학여행 코스','- 경주키즈가족호텔 -<br>키즈 &amp; 가족호텔(불국사) *관광숙박업소 @ 여행스케줄 /정보/할인/등 여행자 센터 운영 @ 체험 프로그램운영 - 소원등 만들기/ 3대사찰 템플투어/ 서예/ 추억만들기(기와) *불국사 도보5분거리 / 경주월드10분 (차량) *불국사역(100년 역사) 5분 (차량) / 블루원 5분(차량) *첨성대(대릉원일대) 20분 (차량) *문무대왕(바다 25분) @ 위생관리 최우수등급. @ 수시 방역 소독 (자체소독방역모범업체) @ 무료영화 - 넷플렉스 / 유튜브 시청가능합니다.',to_date('2024-07-30 10:06:35','YYYY-MM-DD HH24:MI:SS'),to_date('2024-07-30 10:06:35','YYYY-MM-DD HH24:MI:SS'),0,'N',6,47130,1);
+Insert into BOARD_ARTICLE (BOARD_CT_NO,CONTENT,CONTENT_SIZE,CONTENT_LEVEL,BOARD_NO) values (SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":35.85622346493463,"lng":129.22477908593567,"address":"경북 경주시"}',0,0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730100635_43119.jpg','gyeongju2.jpg',2,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730100635_39238.png','gyeongju1.png',1,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730100635_51731.png','gyeongju0.png',0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD (BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATE_DT,UPDATE_DT,READ_COUNT,BOARD_ST,BOARD_CD,LOCATION_CODE,MEMBER_NO) values (SEQ_BOARD_NO.NEXTVAL,'힐링투어 꽃차 소믈리에 체험','* 7일 전 취소 : 전액 환불<br>* 3~6일 전 취소 : 50% 환불<br>* 당일 및 하루 전 취소 : 환불 불가',to_date('2024-07-30 10:25:16','YYYY-MM-DD HH24:MI:SS'),to_date('2024-07-30 10:25:16','YYYY-MM-DD HH24:MI:SS'),0,'N',6,51750,1);
+Insert into BOARD_ARTICLE (BOARD_CT_NO,CONTENT,CONTENT_SIZE,CONTENT_LEVEL,BOARD_NO) values (SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.17997696827506,"lng":128.44616507413016,"address":"강원특별자치도 영월군"}',0,0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730102515_11729.png','yeongwol1.png',1,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730102515_07944.png','yeongwol0.png',0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD (BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATE_DT,UPDATE_DT,READ_COUNT,BOARD_ST,BOARD_CD,LOCATION_CODE,MEMBER_NO) values (SEQ_BOARD_NO.NEXTVAL,'마을 맛 여행','- 주식회사마을너머 -<br>㈜마을너머는 국내여행 전문 여행사로, 특히 제천시의 마을을 중심으로 그 이야기를 담은 ‘마을여행상품’을 제공합니다. 소비적 풍토를 지양하고 생산적이며, 건전한 지속가능한 여행문화 형성에 이바지하고, 인구 감소 문제를 겪고 있는 시골 마을에 활력을 불어 일으킵니다. ㈜마을너머의 여행상품은 지속가능성에 초점을 두고 소규모 단위의 여행을 지향합니다. 주민이 직접 여행을 이끄는 여행지기로 참여하고, 여행자는 자기 이야기를 담아 여행을 함께 완성해 가는 경험을 합니다.<br><br>&lt;유의사항&gt;<br>지속가능한 여행을 위해 일회용품과 플라스틱 사용을 지양합니다.<br>걷는 시간이 있습니다. 걷기에 적합한 복장과 신발(운동화)을 준비해 주십시오.<br><br>1. 인원미달로 여행이 해제되는 경우 전액 환불합니다.<br>2. 고객의 일정 변경 혹은 여행계약 해제 시고객의 편의를 위해 사전예약/결제를 하는 선택 체험비는 환불되지 않습니다.<br>*. 고객의 여행 계약해지 시 취소 수수료<br>- 여행 개시 30일전까지 취소 시 : 전액환불<br>- 여행 개시 29~20일전까지 취소 시 : 여행 경비의 10% 제외 후 환불<br>- 여행 개시 19~10일전까지 취소 시 : 여행 경비의 15% 제외 후 환불<br>- 여행 개시 9일~8일전까지 취소 시 : 여행 경비의 20% 제외 후 환불<br>- 여행 개시 7일~1일전까지 취소 시 : 여행 경비의 30% 제외 후 환불<br>- 여행 출발 당일 취소 시 : 여행경비의 50% 제외 후 환불<br>- 여행 출발일 이후 : 환불 불가',to_date('2024-07-30 10:37:58','YYYY-MM-DD HH24:MI:SS'),to_date('2024-07-30 10:37:58','YYYY-MM-DD HH24:MI:SS'),0,'N',6,43150,1);
+Insert into BOARD_ARTICLE (BOARD_CT_NO,CONTENT,CONTENT_SIZE,CONTENT_LEVEL,BOARD_NO) values (SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":36.884048630641324,"lng":128.21770076171782,"address":"충북 제천시"}',0,0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730103758_64987.png','Jecheon3.png',3,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730103758_95199.png','Jecheon2.png',2,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730103758_41999.jpg','Jecheon1.jpg',1,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730103758_69419.jpg','Jecheon0.jpg',0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD (BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATE_DT,UPDATE_DT,READ_COUNT,BOARD_ST,BOARD_CD,LOCATION_CODE,MEMBER_NO) values (SEQ_BOARD_NO.NEXTVAL,'[울루랄라 해양레저] 내수전 스노쿨링','- 울릉아쿠아레포츠캠프 -<br>아쿠아캠프는 울릉도 저동리에 위치한 다이빙 전문 리조트로써, 다이빙투어, 다이빙교육, 체험다이빙을 진행하고 있습니다. 울릉도를 찾아주시는 고객님들께 최고의 서비스와 최상의 다이빙시스템으로 울릉도내 대표적인 다이빙 포인트로 안내해 드리고 있습니다. 항상 최고가 될 수 있는 울릉 아쿠아캠프가 되도록 하겠습니다. 감사합니다.<br><br>- 유의사항 -<br>''예약 전 운영사로 문의 부탁드립니다.<br>운영사를 통한 상담 및 예약 확정 후 결제해주시기 바랍니다.<br>당일 예약은 어려우니 최소 이틀 전 예약 부탁드립니다.<br>예약 문의 : 0507-1434-7830',to_date('2024-07-30 12:03:59','YYYY-MM-DD HH24:MI:SS'),to_date('2024-07-30 12:03:59','YYYY-MM-DD HH24:MI:SS'),0,'N',8,47940,1);
+Insert into BOARD_ARTICLE (BOARD_CT_NO,CONTENT,CONTENT_SIZE,CONTENT_LEVEL,BOARD_NO) values (SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.50529204712981,"lng":130.91392129980284,"address":"경북 울릉군"}',0,0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730120359_62485.png','swim1.png',1,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730120359_90070.png','swim0.png',0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD (BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATE_DT,UPDATE_DT,READ_COUNT,BOARD_ST,BOARD_CD,LOCATION_CODE,MEMBER_NO) values (SEQ_BOARD_NO.NEXTVAL,'부여하늘날기 1박2일 열기구 체험','- 리빙인터내셔널 -<br>(주)리빙인터내셔널은 2013년에 설립하여 MICE관광, 공정관광 프로그램, 충청권 연계사업, 과학탐방 프로그램, 대한민국 테마여행10선 프로그램 등 국,내외 인바운드 여행 프로그램을 전문적으로 운영하고 있습니다. 현재 문화체육관광부 주관 대한민국 테마10선 9권역 (대전,부여,공주,익산) 운영사로 고객의 안전과 신뢰를 바탕으로 행복한 여행 추억을 선물 하기위해 최선을 다하고 있습니다. [주요 연혁] - 한국여행업협회(KATA) 회원 - 2013년 9월 국제항공운송협회(IATA) 정회원(BSP발권) - 2014년 4월 ㈜하나투어 전문판매점 계약 - 2015년 10월 연태 북명그룹 인바운드 MOU - 2017년 5월 국제회의업 등록 - 2017 ~ 9년 대전마케팅공사 MICE 프로그램 운영 - 2018년 7월 마닐라 패스트트랙 트래블 MOU - 2019년 4월 한국관광공사 대전충남 글로컬 프로그램 - 2019년 5월 대전시청 대전과학명소탐방 프로그램 - 2019년 6월 대전시관광협회 충청권 연계사업 - 2020년 5월 대전학연구회 MOU - 2020년 10월 대전마케팅공사 대전공정관광 프로그램 - 2021년 6월 대전마케팅공사 대전세종 연계관광 MOU<br><br><br>- 유의사항 -<br>- 예약 전 상품 하단 &quot;상품문의쓰기&quot;를 통해 원하시는 일자의 숙소 및 열기구 가능 여부를 미리 확인 하신 후<br>예약 진행 해주시기 바랍니다. 문의 전 예약시에는 숙소 및 열기구 상황에 따라 일정이 취소나 변경 될 수도 있습니다.<br><br>- 숙소 주말은 금,토,일 숙박 기준입니다.<br><br>- 소인은 만12세 미만(초등학생) 까지입니다.',to_date('2024-07-30 12:16:38','YYYY-MM-DD HH24:MI:SS'),to_date('2024-07-30 12:16:38','YYYY-MM-DD HH24:MI:SS'),0,'N',8,44760,1);
+Insert into BOARD_ARTICLE (BOARD_CT_NO,CONTENT,CONTENT_SIZE,CONTENT_LEVEL,BOARD_NO) values (SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":36.304037317170206,"lng":126.9008281823754,"address":"충남 부여군"}',0,0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730121638_28014.png','gigu1.png',1,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730121638_00807.png','gigu0.png',0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD (BOARD_NO,BOARD_TITLE,BOARD_CONTENT,CREATE_DT,UPDATE_DT,READ_COUNT,BOARD_ST,BOARD_CD,LOCATION_CODE,MEMBER_NO) values (SEQ_BOARD_NO.NEXTVAL,'동강서바이벌게임(페인트볼 전투 체험)','- 동강래프팅주식회사 -<br>25년 운영의 안전과 서비스를 드리겠습니다. 동강래프팅(주)는 레포츠 전문회사로서 25년을 늘 성장하면서 영월 동강레포츠의 중심으로 자리매김 해 가고 있습니다. 항상 고객 여러분을 맞을 만반의 준비가 되어 있으며, 언제든지 안전하고 즐거운 레포츠 생활을 즐기실 수 있도록 앞으로도 더욱 발전하여 고객님의 성원에 보답하도록 노력 하겠습니다.<br><br>영월 동강을 주 필드로 펼쳐지는 서바이벌게임 페인트볼 전투 체험<br>가족 단위, 소규모 서바이벌 게임 체험 및 초, 중, 고, 대학생 등 학생 단체,<br>기업 단체 등 대단위 서바이벌 게임 행사도 가능한 영월 동강의 전용 필드장에서 진행되는 생존 체험<br><br>예약번호: 1544-7569 / 033-375-9800<br>①이용희망일 1일 전 16시까지 티켓 구매<br>②업체로 전화하여 날짜 및 시간 예약<br>(예약 시점에 티켓은 사용처리되며, 이후로는 업체규정에 따라 취소 위약금이 발생됩니다.)<br>③현장 방문 및 구매자 정보 확인 후 이용<br><br>동강래프팅㈜ 만의 전용샤워장(온수샤워) 무료 이용가능<br>(전원)젖은옷 보관을 위한 지퍼백 1인 당 1매 기본지급<br>(래프팅구매자) 스포츠타올 선택구매 가능<br>현장 사무실 내 무료 와이파이, 휴게실, 매점 등 운영<br>고객안전 제일주의! 자동제세동기(AED) 완비<br>동영상 촬영서비스 현장 결제 후 이용가능<br><br>보다 편리한 이용을 위해 이용날짜, 시간, 참여인원, 참여프로그램 등에 대해 사전 전화예약 후 이용 해주시기 바랍니다.<br>영월역, 영월시외버스터미널 차량픽업 가능합니다.<br>(단, 사전 예약시 에만 가능/당일요청 시 픽업불가)<br>동강서바이벌게임 필드장은 전용필드장 기준이며, 최소 진행 전투 인원은 최대 4~6명 이상 입니다.<br>각 프로그램 별 최소 참여인원 모집 시 진행이 가능합니다.<br>(인원 미달 시 다른 프로그램으로 변경 진행이 가능합니다.)<br>체험 레저활동의 특이사항으로, 우천 시 프로그램 진행이 불가능할 경우 1회에 한하여 날짜변경이 가능합니다.<br>자세한 내용은 각 프로그램 별 세부일정을 참고해주시기 바랍니다.',to_date('2024-07-30 12:36:08','YYYY-MM-DD HH24:MI:SS'),to_date('2024-07-30 12:36:08','YYYY-MM-DD HH24:MI:SS'),0,'N',8,51750,1);
+Insert into BOARD_ARTICLE (BOARD_CT_NO,CONTENT,CONTENT_SIZE,CONTENT_LEVEL,BOARD_NO) values (SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.233142464473254,"lng":128.5102863676719,"address":"강원특별자치도 영월군"}',0,0,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730123608_76325.jpg','shoot1.jpg',1,SEQ_BOARD_NO.CURRVAL);
+Insert into BOARD_IMG (IMG_NO,IMG_SIZE,IMG_RENAME,IMG_ORIGINAL,IMG_LEVEL,BOARD_NO) values (SEQ_IMG_NO.NEXTVAL,1,'/resources/images/thema/20240730123608_67405.png','shoot0.png',0,SEQ_BOARD_NO.CURRVAL);
+
+-- 지역 게시글 삽입
+
+-- 지역 게시글 기본 데이터 
+-- 서울
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'경복궁','한국의 얼이 담긴 경복궁',DEFAULT,DEFAULT,DEFAULT,DEFAULT,10,11110,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'서울특별시 종로구 사직로 161 (세종로)에 있는 조선시대의 궁궐 중 하나이자 조선의 정궁(법궁)이다. 사적 제117호로 지정받았다. 태조가 조선을 건국하고 한양 천도를 단행[3]하면서 조선 시대에 가장 먼저 지은 궁궐이다.
+1592년 임진왜란 때 소실되어 275년간 방치되다가 19세기에 흥선대원군 주도로 중건되었다. 당시에는 7천여 칸이라는 거대한 규모를 자랑하는 건축물로 거듭났었지만 구한말과 일제강점기를 거치며 수천 칸의 전각이 헐리고 매각되며 조선총독부 청사와 같은 다른 건물이 들어서는 궁 궐내가 크게 훼손되었다. 1990년에 이르러서는 고작 36동의 건물(고종 재위 당시의 7% 수준)만 남았고 지금도 계속 복원이 이루어지고 있다. 다만 사라진 전각들에 대한 자료가 부족하여 최근 복원한 전각들도 원형이라는 보장은 없으며, 후일에도 완전한 경복궁의 모습을 볼 수 있을지는 미지수이다.
+현재의 행정구역으로는 서울특별시 종로구에 위치해 있다. 가장 가까운 지하철역은 경복궁역이며, 5번 출구로 나가면 바로 경복궁의 정문인 광화문 안쪽으로 들어갈 수 있다. 그리고 안국역이나 광화문역에서도 걸어갈 수 있다. 경복궁 앞길에는 각종 관청이 있어 육조 거리라고 불렸으며, 이 길이 오늘날의 세종대로다. 당대에도 국가의 중심 거리였기 때문에 육조 거리는 지금의 세종대로의 폭과 거의 같은 폭으로 조성되었다고 한다. 현재 세종대로 중앙에는 광화문광장이 있다. 주변에는 청와대, 헌법재판소, 정부서울청사, 주한미국대사관, 세종문화회관 등이 있으며, 인사동길도 경복궁에서 꽤 가깝다.',
+0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.577692137859,"lng":126.97696237195996,"address":"서울 종로구"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/경복궁.jpg','경복궁.jpg',0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'국립중앙박물관','역사가 살아있는 박물관',DEFAULT,DEFAULT,DEFAULT,DEFAULT,10,11170,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'서울특별시 용산구 용산동6가에 위치한 한국 최대의 대표 국립 박물관. 한국의 고미술, 유물을 중심으로 소장하고 있다.
+한국의 현대 미술은 국립현대미술관에서 담당한다. 행정조직법상으로는 문화체육관광부 소속기관인데, 국가를 대표하는 박물관으로서 국내 다른 박물관을 지도·지원하는 위치에 있다. 가까운 곳에는 국립한글박물관이 있다.
+소장 유물 약 150만여 점, 상설 전시 유물 1만여 점으로 한국 최대의 박물관이면서 세계적으로도 상당한 규모이다. 2020년 보도에 따르면 2019년 기준 13개 국립박물관의 총 소장 유물 200만2111점 중 국립중앙박물관은 약 20%인 41만2216점을 소장하고 있고 최근 10년간 소장유물수 대비 전시율은 그중 3%에 불과하다.
+관람객 수가 아시아 1위, 세계 10위였던 적도 있지만 2017년도 관람객 수는 아시아 2위, 세계 12위로 내려갔고 2018년도 관람객 수는 세계 20위권 밖으로 밀려났다. 다행히 코로나19 이후 관람객이 다시 증가 추세를 보이고 있으며, 2023년에는 한 해에만 418만명이 방문하며 최대 관람객 수치를 갱신했다. 이는 당해 세계 6위에 해당하는 기록이며 TOP10 중 아시아 유일이다.',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.52383104598284,"lng":126.98021150745372,"address":"서울 용산구"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/국중박.jpg','궁중박.jpg',0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'북촌한옥마을','양반 귀족 마을',DEFAULT,DEFAULT,DEFAULT,DEFAULT,10,11110,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'서울 북쪽에 위치한 한옥동네라는 뜻으로 조선왕조 때부터 왕족, 양반, 관료 출신들이 살았던 고급 가옥이 대부분이라 하여서 일각에서는 "양반촌", "양반 동네" 라고도 불렸다. 일제강점기 때 한옥이 일부 증, 개축되고 1992년 가회동 한옥보존지구에서 해제되어 한옥 이외에도 일반 건물도 들어섰다. 특히 원서동은 업자들이 유혹해 빠르게 빌라가 들어서 이전의 풍경을 잃었다. 2001년 서울시가 "북촌가꾸기사업"을 진행하여 한옥과 주변 경관을 개선해 2009년 유네스코 아태문화유산상 우수상을 받았다.
+한국 최초의 디벨로퍼라 불리는 부동산개발업자 정세권이 조성한 한옥대단지이다. 경상남도 고성군 출신 정세권은 1919년에 상경한 뒤 건축 사업을 시작하였다.
+당시 서울(경성부)은 급팽창하고 있었다. 지방 빈농의 유입도 급증하고, 일본인의 서울 이주도 급증했다. 인구 증가는 주택난을 불렀다. 당시 청계천 남쪽에는 일본인들이 주로 모여 살았는데, 일본인들이 증가하자 청계천 북쪽으로까지 확장을 노렸고, 조선총독부는 정부기관을 국공유지에 먼저 들인 후 일본인을 진출시키는 방식으로 청계천 북쪽으로 일본인 거주지 확장을 주도하였다.
+당시 북촌은 일제 침략으로 어려워진 권세가들이 내놓은 집들이 많았다. 정세권은 조선인의 영역을 지키고자 조선인 건설업자들과 함께 민간주택 건설 사업에 진출하였다. 권세가, 양반들이 소유하였던 넓은 토지나 택지를 쪼개 여러 채의 작은 규모의 한옥을 대량공급함으로써 조선인 주거지역을 확보하고 고유 주거방식을 잃어버리는 것을 막았다.
+이러한 한옥 집단지구에 공급된 한옥은 전통한옥의 구조를 ㅁ자 안에 집약하고. 부엌과 화장실을 신식으로 개선하는 등 근대적인 편리함과 생활약식을 반영한 도시한옥(개량한옥)이었다.',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.58174337650977,"lng":126.98481245567416,"address":"서울 종로구"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/북촌한옥마을.jpg','북촌한옥마을.jpg',0,SEQ_BOARD_NO.CURRVAL);
+
+--인천
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'송도 센트럴 파크','국내 최초로 바닷물을 이용한 해수공원',DEFAULT,DEFAULT,DEFAULT,DEFAULT,11,28185,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'인천광역시 연수구 송도동 도심 속에 위치한 경제자유구역 송도국제도시를 대표하는 공원.
+
+고밀도 주거-상업구역이 밀집한 송도국제도시의 중앙에, 쉴 수 있는 대형 녹지를 마련하는 것이 이 공원의 첫 목표였다. 국제사회 속 대한민국의 지형 특징을 살려 만들었는데, 공원 내부에는 대한민국의 산맥을 표현한 언덕들과, 바다를 표현한 호수, 그리고 섬들이 있다. 공원 중심을 가로지르는 인공 호수는 해수를 끌어들여 사용한다. 그 위로 수상택시 및 보트, 카약등을 이용할 수 있다. 카약 요금은 25,000원이다.
+
+송도 센트럴파크는 송도국제도시의 제 1공구에 위치한 공원이다. 여의도공원의 약 2배 넓이다.
+
+관광객들이 늘어나면서 송도국제도시의 명소이자 상징이 되었다. 관광객 증가로 인근 주민들은 해돋이 공원이나 미추홀 공원, 북쪽의 달맞이 공원 등을 더 많이 이용하는 편이다.',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.392978421452,"lng":126.6386487331691,"address":"인천 연수구"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/송도센트럴파크.jpg','송도센트럴파크.jpg',0,SEQ_BOARD_NO.CURRVAL);
+
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'월미도','방방 타러 가자',DEFAULT,DEFAULT,DEFAULT,DEFAULT,11,28110,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'월미도(月尾島)는 인천광역시 중구 북성동1가에 속해 있는 섬이었다. 현재는 섬과 육지 사이가 메워졌다. 섬의 생김새가 반달 꼬리 모양 같아 붙여진 이름이다. 가장 높은 곳은 월미산으로, 해발 고도는 108m에 불과하다. 월미도 밑에는 그보다 작은 소월미도가 있다. 인천시민들과 그 주변 도시 주민들이 많이 찾는 명소이기도 하다.
+1960년대까지도 월미도는 육지와 제방으로만 이어진 섬이었으나 1970년대 들어서 제방 주변의 바다를 땅으로 메우고 이 자리에 공장과 항만시설을 지으면서 육지와 연결된 반도가 되었다. 1980년대 들어서 월미도 해안 주변에 놀이동산이 들어서면서 수도권의 대표적인 해양 관광지로 인기를 끌게 된다. 특히 1990년대 들어서 월미도 놀이동산의 바이킹과 디스코 팡팡이 주목을 받으면서 월미도의 인기가 수직상승하기도 했다.',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.47162924592855,"lng":126.5999647402679,"address":"인천 중구"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/월미도 대관람차.jpg','월미도 대관람차.jpg',0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'트리플 스트리트','인천의 복합 쇼핑몰',DEFAULT,DEFAULT,DEFAULT,DEFAULT,11,28185,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'인천광역시 연수구 송도국제도시에 2017년 4월 29일 개장한 복합쇼핑몰.
+매스스터디 (조민석) 에서 설계하였으며, 2017 인천시 건축 대상을 수상하였다. A동, B동, C동, D동으로 나뉘어져 있으며, 지하 3층부터 지상 3층까지 구성되어있다. C동과 D동 사이에 잔디밭과 작은 무대가 설치되어 있어 주요 행사를 이곳에서 한다.
+개성 있는 맛집과 카페, 팝업 스토어 등이 줄지어 있는 쇼핑 거리. 기존의 백화점과는 다르게 여러 채의 동으로 나뉘어 있고, 색색의 우산으로 거리가 꾸며져 있어 돌아다니며 쇼핑하는 재미가 쏠쏠하다. 
+식당과 카페, 오락실, 영화관, 라운지 바 등 먹거리와 즐길 거리를 한 번에 해결할 수 있어 낮과 밤 언제나 사람들로 붐비며, 푸드트럭, 클래식 공연, 플리마켓, 마임쇼, 버블쇼 등의 행사도 진행해 볼거리도 가득하다.',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.37986977135458,"lng":126.66110984740632,"address":"인천 연수구"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/트리플 스트리트.jpg','트리플 스트리트.jpg',0,SEQ_BOARD_NO.CURRVAL);
+
+-- 대전
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'성심당','빵의 성지',DEFAULT,DEFAULT,DEFAULT,DEFAULT,12,30140,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'성심당(聖心堂)은 대전광역시의 향토기업인 로쏘 주식회사가 운영하는 제과점으로, 대전광역시 중구 은행동에 본점을 두고 있다. 업종은 빵류 제조업, 대표이사는 임영진(세례명 요셉)이며, 그의 배우자 김미진 이사(세례명 아녜스)와 함께 경영한다.
+ 튀김소보로나 부추빵으로 이름이 났으며, 2014년 프란치스코 교황 방한 때 교황의 식사빵을 만든 기업으로 유명하다. 군산 이성당, 서울 나폴레옹, 전주 PNB풍년제과, 부산 비앤씨와 함께 대한민국의 5대 빵집으로 꼽히기도 한다.
+ 점포는 은행동에 위치한 본점과 더불어 대전역, 대전컨벤션센터, 롯데백화점 대전점 등 다섯 곳에 있는데, 대전 외의 지역에는 점포를 내지 않는다. KTX 특송 서비스를 운영하여 타지역에서도 만나볼 수 있었던 성심당은 2022년 12월 25일자로 KTX특송 수화물센터 영업이 종료되었다.
+',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":36.32763773337447,"lng":127.42728264894794,"address":"대전 중구"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/성심당.jpg','성심당.jpg',0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'엑스포과학공원','대전 엑스포의 기억',DEFAULT,DEFAULT,DEFAULT,DEFAULT,12,30200,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'엑스포과학공원(EXPO科學公園, EXPO Science Park)은 대한민국 대전광역시 유성구 도룡동 대덕연구단지 내에 위치했던 대한민국 내 유일의 과학테마파크였다. 1993년 세계 박람회 행사가 끝난 뒤 1994년 8월 재개장하여 운영되다가 현재는 중단되었다. 개장 초기 운영주체는 산업자원부였지만 1999년 1월 대전광역시로 무상양여되었고, 같은 해 7월 지방공사 대전엑스포과학공원을 설립하여 운영되었다. 이후 2011년 11월 지방공사 대전엑스포과학공원과 대전컨벤션뷰로가 합병한 대전마케팅공사가 출범하면서 대전마케팅공사가 엑스포과학공원을 운영하였다. 엑스포과학공원은 대전광역시가 미래창조과학부에 제출한 "대덕연구개발특구 내 엑스포과학공원 변경 개발계획" 이 심의를 통과하면서 이른바 "엑스포 재창조 사업" 이 본격적으로 시작됐다.
+2014년 10월 말부터 HD드라마타운 부지(주차장, 정문게이트, 정문 지구본 조형물 광장, 바디월드 등)에 대해 철거공사가 시작됐고, 공원 내 대부분의 전시관이 운영을 중단한 상태다. 하지만 한빛탑과 대전엑스포기념관, 세계엑스포 기념품 박물관, 음악분수는 엑스포기념구역 내 존치 시설로 계속 운영 중이며, 2015년 2월 말부터는 기초과학연구원 부지에 대해서도 방음벽을 설치 및 관람객의 통행을 전면 통제하고 지장물 철거공사에 본격 착수, 2018년 1월 본원이 이전하여 연구활동을 시작했고 2018년 4월 20일에 개원식을 갖고 운영 중이다.
+',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":36.37716126385261,"lng":127.38709170665872,"address":"대전 유성구"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/대전 엑스포과학공원.jpg','대전 엑스포과학공원.jpg',0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'지질 박물관','국내 유일 지질 박물관',DEFAULT,DEFAULT,DEFAULT,DEFAULT,12,30200,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'1993 대전 엑스포를 계기로 1918년부터 조사되어 온 온갖 지질 표본들을 일반인에게 보여주고자 "지질표본관"을 세웠다. 이후 관객들의 요구 수용과 좀 더 체계적인 전문 박물관의 필요성이 대두됨에 따라 현재의 지질박물관으로 재개관하게 되었다. 소장품은 총 5,000점이다. 이곳에는 광물 300여 점, 화석 250여 점, 암석, 석재, 지질 및 퇴적구조 100여 점을 비롯하여 지구의 생성과 진화과정 등을 보여주는 여러 가지 도표와 그림을 전시하고 있다. 이 밖에 영상물의 상영, 강연회, 체험학습의 장 등을 마련하여 지질과학의 대중화에 기여 중이다.
+',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":36.37768769930623,"lng":127.36218691774909,"address":"대전 유성구"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/지질박물관.jpg','지질박물관.jpg',0,SEQ_BOARD_NO.CURRVAL);
+
+-- 대구
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'송해 공원','홍보대사 송해',DEFAULT,DEFAULT,DEFAULT,DEFAULT,13,27710,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'대구광역시 달성군 옥포읍 기세리에 있는 수변공원이다. 간경리와 용연사를 오고가는 길에 있으며, 원래 이 곳에 있던 저수지인 "옥연지"와 그 일대를 공원화한 거라서 "옥연지 송해공원"이라 불리기도 한다.
+',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":35.76858088676378,"lng":128.48741085708923,"address":"대구 달성군"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/송해공원.jpg','송해공원.jpg',0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'83 타워','대한민국 두 번째 높은 탑',DEFAULT,DEFAULT,DEFAULT,DEFAULT,13,27290,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'대구광역시 달서구 두류공원로 200 (두류동)에 있는 탑이다. 완공 시기는 1992년이며 대한민국에서 두 번째로 높은 탑이다.
+높이는 202m(탑신 153m + 철탑 49m)로서 대구에서 법적으로 가장 높은 건축물이다. 현재도 대구의 랜드마크 역할을 충실히 하고 있다. 아래에서 바라보는 체감 높이는 더 높은 편인데 아래의 애슐리, 아이스링크 등이 있는 3층짜리 저층부 위쪽에 탑이 있고, 위치가 이월드의 가장 높은 부분인 언덕 꼭대기 부분에 있기 때문이다.
+놀이공원과 달리 타워 출입은 공짜다. 다만 전망대로 올라가는 건 비용이 별도로 발생한다. 사실 전망대를 제외하여도 놀거리나 먹거리, 볼거리가 있는 곳은 모두 비용을 지불하는 구조이기에 사진만 찍고 올거 아닌 딴에야 제대로 대구타워를 즐기고자 한다면 비용은 거의 필연적으로 발생한다.
+',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":35.853201898913625,"lng":128.56668763044777,"address":"대구 달서구"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/대구 83타워.webp','대구 83타워.webp',0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'마비정 벽화 마을','숨어있는 보석 마비정 벽화마을',DEFAULT,DEFAULT,DEFAULT,DEFAULT,13,27710,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'대구광역시 화원읍 본리리에 있는 마을이자 벽화마을. 2012년 마비정 마을이 농촌 체험 마을 사업을 통해 벽화마을로 조성되었다. 화원유원지, 사문진주막촌과 함께 화원읍의 주요 관광자원이다.
+1960~1970년대의 정겨운 농촌 풍경을 벽화로 꾸몄으며, 흙담과 좁은 골목길 등의 토속적 자연환경을 그대로 보존하고 있다. 국내 유일의 연리목과 연리지사랑 나무와 국내 최고령 옻나무, 대나무 터널 길, 이팝나무 터널 길이 있다. 마비정 벽화마을은 2013년 도시 대상을 수상하였으며 2015년 대한민국 경관 대상 최우수상을 수상하였다. SBS 런닝맨 촬영지로도 등장하였다.',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":35.77875732298851,"lng":128.54160654026984,"address":"대구 달성군"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/마비정 벽화마을.webp','마비정 벽화마을.webp',0,SEQ_BOARD_NO.CURRVAL);
+
+-- 부산
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'해운대 해수욕장','여름엔 역시 해운대',DEFAULT,DEFAULT,DEFAULT,DEFAULT,14,26350,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'부산광역시 해운대구에 위치한 해수욕장. 광안대교와 더불어 외지인들에게 가장 유명한 부산광역시의 양대 랜드마크이다.
+
+대한민국 최대규모와 면적을 자랑하며, 도심과 부촌 스카이라인 근처에 위치한 해변이라는 특수성 덕에 많은 사람들이 살고싶은 곳으로 손꼽힌다.
+
+이 때문에 7월~8월 성수기엔 전국에서 몰려드는 관광객들로 인해 가장 붐비는 해수욕장으로 유명하다.[3] 가히 국내 해변의 상징과도 같은 곳이다. 이외에도 독일의 공영방송사 ZDF와 미국 주요 언론사에서도 세계 3대 해수욕장이라 평가할 정도로 국외에서의 인지도도 꽤 높아 외국인 관광객도 매우 많이 방문하는 곳이다.[4][5] 즉 매년 국내 최고의 여름 휴가철 여행지 부동의 1순위이다.
+
+행정구역상으론 서쪽 절반은 우1동, 동쪽 절반은 중1동에 걸쳐 있다.',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":35.15886095547391,"lng":129.15978953269266,"address":"부산 해운대구"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/해운대.webp','해운대.webp',0,SEQ_BOARD_NO.CURRVAL);
+
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'감천문화마을','알록달록 부산의 마을',DEFAULT,DEFAULT,DEFAULT,DEFAULT,14,26380,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'부산광역시 사하구 감천동에 있는 마을이자 부산 원도심의 대표적인 랜드마크. 산복도로 르네상스 사업을 통하여 도시재생 프로젝트로 큰 성과를 거둔 성공적인 사례라고 할 수 있다.
+
+한국의 마추픽추 혹은 산토리니라는 별명이 있지만 그리스 산토리니처럼 해안가에 붙어 있지 않으며, 풍경도 산토리니와 유사하지도 않다. 가장 가까운 바닷가인 감천항중앙부두에서 마을 입구에 해당하는 감천2동주민센터까지 약 1km 떨어졌고 설상가상으로 감천항이 만(湾) 형태라 탁 트인 곳도 아니다. 2019년 이후엔 해안 절벽 앞의 마을인 영도구의 흰여울문화마을을 산토리니로 비유하는 경우가 점점 많아졌다.
+
+한국관광공사의 한국 관광 100선에 거의 매년 선정되었다',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":35.096271788995956,"lng":129.00942543060845,"address":"부산 사하구"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/감천문화마을.jpg','감천문화마을.jpg',0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'해동용궁사','부산의 사찰',DEFAULT,DEFAULT,DEFAULT,DEFAULT,14,26710,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'부산광역시 기장군 기장읍 용궁길 86 (시랑리)에 위치한 사찰이며, 대한불교 조계종 제19교구 본사 화엄사의 말사이다.
+
+보통 산속에 있는 일반적인 사찰과 달리 탁 트인 동해를 마주하고 있어 관광지로 유명하다. 주말과 휴가 시즌에는 외국인을 포함, 외지발 방문객들이 상당히 많이 찾아오는 절이며 시티투어버스 해운대 노선도 이 곳을 경유한다. 오랜 역사의 범어사, 규모의 삼광사와 더불어 아름다운 경치로 인해 부산에서 가장 이름난 절이다.
+
+부산광역시 유형문화재인 해동용궁사 금강반야바라밀경론을 소장하고 있다.',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":35.18840228627975,"lng":129.22314745063625,"address":"부산 기장군"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/해동용궁사.jpg','해동용궁사.jpg',0,SEQ_BOARD_NO.CURRVAL);
+
+-- 수원
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'수원화성','정조대왕의 위대한 업적',DEFAULT,DEFAULT,DEFAULT,DEFAULT,15,41110,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'수원화성은 1794년(정조 18년) 2월에 착공하여 1796년(정조 20년)에 축성된 것으로, 성곽의 총 길이는 5.74km에 달한다. 지금의 화성시 안녕동에 융건릉을 조성하면서 그 일대에 있던 수원도호부의 읍치를 지금의 자리로 옮기면서 만든 계획도시로, 화성의 축조는 정조의 업적 중 하나로 평가 받는다.
+
+동양의 전통적 축성 기법에 공심돈·포루와 같은 서양식 성채의 방어 시설을 대거 반영하여 기존의 한국식 읍성과는 구조나 양식이 확연히 차이가 있고, 특히 축성 당시에 거중기와 같은 서양의 건축 기술을 도입하였다는 점에서 건축적으로 높은 평가를 받는다.
+
+축성 이후 수 차례의 자연재해[3]와 한국전쟁을 거치며 파괴되었으나, 축성 당시에 그림과 글로 설계도와 내용을 철저하게 남겨 놓은 화성성역의궤 덕분에 원형에 가깝게 복원할 수 있었다. 본래 유네스코 세계문화유산에는 원본 그대로인 건축물만 등재가 가능했으나, 기록물 덕분에 원형에 가깝게 복원되었다는 점이 인정되어 이례적으로 등재되었다. 이후 화성성역의궤도 조선왕조의궤의 일부로 유네스코 세계기록유산에 등재되었다. 또한 설계도와 작업 진행 기록이 온전히 남아있는 덕분에 현대에 유지보수를 해도 세계유산 자격을 그대로 유지가 가능하다. 한 마디로 세계기록유산인 설계도와 작업진행기록의 존재로 온전히 유지보수가 가능한 세계유산이다.
+
+오늘날에는 수원시의 상징이자 랜드마크로 여겨지고 있다. 오늘날 수원시의 휘장은 수원화성의 서북공심돈을 형상화한 것이며, 수원을 연고로 한 축구 구단인 수원 삼성 블루윙즈와 수원 FC의 엠블럼 역시 화성에서 따 왔다. 수원 연고의 야구 구단 kt wiz의 홈구장 수원 케이티 위즈 파크 전광판 위에도 수원화성을 형상화한 조형물이 있고 야구장 건물의 일부분[4] 또한 수원화성 성벽을 모티브로 제작되었으며, 제10전투비행단의 정문도 이를 모티브로 제작되었다.',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.28680737916014,"lng":127.0118662011119,"address":"경기 수원시"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/수원화성 북수문인 화흥문.webp','수원화성 북수문인 화흥문.webp',0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'광교 호수로','어뮤즈 파크',DEFAULT,DEFAULT,DEFAULT,DEFAULT,15,41110,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'광교신도시의 랜드마크다. 남서측에 위치한 원천호수와 북동측에 위치한 신대호수를 끼고 광범위하게 조성되었다.
+
+호수공원이 조성되기 전에는 농업용수를 공급하는 저수시설이었다. 1929년 9월 27일에 수용수리조합에 처음 조성되었다.기사 조성 당시 이름은 각각 여천저수지(現 원천호수)와 신대저수지(現 신대호수)였으며 이후 여천저수지는 이름을 원천저수지로 변경했다. 원천저수지 인근에는 원천유원지가 조성되어 수원시 등 일대의 관광명소 역할을 했지만 그 외에는 인근 지역 대부분이 개발되지 않은 상태로 남아있어 도시 근교의 한적한 시골마을에 가까웠다. 도시의 끄트머리 였던 점도 있었고 
+신대저수지 인근에는 기피시설로 분류되는 수원시연화장이 있었던 점도 영향을 줬지만 이후 광교신도시 조성 계획이 발표되면서 두 저수지를 연계해 어뮤즈파크라는 대규모 공원을 만드는 계획이 수립되었고 2008년부터 착공에 들어가 2013년 전면 개장하면서 지금의 호수공원으로 변모했다.
+
+호수가 8자 모양으로 2개나 있고 이 두 개를 연계해서 공원을 조성해 굉장히 넓다. 일산호수공원의 무려 1.7배에 해당하는 어마어마한 면적을 자랑하며, 그만큼 공원 내 시설이 크고 광장이나 너른 잔디밭도 잘 조성되었다. 특히 원천호수와 신대호수 사이는 용인서울고속도로의 통과구간이라 자칫하면 고속도로로 인해 구역이 단절되고 소음이 발생할 우려도 있었는데 아예 고속도로의 이 구간을 지하차도로 관통해 버리면서 문제를 해결하고 공원도 더 널찍하게 조성할 수 있었다.
+
+당시에는 어뮤즈파크라는 이름으로 공사를 진행했지만 이후 언론 등에서 부르기 쉬운 광교호수공원으로 알려지면서 어느 순간 이게 공식명칭이 되었다. 지역에서 오래 산 주민들은 과거 존재했던 원천유원지의 이름을 따 유원지라고 부르기도 한다.
+
+참고로 수원시 장안구 연무동에 위치한 광교저수지 부근에도 광교공원 이라는 공원이 있어, 광교호수공원과 이 공원을 혼동하는 사람이 꽤 많다. 광교공원 역시 광교저수지를 끼고 있는 호반 공원이다 보니 더 헷갈리는 사람이 많은 듯. 이는 광교신도시 조성 전에 부르던 "광교"라는 지역과 신도시 조성 후 불리는 "광교" 라는 지역이 아예 달라진 점도 영향이 크다.
+
+2014년 "올해 최고의 경관" 으로 선정되었다.',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.28413774082093,"lng":127.06693777848179,"address":"경기 수원시"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/광교호수공원.webp','광교호수공원.webp',0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'행리단길','커플들의 1순위 데이트 장소',DEFAULT,DEFAULT,DEFAULT,DEFAULT,15,41110,1);
+COMMIT;
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'행리단길은 서울 경리단길처럼 개성 넘치는 맛집과 카페가 몰려 있는 곳으로 화서공원에서 수원 화성 화홍문에 이르는 총 612m 거리를 이르는 말이다. 행궁동과 경리단길을 합쳐 행리단길이라고 불리게 되었다. 화성행궁 지역은 개발제한구역으로 지정되어 노후화된 주택과 한옥이 많은 지역인데 이러한 노후화된 건물을 리모델링하여 독특한 취향의 카페나 음식점 편집숍 등이 생겨나면서 젊은이들의 대표 거리이자 수원의 대표 명소로 자리 잡게 되었다. 행리단길 주변에는 조선22대 정조대왕이 아버지인 사도세자를 그리워하며 축조한 유네스코 세계문화유산인 수원화성이 자리잡고 있으며 사적 제115호 화령전 옆으로 자리한 멋들어진 은행나무들도 만나 볼 수 있다.',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.28542853754282,"lng":127.01416080794117,"address":"경기 수원시"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/수원 행리단길.jpg','수원 행리단길.jpg',0,SEQ_BOARD_NO.CURRVAL);
+
+-- 강원도
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'강릉 경포대 해수욕장','여름하면 경포대지!',DEFAULT,DEFAULT,DEFAULT,DEFAULT,16,51150,1);
+COMMIT;
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'해수욕을 할 수 있는 환경과 시설이 갖추어진 바닷가.
+
+대부분 규모가 큰 모래 해변에 지정된다. 남해안이나 동해안 일부 등지에는 일부 자갈해안 해수욕장도 있는데 이 경우는 "몽돌" 해수욕장이라 칭하는 경우가 많다.
+여름 휴가철의 대표적인 피서지로, 비슷한 피서지인 계곡, 워터파크와 자주 비교되는 장소이다. 좁고 험한 곳에 있는 계곡에 비해 매우 넓어서 수십만명의 인파를 한꺼번에 수용할 수 있는 곳이 많고, 
+지형이 열려있으니 시야가 트여있어 어디선가 사고가 발생해도 즉시 발견하고 구조에 나설 수 있으며, 네임드한 곳은 안전요원이 많이 배치되어 있어 비교적 안전하다는 장점을 가지고 있다. 
+또한 워터파크와는 다르게 대형 튜브등의 물놀이 용품이나, 음식물 반입 제한도 없고 워터파크 특유의 소독약(염소) 냄새도 없다는 장점도 가지고 있다. 하지만 바다 특유의 냄새가 나므로 민감한 사람들은 이 냄새를 비린내처럼 역하게 느낄 수도 있다.',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.805815310215976,"lng":128.90734361362027,"address":"강원특별자치도 강릉시"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/강릉 경포대.jpg','강릉 경포대.jpg',0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'남이섬','강원도 가면 꼭 가야하는 관광지',DEFAULT,DEFAULT,DEFAULT,DEFAULT,16,51110,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'북한강 한가운데 있는 하중도. 또는 그 섬에 위치한 대한민국 대표 관광지. 한국관광공사 선정(2017~2018) "한국인이 꼭 가봐야 할 관광 100선" 중의 하나다. 한국인이 꼭 가봐야 할 한국 관광 100선
+과거에 MBC 강변가요제가 이곳에서 열리기도 했다. 남이섬의 도로명 주소는 강원특별자치도 춘천시 남산면 남이섬길 1이다.[1] 주소지 상으로는 춘천시 소재 관광지이지만 실질적으로 가평군과 더 밀접한 연관 관계를 갖고 있다. 
+남이섬은 본래 홍수 때만 섬이 되었지만, 1944년 일제가 청평댐을 건설하면서 북한강 수위가 상승했고 완전한 섬이 되었다. 앞섬이라는 뜻의 남섬(南島)으로도 불렸던 남이섬 지명의 유래는 남이섬 북쪽 언덕의 돌무더기에 조선 초기의 무장인 남이 장군이 묻혀있다는 오랜 민간전승에 기인하여 자연스럽게 정착된 것이다. 
+다산 정약용의 저서 천우기행(穿牛紀行) 및 산수심원기(汕水尋源記) 등에 따르면 이러한 민간전승 내용과 함께 일찍이 남이섬을 남이서(南怡嶼)로 부른 기록을 찾아 볼 수 있다. 島(도)가 큰 섬을 가리키는데 반해 嶼(서)는 사람이 살 수 없는 작은 섬을 뜻한다.',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.79142906599317,"lng":127.52530372380771,"address":"강원특별자치도 춘천시"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/남이섬.webp','남이섬.webp',0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD VALUES (SEQ_BOARD_NO.NEXTVAL,'아르떼뮤지엄 강릉','오감을 깨우는 여행',DEFAULT,DEFAULT,DEFAULT,DEFAULT,16,51150,1);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'시각적 강렬함과 더불어 감각적인 사운드, 품격 있는 향기가 어우러져 완벽한 몰입 경험을 제공한다. 특히 약 200평에 이르는 메인 전시관 "가든관" 에서는 “강원, 자연이 빚은 아름다움”을 주제로 강원도의 수려한 자연에 국악인 송소희의 아름다운 선율이 더해진 전시를 선보여 깊은 감동을 느낄 수 있다.
+몰입형 미디어아트 전시관 강릉 아르떼뮤지엄 강릉은 제주, 여수에 이은 세 번째 아르떼뮤지엄 시리즈의 3번째 전시관이다. 신규 건축물을 건립하여 선보이는만큼 기존 전시관들에 비해 최적화된 공간 형태와 더 큰 규모의 전시 면적공간을 확보함으로써 한층 더 다채로운 전시 작품들로 구성되어 있다. 국내외 찬사를 받은 퍼블릭 미디어아트 "WAVE"의 제작사로 유명한 디지털 디자인 대표전문기업 "디스트릭트"가 조성한 전시관으로 세계적인 수준의 실감 콘텐츠 제작 역량 및 콘텐츠 개발력과 강릉 문화예술의 고유한 멋이 접목되어 색다른 감동을 느낄 수 있다.
+',0,0,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_ARTICLE VALUES(SEQ_BOARD_CT_NO.NEXTVAL,'{"lat":37.79184738499728,"lng":128.9073731577177,"address":"강원특별자치도 강릉시"}',0,1,SEQ_BOARD_NO.CURRVAL);
+INSERT INTO BOARD_IMG VALUES(SEQ_IMG_NO.NEXTVAL,1,'/resources/images/region/아르떼뮤지엄.jpg','아르떼뮤지엄.jpg',0,SEQ_BOARD_NO.CURRVAL);
+
+-- 자유 게시글 삽입
 BEGIN
     FOR I IN 1.. 300 LOOP
     
@@ -957,7 +1390,10 @@ COMMIT;
 --DELETE FROM BOARD_ARTICLE;
 --DELETE FROM "LIKE";
 --DELETE FROM REPLY;
+--DELETE FROM HASHTAG;
+--DELETE FROM HASHTAG_LIST;
 --DELETE FROM BOARD;
+--DELETE FROM LOCATION;
 --
 --DROP SEQUENCE SEQ_BOARD_NO;
 --DROP SEQUENCE SEQ_IMG_NO;
@@ -965,3 +1401,5 @@ COMMIT;
 --DROP SEQUENCE SEQ_HASHTAG_NO;
 --DROP SEQUENCE SEQ_MEMBER_NO;
 --DROP SEQUENCE SEQ_REPLY_NO;
+
+
