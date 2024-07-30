@@ -115,8 +115,8 @@ public class BoardDAO {
 	 * @return boardList
 	 * @throws Exception
 	 */
-	public List<Board> selectBoardList(Connection conn, int type, Pagination pagination) throws Exception {
-		List<Board> boardList = new ArrayList<>();
+	public List<BoardDetail> selectBoardList(Connection conn, int type, Pagination pagination) throws Exception {
+		List<BoardDetail> boardList = new ArrayList<>();
 
 		try {
 			String sql = prop.getProperty("selectBoardList");
@@ -133,7 +133,7 @@ public class BoardDAO {
 			rs = pstmt.executeQuery();
 
 			while(rs.next()) {
-				Board board = new Board();
+				BoardDetail board = new BoardDetail();
 				board.setBoardNo(rs.getInt("BOARD_NO"));
 				board.setBoardTitle(rs.getString("BOARD_TITLE"));
 				board.setBoardContent(rs.getString("BOARD_CONTENT"));
@@ -1138,6 +1138,7 @@ public class BoardDAO {
 			String sql = prop.getProperty("selectThumbnail");
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, boardNo);
+			pstmt.setInt(2, boardNo);
 			rs = pstmt.executeQuery();
 			if(rs.next()) {
 				thumbnail = rs.getString(1);
