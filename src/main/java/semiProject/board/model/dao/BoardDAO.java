@@ -230,7 +230,7 @@ public class BoardDAO {
 				detail.setBoardNo(rs.getInt("BOARD_NO"));
 				detail.setBoardName(rs.getString("BOARD_NM"));
 				detail.setBoardTitle(rs.getString("BOARD_TITLE"));
-				detail.setBoardTitle(rs.getString("BOARD_CONTENT"));
+				detail.setBoardContent(rs.getString("BOARD_CONTENT"));
 				detail.setProfileImage(rs.getString("PROFILE_IMG"));
 				detail.setMemberName(rs.getString("MEMBER_NM"));
 				detail.setBoardCode(rs.getInt("BOARD_CD"));
@@ -1712,7 +1712,7 @@ public class BoardDAO {
 			close(pstmt);
 		}
 		
-		return 0;
+		return result;
 	}
 
 	/**(테마)이미지 삭제

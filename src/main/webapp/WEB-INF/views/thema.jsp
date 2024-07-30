@@ -158,7 +158,7 @@
 				<div class="write">
 
 					
-					<c:if test="${loginMember.adminLevel != 0 && !empty loginMember}">
+					<c:if test="${!empty loginMember}">
 
 						<button id="insertBtn"
 							onclick="location.href='themaWrite?mode=insert&type=${param.type}'">글쓰기</button>
