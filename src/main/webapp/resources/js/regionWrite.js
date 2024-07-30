@@ -63,40 +63,33 @@ for(let i =0; i<inputImage.length; i++){
 
 
 // 게시글 작성 유효성 검사
-function writeValidate(){
-    const regionTitle = document.getElementsByName("regionBoardTitle")[0];
-    const locationName = document.querySelector("[name='locationCode']");
-    const boardContent = document.querySelector("[name='boardContent']");
-    const img = document.getElementById("img0");
-    const img1 = document.getElementById("OMG");
+// function writeValidate(){
+//     const regionTitle = document.getElementsByName("regionBoardTitle")[0];
+//     const boardContent = document.querySelector("[name='boardContent']");
+//     const img = document.getElementById("img0");
+//     const img1 = document.getElementById("OMG");
 
-    if(regionTitle.value.trim().length == 0){
-        alert("제목을 입력하세요")
-        setTimeout(()=> regionTitle.focus(), 100);
-        return false;
-    }
+//     if(regionTitle.value.trim().length == 0){
+//         alert("제목을 입력하세요")
+//         setTimeout(()=> regionTitle.focus(), 100);
+//         return false;
+//     }
 
-    if(locationName.value.trim().length == 0){
-        alert("지역명을 입력하세요")
-        setTimeout(()=> locationName.focus(), 100);
-        return false;
-    }
+//     if(boardContent.value.trim().length == 0){
+//         alert("한 줄 소개를 입력하세요.")
+//         setTimeout(()=> boardContent.focus(), 100);
+//         return false;
+//     }
+//     console.log(img)
 
-    if(boardContent.value.trim().length == 0){
-        alert("한 줄 소개를 입력하세요.")
-        setTimeout(()=> boardContent.focus(), 100);
-        return false;
-    }
-    console.log(img)
+//     if(img.value == ""){
+//         alert("이미지를 넣어주세요.")
+//         setTimeout(()=> img1.focus(), 100); 
+//         return false;
+//     }
 
-    if(img.value == ""){
-        alert("이미지를 넣어주세요.")
-        setTimeout(()=> img1.focus(), 100); 
-        return false;
-    }
-
-    return true;
-}
+//     return true;
+// }
 
 
 function mapAddress(){
