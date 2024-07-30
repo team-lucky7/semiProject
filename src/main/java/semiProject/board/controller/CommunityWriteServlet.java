@@ -141,7 +141,6 @@ public class CommunityWriteServlet extends HttpServlet{
 				}
 			}
 
-			System.out.println(mpReq.getParameter("mapAdr"));
 			String mapAddress = mpReq.getParameter("mapAdr");
 			int category = Integer.parseInt(mpReq.getParameter("category")); // 휴양지 4, 맛집 5 코드			
 			String subtitle = mpReq.getParameter("inputSubtitle"); // 제목
@@ -164,9 +163,6 @@ public class CommunityWriteServlet extends HttpServlet{
 			BoardService service = new BoardService();
 			
 			String address = null;
-			
-			System.out.println("mapAddress");
-			System.out.println(mapAddress);
 			
 			//if(mapAddress != null && mapAddress.trim() != "") {
 

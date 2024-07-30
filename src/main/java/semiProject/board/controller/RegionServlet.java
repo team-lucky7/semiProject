@@ -32,8 +32,6 @@ public class RegionServlet extends HttpServlet {
 			
 			List<BoardDetail> boardList = service.selectRegionList(type);
 			
-			System.out.println(boardList);
-			
 			req.setAttribute("boardList", boardList);
 			
 			String path = "/WEB-INF/views/region.jsp";

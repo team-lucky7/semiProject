@@ -94,7 +94,9 @@
 
                 <!--  로그인 한 사람만 글쓰기 버튼 보임 -->
               <div id="write">
-                <button id="insertBtn" onclick="location.href='regionWrite?mode=insert&type=${param.type}'">글쓰기</button>
+              	<c:if test="${!empty loginMember}">
+	                <button id="insertBtn" onclick="location.href='regionWrite?mode=insert&type=${param.type}'">글쓰기</button>
+              	</c:if>
               </div>
 
             <!-- 버튼 구역  -->
