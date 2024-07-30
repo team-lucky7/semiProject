@@ -805,7 +805,7 @@ public class BoardService {
 				}	
 			}
 			// 이미지 삭제 : deleteList에 값이 존재하면 "0,1,2..", 없으면 ""
-			if(!deleteList.equals("")) { 
+			if(deleteList != null && !deleteList.isEmpty()) { 
 				result = dao.deleteThemaBoardImage(conn, deleteList, detail.getBoardNo());
 				
 			}
