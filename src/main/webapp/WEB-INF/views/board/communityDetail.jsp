@@ -20,8 +20,8 @@
 	<main class="community-write">
 
 		<div class="container1">
-			<h1>${detail.boardName}</h1>
-			<h3>${detail.boardTitle}</h3>
+			<h3>${detail.boardName}</h3>
+			<h1>${detail.boardTitle}</h1>
 					
 		</div>
 
@@ -39,12 +39,12 @@
 		  
 		  <c:if test = "${content[i].contentSize == 0}" >
 				<div class = "fullContent">
-					<span class = "subtitle"> "${content[i].content}" </span>
+					<span class = "subtitle"> ${content[i].content} </span>
 				</div>
 		  </c:if>
 		  <c:if test = "${content[i].contentSize == 1}" >
 				<div class = "halfContent">
-					<span class = "subtitle"> "${content[i].content}" </span>
+					<span class = "subtitle"> ${content[i].content} </span>
 				</div>
 		  </c:if>
 		  <c:if test = "${content[i].contentSize == 2}" >
