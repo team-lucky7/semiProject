@@ -81,7 +81,7 @@
                                 <span>${board.boardContent}</span>
                           
                                 <div class="KAKAOAPI">
-                                  <div class="map" style="width:500px;height:400px;"></div>    
+                                  <div class="map" style="width:500px;height:400px; border-radius: 10px;"></div>    
                                 </div>
                               </div>
                             </div>
@@ -131,7 +131,7 @@
 	                 var mapContainer = document.getElementsByClassName("map")[i]; // 지도를 표시할 div 
 	                 var mapOption = {
 	                     center: new kakao.maps.LatLng(obj.lat, obj.lng), // 지도의 중심좌표를 JSON 데이터에서 가져온 좌표로 설정
-	                     level: 3 // 지도의 확대 레벨
+	                     level: 2 // 지도의 확대 레벨
 	                 };
 	
 	                 var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
