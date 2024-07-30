@@ -24,9 +24,12 @@ public class indexServlet extends HttpServlet{
 			BoardService service = new BoardService();
 			
 			Map<String, Object> map = service.selectBoardList(3, 1);
+			Map<String, Object> map2 = service.selectBoardList(4, 1);
+			
 			Map<String, Object> wordMap = service.selectPopualrWordList();
 			
 			req.setAttribute("map", map);
+			req.setAttribute("map2", map2);
 			
 			HttpSession session = req.getSession();
 			session.setAttribute("wordMap", wordMap);

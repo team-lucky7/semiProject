@@ -60,7 +60,6 @@ public class BoardService {
 		List<Integer> replyCount = new ArrayList<>();
 		
 		for(BoardDetail board : boardList) {
-		    System.out.println(board);
 		
 		hashtag.add(dao.selectBoardHashtag(conn, board.getBoardNo()));
 		thumbnail.add(dao.selectThumbnail(conn, board.getBoardNo()));
@@ -98,8 +97,6 @@ public class BoardService {
 		
 		BoardDetail detail = dao.selectBoardDetail(conn, boardNo);
 		
-		System.out.println(boardNo);
-		System.out.println(detail);
 		
 		if(detail != null) {
 
@@ -123,7 +120,6 @@ public class BoardService {
 
 	        
 
-			System.out.println(detail.getBoardCode());
 			if (detail.getBoardCode() == 4 || detail.getBoardCode() == 5) {
 				
 				for(BoardImage image : imageList) { // 정렬을 위해 이미지를 아티클에 추가한다.

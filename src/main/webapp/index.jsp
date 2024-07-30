@@ -5,6 +5,8 @@
 <c:set var="pagination" value="${map.pagination}"/>
 <c:set var="boardList" value="${map.boardList}"/>
 
+<c:set var="vBoardList" value="${map2.boardList}"/>
+
 	<!DOCTYPE html>
 	<html>
 
@@ -61,9 +63,42 @@
 					<h1 class="section-title">커뮤니티</h1>
 					<div class="community-cont-wrap">
 						<div class="community-cont">
-							<p>여행게시판</p>
-							<div>
-								asdf
+							<p><a href="${contextPath}/community/list?type=4">휴양지</a></p>
+							<div class="list-wrapper">
+								<table class="list-table">
+									<thead>
+										<tr>
+											<th>제목</th>
+											<th>조회수</th>
+											<th>좋아요</th>
+										</tr>
+									</thead>
+									
+									<tbody>
+										<c:choose>
+											<c:when test="${empty vBoardList}">
+												<tr>
+													<td colspan="3">게시물 조회 결과가 없습니다.</td>
+												</tr>
+											</c:when>
+											
+											<c:otherwise>
+												<c:forEach var="vBoard" items="${vBoardList}">
+													<tr>
+														<td>
+															<c:if test="${!empty vBoard.thumbnail}">
+								                            		<img class="list-thumbnail" src="${contextPath}${vBoard.thumbnail}">
+								                            </c:if>
+															<a href="${contextPath}/community/detail?no=${vBoard.boardNo}&type=4&cp=1">${vBoard.boardTitle}</a>
+														</td>
+														<td>${vBoard.readCount}</td>
+														<td>${vBoard.likeCount}</td>
+													</tr>
+												</c:forEach>
+											</c:otherwise>
+										</c:choose>
+									</tbody>
+								</table>
 							</div>
 						</div>
 

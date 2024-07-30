@@ -26,8 +26,6 @@ public class RegionSubPageServlet extends HttpServlet{
 			
 			BoardDetail detail = new BoardService().selectRegionBoardDetail(boardNo,loginMember);
 			
-			System.out.println(detail);
-
 			req.setAttribute("detail", detail);
 
 		} catch (Exception e) {
