@@ -164,10 +164,6 @@ public class BoardDAO {
 
 			int start = (pagination.getCurrentPage() - 1) * pagination.getLimit() + 1;
 			int end = start + pagination.getLimit() - 1;
-
-			System.out.println(type);
-			System.out.println(start);
-			System.out.println(end);
 			
 			pstmt = conn.prepareStatement(sql);
 
@@ -175,8 +171,6 @@ public class BoardDAO {
 			pstmt.setString(2, query);
 			pstmt.setInt(3, start);
 			pstmt.setInt(4, end);
-
-			
 			
 			rs = pstmt.executeQuery();
 
@@ -190,8 +184,6 @@ public class BoardDAO {
 				board.setCreateDate(rs.getString("CREATE_DT"));
 				board.setReadCount(rs.getInt("READ_COUNT"));
 				board.setLikeCount(rs.getInt("LIKE_COUNT"));
-				System.out.println("보드");
-				System.out.println(board);
 				
 				boardList.add(board);
 			}
