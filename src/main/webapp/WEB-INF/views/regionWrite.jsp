@@ -35,7 +35,7 @@
     
                 <div class="destination">
                     <input type="text" class="textbigname" placeholder="제목을 입력하세요." name="regionBoardTitle">
-                    <input type="text" class="textsmallname" placeholder="도시명을 입력하세요." name="locationCode">
+                    <span>${board.locationName}</span>
                     <input type="text" class="textName" placeholder="한 줄 소개를 입력하세요." name="boardContent">
                 </div>
 
