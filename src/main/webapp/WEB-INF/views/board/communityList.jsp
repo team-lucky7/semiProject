@@ -71,7 +71,7 @@
 
 							<c:otherwise>
 								<c:if test="${fn:length(boardList) > 0}">
-									<c:forEach var="i" begin="0" end="${fn:length(boardList)}">
+									<c:forEach var="i" begin="0" end="${fn:length(boardList)-1}">
 										<div class="boardListBox">
 											<c:if test="${empty thumbnail[i]}">
 												<img src="https://via.placeholder.com/100"
@@ -166,33 +166,26 @@
 								href="${contextPath}/community/list?&type=${param.type}"
 								style="color: blue;"># 전체</a></li>
 
-							<c:if test="${fn:length(boardList) > 0}">
+							<c:forEach var="tag" items="${hashtagList}">
+								<c:if test="${fn:contains(tag.category, 'location')}">
 
-								<c:forEach var="i" begin="0" end="${fn:length(hashtagList)}">
-									<c:if
-										test="${fn:contains(hashtagList[i].category, 'location')}">
-
-										<li><a href="${url}&query=${hashtagList[i].name}"
-											style="color: blue;"># ${hashtagList[i].name}</a></li>
-									</c:if>
-								</c:forEach>
-
-							</c:if>
+									<li><a href="${url}&query=${tag.name}"
+										style="color: blue;"># ${tag.name}</a></li>
+								</c:if>
+							</c:forEach>
 						</ul>
 					</div>
 					<br>
 					<div class="sidebar down">
 						<ul>
 							<p>키워드</p>
-							<c:if test="${fn:length(boardList) > 0}">
-								<c:forEach var="i" begin="0" end="${fn:length(hashtagList)}">
-									<c:if test="${fn:contains(hashtagList[i].category, 'keyword')}">
+							<c:forEach var="tag" items="${hashtagList}">
+								<c:if test="${fn:contains(tag.category, 'keyword')}">
 
-										<li><a href="${url}&query=${hashtagList[i].name}"
-											style="color: blue;"># ${hashtagList[i].name}</a></li>
-									</c:if>
-								</c:forEach>
-							</c:if>
+									<li><a href="${url}&query=${tag.name}"
+										style="color: blue;"># ${tag.name}</a></li>
+								</c:if>
+							</c:forEach>
 						</ul>
 					</div>
 				</div>

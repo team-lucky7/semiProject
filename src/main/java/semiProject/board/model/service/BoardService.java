@@ -47,7 +47,33 @@ public class BoardService {
 
 		Pagination pagination = new Pagination(cp, listCount);
 
-		List<Board> boardList = dao.selectBoardList(conn, type, pagination);
+		List<BoardDetail> boardList = dao.selectBoardList(conn, type, pagination);
+		
+		if (type == 4 || type == 5) {
+	          
+		List<Hashtag> hashtagList = dao.selectHashtag(conn); // 전체 해시태그 리스트
+		
+		List<List<String>> hashtag = new ArrayList<>(); // 게시글 각각 해시태그 
+		
+		List<String> thumbnail = new ArrayList<>(); // 게시글 각각 썸네일
+		
+		List<Integer> replyCount = new ArrayList<>();
+		
+		for(BoardDetail board : boardList) {
+		    System.out.println(board);
+		
+		hashtag.add(dao.selectBoardHashtag(conn, board.getBoardNo()));
+		thumbnail.add(dao.selectThumbnail(conn, board.getBoardNo()));
+		replyCount.add(dao.selectReplyCount(conn, board.getBoardNo()));
+		
+		}
+		
+		map.put("hashtag", hashtag);
+		map.put("thumbnail", thumbnail);
+		map.put("hashtagList", hashtagList);
+		map.put("replyCount", replyCount);
+		
+		}
 
 		map.put("pagination", pagination);
 		map.put("boardList", boardList);
