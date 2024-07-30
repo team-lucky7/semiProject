@@ -7,9 +7,9 @@
     </div>
     <div class="footer-row">
         <div>
-            <span>주소 : ~~~~~~~~~~~~~~~</span>
-            <span>대표전화 : 010-1234-1234</span>
-            <span>사업자등록번호 : ~~~~~~~~~~~~</span>
+            <span>주소 : 서울 강남구 역삼동 운칠기삼 KH지부 </span>
+            <span>대표전화 : 02-800-7070 </span>
+            <span>사업자등록번호 : 345-89-59997</span>
         </div>
         Copyright CITY. All Rights Reserved.
     </div>

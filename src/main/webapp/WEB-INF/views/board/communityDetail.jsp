@@ -12,10 +12,14 @@
 <link rel="stylesheet"
 	href="${contextPath}/resources/css/communityWrite.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/header.css">
+<link rel="stylesheet" href="${contextPath}/resources/css/footer.css">
 <link rel="stylesheet" href="${contextPath}/resources/css/freeBoardReply.css">
-		<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
-
+<script src="https://kit.fontawesome.com/4bef400c33.js" crossorigin="anonymous" defer></script>
+<style>
+	.footer-row{margin: 0;}
+</style>
 </head>
+<jsp:include page="/WEB-INF/views/common/header.jsp"></jsp:include>
 <body>
 	<main class="community-write">
 
@@ -92,6 +96,7 @@
 			<jsp:include page="/WEB-INF/views/board/freeBoardReply.jsp"></jsp:include>
 
 	</main>
+	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 	
 	<script>
 	
@@ -145,9 +150,6 @@
         const loginMemberNo = "${loginMember.memberNo}";
 
    </script>
-	
-	
-	<jsp:include page="/WEB-INF/views/common/footer.jsp"></jsp:include>
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a672d1a3dd18b00d1ead688b41bca007&libraries=services"></script>
