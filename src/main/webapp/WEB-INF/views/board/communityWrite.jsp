@@ -20,7 +20,7 @@
 	<form action="write" enctype="multipart/form-data" method="POST" class="community-write" onsubmit = "return writeValidate()">
 
 		<div class="container1">
-			<h1>여행정보 작성(수정)</h1>
+			<h1>여행정보 작성</h1>
 			<div>
 				<span class="subtitle"> 커뮤니티 : </span>
 				<select name="category">
