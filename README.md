@@ -129,8 +129,8 @@
 | ![내 정보 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page34_1.jpg) | ![내 게시글 및 댓글 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page35_1.jpg) |
 
 | 내 정보 수정 | |
-|---------------| |
-| ![내 정보 수정](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page36_1.jpg) | |
+|---------------|---|
+| ![내 정보 수정](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page36_1.jpg) |   |
 
 ---
 
@@ -161,8 +161,8 @@
 | ![자유 게시판 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page48_1.jpg) | ![자유 게시판 작성](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page49_1.jpg) |
 
 | 자유 게시판 댓글 | |
-|-------------------| |
-| ![자유 게시판 댓글](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page51_1.jpg) | |
+|-------------------|---|
+| ![자유 게시판 댓글](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page51_1.jpg) |   |
 
 
 
