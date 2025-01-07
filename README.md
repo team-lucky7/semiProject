@@ -101,7 +101,7 @@
 ### 메인
 | 메인 페이지 | 
 |-------------| 
-| ![MainPage](https://github.com/user-attachments/assets/your-main-page-link) |
+| ![page26_1](https://github.com/user-attachments/assets/db6a557d-7cf6-480a-86b2-51b25cdff804) |
 
 ---
 
