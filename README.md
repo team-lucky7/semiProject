@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/a50edbb8-e4c0-46ad-97be-a7bcc063bb9f)
 # [Team 3] 여행지 정보 게시판
 
 ## 목차
@@ -91,7 +92,7 @@
 
 ## ERD & 모델링
 - 데이터베이스 설계 및 테이블 정의를 통해 여행지, 게시글, 회원 관리 구조화.
-![ERD](https://github.com/user-attachments/assets/your-erd-image-link)
+![Uploading image.png…]()
 
 ---
 
