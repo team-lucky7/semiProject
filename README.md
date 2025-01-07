@@ -100,7 +100,7 @@
 ### 메인
 | 메인 페이지 | 
 |-------------| 
-|page26_1.jpg|
+| https://github.com/team-lucky7/semiProject/blob/main/StoryBoard/page26_1.jpg |
 
 ---
 
