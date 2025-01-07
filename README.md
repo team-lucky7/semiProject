@@ -48,8 +48,10 @@
     <!-- Back-End -->
     <p><strong>Back-End</strong></p>
     <div>
-        <img src="https://img.shields.io/badge/MyBatis-F80000?style=for-the-badge&logo=MyBatis&logoColor=white">
-        <img src="https://img.shields.io/badge/Java-1DA1F2?style=for-the-badge&logo=Java&logoColor=white">
+        <img src="https://img.shields.io/badge/JDBC-007396?style=for-the-badge&logo=Java&logoColor=white">
+        <img src="https://img.shields.io/badge/Lombok-FFA500?style=for-the-badge&logo=Java&logoColor=white">
+        <img src="https://img.shields.io/badge/ApacheTomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white">
+        <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white">
     </div>
     <!-- Front-End -->
     <p><strong>Front-End</strong></p>
@@ -63,6 +65,18 @@
     <p><strong>API Tools</strong></p>
     <div>
         <img src="https://img.shields.io/badge/Ajax-FF007F?style=for-the-badge&logo=Ajax&logoColor=white">
+        <img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=JSON&logoColor=white">
+        <img src="https://img.shields.io/badge/Gson-FFCA28?style=for-the-badge&logo=Google&logoColor=white">
+        <img src="https://img.shields.io/badge/KakaoMap%20API-FFCD00?style=for-the-badge&logo=Kakao&logoColor=black">
+    </div>
+    <!-- Tools -->
+    <p><strong>Tools</strong></p>
+    <div>
+        <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white">
+        <img src="https://img.shields.io/badge/Sourcetree-0052CC?style=for-the-badge&logo=Sourcetree&logoColor=white">
+        <img src="https://img.shields.io/badge/ERD%20Cloud-00C4B3?style=for-the-badge&logo=Database&logoColor=white">
+        <img src="https://img.shields.io/badge/VisualStudioCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white">
+        <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white">
     </div>
     <!-- OS -->
     <p><strong>OS</strong></p>
@@ -70,6 +84,7 @@
         <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=Windows&logoColor=white">
     </div>
 </div>
+
 
 
 
