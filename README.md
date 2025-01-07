@@ -89,7 +89,7 @@
 
 ---
 
-## ERD & 모델링
+## ERD
 - 데이터베이스 설계 및 테이블 정의를 통해 여행지, 게시글, 회원 관리 구조화.
 ![image](https://github.com/user-attachments/assets/a50edbb8-e4c0-46ad-97be-a7bcc063bb9f)
 
