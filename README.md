@@ -45,13 +45,13 @@
 
 ## 개발 환경
 <div style="display:flex; flex-direction:column; align-items:flex-start;">
-    <!-- Backend -->
+    <!-- Back-End -->
     <p><strong>Back-End</strong></p>
     <div>
         <img src="https://img.shields.io/badge/MyBatis-F80000?style=for-the-badge&logo=MyBatis&logoColor=white">
         <img src="https://img.shields.io/badge/Java-1DA1F2?style=for-the-badge&logo=Java&logoColor=white">
     </div>
-    <!-- Frontend -->
+    <!-- Front-End -->
     <p><strong>Front-End</strong></p>
     <div>
         <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white">
@@ -59,19 +59,18 @@
         <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white">
         <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=white">
     </div>
-    <!-- Database -->
-    <p><strong>Database</strong></p>
+    <!-- API Tools -->
+    <p><strong>API Tools</strong></p>
     <div>
-        <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
+        <img src="https://img.shields.io/badge/Ajax-FF007F?style=for-the-badge&logo=Ajax&logoColor=white">
     </div>
-    <!-- Tools -->
-    <p><strong>Tools</strong></p>
+    <!-- OS -->
+    <p><strong>OS</strong></p>
     <div>
-        <img src="https://img.shields.io/badge/VisualStudioCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white">
-        <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white">
-        <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white">
+        <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=Windows&logoColor=white">
     </div>
 </div>
+
 
 
 ---
