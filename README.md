@@ -48,7 +48,6 @@
     <!-- Backend -->
     <p><strong>Back-End</strong></p>
     <div>
-        <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white">
         <img src="https://img.shields.io/badge/MyBatis-F80000?style=for-the-badge&logo=MyBatis&logoColor=white">
         <img src="https://img.shields.io/badge/Java-1DA1F2?style=for-the-badge&logo=Java&logoColor=white">
     </div>
@@ -68,12 +67,12 @@
     <!-- Tools -->
     <p><strong>Tools</strong></p>
     <div>
-        <img src="https://img.shields.io/badge/IntelliJIDEA-000000?style=for-the-badge&logo=IntelliJIDEA&logoColor=white">
         <img src="https://img.shields.io/badge/VisualStudioCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white">
         <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white">
         <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white">
     </div>
 </div>
+
 
 ---
 
