@@ -25,10 +25,10 @@
 ## 팀 구성 및 역할
 | 이름       | 역할      | 주요 담당 |
 |------------|-----------|-----------|
-| **전은기** | 팀장      | 지역 페이지 |
-| **이재원** | 에이스    | 메인, 검색, 자유게시판 페이지 |
-| **안병현** | 팀원      | 커뮤티니 페이지 |
-| **최세현** | 팀원      | 테마 페이지 |
+| **전은기** | 팀장      | 지역 게시판 |
+| **이재원** | 에이스    | 메인, 검색, 자유게시판  |
+| **안병현** | 팀원      | 커뮤티니 게시판 |
+| **최세현** | 팀원      | 테마 게시판 |
 
 ---
 
@@ -44,11 +44,36 @@
 ---
 
 ## 개발 환경
-### 기술 스택
-- **Back-End**: Spring, MyBatis, Java
-- **Front-End**: HTML5, CSS3, JavaScript, jQuery
-- **Database**: MySQL
-- **Tools**: IntelliJ IDEA, Visual Studio Code, GitHub, Notion
+<div style="display:flex; flex-direction:column; align-items:flex-start;">
+    <!-- Backend -->
+    <p><strong>Back-End</strong></p>
+    <div>
+        <img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=white">
+        <img src="https://img.shields.io/badge/MyBatis-F80000?style=for-the-badge&logo=MyBatis&logoColor=white">
+        <img src="https://img.shields.io/badge/Java-1DA1F2?style=for-the-badge&logo=Java&logoColor=white">
+    </div>
+    <!-- Frontend -->
+    <p><strong>Front-End</strong></p>
+    <div>
+        <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white">
+        <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white">
+        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white">
+        <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=white">
+    </div>
+    <!-- Database -->
+    <p><strong>Database</strong></p>
+    <div>
+        <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
+    </div>
+    <!-- Tools -->
+    <p><strong>Tools</strong></p>
+    <div>
+        <img src="https://img.shields.io/badge/IntelliJIDEA-000000?style=for-the-badge&logo=IntelliJIDEA&logoColor=white">
+        <img src="https://img.shields.io/badge/VisualStudioCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white">
+        <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white">
+        <img src="https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white">
+    </div>
+</div>
 
 ---
 
