@@ -128,17 +128,17 @@
 ---
 
 ### 내 정보 조회 및 내 게시글 조회
-<table width="100%">
+<table style="width:100%; table-layout:fixed;">
   <tr>
-    <td align="center"><b>내 정보 조회</b></td>
-    <td align="center"><b>내 게시글 및 댓글 조회</b></td>
+    <th style="text-align:center;">내 정보 조회</th>
+    <th style="text-align:center;">내 게시글 및 댓글 조회</th>
   </tr>
   <tr>
-    <td>
-      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page34_1.jpg" style="width:50%;" />
+    <td style="text-align:center;">
+      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page34_1.jpg" style="width:100%; height:auto;" />
     </td>
-    <td>
-      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page35_1.jpg" style="width:50%;" />
+    <td style="text-align:center;">
+      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page35_1.jpg" style="width:100%; height:auto;" />
     </td>
   </tr>
 </table>
@@ -146,14 +146,14 @@
 ---
 
 ### 내 정보 수정
-<table width="100%">
+<table style="width:100%; table-layout:fixed;">
   <tr>
-    <td align="center"><b>내 정보 수정</b></td>
-    <td></td>
+    <th style="text-align:center;">내 정보 수정</th>
+    <th></th>
   </tr>
   <tr>
-    <td>
-      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page36_1.jpg" style="width:50%;" />
+    <td style="text-align:center;">
+      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page36_1.jpg" style="width:100%; height:auto;" />
     </td>
     <td></td>
   </tr>
