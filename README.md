@@ -123,13 +123,14 @@
 
 ---
 
-### 3. 내 정보 관리
+## 3. 내 정보 관리
+
 | 내 정보 조회 | 내 게시글 및 댓글 조회 |
 |--------------|-------------------------|
 | ![내 정보 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page34_1.jpg) | ![내 게시글 및 댓글 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page35_1.jpg) |
 
 | 내 정보 수정 | |
-|---------------|---|
+|--------------|---|
 | ![내 정보 수정](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page36_1.jpg) |   |
 
 ---
