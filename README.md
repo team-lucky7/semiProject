@@ -107,7 +107,8 @@
 ### 검색
 | 검색 페이지 | 검색 결과 페이지 |
 |-------------|------------------|
-| https://github.com/team-lucky7/semiProject/blob/main/StoryBoard/page27_1.jpg?raw=true | ![SearchResults](https://github.com/user-attachments/assets/your-search-results-page-link) |
+| ![page27_1](https://github.com/user-attachments/assets/4c7e3d93-c7f0-4379-8c50-11d8936a4c59)
+ | ![SearchResults](https://github.com/user-attachments/assets/your-search-results-page-link) |
 
 ---
 
