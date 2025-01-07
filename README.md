@@ -168,7 +168,7 @@
   </tr>
   <tr>
     <td>
-      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page36_1.jpg" width="400px" />
+      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page36_1.jpg" style="width:50%;" />
     </td>
     <td></td>
   </tr>
