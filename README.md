@@ -96,45 +96,55 @@
 ---
 
 ## 화면 구성 및 기능
-| 메인 페이지 | 검색 페이지 |
-|-------------|-------------|
-| ![MainPage](https://github.com/user-attachments/assets/your-main-page-link) | ![SearchPage](https://github.com/user-attachments/assets/your-search-page-link) |
+## 화면 구성
 
-| 검색 결과 페이지 | 로그인 화면 |
-|------------------|--------------|
-| ![SearchResults](https://github.com/user-attachments/assets/your-search-results-page-link) | ![LoginPage](https://github.com/user-attachments/assets/your-login-page-link) |
+### 메인
+| 메인 페이지 | 
+|-------------| 
+| ![MainPage](https://github.com/user-attachments/assets/your-main-page-link) |
 
-| 회원가입 | 아이디 찾기 |
-|----------|-------------|
-| ![SignUp](https://github.com/user-attachments/assets/your-sign-up-page-link) | ![FindID](https://github.com/user-attachments/assets/your-find-id-page-link) |
+---
 
-| 비밀번호 변경 | 회원 탈퇴 |
-|---------------|-------------|
-| ![ChangePassword](https://github.com/user-attachments/assets/your-change-password-page-link) | ![Withdraw](https://github.com/user-attachments/assets/your-withdraw-page-link) |
+### 검색
+| 검색 페이지 | 검색 결과 페이지 |
+|-------------|------------------|
+| ![SearchPage](https://github.com/user-attachments/assets/your-search-page-link) | ![SearchResults](https://github.com/user-attachments/assets/your-search-results-page-link) |
 
-| 내 정보 조회 | 내 게시글 및 댓글 조회 |
-|---------------|--------------------------|
-| ![MyInfo](https://github.com/user-attachments/assets/your-my-info-page-link) | ![MyPostsComments](https://github.com/user-attachments/assets/your-my-posts-comments-page-link) |
+---
 
-| 내 정보 조회 및 수정 | 테마 게시판 조회 |
-|-----------------------|-------------------|
-| ![EditMyInfo](https://github.com/user-attachments/assets/your-edit-my-info-page-link) | ![ThemeBoardView](https://github.com/user-attachments/assets/your-theme-board-view-page-link) |
+### 내 정보
+| 내 정보 조회 | 내 정보 수정 | 내 게시글 및 댓글 조회 |
+|--------------|--------------|-------------------------|
+| ![MyInfo](https://github.com/user-attachments/assets/your-my-info-page-link) | ![EditMyInfo](https://github.com/user-attachments/assets/your-edit-my-info-page-link) | ![MyPostsComments](https://github.com/user-attachments/assets/your-my-posts-comments-page-link) |
 
-| 테마 게시판 작성 | 지역 게시판 조회 |
+---
+
+### 테마 게시판
+| 테마 게시판 조회 | 테마 게시판 작성 |
 |-------------------|-------------------|
-| ![ThemeBoardWrite](https://github.com/user-attachments/assets/your-theme-board-write-page-link) | ![RegionBoardView](https://github.com/user-attachments/assets/your-region-board-view-page-link) |
+| ![ThemeBoardView](https://github.com/user-attachments/assets/your-theme-board-view-page-link) | ![ThemeBoardWrite](https://github.com/user-attachments/assets/your-theme-board-write-page-link) |
 
-| 지역 게시판 작성 | 커뮤니티 게시판 조회 |
-|-------------------|-----------------------|
-| ![RegionBoardWrite](https://github.com/user-attachments/assets/your-region-board-write-page-link) | ![CommunityBoardView](https://github.com/user-attachments/assets/your-community-board-view-page-link) |
+---
 
-| 커뮤니티 게시판 작성 | 자유 게시판 조회 |
-|-----------------------|-------------------|
-| ![CommunityBoardWrite](https://github.com/user-attachments/assets/your-community-board-write-page-link) | ![FreeBoardView](https://github.com/user-attachments/assets/your-free-board-view-page-link) |
-
-| 자유 게시판 작성 | 자유 게시판 댓글 |
+### 지역 게시판
+| 지역 게시판 조회 | 지역 게시판 작성 |
 |-------------------|-------------------|
-| ![FreeBoardWrite](https://github.com/user-attachments/assets/your-free-board-write-page-link) | ![FreeBoardComment](https://github.com/user-attachments/assets/your-free-board-comment-page-link) |
+| ![RegionBoardView](https://github.com/user-attachments/assets/your-region-board-view-page-link) | ![RegionBoardWrite](https://github.com/user-attachments/assets/your-region-board-write-page-link) |
+
+---
+
+### 커뮤니티
+| 커뮤니티 게시판 조회 | 커뮤니티 게시판 작성 |
+|-----------------------|-----------------------|
+| ![CommunityBoardView](https://github.com/user-attachments/assets/your-community-board-view-page-link) | ![CommunityBoardWrite](https://github.com/user-attachments/assets/your-community-board-write-page-link) |
+
+---
+
+### 자유 게시판
+| 자유 게시판 조회 | 자유 게시판 작성 | 자유 게시판 댓글 |
+|-------------------|-------------------|-------------------|
+| ![FreeBoardView](https://github.com/user-attachments/assets/your-free-board-view-page-link) | ![FreeBoardWrite](https://github.com/user-attachments/assets/your-free-board-write-page-link) | ![FreeBoardComment](https://github.com/user-attachments/assets/your-free-board-comment-page-link) |
+
 
 ---
 
