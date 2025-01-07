@@ -125,13 +125,39 @@
 
 ## 3. 내 정보 관리
 
-| 내 정보 조회 | 내 게시글 및 댓글 조회 |
-|--------------|-------------------------|
-| ![내 정보 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page34_1.jpg) | ![내 게시글 및 댓글 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page35_1.jpg) |
+---
 
-| 내 정보 수정 | |
-|--------------|---|
-| ![내 정보 수정](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page36_1.jpg) |   |
+### 내 정보 조회 및 내 게시글 조회
+<table>
+  <tr>
+    <td align="center"><b>내 정보 조회</b></td>
+    <td align="center"><b>내 게시글 및 댓글 조회</b></td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page34_1.jpg" width="400px" />
+    </td>
+    <td>
+      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page35_1.jpg" width="400px" />
+    </td>
+  </tr>
+</table>
+
+---
+
+### 내 정보 수정
+<table>
+  <tr>
+    <td align="center"><b>내 정보 수정</b></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>
+      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page36_1.jpg" width="400px" />
+    </td>
+    <td></td>
+  </tr>
+</table>
 
 ---
 
