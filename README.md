@@ -97,53 +97,41 @@
 
 ## 스토리보드
 
-### 메인
-| 메인 페이지 | 
-|-------------| 
-| ![page26_1](https://github.com/user-attachments/assets/8cf21d52-480d-4b7a-a964-3da093402f5b) |
-
----
+## 화면 구성
 
 ### 검색
 | 검색 페이지 | 검색 결과 페이지 |
 |-------------|------------------|
-| ![page27_1](https://github.com/user-attachments/assets/4c7e3d93-c7f0-4379-8c50-11d8936a4c59)
- | ![SearchResults](https://github.com/user-attachments/assets/your-search-results-page-link) |
-
----
+| ![검색 페이지](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page27_1.jpg) | ![검색 결과 페이지](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page28_1.jpg) |
 
 ### 내 정보
-| 내 정보 조회 | 내 정보 수정 | 내 게시글 및 댓글 조회 |
-|--------------|--------------|-------------------------|
-| ![MyInfo](https://github.com/user-attachments/assets/your-my-info-page-link) | ![EditMyInfo](https://github.com/user-attachments/assets/your-edit-my-info-page-link) | ![MyPostsComments](https://github.com/user-attachments/assets/your-my-posts-comments-page-link) |
-
----
+| 내 정보 조회 | 내 게시글 및 댓글 조회 |
+|--------------|-------------------------|
+| ![내 정보 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page29_1.jpg) | ![내 게시글 및 댓글 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page30_1.jpg) |
 
 ### 테마 게시판
 | 테마 게시판 조회 | 테마 게시판 작성 |
 |-------------------|-------------------|
-| ![ThemeBoardView](https://github.com/user-attachments/assets/your-theme-board-view-page-link) | ![ThemeBoardWrite](https://github.com/user-attachments/assets/your-theme-board-write-page-link) |
-
----
+| ![테마 게시판 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page31_1.jpg) | ![테마 게시판 작성](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page32_1.jpg) |
 
 ### 지역 게시판
 | 지역 게시판 조회 | 지역 게시판 작성 |
 |-------------------|-------------------|
-| ![RegionBoardView](https://github.com/user-attachments/assets/your-region-board-view-page-link) | ![RegionBoardWrite](https://github.com/user-attachments/assets/your-region-board-write-page-link) |
-
----
+| ![지역 게시판 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page33_1.jpg) | ![지역 게시판 작성](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page34_1.jpg) |
 
 ### 커뮤니티
 | 커뮤니티 게시판 조회 | 커뮤니티 게시판 작성 |
 |-----------------------|-----------------------|
-| ![CommunityBoardView](https://github.com/user-attachments/assets/your-community-board-view-page-link) | ![CommunityBoardWrite](https://github.com/user-attachments/assets/your-community-board-write-page-link) |
-
----
+| ![커뮤니티 게시판 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page35_1.jpg) | ![커뮤니티 게시판 작성](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page36_1.jpg) |
 
 ### 자유 게시판
-| 자유 게시판 조회 | 자유 게시판 작성 | 자유 게시판 댓글 |
-|-------------------|-------------------|-------------------|
-| ![FreeBoardView](https://github.com/user-attachments/assets/your-free-board-view-page-link) | ![FreeBoardWrite](https://github.com/user-attachments/assets/your-free-board-write-page-link) | ![FreeBoardComment](https://github.com/user-attachments/assets/your-free-board-comment-page-link) |
+| 자유 게시판 조회 | 자유 게시판 작성 |
+|-------------------|-------------------|
+| ![자유 게시판 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page37_1.jpg) | ![자유 게시판 작성](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page38_1.jpg) |
+
+| 자유 게시판 댓글 |
+|-------------------|
+| ![자유 게시판 댓글](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page39_1.jpg) |
 
 
 ---
