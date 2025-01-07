@@ -100,14 +100,14 @@
 ### 메인
 | 메인 페이지 | 
 |-------------| 
-| ![page26_1](https://github.com/user-attachments/assets/db6a557d-7cf6-480a-86b2-51b25cdff804) |
+|page26_1.jpg|
 
 ---
 
 ### 검색
 | 검색 페이지 | 검색 결과 페이지 |
 |-------------|------------------|
-| ![SearchPage](https://github.com/user-attachments/assets/your-search-page-link) | ![SearchResults](https://github.com/user-attachments/assets/your-search-results-page-link) |
+| page27_1.jpg | ![SearchResults](https://github.com/user-attachments/assets/your-search-results-page-link) |
 
 ---
 
