@@ -100,7 +100,7 @@
 ### 메인
 | 메인 페이지 | 
 |-------------| 
-| StoryBoard/page26_1.jpg |
+| ![page26_1](https://github.com/user-attachments/assets/8cf21d52-480d-4b7a-a964-3da093402f5b) |
 
 ---
 
