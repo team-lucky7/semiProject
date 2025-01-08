@@ -5,8 +5,8 @@
 - [팀 구성 및 역할](#팀-구성-및-역할)
 - [벤치마킹](#벤치마킹)
 - [개발 환경](#개발-환경)
-- [ERD & 모델링](#erd--모델링)
-- [화면 구성](#화면-구성)
+- [ERD](#erd)
+- [주요 기능](#주요-기능)
 - [개발 일정](#개발-일정)
 
 ---
@@ -22,12 +22,12 @@
 ---
 
 ## 팀 구성 및 역할
-| 이름       | 역할      | 주요 담당 |
-|------------|-----------|-----------|
-| **전은기** | 팀장      | 지역 게시판 |
-| **이재원** | 에이스    | 메인, 검색, 자유게시판  |
-| **안병현** | 팀원      | 커뮤티니 게시판 |
-| **최세현** | 팀원      | 테마 게시판 |
+| 이름       | 역할      | 주요 담당                 |
+|------------|-----------|--------------------------|
+| **전은기** | 팀장      | 지역 게시판              |
+| **이재원** | 에이스    | 메인, 검색, 자유게시판   |
+| **안병현** | 팀원      | 커뮤니티 게시판          |
+| **최세현** | 팀원      | 테마 게시판              |
 
 ---
 
@@ -43,63 +43,42 @@
 ---
 
 ## 개발 환경
-<div style="display:flex; flex-direction:column; align-items:flex-start;">
-    <!-- Back-End -->
-    <p><strong>Back-End</strong></p>
-    <div>
-        <img src="https://img.shields.io/badge/JDBC-007396?style=for-the-badge&logo=Java&logoColor=white">
-        <img src="https://img.shields.io/badge/Lombok-FFA500?style=for-the-badge&logo=Java&logoColor=white">
-        <img src="https://img.shields.io/badge/ApacheTomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white">
-        <img src="https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white">
-    </div>
-    <!-- Front-End -->
-    <p><strong>Front-End</strong></p>
-    <div>
-        <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white">
-        <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white">
-        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white">
-        <img src="https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=white">
-    </div>
-    <!-- API Tools -->
-    <p><strong>API Tools</strong></p>
-    <div>
-        <img src="https://img.shields.io/badge/Ajax-FF007F?style=for-the-badge&logo=Ajax&logoColor=white">
-        <img src="https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=JSON&logoColor=white">
-        <img src="https://img.shields.io/badge/Gson-FFCA28?style=for-the-badge&logo=Google&logoColor=white">
-        <img src="https://img.shields.io/badge/KakaoMap%20API-FFCD00?style=for-the-badge&logo=Kakao&logoColor=black">
-    </div>
-    <!-- Tools -->
-    <p><strong>Tools</strong></p>
-    <div>
-        <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white">
-        <img src="https://img.shields.io/badge/Sourcetree-0052CC?style=for-the-badge&logo=Sourcetree&logoColor=white">
-        <img src="https://img.shields.io/badge/ERD%20Cloud-00C4B3?style=for-the-badge&logo=Database&logoColor=white">
-        <img src="https://img.shields.io/badge/VisualStudioCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white">
-        <img src="https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white">
-    </div>
-    <!-- OS -->
-    <p><strong>OS</strong></p>
-    <div>
-        <img src="https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=Windows&logoColor=white">
-    </div>
-</div>
+### Back-End
+![JDBC](https://img.shields.io/badge/JDBC-007396?style=for-the-badge&logo=Java&logoColor=white)
+![Lombok](https://img.shields.io/badge/Lombok-FFA500?style=for-the-badge&logo=Java&logoColor=white)
+![ApacheTomcat](https://img.shields.io/badge/ApacheTomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white)
+![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=Oracle&logoColor=white)
 
+### Front-End
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=HTML5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=CSS3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
+![jQuery](https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jQuery&logoColor=white)
 
+### API Tools
+![Ajax](https://img.shields.io/badge/Ajax-FF007F?style=for-the-badge&logo=Ajax&logoColor=white)
+![JSON](https://img.shields.io/badge/JSON-000000?style=for-the-badge&logo=JSON&logoColor=white)
+![Gson](https://img.shields.io/badge/Gson-FFCA28?style=for-the-badge&logo=Google&logoColor=white)
+![KakaoMap API](https://img.shields.io/badge/KakaoMap%20API-FFCD00?style=for-the-badge&logo=Kakao&logoColor=black)
 
+### Tools
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white)
+![Sourcetree](https://img.shields.io/badge/Sourcetree-0052CC?style=for-the-badge&logo=Sourcetree&logoColor=white)
+![ERD Cloud](https://img.shields.io/badge/ERD%20Cloud-00C4B3?style=for-the-badge&logo=Database&logoColor=white)
+![Visual Studio Code](https://img.shields.io/badge/VisualStudioCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white)
+![Eclipse](https://img.shields.io/badge/Eclipse-2C2255?style=for-the-badge&logo=Eclipse&logoColor=white)
+
+### OS
+![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=Windows&logoColor=white)
 
 ---
 
 ## ERD
-- 데이터베이스 설계 및 테이블 정의를 통해 여행지, 게시글, 회원 관리 구조화.
-![image](https://github.com/user-attachments/assets/a50edbb8-e4c0-46ad-97be-a7bcc063bb9f)
+![ERD](https://github.com/user-attachments/assets/a50edbb8-e4c0-46ad-97be-a7bcc063bb9f)
 
 ---
 
-## 스토리보드
-
-## 화면 구성
-
----
+## 주요 기능
 
 ### 1. 메인 및 검색
 | 메인 페이지 | 검색 페이지 |
@@ -110,8 +89,6 @@
 |------------------|-------------|
 | ![검색 결과 페이지](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page28_1.jpg) | ![로그인 화면](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page29_1.jpg) |
 
----
-
 ### 2. 회원 관리
 | 회원가입 | 아이디 찾기 |
 |----------|-------------|
@@ -121,79 +98,33 @@
 |---------------|----------|
 | ![비밀번호 변경](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page32_1.jpg) | ![회원탈퇴](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page33_1.jpg) |
 
----
-
-## 3. 내 정보 관리
-
----
-
-### 내 정보 조회 및 내 게시글 조회
-<table style="width:100%; table-layout:fixed;">
-  <tr>
-    <th style="text-align:center;">내 정보 조회</th>
-    <th style="text-align:center;">내 게시글 및 댓글 조회</th>
-  </tr>
-  <tr>
-    <td style="text-align:center;">
-      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page34_1.jpg" style="width:100%; height:auto;" />
-    </td>
-    <td style="text-align:center;">
-      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page35_1.jpg" style="width:100%; height:auto;" />
-    </td>
-  </tr>
-</table>
-
----
-
-### 내 정보 수정
-<table style="width:50%; table-layout:fixed;">
-  <tr>
-    <th>내 정보 수정</th>
-  </tr>
-   <tr>
-      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page36_1.jpg" style="width:50%; height:auto;" />
-   </tr>
-</table>
-
-
-
-
-
-
-
----
+### 3. 내 정보 관리
+| 내 정보 조회 | 내 게시글 및 댓글 조회 |
+|--------------|-------------------------|
+| ![내 정보 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page34_1.jpg) | ![내 게시글 및 댓글 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page35_1.jpg) |
 
 ### 4. 테마 게시판
 | 테마 게시판 조회 | 테마 게시판 작성 |
 |-------------------|-------------------|
 | ![테마 게시판 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page37_1.jpg) | ![테마 게시판 작성](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page38_1.jpg) |
 
----
 
 ### 5. 지역 게시판
 | 지역 게시판 조회 | 지역 게시판 작성 |
 |-------------------|-------------------|
 | ![지역 게시판 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page39_1.jpg) | ![지역 게시판 작성](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page42_1.jpg) |
 
----
 
 ### 6. 커뮤니티 게시판
 | 커뮤니티 게시판 조회 | 커뮤니티 게시판 작성 |
 |-----------------------|-----------------------|
 | ![커뮤니티 게시판 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page44_1.jpg) | ![커뮤니티 게시판 작성](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page46_1.jpg) |
 
----
 
 ### 7. 자유 게시판
-| 자유 게시판 조회 | 자유 게시판 작성 |
+| 자유 게시판 작성 | 자유 게시판 댓글 |
 |-------------------|-------------------|
-| ![자유 게시판 조회](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page48_1.jpg) | ![자유 게시판 작성](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page49_1.jpg) |
-
-| 자유 게시판 댓글 | |
-|-------------------|---|
-| ![자유 게시판 댓글](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page51_1.jpg) |   |
-
-
+| ![자유 게시판 작성](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page49_1.jpg) | ![자유 게시판 댓글](https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page51_1.jpg)  |
 
 ---
 
