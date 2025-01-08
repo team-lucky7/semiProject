@@ -146,34 +146,20 @@
 ---
 
 ### 내 정보 수정
-<table style="width:100%; table-layout:fixed;">
+<table style="width:50%; table-layout:fixed;">
   <tr>
-    <th style="text-align:center;">내 정보 수정</th>
-    <th></th>
+    <th>내 정보 수정</th>
   </tr>
-  <tr>
-    <td style="text-align:center;">
-      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page36_1.jpg" style="width:100%; height:auto;" />
-    </td>
-    <td></td>
-  </tr>
+   <tr>
+      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page36_1.jpg" style="width:50%; height:auto;" />
+   </tr>
 </table>
 
----
 
-### 내 정보 수정
-<table>
-  <tr>
-    <td align="center"><b>내 정보 수정</b></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td>
-      <img src="https://raw.githubusercontent.com/team-lucky7/semiProject/main/StoryBoard/page36_1.jpg" style="width:50%;" />
-    </td>
-    <td></td>
-  </tr>
-</table>
+
+
+
+
 
 ---
 
